@@ -1,0 +1,59 @@
+2013/06/11 04:22:12 [warning] [application] CrugeFactory::getICrugeStoredUser
+ **NO HALLADO** admin
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeFactory.php (322)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUserManager.php (252)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\ui\CrugeLogon.php (58)
+2013/06/11 04:22:12 [warning] [application] CrugeFactory::getICrugeStoredUser
+ **NO HALLADO** admin
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeFactory.php (322)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUserManager.php (252)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\auth\CrugeAuthDefault.php (68)
+2013/06/11 04:22:12 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Please fix the following input errors:</p>
+<ul>
+<li>User not found</li>
+<li>usuario o correo invalido</li>
+</ul></div>
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/06/11 04:22:40 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
+REQUEST_URI=/tecnet/index.php/cruge/ui/registration
+HTTP_REFERER=http://localhost/tecnet/index.php/cruge/ui/registration
+---
+2013/06/11 04:24:27 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Please fix the following input errors:</p>
+<ul>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/06/11 04:27:43 [error] [exception.CException] exception 'CException' with message 'Property "CUrlManager.showscript" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\YiiBase.php(220): CComponent->__set('showscript', false)
+#1 C:\xampp\htdocs\tecnet\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(510): CModule->getComponent('urlManager')
+#3 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(140): CApplication->getUrlManager()
+#4 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/tecnet/index.php/cruge/ui/rbaclistroles
+HTTP_REFERER=http://localhost/tecnet/index.php/cruge/ui/usermanagementadmin
+---
+2013/06/11 04:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/gii
+---
+2013/06/11 04:30:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/gii
+---
