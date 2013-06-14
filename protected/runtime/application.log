@@ -106,3 +106,151 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/tecnet/Cliente/View
 ---
+2013/06/14 04:13:08 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
+REQUEST_URI=/tecnet/cruge/ui/usermanagementcreate
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/usermanagementcreate
+---
+2013/06/14 04:15:24 [warning] [application] Failed to set unsafe attribute "regdate" of "CrugeStoredUser".
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\data\CrugeStoredUser.php (134)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (240)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (230)
+2013/06/14 04:15:24 [warning] [application] Failed to set unsafe attribute "actdate" of "CrugeStoredUser".
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\data\CrugeStoredUser.php (134)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (240)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (230)
+2013/06/14 04:15:24 [warning] [application] Failed to set unsafe attribute "logondate" of "CrugeStoredUser".
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\data\CrugeStoredUser.php (134)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (240)
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (230)
+2013/06/14 04:16:31 [error] [exception.CException] exception 'CException' with message 'Cannot add "caja" as a child of itself.' in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAuthManager.php:327
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php(782): CrugeAuthManager->addItemChild('caja', 'caja')
+#1 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): UiController->actionRbacAjaxSetChildItem()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAccessControlFilter.php(90): CFilterChain->run()
+#5 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUiAccessControlFilter.php(37): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CrugeUiAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('rbacajaxsetchil...')
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cruge/ui/rbacaj...')
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/tecnet/cruge/ui/rbacajaxsetchilditem
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/rbacauthitemchilditems/id/caja
+---
+2013/06/14 04:16:33 [error] [exception.CException] exception 'CException' with message 'Cannot add "caja" as a child of itself.' in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAuthManager.php:327
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php(782): CrugeAuthManager->addItemChild('caja', 'caja')
+#1 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): UiController->actionRbacAjaxSetChildItem()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAccessControlFilter.php(90): CFilterChain->run()
+#5 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUiAccessControlFilter.php(37): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CrugeUiAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('rbacajaxsetchil...')
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cruge/ui/rbacaj...')
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/tecnet/cruge/ui/rbacajaxsetchilditem
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/rbacauthitemchilditems/id/caja
+---
+2013/06/14 04:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Ca".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Ca')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/Ca
+---
+2013/06/14 04:28:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "logout".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('logout')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/logout
+---
+2013/06/14 04:29:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "logout".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('logout')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/logout
+---
+2013/06/14 04:37:16 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Please fix the following input errors:</p>
+<ul>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/06/14 04:37:21 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Please fix the following input errors:</p>
+<ul>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/06/14 04:50:50 [error] [exception.CException] exception 'CException' with message 'CrugeAuthManager and its behaviors do not have a method or closure named "getState".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(69): CComponent->__call('getState', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(69): CrugeAuthManager->getState('roles')
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div class="spa...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div class="spa...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(128): CController->render('index', Array)
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ClienteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#24 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente')
+#25 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/tecnet/Cliente/
+---
+2013/06/14 04:55:36 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
+REQUEST_URI=/tecnet/cruge/ui/usermanagementcreate
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/usermanagementcreate
+---
+2013/06/14 05:01:28 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
+REQUEST_URI=/tecnet/cruge/ui/usermanagementcreate
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/usermanagementcreate
+---
+2013/06/14 05:13:00 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
+REQUEST_URI=/tecnet/cruge/ui/usermanagementcreate
+HTTP_REFERER=http://localhost/tecnet/cruge/ui/usermanagementcreate
+---
