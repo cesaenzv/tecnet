@@ -28,21 +28,11 @@
 
             <div id="mainmenu">
                 <?php
-                    $menu=Yii::app()->user->rbac->getMenu();
-                    array_push($menu,array('label'=>'Administrar Usuarios'
-					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest));
-                    array_push($menu,array('label'=>'Login'
-					, 'url'=>Yii::app()->user->ui->loginUrl
-					, 'visible'=>Yii::app()->user->isGuest));
-                                    array_push($menu, array('label'=>'Logout ('.Yii::app()->user->name.')'
-					, 'url'=>Yii::app()->user->ui->logoutUrl
-					, 'visible'=>!Yii::app()->user->isGuest))
+                    $menu= array();
 				
                 ?>
                 <?php
-                $this->widget('application.extensions.emenu.EMenu', array(
-                    'theme' => 'adobe',
+                $this->widget('zii.widgets.CMenu', array(
                     'items' => $menu
                 ));
                 ?>
@@ -66,7 +56,5 @@
             </div><!-- footer -->
 
         </div><!-- page -->
-<?php echo Yii::app()->user->checkAccess('caja'); ?>
-<?php echo Yii::app()->user->ui->displayErrorConsole(); ?>
     </body>
 </html>
