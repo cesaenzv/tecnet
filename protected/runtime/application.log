@@ -1,108 +1,1191 @@
-2013/06/11 04:22:12 [warning] [application] CrugeFactory::getICrugeStoredUser
- **NO HALLADO** admin
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeFactory.php (322)
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUserManager.php (252)
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\ui\CrugeLogon.php (58)
-2013/06/11 04:22:12 [warning] [application] CrugeFactory::getICrugeStoredUser
- **NO HALLADO** admin
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeFactory.php (322)
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeUserManager.php (252)
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\models\auth\CrugeAuthDefault.php (68)
-2013/06/11 04:22:12 [error] [application] UiController
-CrugeUser->validate es false
-<div class="errorSummary"><p>Please fix the following input errors:</p>
-<ul>
-<li>User not found</li>
-<li>usuario o correo invalido</li>
-</ul></div>
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
-in C:\xampp\htdocs\tecnet\index.php (13)
-2013/06/11 04:22:40 [error] [exception.CrugeException.500] se detecto una solicitud de atributo invalido a CrugeSystem.  este error se debe a que estas pidiendo un atributo que no esta presente en la tabla: cruge_system<br/>500
-REQUEST_URI=/tecnet/index.php/cruge/ui/registration
-HTTP_REFERER=http://localhost/tecnet/index.php/cruge/ui/registration
----
-2013/06/11 04:24:27 [error] [application] UiController
-CrugeUser->validate es false
-<div class="errorSummary"><p>Please fix the following input errors:</p>
-<ul>
-<li>clave invalida</li>
-</ul></div>
-in C:\xampp\htdocs\tecnet\protected\modules\cruge\controllers\UiController.php (158)
-in C:\xampp\htdocs\tecnet\index.php (13)
-2013/06/11 04:27:43 [error] [exception.CException] exception 'CException' with message 'Property "CUrlManager.showscript" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:173
+2013/06/16 20:11:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authitem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RInstaller.php (180)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (43)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:12:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (341)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php (21)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (71)
+2013/06/16 20:12:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\YiiBase.php(220): CComponent->__set('showscript', false)
-#1 C:\xampp\htdocs\tecnet\framework\base\CModule.php(386): YiiBase::createComponent(Array)
-#2 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(510): CModule->getComponent('urlManager')
-#3 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(140): CApplication->getUrlManager()
-#4 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#5 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#6 {main}
-REQUEST_URI=/tecnet/index.php/cruge/ui/rbaclistroles
-HTTP_REFERER=http://localhost/tecnet/index.php/cruge/ui/usermanagementadmin
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CDbAuthManager.php(337): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(341): CDbAuthManager->getAuthAssignments('admin')
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php(21): RAuthorizer->isSuperuser('admin')
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(238): RWebUser->afterLogin(false)
+#5 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(71): CWebUser->login(Object(UserIdentity), 0)
+#6 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): LoginForm->login()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
 ---
-2013/06/11 04:29:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+2013/06/16 20:12:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (341)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php (21)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (71)
+2013/06/16 20:12:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
-#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/tecnet/gii
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CDbAuthManager.php(337): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(341): CDbAuthManager->getAuthAssignments('admin')
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php(21): RAuthorizer->isSuperuser('admin')
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(238): RWebUser->afterLogin(false)
+#5 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(71): CWebUser->login(Object(UserIdentity), 0)
+#6 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): LoginForm->login()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
 ---
-2013/06/11 04:30:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+2013/06/16 20:14:33 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (341)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php (21)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (71)
+2013/06/16 20:14:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
-#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/tecnet/gii
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CDbAuthManager.php(337): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(341): CDbAuthManager->getAuthAssignments('admin')
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php(21): RAuthorizer->isSuperuser('admin')
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(238): RWebUser->afterLogin(false)
+#5 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(71): CWebUser->login(Object(UserIdentity), 0)
+#6 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): LoginForm->login()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
 ---
-2013/06/11 17:51:15 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+2013/06/16 20:23:43 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
-#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#2 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAccessControlFilter.php(90): CFilterChain->run()
-#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
-#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
-#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('view')
-#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente/view')
-#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#11 {main}
-REQUEST_URI=/tecnet/Cliente/view
----
-2013/06/11 17:51:21 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:28:51 [error] [php] include(RWebUser.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
-#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#2 C:\xampp\htdocs\tecnet\protected\modules\cruge\components\CrugeAccessControlFilter.php(90): CFilterChain->run()
-#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CrugeAccessControlFilter->preFilter(Object(CFilterChain))
-#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
-#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('View')
-#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente/View')
-#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#11 {main}
-REQUEST_URI=/tecnet/Cliente/View
----
-2013/06/11 17:51:32 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+#0 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CWebApplication->__get()
+#4 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#5 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): RightsModule->__construct()
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): createComponent()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CWebApplication->getModule()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php (128)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:28:53 [error] [php] include(RWebUser.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
-#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
-#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
-#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
-#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('View')
-#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente/View')
-#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#0 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CWebApplication->__get()
+#4 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#5 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): RightsModule->__construct()
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): createComponent()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CWebApplication->getModule()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php (128)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:28:54 [error] [php] include(RWebUser.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CWebApplication->__get()
+#4 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#5 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): RightsModule->__construct()
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): createComponent()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CWebApplication->getModule()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php (128)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:28:55 [error] [php] include(RWebUser.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CWebApplication->__get()
+#4 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#5 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): RightsModule->__construct()
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): createComponent()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CWebApplication->getModule()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php (128)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:29:06 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:31:40 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:31:47 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:31:48 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:31:49 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:50:38 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php:36)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#2 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (36)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+2013/06/16 20:50:40 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php:36)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#2 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (36)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+2013/06/16 20:50:55 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php:36)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#2 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (36)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+2013/06/16 20:51:20 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php:36)
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): model()
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#2 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): InstallController->filterAccessControl()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): InstallController->runActionWithFilters()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): InstallController->run()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CWebApplication->run()
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (36)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+2013/06/16 20:53:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:53:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
 #12 {main}
-REQUEST_URI=/tecnet/Cliente/View
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
 ---
+2013/06/16 20:53:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:53:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 20:54:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:54:30 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 20:54:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:54:31 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 20:54:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:54:32 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 20:54:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rigths".' in C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rigths')
+#1 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php/?r=rigths
+---
+2013/06/16 20:55:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:55:07 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 20:56:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 20:56:51 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 20:59:48 [error] [exception.CException] exception 'CException' with message 'Property "RWebUser.tableUsers" is not defined.' in C:\xampp\htdocs\yiiPrueba\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(154): CComponent->__set('tableUsers', 'tbl_users')
+#1 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(220): CWebUser->__set('tableUsers', 'tbl_users')
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#3 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CModule->getComponent('user')
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CModule->__get('user')
+#5 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#6 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CModule->getModule('rights')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#11 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:00:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:00:05 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:00:15 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.tableUsers" is not defined.' in C:\xampp\htdocs\yiiPrueba\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(154): CComponent->__set('tableUsers', 'tbl_users')
+#1 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(220): CWebUser->__set('tableUsers', 'tbl_users')
+#2 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#3 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(103): CModule->getComponent('user')
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\RightsModule.php(128): CModule->__get('user')
+#5 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(90): RightsModule->init()
+#6 C:\xampp\htdocs\yiiPrueba\framework\YiiBase.php(206): CModule->__construct('rights', NULL, Array)
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModule.php(282): YiiBase::createComponent('rights.RightsMo...', 'rights', NULL, Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(337): CModule->getModule('rights')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(276): CWebApplication->createController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#11 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:01:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:01:05 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:01:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:01:07 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:01:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:01:07 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:05:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:05:14 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:05:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:05:15 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:05:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:05:16 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#10 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/?r=rights
+---
+2013/06/16 21:05:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:05:29 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:06:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:06:51 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:06:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:06:55 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:07:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:07:16 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:07:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:07:19 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:07:35 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:07:35 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:07:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:07:41 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:07:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.{{users}}' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `{{users}}`.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php (28)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php (52)
+2013/06/16 21:07:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{users}}" for active record class "User" cannot be found in the database.' in C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#1 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\User.php(28): CActiveRecord::model('User')
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): User::model()
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\controllers\SiteController.php(94): CModel->validate()
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('login')
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#14 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=site/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=site/login
+---
+2013/06/16 21:13:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'There must be at least one superuser!' in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php:305
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#1 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#2 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#3 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#8 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 21:33:53 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authitem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RInstaller.php (180)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (43)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:33:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:33:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('ready')
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights/install/...')
+#12 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights/install/ready
+---
+2013/06/16 21:34:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:34:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('ready')
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights/install/...')
+#12 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights/install/ready
+---
+2013/06/16 21:34:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:34:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights/')
+#12 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights/
+---
+2013/06/16 21:34:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (61)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/16 21:34:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'lastvisit' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE id=:ycp0' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php(61): RAuthorizer->getSuperusers()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): InstallController->accessRules()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#12 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights
+---
+2013/06/16 21:35:54 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authitem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RInstaller.php (180)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (43)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/17 01:36:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE 0=1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (295)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\AssignmentController.php (51)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/17 01:36:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status FROM `users` `t` WHERE 0=1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(295): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\AssignmentController.php(51): RAuthorizer->getSuperusers()
+#5 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(1144): AssignmentController->accessRules()
+#6 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp\htdocs\yiiPrueba\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('view')
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('rights/assignme...')
+#12 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=rights/assignment/view
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=rights/authItem/operations
+---
+2013/06/17 01:36:48 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (52)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php (19)
+2013/06/17 01:36:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1465): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:36:54 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (52)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php (19)
+2013/06/17 01:36:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1465): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:38:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (52)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php (19)
+2013/06/17 01:38:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1465): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:42:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (52)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php (19)
+2013/06/17 01:42:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1465): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:43:09 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php (27)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (52)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php (19)
+2013/06/17 01:43:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'createtime' in 'field list'. The SQL statement executed was: SELECT id, username, email, createtime, lastvisit, superuser, status, password, activkey FROM `users` `t` WHERE `t`.`username`=:yp0 LIMIT 1' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yiiPrueba\framework\db\ar\CActiveRecord.php(1465): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#4 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#5 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:45:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php (341)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php (21)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php (57)
+2013/06/17 01:45:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authassignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid' in C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yiiPrueba\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CDbAuthManager.php(337): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RAuthorizer.php(341): CDbAuthManager->getAuthAssignments('1')
+#3 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RWebUser.php(21): RAuthorizer->isSuperuser('1')
+#4 C:\xampp\htdocs\yiiPrueba\framework\web\auth\CWebUser.php(238): RWebUser->afterLogin(false)
+#5 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\models\UserLogin.php(57): CWebUser->login(Object(UserIdentity), 0)
+#6 C:\xampp\htdocs\yiiPrueba\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#7 C:\xampp\htdocs\yiiPrueba\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#8 C:\xampp\htdocs\yiiPrueba\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#9 C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#10 C:\xampp\htdocs\yiiPrueba\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#11 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\yiiPrueba\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(282): CController->run('')
+#15 C:\xampp\htdocs\yiiPrueba\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#16 C:\xampp\htdocs\yiiPrueba\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/yiiPrueba/yiiPrueba/index.php?r=user/login
+HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
+---
+2013/06/17 01:45:09 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tecnet.authitem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RInstaller.php (180)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (43)
+in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
