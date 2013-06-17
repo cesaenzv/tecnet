@@ -9,7 +9,6 @@ class ProfileFieldController extends Controller
 	private $_model;
 	private static $_widgets = array();
 	public $defaultAction = 'admin';
-	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -133,17 +132,8 @@ class ProfileFieldController extends Controller
 			'FLOAT':{
 				'hide':['match','other_validator','widgetparams'],
 				'val':{
-					'field_size':'10.2',
-					'default':'0.00',
-					'range':'',
-					'widgetparams':''
-				}
-			},
-			'DECIMAL':{
-				'hide':['match','other_validator','widgetparams'],
-				'val':{
 					'field_size':'10,2',
-					'default':'0',
+					'default':'0.00',
 					'range':'',
 					'widgetparams':''
 				}
@@ -463,15 +453,6 @@ class ProfileFieldController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new ProfileField('search');
-        $model->unsetAttributes();  // clear any default values
-        if(isset($_GET['ProfileField']))
-            $model->attributes=$_GET['ProfileField'];
-
-        $this->render('admin',array(
-            'model'=>$model,
-        ));
-		/*
 		$dataProvider=new CActiveDataProvider('ProfileField', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->controller->module->fields_page_size,
@@ -483,7 +464,7 @@ class ProfileFieldController extends Controller
 
 		$this->render('admin',array(
 			'dataProvider'=>$dataProvider,
-		));//*/
+		));
 	}
 
 	/**
@@ -540,18 +521,4 @@ class ProfileFieldController extends Controller
 		}
 		return array($list,$widgets);		
 	}
-	
-
-    /**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($model)
-    {
-        if(isset($_POST['ajax']) && $_POST['ajax']==='profile-field-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
 }

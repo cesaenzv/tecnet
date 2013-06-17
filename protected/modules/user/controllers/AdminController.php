@@ -3,7 +3,6 @@
 class AdminController extends Controller
 {
 	public $defaultAction = 'admin';
-	public $layout='//layouts/column2';
 	
 	private $_model;
 
@@ -38,15 +37,7 @@ class AdminController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new User('search');
-        $model->unsetAttributes();  // clear any default values
-        if(isset($_GET['User']))
-            $model->attributes=$_GET['User'];
-
-        $this->render('index',array(
-            'model'=>$model,
-        ));
-		/*$dataProvider=new CActiveDataProvider('User', array(
+		$dataProvider=new CActiveDataProvider('User', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->controller->module->user_page_size,
 			),
@@ -54,7 +45,7 @@ class AdminController extends Controller
 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));//*/
+		));
 	}
 
 
@@ -77,11 +68,12 @@ class AdminController extends Controller
 	{
 		$model=new User;
 		$profile=new Profile;
-		$this->performAjaxValidation(array($model,$profile));
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
 			$model->activkey=Yii::app()->controller->module->encrypting(microtime().$model->password);
+			$model->createtime=time();
+			$model->lastvisit=time();
 			$profile->attributes=$_POST['Profile'];
 			$profile->user_id=0;
 			if($model->validate()&&$profile->validate()) {
@@ -108,7 +100,6 @@ class AdminController extends Controller
 	{
 		$model=$this->loadModel();
 		$profile=$model->profile;
-		$this->performAjaxValidation(array($model,$profile));
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
@@ -153,19 +144,6 @@ class AdminController extends Controller
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
-	
-	/**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($validate)
-    {
-        if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
-        {
-            echo CActiveForm::validate($validate);
-            Yii::app()->end();
-        }
-    }
 	
 	
 	/**

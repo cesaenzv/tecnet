@@ -10,7 +10,7 @@ class DefaultController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('User', array(
 			'criteria'=>array(
-		        'condition'=>'status>'.User::STATUS_BANNED,
+		        'condition'=>'status>'.User::STATUS_BANED,
 		    ),
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->controller->module->user_page_size,

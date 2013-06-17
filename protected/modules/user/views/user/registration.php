@@ -17,9 +17,6 @@ $this->breadcrumbs=array(
 	'id'=>'registration-form',
 	'enableAjaxValidation'=>true,
 	'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
 	'htmlOptions' => array('enctype'=>'multipart/form-data'),
 )); ?>
 
@@ -62,8 +59,8 @@ $this->breadcrumbs=array(
 	<div class="row">
 		<?php echo $form->labelEx($profile,$field->varname); ?>
 		<?php 
-		if ($widgetEdit = $field->widgetEdit($profile)) {
-			echo $widgetEdit;
+		if ($field->widgetEdit($profile)) {
+			echo $field->widgetEdit($profile);
 		} elseif ($field->range) {
 			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
 		} elseif ($field->field_type=="TEXT") {

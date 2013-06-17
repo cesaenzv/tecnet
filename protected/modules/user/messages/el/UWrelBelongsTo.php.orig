@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+<?php
+
+return array(
+	'Model Name'=>'Ονομασία Μοντέλου',
+	'Lable field name'=>'Όνομα πεδίου ετικέτας',
+	'Empty item name'=>'Όνομα κενού αντικειμένου',
+	'Profile model relation name'=>'Όνομα  σχέσης του Προφίλ Μοντέλου.',
+);
+=======
+<?php
+
+return array(
+	'Model Name'=>'Ονομασία Μοντέλου',
+	'Lable field name'=>'Όνομα πεδίου ετικέτας',
+	'Empty item name'=>'Όνομα κενού αντικειμένου',
+	'Profile model relation name'=>'Όνομα  σχέσης του Προφίλ Μοντέλου.',
+);
+>>>>>>> 28475237f5866a05498be2fd538d0c519da94015

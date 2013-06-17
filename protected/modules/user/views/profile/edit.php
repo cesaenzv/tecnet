@@ -3,16 +3,8 @@ $this->breadcrumbs=array(
 	UserModule::t("Profile")=>array('profile'),
 	UserModule::t("Edit"),
 );
-$this->menu=array(
-	((UserModule::isAdmin())
-		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
-		:array()),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
-    array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile')),
-    array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
-    array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
-);
-?><h1><?php echo UserModule::t('Edit profile'); ?></h1>
+?><h2><?php echo UserModule::t('Edit profile'); ?></h2>
+<?php echo $this->renderPartial('menu'); ?>
 
 <?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
 <div class="success">
@@ -20,7 +12,7 @@ $this->menu=array(
 </div>
 <?php endif; ?>
 <div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('UActiveForm', array(
 	'id'=>'profile-form',
 	'enableAjaxValidation'=>true,
 	'htmlOptions' => array('enctype'=>'multipart/form-data'),
@@ -38,8 +30,8 @@ $this->menu=array(
 	<div class="row">
 		<?php echo $form->labelEx($profile,$field->varname);
 		
-		if ($widgetEdit = $field->widgetEdit($profile)) {
-			echo $widgetEdit;
+		if ($field->widgetEdit($profile)) {
+			echo $field->widgetEdit($profile);
 		} elseif ($field->range) {
 			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
 		} elseif ($field->field_type=="TEXT") {
