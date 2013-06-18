@@ -1254,3 +1254,29 @@ HTTP_REFERER=http://localhost:1234/yiiPrueba/yiiPrueba/index.php?r=user/login
 in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\components\RInstaller.php (180)
 in C:\xampp\htdocs\yiiPrueba\yiiPrueba\protected\modules\rights\controllers\InstallController.php (43)
 in C:\xampp\htdocs\yiiPrueba\yiiPrueba\index.php (13)
+2013/06/18 05:35:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/create".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('user/create')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/index.php?r=user/create
+---
+2013/06/18 05:35:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/index".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('user/index')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/index.php?r=user/index
+---
+2013/06/18 05:36:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('create')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('create')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('user/user/creat...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/index.php?r=user/user/create
+---
