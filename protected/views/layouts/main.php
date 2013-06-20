@@ -34,7 +34,7 @@
                         'visible' => Yii::app()->user->isGuest),
                     array('url' => Yii::app()->getModule('user')->logoutUrl,
                         'label' => Yii::app()->getModule('user')->t("Logout") . ' (' . Yii::app()->user->name . ')',
-                        'visible' => !Yii::app()->user->isGuest),
+                        'visible' => !Yii::app()->user->isGuest),                    
                 );
                 
                 $temp = new MenuItems();
