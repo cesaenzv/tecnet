@@ -1280,3 +1280,1742 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/tecnet/index.php?r=user/user/create
 ---
+2013/06/19 02:13:26 [error] [exception.CException] exception 'CException' with message 'RGenerator and its behaviors do not have a method or closure named "getControllersInPath".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): CComponent->__call('getControllersI...', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): RGenerator->getControllersInPath('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): CController->render('profile', Array)
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/index.php?r=user/profile
+HTTP_REFERER=http://localhost/tecnet/index.php?r=user/login
+---
+2013/06/19 02:41:22 [error] [exception.CException] exception 'CException' with message 'RGenerator and its behaviors do not have a method or closure named "getControllersInPath".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): CComponent->__call('getControllersI...', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): RGenerator->getControllersInPath('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): CController->render('profile', Array)
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/user/profile
+HTTP_REFERER=http://localhost/tecnet/index.php?r=user/profile
+---
+2013/06/19 02:52:10 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php:104)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): ProfileController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): ProfileController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): ProfileController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): ProfileController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): ProfileController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): ProfileController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ProfileController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ProfileController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/user/profile
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php (104)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (40)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 02:53:11 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php:104)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): ProfileController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): ProfileController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): ProfileController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): ProfileController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): ProfileController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): ProfileController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ProfileController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ProfileController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/user/profile
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php (104)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (40)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 02:53:52 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php:104)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): ProfileController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): ProfileController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): ProfileController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): ProfileController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): ProfileController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): ProfileController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ProfileController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ProfileController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/user/profile
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php (104)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (40)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 02:57:27 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php:104)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): ProfileController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): ProfileController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): ProfileController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): ProfileController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\modules\user\controllers\ProfileController.php(20): ProfileController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ProfileController->actionProfile()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): ProfileController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ProfileController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ProfileController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/user/profile
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RGenerator.php (104)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (40)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 03:13:05 [error] [exception.CException] exception 'CException' with message 'RGenerator and its behaviors do not have a method or closure named "getAssignedRoles".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(44): CComponent->__call('getAssignedRole...', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(44): RGenerator->getAssignedRoles()
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 03:13:57 [error] [exception.CException] exception 'CException' with message 'SiteController and its behaviors do not have a method or closure named "getAuthorizer".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(48): CComponent->__call('getAuthorizer', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(48): CBaseController->getAuthorizer()
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 03:16:14 [error] [exception.CException] exception 'CException' with message 'Alias "administrador.AdministradorModule" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\tecnet\framework\YiiBase.php:316
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\YiiBase.php(196): YiiBase::import('administrador.A...', true)
+#1 C:\xampp\htdocs\tecnet\framework\base\CModule.php(282): YiiBase::createComponent('administrador.A...', 'administrador', NULL, Array)
+#2 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(275): CModule->getModule('administrador')
+#3 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(254): Rights::findModule()
+#4 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(287): Rights::module()
+#5 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(60): Rights::getAuthorizer()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(43): Rights::getAssignedRoles()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#10 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#11 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#14 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#15 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#19 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#20 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#24 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#25 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 15:55:27 [error] [exception.CException] exception 'CException' with message 'CAuthItem and its behaviors do not have a method or closure named "getTask".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): CComponent->__call('getTask', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): CAuthItem->getTask()
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 18:24:47 [error] [exception.CException] exception 'CException' with message 'RWebUser and its behaviors do not have a method or closure named "isAsigned".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): CComponent->__call('isAsigned', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): RWebUser->isAsigned(Array, NULL)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 18:25:04 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "isAsigned".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): CComponent->__call('isAsigned', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(47): CWebApplication->isAsigned(Array, NULL)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 18:27:55 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "isAsigned".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(48): CComponent->__call('isAsigned', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(48): CWebApplication->isAsigned(Array, NULL)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 18:30:52 [error] [exception.CException] exception 'CException' with message 'RDbAuthManager and its behaviors do not have a method or closure named "isAsigned".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(49): CComponent->__call('isAsigned', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(49): RDbAuthManager->isAsigned(Array, NULL)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 18:42:06 [error] [php] Illegal offset type (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php:236)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php (236)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (51)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 18:42:24 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php:195)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php (195)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (51)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 18:42:38 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php:195)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php (195)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (51)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 19:01:19 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.filter" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\base\CModule.php(105): CComponent->__get('filter')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): CModule->__get('filter')
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 19:38:56 [error] [php] Object of class RGenerator could not be converted to string (C:\xampp\htdocs\tecnet\protected\views\layouts\main.php:46)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#5 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#6 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#9 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#10 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (46)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php (32)
+2013/06/19 19:39:09 [error] [exception.CException] exception 'CException' with message 'RGenerator and its behaviors do not have a method or closure named "getControllersInPath".' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:265
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(46): CComponent->__call('getControllersI...', Array)
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(46): RGenerator->getControllersInPath('application.mod...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:15:34 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(43): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:22:11 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(103): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(42): RAuthorizer->getAuthItems(2, '4', NULL, true, NULL)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:26:19 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:26:21 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:26:21 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:29:36 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:29:38 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('_authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:31:08 [error] [exception.CException] exception 'CException' with message 'Property "SiteController.authManager" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): CComponent->__get('authManager')
+#1 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:38 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:38 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:39 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:40 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:40 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:35:40 [error] [exception.CException] exception 'CException' with message 'Property "SiteController._items" is not defined.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RDbAuthManager.php(64): CComponent->__get('_items')
+#1 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(242): RDbAuthManager->getAuthItem('Cajero')
+#2 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(45): RAuthorizer->getAuthItemChildren('Cajero', 2)
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#21 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/tecnet/
+HTTP_REFERER=http://localhost/tecnet/user/login
+---
+2013/06/19 21:57:37 [error] [php] Missing argument 2 for YiiBase::t(), called in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php on line 61 and defined (C:\xampp\htdocs\tecnet\framework\YiiBase.php:571)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#2 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#6 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#10 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#11 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#16 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (61)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php (32)
+2013/06/19 22:01:31 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\tecnet\framework\web\helpers\CHtml.php:98)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php(176): MbMenu->normalizeItems()
+#1 C:\xampp\htdocs\tecnet\framework\zii\widgets\CMenu.php(156): MbMenu->normalizeItems()
+#2 C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php(99): MbMenu->init()
+#3 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(147): MbMenu->init()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(172): SiteController->createWidget()
+#5 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(93): SiteController->widget()
+#6 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#9 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#10 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#13 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#14 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#15 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#17 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#18 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#19 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#20 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#21 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#22 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#23 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#24 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (172)
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (176)
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (99)
+2013/06/19 22:26:12 [error] [php] max() [<a href='function.max'>function.max</a>]: Array must contain at least one element (C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php:47)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php(97): MbMenu->cssLastItems()
+#1 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(147): MbMenu->init()
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(172): ClienteController->createWidget()
+#3 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(99): ClienteController->widget()
+#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ClienteController->renderInternal()
+#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): ClienteController->renderFile()
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): ClienteController->endWidget()
+#11 C:\xampp\htdocs\tecnet\protected\views\layouts\column2.php(22): ClienteController->endContent()
+#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): ClienteController->renderInternal()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): ClienteController->renderFile()
+#15 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(128): ClienteController->render()
+#16 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ClienteController->actionIndex()
+#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ClienteController->runAction()
+#19 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#21 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ClienteController->filterAccessControl()
+#22 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#23 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#25 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ClienteController->run()
+#26 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#27 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/cliente
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (47)
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (59)
+in C:\xampp\htdocs\tecnet\protected\extensions\mbmenu\MbMenu.php (97)
+2013/06/19 22:40:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 22:40:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 22:43:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 22:50:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 22:52:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 22:52:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente
+HTTP_REFERER=http://localhost/tecnet/cliente
+---
+2013/06/19 23:05:54 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Cajero' in 'where clause'. The SQL statement executed was: SELECT * FROM `authitemchild` `t` WHERE parent=Cajero LIMIT 1.
+in C:\xampp\htdocs\tecnet\protected\components\MenuItems.php (14)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (41)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 23:05:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Cajero' in 'where clause'. The SQL statement executed was: SELECT * FROM `authitemchild` `t` WHERE parent=Cajero LIMIT 1' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\tecnet\protected\components\MenuItems.php(14): CActiveRecord->find('parent=Cajero')
+#4 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(41): MenuItems->getItems()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#9 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#12 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#13 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#17 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#20 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#22 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#23 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/19 23:05:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Cajero' in 'where clause'. The SQL statement executed was: SELECT * FROM `authitemchild` `t` WHERE parent=Cajero LIMIT 1.
+in C:\xampp\htdocs\tecnet\protected\components\MenuItems.php (14)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (41)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/19 23:05:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Cajero' in 'where clause'. The SQL statement executed was: SELECT * FROM `authitemchild` `t` WHERE parent=Cajero LIMIT 1' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\tecnet\protected\components\MenuItems.php(14): CActiveRecord->find('parent=Cajero')
+#4 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(41): MenuItems->getItems()
+#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#9 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#12 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#13 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#17 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#20 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#22 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#23 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/tecnet/
+---
+2013/06/20 00:15:50 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\tecnet\protected\components\MenuItems.php:33)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(40): spl_autoload_call()
+#1 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#4 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#5 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#6 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): CContentDecorator->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): SiteController->endWidget()
+#8 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): SiteController->endContent()
+#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require()
+#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): SiteController->renderFile()
+#12 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): SiteController->render()
+#13 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#15 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): SiteController->runAction()
+#16 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#17 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): SiteController->run()
+#18 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/
+in C:\xampp\htdocs\tecnet\protected\components\MenuItems.php (33)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\main.php (40)
+in C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php (6)
+2013/06/20 00:28:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/create".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/create
+HTTP_REFERER=http://localhost/tecnet/
+---
+2013/06/20 00:28:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:29:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:30:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:30:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:31:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:32:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/cliente...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:32:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/admin".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/cliente/cliente/delete
+---
+2013/06/20 00:32:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/create".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/create
+HTTP_REFERER=http://localhost/tecnet/cliente/admin
+---
+2013/06/20 00:32:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/admin".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:32:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('delete')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/delete')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/admin
+---
+2013/06/20 00:33:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/delete
+---
+2013/06/20 00:33:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/admin".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/orden/admin
+---
+2013/06/20 00:33:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/admin".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:33:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/admin
+---
+2013/06/20 00:33:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/update".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/update')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/update
+HTTP_REFERER=http://localhost/tecnet/cliente/delete
+---
+2013/06/20 00:33:44 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/view')
+#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/tecnet/orden/view
+HTTP_REFERER=http://localhost/tecnet/cliente/update
+---
+2013/06/20 00:33:48 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/view
+---
+2013/06/20 00:33:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('delete')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/delete')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/delete
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:34:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/view')
+#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/tecnet/orden/view
+HTTP_REFERER=http://localhost/tecnet/orden/index
+---
+2013/06/20 00:34:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:35:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:36:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:36:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/orden/admin
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:40:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/delete".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/
+---
+2013/06/20 00:40:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cliente/create".' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/cliente/create
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/06/20 00:41:45 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:41:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('delete')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/create
+---
+2013/06/20 00:41:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('delete')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/delete
+---
+2013/06/20 00:42:05 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('update')
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/update')
+#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/tecnet/cliente/update
+HTTP_REFERER=http://localhost/tecnet/cliente/index
+---
+2013/06/20 00:42:08 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/view')
+#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/tecnet/cliente/view
+HTTP_REFERER=http://localhost/tecnet/cliente/update
+---
+2013/06/20 00:42:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('delete')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/cliente/delete
+HTTP_REFERER=http://localhost/tecnet/cliente/view
+---

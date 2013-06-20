@@ -134,7 +134,7 @@ class RGenerator extends CApplicationComponent
 	* Returns a list of all application controllers.
 	* @return array the controllers.
 	*/
-	protected function getAllControllers()
+	public function getAllControllers()
 	{
 		$basePath = Yii::app()->basePath;
 		$items['controllers'] = $this->getControllersInPath($basePath.DIRECTORY_SEPARATOR.'controllers');
@@ -147,7 +147,7 @@ class RGenerator extends CApplicationComponent
 	* @param string $path the path.
 	* @return array the controllers.
 	*/
-	protected function getControllersInPath($path)
+	public function getControllersInPath($path)
 	{
 		$controllers = array();
 
