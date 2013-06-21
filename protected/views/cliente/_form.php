@@ -57,12 +57,6 @@
 		<?php echo $form->error($model,'o_mail'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'k_usuarioCrea'); ?>
-		<?php echo $form->textField($model,'k_usuarioCrea'); ?>
-		<?php echo $form->error($model,'k_usuarioCrea'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

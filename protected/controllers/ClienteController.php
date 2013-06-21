@@ -26,7 +26,7 @@ class ClienteController extends Controller
 	 */
 	public function accessRules()
 	{
-		$accessRules=new MenuItems();
+		$accessRules=new AccessDataRol();
             return $accessRules->getAccessRules("cliente");
 	}
 
