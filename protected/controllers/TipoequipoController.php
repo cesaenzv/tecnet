@@ -26,6 +26,7 @@ class TipoequipoController extends Controller
 	 */
 	public function accessRules()
 	{
+            $AccessRules=new MenuItems("TipoEquipo");
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),

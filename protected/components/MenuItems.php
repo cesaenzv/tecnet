@@ -6,7 +6,10 @@ class MenuItems{
         $roles=Rights::getAssignedRoles(Yii::app()->user->Id);
         return array_keys($roles);        
     }
-    
+    public function getAccessRules(){
+        $roles = $this->getRolesName();
+        $tasks= Authitemchild::model()->findAll("parent='".$rol."'");
+    }
     public function getItems($menuitems){
         $menu_items = $menuitems;
         $roles = $this->getRolesName();
@@ -21,7 +24,6 @@ class MenuItems{
                 }
                 $tasks= Authitemchild::model()->findAll("parent='".$rol."'");           
                 foreach ($tasks as $task){
-                    $task_menu = array('label'=>$task->child);
                     $operations = Authitemchild::model()->findAll("parent='".$task->child."'");
                     $labelParent = str_replace( ".*", "",$task->child);
                     $operations_task = array();
