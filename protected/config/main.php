@@ -49,6 +49,7 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
             'showScriptName'=>false,
+            'caseSensitive'=>false,
         ),
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=tecnet',
