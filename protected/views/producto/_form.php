@@ -13,7 +13,7 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model,$services_product); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'n_nombreProducto'); ?>
@@ -26,6 +26,15 @@
 		<?php echo $form->textField($model,'v_costoProducto'); ?>
 		<?php echo $form->error($model,'v_costoProducto'); ?>
 	</div>
+	
+	<?php if(isset($services_product)){?>
+		<div class="row">
+			<?php echo $form->labelEx($services_product,'Servicio'); ?>
+			<?php echo $form->dropDownList($services_product,'k_servicio', CHtml::listData($services, 'k_idServicio', 'n_nomServicio'), array('empty'=>'Seleccione Servicio'))?>
+			<?php echo $form->error($services_product,'k_servicio'); ?>
+		</div>
+	<?php } ?>
+
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

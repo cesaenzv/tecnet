@@ -63,19 +63,27 @@ class ProductoController extends Controller
 	public function actionCreate()
 	{
 		$model=new Producto;
-
+		$services_product = new Servicioproducto;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+				
+		if(isset($_POST['Producto']) && isset($_POST['Servicioproducto']))
+		{	
 
-		if(isset($_POST['Producto']))
-		{
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->k_idProducto));
+			if($model->save()){
+				$services_product->attributes=$_POST['Servicioproducto'];
+				$services_product->k_producto = $model->k_idProducto;
+				if($services_product->save()){
+					$this->redirect(array('view','id'=>$model->k_idProducto));
+				}
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'services'=> Servicio::model()->findAll(),
+			'services_product'=> $services_product
 		));
 	}
 

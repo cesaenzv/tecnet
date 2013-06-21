@@ -6,7 +6,6 @@
  * The followings are the available columns in table 'servicioproducto':
  * @property integer $k_servicio
  * @property integer $k_producto
- * @property integer $q_costo
  */
 class Servicioproducto extends CActiveRecord
 {
@@ -36,11 +35,11 @@ class Servicioproducto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_servicio, k_producto, q_costo', 'required'),
-			array('k_servicio, k_producto, q_costo', 'numerical', 'integerOnly'=>true),
+			array('k_servicio, k_producto', 'required'),
+			array('k_servicio, k_producto', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_servicio, k_producto, q_costo', 'safe', 'on'=>'search'),
+			array('k_servicio, k_producto', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +62,6 @@ class Servicioproducto extends CActiveRecord
 		return array(
 			'k_servicio' => 'K Servicio',
 			'k_producto' => 'K Producto',
-			'q_costo' => 'Q Costo',
 		);
 	}
 
@@ -80,7 +78,6 @@ class Servicioproducto extends CActiveRecord
 
 		$criteria->compare('k_servicio',$this->k_servicio);
 		$criteria->compare('k_producto',$this->k_producto);
-		$criteria->compare('q_costo',$this->q_costo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
