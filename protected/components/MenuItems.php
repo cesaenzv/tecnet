@@ -21,7 +21,6 @@ class MenuItems{
                 }
                 $tasks= Authitemchild::model()->findAll("parent='".$rol."'");           
                 foreach ($tasks as $task){
-                    $task_menu = array('label'=>$task->child);
                     $operations = Authitemchild::model()->findAll("parent='".$task->child."'");
                     $labelParent = str_replace( ".*", "",$task->child);
                     $operations_task = array();
