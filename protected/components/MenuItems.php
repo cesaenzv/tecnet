@@ -2,26 +2,31 @@
 
 class MenuItems {
 
-    public function getRolesName() {
+    private function getRolesName(){
         $roles = Rights::getAssignedRoles(Yii::app()->user->Id);
         return array_keys($roles);
     }
 
-    private function canAppend($str, $array) {
-        $flag = true;
-        for ($i = 0; $i < count($array); $i++) {
-            if ($array[$i] == $str) {
-                $flag = false;
-            }
-        }
-        return $flag;
+    private function getGenerals($menu){
+
+
+        $menu[]=array(
+                    'url' => Yii::app()->getModule('user')->loginUrl,
+                    'label' => Yii::app()->getModule('user')->t("Login"),
+                    'visible' => Yii::app()->user->isGuest
+                );
+
+        $menu[]=array(
+                    'url' => Yii::app()->getModule('user')->logoutUrl,
+                    'label' => Yii::app()->getModule('user')->t("Logout") . ' (' . Yii::app()->user->name . ')',
+                    'visible' => !Yii::app()->user->isGuest
+                );                
+
+        return $menu;
+
     }
 
-    public function getAccessRules($controller) {
-        $actions = array();
-        $users = array(Yii::app()->user->name);
-        $rol = $this->getRolesName();
-        $rol = $rol[0];
+    private function getAccessRules(){
         $tasks = Authitemchild::model()->findAll("parent='" . $rol . "'");
         foreach ($tasks as $task) {
             $operations = Authitemchild::model()->findAll("parent='" . $task->child . "'");
@@ -33,9 +38,9 @@ class MenuItems {
                 }
             }
         }
-        if (count($actions) == 0) {
-            $rules = array(
-                /*  array('allow', // allow admin user to perform 'admin' and 'delete' actions
+
+    public function getItems(){
+        $menu_items = array();
                   'actions' => $actions,
                   'users' => $users,
                   ), */
@@ -55,12 +60,10 @@ class MenuItems {
         return ($rules);
     }
 
-    public function getItems($menuitems) {
-        $menu_items = $menuitems;
         $roles = $this->getRolesName();
         foreach ($roles as $rol) {
             if ($rol == 'Guest') {
-                return $menuitems;
+                return $this->getGenerals($menuitems);
             } else {
                 if ($rol == 'Admin') {
                     $menu_items[] = array('label' => 'Rights', 'url' => array('/rights'),
@@ -79,10 +82,8 @@ class MenuItems {
                     if (!empty($operations_task)) {
                         $menu_items[] = array('label' => $labelParent, 'items' => $operations_task);
                     }
-                }
-                //        var_dump(Yii::app()->getModule('user')->logoutUrl);
-                //        die();
-                return $menu_items;
+                }  
+                return $this->getGenerals($menu_items);
             }
         }
     }
