@@ -6,7 +6,10 @@ class MenuItems{
         $roles=Rights::getAssignedRoles(Yii::app()->user->Id);
         return array_keys($roles);        
     }
-    
+    public function getAccessRules(){
+        $roles = $this->getRolesName();
+        $tasks= Authitemchild::model()->findAll("parent='".$rol."'");
+    }
     public function getItems($menuitems){
         $menu_items = $menuitems;
         $roles = $this->getRolesName();

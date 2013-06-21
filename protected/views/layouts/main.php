@@ -56,9 +56,9 @@
             <div class="clear"></div>
 
             <div id="footer">
-                Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+                Copyright &copy; <?php echo date('Y'); ?> by TECNET.<br/>
                 All Rights Reserved.<br/>
-<?php echo Yii::powered(); ?>
+powered by CESVDMOP
             </div><!-- footer -->
 
         </div><!-- page -->
