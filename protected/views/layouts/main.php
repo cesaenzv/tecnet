@@ -39,7 +39,7 @@
                 
                 $temp = new MenuItems();
                 $this->widget('application.extensions.mbmenu.MbMenu', array(
-                    'items' => $temp->getItems($menuitems),
+                    'items' => $temp->getItems(),
                 ));
                 ?>
             </div><!-- mainmenu -->
