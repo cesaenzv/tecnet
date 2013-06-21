@@ -3106,71 +3106,6 @@ REQUEST_URI=/git/tecnet/user/profile
 in C:\xampp\htdocs\git\tecnet\protected\modules\user\views\profile\profile.php (45)
 in C:\xampp\htdocs\git\tecnet\protected\modules\user\controllers\ProfileController.php (20)
 in C:\xampp\htdocs\git\tecnet\index.php (13)
-<<<<<<< HEAD
-2013/06/21 03:20:10 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.menu.MbMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\tecnet\framework\YiiBase.php:316
-Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\CWidgetFactory.php(146): YiiBase::import('application.ext...', true)
-#1 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'application.ext...', Array)
-#2 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(172): CBaseController->createWidget('application.ext...', Array)
-#3 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(43): CBaseController->widget('application.ext...', Array)
-#4 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#5 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#7 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
-#8 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
-#9 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
-#10 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
-#11 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
-#12 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#13 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#14 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#15 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
-#16 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#17 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#18 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#19 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
-#21 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
-#22 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#23 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/tecnet/
-HTTP_REFERER=http://localhost/tecnet/user/login
----
-2013/06/21 03:30:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
-Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
-#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
-#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
-#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
-#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
-#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#11 {main}
-REQUEST_URI=/tecnet/cliente/admin
-HTTP_REFERER=http://localhost/tecnet/
----
-2013/06/21 03:30:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
-Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
-#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
-#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
-#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
-#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
-#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#11 {main}
-REQUEST_URI=/tecnet/cliente/admin
-HTTP_REFERER=http://localhost/tecnet/cliente/create
-=======
 2013/06/21 01:54:47 [error] [php] A non well formed numeric value encountered (C:\xampp\htdocs\git\tecnet\protected\modules\user\views\profile\profile.php:45)
 Stack trace:
 #0 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): ProfileController->renderInternal()
@@ -3398,5 +3333,183 @@ Stack trace:
 #19 {main}
 REQUEST_URI=/git/tecnet/producto/create
 HTTP_REFERER=http://localhost/git/tecnet/producto/create
+---
+<<<<<<< HEAD
+2013/06/21 04:26:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoequipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoequipo/admin
+---
+2013/06/21 04:26:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoEquipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoEquipo/admin
+---
+2013/06/21 04:29:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoEquipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoEquipo/admin
+---
+2013/06/21 04:38:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoequipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoequipo/admin
+---
+2013/06/21 05:16:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoequipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoequipo/admin
+---
+2013/06/21 05:17:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/cliente/admin
+HTTP_REFERER=http://localhost/tecnet/tipoequipo/admin
+---
+2013/06/21 05:19:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoequipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoequipo/admin
+---
+2013/06/21 05:22:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tipoequipo/admi...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/tipoequipo/admin
+---
+2013/06/21 05:27:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/admin')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/equipo/admin
+=======
+2013/06/21 04:58:46 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "C:\xampp\htdocs\git\tecnet\assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in C:\xampp\htdocs\git\tecnet\framework\web\CAssetManager.php:138
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CAssetManager.php(123): CAssetManager->setBasePath('C:\xampp\htdocs...')
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CAssetManager.php(217): CAssetManager->getBasePath()
+#2 C:\xampp\htdocs\git\tecnet\protected\extensions\mbmenu\MbMenu.php(109): CAssetManager->publish('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\git\tecnet\protected\extensions\mbmenu\MbMenu.php(212): MbMenu->publishAssets()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(173): MbMenu->run()
+#5 C:\xampp\htdocs\git\tecnet\protected\views\layouts\main.php(43): CBaseController->widget('application.ext...', Array)
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\git\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#10 C:\xampp\htdocs\git\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#13 C:\xampp\htdocs\git\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\git\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#18 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#19 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#23 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#24 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/git/tecnet/
+HTTP_REFERER=http://localhost/git/tecnet/user/login
 >>>>>>> carlos/master
 ---
