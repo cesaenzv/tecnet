@@ -6,10 +6,6 @@ $this->breadcrumbs=array(
 	'Equipos',
 );
 
-$this->menu=array(
-	array('label'=>'Create Equipo', 'url'=>array('create')),
-	array('label'=>'Manage Equipo', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Equipos</h1>

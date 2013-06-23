@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Orden', 'url'=>array('index')),
-	array('label'=>'Manage Orden', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Orden</h1>

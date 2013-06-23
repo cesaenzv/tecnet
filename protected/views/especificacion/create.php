@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Especificacion', 'url'=>array('index')),
-	array('label'=>'Manage Especificacion', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Especificacion</h1>

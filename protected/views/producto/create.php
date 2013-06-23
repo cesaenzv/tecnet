@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Producto', 'url'=>array('index')),
-	array('label'=>'Manage Producto', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Producto</h1>

@@ -8,12 +8,6 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Equipo', 'url'=>array('index')),
-	array('label'=>'Create Equipo', 'url'=>array('create')),
-	array('label'=>'View Equipo', 'url'=>array('view', 'id'=>$model->k_idEquipo)),
-	array('label'=>'Manage Equipo', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Update Equipo <?php echo $model->k_idEquipo; ?></h1>
