@@ -24,7 +24,7 @@ class EspecificacionController extends Controller {
      * @return array access control rules
      */
     public function accessRules() {
-        $accessRules = new MenuItems();
+        $accessRules = new AccessDataRol();
         return $accessRules->getAccessRules("especificacion");
     }
 

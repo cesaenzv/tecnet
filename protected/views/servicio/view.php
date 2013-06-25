@@ -7,13 +7,6 @@ $this->breadcrumbs=array(
 	$model->k_idServicio,
 );
 
-$this->menu=array(
-	array('label'=>'List Servicio', 'url'=>array('index')),
-	array('label'=>'Create Servicio', 'url'=>array('create')),
-	array('label'=>'Update Servicio', 'url'=>array('update', 'id'=>$model->k_idServicio)),
-	array('label'=>'Delete Servicio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->k_idServicio),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Servicio', 'url'=>array('admin')),
-);
 ?>
 
 <h1>View Servicio #<?php echo $model->k_idServicio; ?></h1>

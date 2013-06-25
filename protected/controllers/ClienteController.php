@@ -26,7 +26,7 @@ class ClienteController extends Controller
 	 */
 	public function accessRules()
 	{
-		$accessRules=new MenuItems();
+		$accessRules=new AccessDataRol();
             return $accessRules->getAccessRules("cliente");
 	}
 
@@ -55,6 +55,8 @@ class ClienteController extends Controller
 		if(isset($_POST['Cliente']))
 		{
 			$model->attributes=$_POST['Cliente'];
+                       
+                        $model->k_usuarioCrea=Yii::app()->user->Id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->k_identificacion));
 		}

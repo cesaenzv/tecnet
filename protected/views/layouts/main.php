@@ -28,16 +28,8 @@
 
             <div id="mainmenu">
                 <?php
-                $menuitems = array(
-                    array('url' => Yii::app()->getModule('user')->loginUrl,
-                        'label' => Yii::app()->getModule('user')->t("Login"),
-                        'visible' => Yii::app()->user->isGuest),
-                    array('url' => Yii::app()->getModule('user')->logoutUrl,
-                        'label' => Yii::app()->getModule('user')->t("Logout") . ' (' . Yii::app()->user->name . ')',
-                        'visible' => !Yii::app()->user->isGuest),                    
-                );
-                
-                $temp = new MenuItems();
+                            
+                $temp = new AccessDataRol();
                 $this->widget('application.extensions.mbmenu.MbMenu', array(
                     'items' => $temp->getItems(),
                 ));

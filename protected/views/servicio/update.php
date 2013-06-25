@@ -8,12 +8,6 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Servicio', 'url'=>array('index')),
-	array('label'=>'Create Servicio', 'url'=>array('create')),
-	array('label'=>'View Servicio', 'url'=>array('view', 'id'=>$model->k_idServicio)),
-	array('label'=>'Manage Servicio', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Update Servicio <?php echo $model->k_idServicio; ?></h1>

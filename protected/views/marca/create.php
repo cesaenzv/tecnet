@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Marca', 'url'=>array('index')),
-	array('label'=>'Manage Marca', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Marca</h1>
