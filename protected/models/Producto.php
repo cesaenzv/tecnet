@@ -39,6 +39,7 @@ class Producto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('n_nombreProducto', 'unique'),
 			array('n_nombreProducto, v_costoProducto', 'required'),
 			array('v_costoProducto', 'numerical', 'integerOnly'=>true),
 			array('n_nombreProducto', 'length', 'max'=>50),
@@ -66,9 +67,9 @@ class Producto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idProducto' => 'K Id Producto',
-			'n_nombreProducto' => 'N Nombre Producto',
-			'v_costoProducto' => 'V Costo Producto',
+			'k_idProducto' => 'Id Producto',
+			'n_nombreProducto' => 'Nombre Producto',
+			'v_costoProducto' => 'Costo al publico',
 		);
 	}
 
