@@ -12,14 +12,16 @@ var equipoModule = (function(){
 		url = val;
 	},getReferences = function(){
 		if (marca !== null && tipoEquipo !==null){
+			if ($("#especificacionInput").autocomplete()){
+				$("#especificacionInput").autocomplete('destroy');	
+			};			
 			$.ajax({
 				url:url,
 				data: {marca:marca, tipoEquipo:tipoEquipo},
-				cache:false,
 				success:function(data){
-					console.log(data);
-					$("#Especificacion_n_nombreEspecificacion").autocomplete({
-					  source: data,
+					data =JSON.parse(data);
+					$("#especificacionInput").autocomplete({
+					  source: data.list,
 					  minLength:2
 					});
 				},

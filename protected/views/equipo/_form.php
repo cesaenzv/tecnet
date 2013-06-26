@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/e
 
 	<div class="row">
 		<?php echo $form->labelEx($especificacion,'Especificacion'); ?>
-		<?php echo $form->textField($especificacion,'n_nombreEspecificacion',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($especificacion,'n_nombreEspecificacion',array('size'=>50,'maxlength'=>50, 'id'=>"especificacionInput")); ?>
 		<?php echo $form->error($especificacion,'n_nombreEspecificacion'); ?>
 	</div>
 

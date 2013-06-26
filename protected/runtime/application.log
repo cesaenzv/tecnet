@@ -4619,3 +4619,40 @@ Stack trace:
 REQUEST_URI=/git/tecnet/equipo/array(2)%20%7B%20%20[0]=%3E%20%20string(8)%20%22lkasmdpo%22%20%20[1]=%3E%20%20string(6)%20%22pompom%22%7D[%22lkasmdpo%22,%22pompom%22]?term=lk
 HTTP_REFERER=http://localhost/git/tecnet/equipo/create
 ---
+2013/06/26 14:20:15 [error] [php] Use of undefined constant id - assumed 'id' (C:\xampp\htdocs\git\tecnet\protected\views\equipo\_form.php:86)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): EquipoController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\equipo\create.php(17): EquipoController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): EquipoController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): EquipoController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): EquipoController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php(73): EquipoController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): EquipoController->actionCreate()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/create
+in C:\xampp\htdocs\git\tecnet\protected\views\equipo\_form.php (86)
+in C:\xampp\htdocs\git\tecnet\protected\views\equipo\create.php (17)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (73)
+2013/06/26 14:24:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "array(1) {  [0]=>  string(8) "asldkjas"}["asldkjas"]" solicitada.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(270): CController->missingAction('array(1) {  [0]...')
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('array(1) {  [0]...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/array(1)...')
+#3 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/git/tecnet/equipo/array(1)%20%7B%20%20[0]=%3E%20%20string(8)%20%22asldkjas%22%7D[%22asldkjas%22]?term=as
+HTTP_REFERER=http://localhost/git/tecnet/equipo/create
+---

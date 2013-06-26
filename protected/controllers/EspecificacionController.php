@@ -153,9 +153,8 @@ class EspecificacionController extends Controller {
         $especificaciones = Especificacion::model()->findAll("k_idMarca=:marca AND k_idTipoEquipo=:tipoEquipo", 
                                                             array(":marca"=>$marca->k_idMarca,":tipoEquipo"=>$tipoEquipo->k_idTipo));
 
-        $listEspecificaciones = $manageM->getColumnList($especificaciones,'n_nombreEspecificacion');       
-        var_dump($listEspecificaciones);
-        echo CJSON::encode($listEspecificaciones);
+        $data = array('list' => $manageM->getColumnList($especificaciones,'n_nombreEspecificacion'));      
+        echo CJavaScript::jsonEncode($data);
     }
 
 }
