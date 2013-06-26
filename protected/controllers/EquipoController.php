@@ -43,19 +43,33 @@ class EquipoController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Equipo;
+        $manageM = new ManageModel;
+        $equipo = new Equipo;
 
+        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'n_nombreMarca');
+        $marca =  array('model' => new Marca,
+                        'list' => $listMarca); 
+
+        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'n_tipoEquipo');        
+        $tipoEquipo = array('model' => new Tipoequipo,
+                            'list' => $listTipoEquipo);
+
+        $especificacion = new Especificacion;
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Equipo'])) {
-            $model->attributes = $_POST['Equipo'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idEquipo));
-        }
+        if (isset($_POST['Equipo']) && isset($_POST['Marca']) && isset($_POST['Tipoequipo']) && isset($_POST['Especificacion'])) {
+            // $model->attributes = $_POST['Equipo'];
+            // if ($model->save())
+            //     $this->redirect(array('view', 'id' => $model->k_idEquipo));
 
+        }
+        
         $this->render('create', array(
-            'model' => $model,
+            'equipo' => $equipo,
+            'marca' =>$marca,
+            'tipoEquipo' => $tipoEquipo,
+            'especificacion' => $especificacion
         ));
     }
 

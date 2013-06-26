@@ -143,4 +143,13 @@ class EspecificacionController extends Controller {
         }
     }
 
+    public function actiongetEspecificationList(){
+        $marca = $_POST['marca'];
+        $tipoEquipo =$_POST['tipoEquipo'];
+        var_dump($marca);
+        var_dump($tipoEquipo);
+        die();
+        
+    }
+
 }
