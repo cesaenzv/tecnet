@@ -38,6 +38,8 @@ class Marca extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('n_nombreMarca', 'required'),
+			array('n_nombreMarca', 'unique'),
 			array('n_nombreMarca', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -63,8 +65,8 @@ class Marca extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idMarca' => 'K Id Marca',
-			'n_nombreMarca' => 'N Nombre Marca',
+			'k_idMarca' => 'Id Marca',
+			'n_nombreMarca' => 'Marca',
 		);
 	}
 
