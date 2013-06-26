@@ -144,12 +144,18 @@ class EspecificacionController extends Controller {
     }
 
     public function actiongetEspecificationList(){
-        $marca = $_POST['marca'];
-        $tipoEquipo =$_POST['tipoEquipo'];
-        var_dump($marca);
-        var_dump($tipoEquipo);
-        die();
-        
+        $manageM = new ManageModel;
+        $marca = $_GET['marca'];
+        $tipoEquipo =$_GET['tipoEquipo'];
+
+        $marca = Marca::model()->find("n_nombreMarca=:marca",array(":marca"=>$marca));
+        $tipoEquipo = Tipoequipo::model()->find("n_tipoEquipo=:tipoEquipo",array(":tipoEquipo"=>$tipoEquipo));
+        $especificaciones = Especificacion::model()->findAll("k_idMarca=:marca AND k_idTipoEquipo=:tipoEquipo", 
+                                                            array(":marca"=>$marca->k_idMarca,":tipoEquipo"=>$tipoEquipo->k_idTipo));
+
+        $listEspecificaciones = $manageM->getColumnList($especificaciones,'n_nombreEspecificacion');       
+        var_dump($listEspecificaciones);
+        echo CJSON::encode($listEspecificaciones);
     }
 
 }

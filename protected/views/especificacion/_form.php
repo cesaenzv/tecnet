@@ -13,7 +13,7 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model, $producto['model']); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'k_especificacion'); ?>
@@ -37,6 +37,14 @@
 		<?php echo $form->labelEx($model,'k_idMarca'); ?>
 		<?php echo $form->textField($model,'k_idMarca'); ?>
 		<?php echo $form->error($model,'k_idMarca'); ?>
+	</div>
+
+	<div class="row">
+		<?php
+			echo  CHtml::activeCheckBoxList($producto['model'],
+											'categoryIds',
+											$producto['list']);
+		?>
 	</div>
 
 	<div class="row buttons">
