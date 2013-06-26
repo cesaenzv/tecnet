@@ -11,4 +11,7 @@ $this->breadcrumbs=array(
 
 <h1>Create Equipo</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array(	'equipo' => $equipo, 
+												'marca' =>$marca,
+												'tipoEquipo' => $tipoEquipo,
+												'especificacion' =>$especificacion)); ?>
