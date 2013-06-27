@@ -3,21 +3,27 @@ var equipoModule = (function(){
 	var init = function(){
 		url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
 	},setMarca =function(val){
-		marca = val;
+		marca = val.value;
 		getReferences();
 	},setTipoEquipo = function(val){
-		tipoEquipo = val;
+		tipoEquipo = val.value;
 		getReferences();
 	},setUrl = function(val){
 		url = val;
 	},getReferences = function(){
 		if (marca !== null && tipoEquipo !==null){
+			if ($("#especificacionInput").autocomplete()){
+				$("#especificacionInput").autocomplete('destroy');	
+			};			
 			$.ajax({
 				url:url,
 				data: {marca:marca, tipoEquipo:tipoEquipo},
-				cache:false,
 				success:function(data){
-					console.log(data);
+					data =JSON.parse(data);
+					$("#especificacionInput").autocomplete({
+					  source: data.list,
+					  minLength:2
+					});
 				},
 				error:function(){
 					console.log("error");

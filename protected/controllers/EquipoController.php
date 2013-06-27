@@ -57,12 +57,14 @@ class EquipoController extends Controller {
         $especificacion = new Especificacion;
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
-        if (isset($_POST['Equipo']) && isset($_POST['Marca']) && isset($_POST['Tipoequipo']) && isset($_POST['Especificacion'])) {
-            // $model->attributes = $_POST['Equipo'];
-            // if ($model->save())
-            //     $this->redirect(array('view', 'id' => $model->k_idEquipo));
-
+        if (isset($_POST['Equipo']) && isset($_POST['marca']) && isset($_POST['tipoequipo']) && isset($_POST['Especificacion'])) {
+            $equipo->attributes = $_POST['Equipo'];
+            $Criteria = new CDbCriteria(); 
+            $Criteria->condition = "n_nombreEspecificacion = '".$_POST['Especificacion']["n_nombreEspecificacion"]."'";
+            $especificacion = Especificacion::model()->find($Criteria);
+            $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+            if($equipo->save())
+                $this->redirect(array('view', 'id' => $equipo->k_idEquipo));            
         }
         
         $this->render('create', array(

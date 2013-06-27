@@ -57,10 +57,9 @@ class ProductoController extends Controller {
 
         $this->render('create', array(
             'model' => $model,
-            'services' => Servicio::model()->findAll(),
-            'services_product' => $services_product
         ));
     }
+
     public function actionAsignaServicio(){
         $this->render('create', array(
             'model' => $model,
