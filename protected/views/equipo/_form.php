@@ -18,7 +18,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/e
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($equipo, $tipoEquipo['model'], $marca['model'],$especificacion); ?>
+	<?php echo $form->errorSummary($equipo, $tipoEquipo['model'], $marca['model'],$especificacion); ?>	
 
 	<div class="row">
 		<?php echo $form->labelEx($equipo,'k_idCliente'); ?>
