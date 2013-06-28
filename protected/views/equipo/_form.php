@@ -2,7 +2,7 @@
 /* @var $this EquipoController */
 /* @var $equipo Equipo */
 /* @var $form CActiveForm */
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/equipoModule.js'); 
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/modules/equipoModule.js"); 
 ?>
 <script type="text/javascript">
 	equipoModule.setUrl('<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>');
@@ -95,7 +95,6 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/e
 
 </div><!-- form -->
 
-<?php 
-	Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/equipoModule.js'); 
+<?php 	
 	Yii::app()->clientScript->registerCoreScript('jquery');	
 ?>
