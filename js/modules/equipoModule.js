@@ -1,8 +1,6 @@
 var equipoModule = (function(){
 	var marca = null, tipoEquipo=null, url;
-	var init = function(){
-		url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
-	},setMarca =function(val){
+	var setMarca =function(val){
 		marca = val.value;
 		getReferences();
 	},setTipoEquipo = function(val){

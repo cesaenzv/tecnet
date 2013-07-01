@@ -156,4 +156,29 @@ class ClienteController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function actionSearchClient(){		
+		$Criteria = new CDbCriteria(); 
+        $Criteria->condition = "k_identificacion = '".$_GET['doc']."'";
+        $client = Cliente::model()->find($Criteria);
+        $data = array();
+        if($client){
+        	$data["cliente"] = $client->attributes;
+        	$Criteria->condition = "k_idCliente = '".$_GET['doc']."'";
+        	$equipos = Equipo::model()->findAll($Criteria);
+        	if($equipos){
+        		$data["equipos"] = array();        		
+        		foreach($equipos as $equipo)
+				{
+				    $data[] = $equipo->attributes;
+				}
+        	}else{
+        		$data["equipos"] = null;
+        	}        		
+        }else{
+        	$data["cliente"] = null;
+        	$data["equipos"] = null;	
+        }        
+        echo CJavaScript::jsonEncode($data);
+	}
 }

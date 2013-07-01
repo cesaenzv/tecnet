@@ -14,6 +14,15 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/Styles.css" />
+        <!--JQUERY GRID DOCUMENTS-->
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.10.3.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/plugins/jqGryd/css/ui.jqgrid.css" />
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/i18n/grid.locale-es.js'); ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.js'); ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/jquery.jqGrid.min.js'); ?>
+
+
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
