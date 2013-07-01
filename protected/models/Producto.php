@@ -69,7 +69,7 @@ class Producto extends CActiveRecord
 		return array(
 			'k_idProducto' => 'Id Producto',
 			'n_nombreProducto' => 'Nombre Producto',
-			'v_costoProducto' => 'Costo al publico',
+			'v_costoProducto' => 'Costo interno',
 		);
 	}
 

@@ -73,7 +73,7 @@ class Servicio extends CActiveRecord
 		return array(
 			'k_idServicio' => 'Id Servicio',
 			'n_nomServicio' => 'Servicio',
-			'v_costoServicio' => 'Costo interno',
+			'v_costoServicio' => 'Costo al público',
 		);
 	}
 
