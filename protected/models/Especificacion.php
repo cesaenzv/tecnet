@@ -71,10 +71,10 @@ class Especificacion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_especificacion' => 'K Especificacion',
-			'n_nombreEspecificacion' => 'N Nombre Especificacion',
-			'k_idTipoEquipo' => 'K Id Tipo Equipo',
-			'k_idMarca' => 'K Id Marca',
+			'k_especificacion' => 'Especificacion',
+			'n_nombreEspecificacion' => 'Nombre Especificacion',
+			'k_idTipoEquipo' => 'Tipo Equipo',
+			'k_idMarca' => 'Marca',
 		);
 	}
 

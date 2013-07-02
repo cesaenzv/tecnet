@@ -66,8 +66,8 @@ class Orden extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idOrden' => 'K Id Orden',
-			'k_idUsuario' => 'K Id Usuario',
+			'k_idOrden' => 'Orden',
+			'k_idUsuario' => 'Usuario',
 		);
 	}
 

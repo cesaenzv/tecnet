@@ -22,9 +22,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'PaqueteMatenimiento_k_idPaquete'); ?>
-		<?php echo $form->textField($model,'PaqueteMatenimiento_k_idPaquete'); ?>
-		<?php echo $form->error($model,'PaqueteMatenimiento_k_idPaquete'); ?>
+		<?php echo $form->labelEx($model,'fk_idEstado'); ?>
+		<?php echo $form->textField($model,'fk_idEstado'); ?>
+		<?php echo $form->error($model,'fk_idEstado'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'n_descripcion'); ?>
+		<?php echo $form->textArea($model,'n_descripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'n_descripcion'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'o_flagLeido'); ?>
+		<?php echo $form->textField($model,'o_flagLeido'); ?>
+		<?php echo $form->error($model,'o_flagLeido'); ?>
 	</div>
 
 	<div class="row buttons">

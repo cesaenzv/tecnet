@@ -42,6 +42,7 @@ class Servicio extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('n_nomServicio, v_costoServicio', 'required'),
+			array('n_nomServicio', 'unique'),
 			array('v_costoServicio', 'numerical', 'integerOnly'=>true),
 			array('n_nomServicio', 'length', 'max'=>50),
 			// The following rule is used by search().
@@ -70,9 +71,9 @@ class Servicio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idServicio' => 'K Id Servicio',
-			'n_nomServicio' => 'N Nom Servicio',
-			'v_costoServicio' => 'V Costo Servicio',
+			'k_idServicio' => 'Id Servicio',
+			'n_nomServicio' => 'Servicio',
+			'v_costoServicio' => 'Costo al público',
 		);
 	}
 

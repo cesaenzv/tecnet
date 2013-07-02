@@ -22,6 +22,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'i_nit'); ?>
+		<?php echo $form->dropDownList($model, 'i_nit', array('CC'=>'CC', 'TI'=>'TI','NIT'=>'NIT','CE'=>'CE','PA'=>'PA'));?>
+		<?php echo $form->error($model,'i_nit'); ?>
+	</div>
+        
+	<div class="row">
 		<?php echo $form->labelEx($model,'n_nombre'); ?>
 		<?php echo $form->textField($model,'n_nombre',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'n_nombre'); ?>
@@ -55,12 +61,6 @@
 		<?php echo $form->labelEx($model,'o_mail'); ?>
 		<?php echo $form->textField($model,'o_mail',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'o_mail'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'k_usuarioCrea'); ?>
-		<?php echo $form->textField($model,'k_usuarioCrea'); ?>
-		<?php echo $form->error($model,'k_usuarioCrea'); ?>
 	</div>
 
 	<div class="row buttons">

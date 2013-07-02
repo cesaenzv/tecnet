@@ -23,6 +23,8 @@ $this->menu=array(
 	'attributes'=>array(
 		'k_idProceso',
 		'k_idCreador',
-		'PaqueteMatenimiento_k_idPaquete',
+		'fk_idEstado',
+		'n_descripcion',
+		'o_flagLeido',
 	),
 )); ?>

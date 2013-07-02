@@ -8,12 +8,6 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Especificacion', 'url'=>array('index')),
-	array('label'=>'Create Especificacion', 'url'=>array('create')),
-	array('label'=>'View Especificacion', 'url'=>array('view', 'id'=>$model->k_especificacion)),
-	array('label'=>'Manage Especificacion', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Update Especificacion <?php echo $model->k_especificacion; ?></h1>

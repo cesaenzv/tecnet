@@ -10,9 +10,9 @@
  * @property integer $k_idEquipo
  *
  * The followings are the available model relations:
+ * @property Proceso $kIdProceso
  * @property Orden $kIdOrden
  * @property Equipo $kIdEquipo
- * @property Proceso[] $procesos
  */
 class Paquetematenimiento extends CActiveRecord
 {
@@ -58,9 +58,9 @@ class Paquetematenimiento extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'kIdProceso' => array(self::BELONGS_TO, 'Proceso', 'k_idProceso'),
 			'kIdOrden' => array(self::BELONGS_TO, 'Orden', 'k_idOrden'),
 			'kIdEquipo' => array(self::BELONGS_TO, 'Equipo', 'k_idEquipo'),
-			'procesos' => array(self::HAS_MANY, 'Proceso', 'PaqueteMatenimiento_k_idPaquete'),
 		);
 	}
 

@@ -1,0 +1,17 @@
+#searchClient{
+	background: url(../img/search.png) no-repeat center;
+	background-size: 80% 80%;
+	height: 2em;
+	width: 2em;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 1em;
+}
+
+#searchClient:hover{
+	background-color: rgba(175,175,175,0.5)
+}
+
+#searchClient:active{
+	background-color: rgba(175,175,175,1.5)
+}

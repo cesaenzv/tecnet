@@ -24,7 +24,7 @@ class ProductoController extends Controller {
      * @return array access control rules
      */
     public function accessRules() {
-        $accessRules = new MenuItems();
+        $accessRules = new AccessDataRol();
         return $accessRules->getAccessRules("producto");
     }
 
@@ -44,27 +44,85 @@ class ProductoController extends Controller {
      */
     public function actionCreate() {
         $model = new Producto;
-        $services_product = new Servicioproducto;
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Producto']) && isset($_POST['Servicioproducto'])) {
+        if (isset($_POST['Producto'])) {
 
             $model->attributes = $_POST['Producto'];
             if ($model->save()) {
-                $services_product->attributes = $_POST['Servicioproducto'];
-                $services_product->k_producto = $model->k_idProducto;
-                if ($services_product->save()) {
-                    $this->redirect(array('view', 'id' => $model->k_idProducto));
-                }
+                $this->redirect(array('view', 'id' => $model->k_idProducto));
             }
         }
 
         $this->render('create', array(
             'model' => $model,
-            'services' => Servicio::model()->findAll(),
-            'services_product' => $services_product
         ));
+    }
+
+    public function actionAsignaServicio() {
+        extract($_REQUEST);
+        if($oper=="add"){
+            $servprod=Servicioproducto::model()->findAll("k_servicio=:servicio AND k_producto=:producto",array('servicio'=>$servicio,'producto'=>$producto));
+            if(count($servprod)==0){
+                $attr=array(
+                    'k_servicio'=>(int)$servicio,
+                    'k_producto'=>(int)$producto,
+                    'q_costo'=>(int)$costo
+                );
+                $servicioproducto=new Servicioproducto;
+                $servicioproducto->attributes=$attr;
+                if($servicioproducto->save()){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        } else if ($oper=="edit"){
+            $servprod=Servicioproducto::model()->findAll("k_servicio=:servicio AND k_producto=:producto",array('servicio'=>$servicio,'producto'=>$producto));
+            if(count($servprod)==1){
+                $servprod=$servprod[0];
+                $attr=array(
+                    'q_costo'=>(int)$costo
+                );
+                $servprod->attributes=$attr;
+                if($servprod->save()){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+    }
+
+    public function actionGetServiciosGrid($id) {
+        $criteria = new CDbCriteria;
+        if(isset($_POST['sidx'])&&isset($_POST['sord']))
+        $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+        $criteria->condition = "k_servicio=".$id;
+        $dataProvider = new CActiveDataProvider('Servicioproducto', array(
+                    'criteria' => $criteria,
+                    'pagination' => array(
+                        'pageSize' => $_POST['rows'],
+                        'currentPage' => $_POST['page'] - 1,
+                    ),
+                ));
+        $ro=isset($_POST['rows'])?$_POST['rows']:1;
+        $response->page = $_POST['page'];
+        $response->records = $dataProvider->getTotalItemCount();
+        $response->total = ceil($responce->records / $ro);
+        $rows = $dataProvider->getData();
+        foreach ($rows as $i => $row) {
+            $response->rows[$i]['id'] = $row['k_producto'];
+            $response->rows[$i]['cell'] = array(
+                Servicio::model()->findByPk($row->k_servicio)->n_nomServicio,
+                Producto::model()->findByPk($row->k_producto)->n_nombreProducto,
+                $row->q_costo,
+            );
+        }
+        echo json_encode($response);
     }
 
     /**

@@ -7,12 +7,11 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Equipo', 'url'=>array('index')),
-	array('label'=>'Manage Equipo', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Equipo</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array(	'equipo' => $equipo, 
+												'marca' =>$marca,
+												'tipoEquipo' => $tipoEquipo,
+												'especificacion' =>$especificacion)); ?>

@@ -66,8 +66,8 @@ class Tipoequipo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idTipo' => 'K Id Tipo',
-			'n_tipoEquipo' => 'N Tipo Equipo',
+			'k_idTipo' => 'id Tipo equipo',
+			'n_tipoEquipo' => 'Tipo Equipo',
 		);
 	}
 

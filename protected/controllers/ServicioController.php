@@ -24,7 +24,7 @@ class ServicioController extends Controller {
      * @return array access control rules
      */
     public function accessRules() {
-        $accessRules = new MenuItems();
+        $accessRules = new AccessDataRol();
         return $accessRules->getAccessRules("servicio");
     }
 
@@ -43,7 +43,13 @@ class ServicioController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
+        $manageM = new ManageModel;
         $model = new Servicio;
+        $listProducto = $manageM->getColumnList(Producto::model()->findAll(),'n_nombreProducto');
+        $producto = array(  'model'=> new Producto,
+                            'list' => $listProducto);
+
+        var_dump($producto['list']);
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -56,6 +62,7 @@ class ServicioController extends Controller {
 
         $this->render('create', array(
             'model' => $model,
+            'producto' =>$producto
         ));
     }
 

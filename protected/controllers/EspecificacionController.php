@@ -24,7 +24,7 @@ class EspecificacionController extends Controller {
      * @return array access control rules
      */
     public function accessRules() {
-        $accessRules = new MenuItems();
+        $accessRules = new AccessDataRol();
         return $accessRules->getAccessRules("especificacion");
     }
 
@@ -141,6 +141,20 @@ class EspecificacionController extends Controller {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    public function actiongetEspecificationList(){
+        $manageM = new ManageModel;
+        $marca = $_GET['marca'];
+        $tipoEquipo =$_GET['tipoEquipo'];
+        $marca = Marca::model()->find("n_nombreMarca=:marca",array(":marca"=>$marca));
+
+        $tipoEquipo = Tipoequipo::model()->find("n_tipoEquipo=:tipoEquipo",array(":tipoEquipo"=>$tipoEquipo));
+        $Criteria = new CDbCriteria(); 
+        $Criteria->condition = "k_idMarca = ".$marca->k_idMarca." AND k_idTipoEquipo = ".$tipoEquipo->k_idTipo;
+        $especificaciones = Especificacion::model()->findAll($Criteria);
+        $data = array('list' => $manageM->getColumnList($especificaciones,'n_nombreEspecificacion'));      
+        echo CJavaScript::jsonEncode($data);
     }
 
 }

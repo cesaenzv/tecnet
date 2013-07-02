@@ -60,8 +60,8 @@ class Serviciotipoequipo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idServicio' => 'K Id Servicio',
-			'k_idTipoEquipo' => 'K Id Tipo Equipo',
+			'k_idServicio' => 'Servicio',
+			'k_idTipoEquipo' => 'Tipo Equipo',
 		);
 	}
 
