@@ -87,20 +87,23 @@ class AccessDataRol {
                                             'visible'=>!Yii::app()->user->isGuest);
                 }
                 $tasks= Authitemchild::model()->findAll("parent='".$rol."'");
-                $operationsDenied = array('Update','View','Delete','Index');
+                $menuDenied= array('Administrar Especificaciones');
+                $operationsDenied = array('Update','View','Delete','Index','asignaservicio','asignService','GetServiciosGrid');
                 foreach ($tasks as $task){
                     $operations = Authitemchild::model()->findAll("parent='".$task->child."'");
                     $labelParent = str_replace( ".*", "",$task->child);
-                    $operations_task = array();
-                    foreach($operations as $operation){
-                        $url = strtolower(str_replace( ".", "/",$operation->child));
-                        $labelSon = explode(".",$operation->child);
-                        if($this->canAppend($labelSon[1], $operationsDenied)){
-                             $operations_task[] = array('label' => $labelSon[1], 'url' => array($url));                             
-                        }                       
-                    }
-                    if (! empty($operations_task)){
-                        $menu_items[] = array('label'=>$labelParent, 'items'=>$operations_task);
+                    if($this->canAppend($labelParent, $menuDenied)){
+                        $operations_task = array();
+                        foreach($operations as $operation){
+                            $url = strtolower(str_replace( ".", "/",$operation->child));
+                            $labelSon = explode(".",$operation->child);
+                            if($this->canAppend($labelSon[1], $operationsDenied)){
+                                $operations_task[] = array('label' => $labelSon[1], 'url' => array($url));                             
+                            }                       
+                        }
+                        if (! empty($operations_task)){
+                            $menu_items[] = array('label'=>$labelParent, 'items'=>$operations_task);
+                        }
                     }
                 }
                 

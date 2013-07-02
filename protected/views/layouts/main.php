@@ -1,6 +1,6 @@
 <?php /* @var $this Controller */ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
@@ -19,7 +19,6 @@
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.10.3.custom.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/plugins/jqGryd/css/ui.jqgrid.css" />
         <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/i18n/grid.locale-es.js'); ?>
-        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.js'); ?>
         <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/jquery.jqGrid.min.js'); ?>
 
 

@@ -22,6 +22,17 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+<?php 
+Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/fancybox/jquery.fancybox.css?v=2.1.5');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.fancybox.js?v=2.1.5', CClientScript::POS_HEAD);
+Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/ui.jqgrid.css');
+Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
+Yii::app()->clientScript->registerScriptFile('http://code.jquery.com/ui/1.10.3/jquery-ui.js', CClientScript::POS_HEAD);
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/grid.locale-es.js', CClientScript::POS_HEAD);
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.jqGrid.src.js', CClientScript::POS_HEAD);
+Yii::app()->clientScript->registerScript('helloscript',"init();",CClientScript::POS_READY);
+?>
+
 <h1>Manage Servicios</h1>
 
 <p>
@@ -55,13 +66,36 @@ $this->widget('zii.widgets.grid.CGridView', array(
                 'asign' => array
                     (
                     'label' => 'asignar/desasignar',
-                    'imageUrl' => Yii::app()->getBaseUrl(true)."/images/calificar.png",
-                    'url' => '"#"',
-                    'htmlOptions'=>'width:16px, heigth:16px',
+                    'imageUrl' => Yii::app()->getBaseUrl(true) . "/images/calificar.png",
+                    'url' => '"#servicio_".$data->k_idServicio',
+                    'htmlOptions' => 'width:16px, heigth:16px',
+                    //'click'=>'js:function(){fancy("'.Yii::app()->createUrl("producto/AsignaServicio").'/'..'");return false;}',
+                    'options' => array(
+                        'class' => 'assing',
+                    ),
                 ),
             ),
         ),
     ),
 ));
-echo Yii::app()->getBaseUrl()."/images/calificar.png";
 ?>
+
+<script type="text/javascript">
+init=function() {
+    $("a.assing").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+} 
+</script>
+<?php
+$servicios = Servicio::model()->findAll();
+foreach ($servicios as $val){
+    echo $this->renderPartial('asigna', array('model'=>$val));
+}
+?>
+
+
