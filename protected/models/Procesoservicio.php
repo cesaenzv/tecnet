@@ -67,9 +67,9 @@ class Procesoservicio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idProceso' => 'K Id Proceso',
-			'k_idServicio' => 'K Id Servicio',
-			'k_idUsuario' => 'K Id Usuario',
+			'k_idProceso' => 'Proceso',
+			'k_idServicio' => 'Servicio',
+			'k_idUsuario' => 'Usuario',
 		);
 	}
 

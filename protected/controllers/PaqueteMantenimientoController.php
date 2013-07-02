@@ -1,6 +1,6 @@
 <?php
 
-class ProcesoController extends Controller
+class PaqueteMantenimientoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -26,23 +26,8 @@ class ProcesoController extends Controller
 	 */
 	public function accessRules()
 	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+		$accessRules=new AccessDataRol();
+            return $accessRules->getAccessRules("cliente");
 	}
 
 	/**
@@ -62,16 +47,17 @@ class ProcesoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Proceso;
+		$model=new Cliente;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Proceso']))
+		if(isset($_POST['Cliente']))
 		{
-			$model->attributes=$_POST['Proceso'];
+			$model->attributes=$_POST['Cliente'];                       
+			$model->k_usuarioCrea=Yii::app()->user->Id;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->k_idProceso));
+				$this->redirect(array('view','id'=>$model->k_identificacion));
 		}
 
 		$this->render('create',array(
@@ -91,11 +77,11 @@ class ProcesoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Proceso']))
+		if(isset($_POST['Cliente']))
 		{
-			$model->attributes=$_POST['Proceso'];
+			$model->attributes=$_POST['Cliente'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->k_idProceso));
+				$this->redirect(array('view','id'=>$model->k_identificacion));
 		}
 
 		$this->render('update',array(
@@ -122,7 +108,7 @@ class ProcesoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Proceso');
+		$dataProvider=new CActiveDataProvider('Cliente');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +119,10 @@ class ProcesoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Proceso('search');
+		$model=new Cliente('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Proceso']))
-			$model->attributes=$_GET['Proceso'];
+		if(isset($_GET['Cliente']))
+			$model->attributes=$_GET['Cliente'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +133,12 @@ class ProcesoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Proceso the loaded model
+	 * @return Cliente the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Proceso::model()->findByPk($id);
+		$model=Cliente::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,14 +146,39 @@ class ProcesoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Proceso $model the model to be validated
+	 * @param Cliente $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='proceso-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='cliente-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function actionSearchClient(){		
+		$Criteria = new CDbCriteria(); 
+        $Criteria->condition = "k_identificacion = '".$_GET['doc']."'";
+        $client = Cliente::model()->find($Criteria);
+        $data = array();
+        if($client){
+        	$data["cliente"] = $client->attributes;
+        	$Criteria->condition = "k_idCliente = '".$_GET['doc']."'";
+        	$equipos = Equipo::model()->findAll($Criteria);
+        	if($equipos){
+        		$data["equipos"] = array();        		
+        		foreach($equipos as $equipo)
+				{
+				    $data[] = $equipo->attributes;
+				}
+        	}else{
+        		$data["equipos"] = null;
+        	}        		
+        }else{
+        	$data["cliente"] = null;
+        	$data["equipos"] = null;	
+        }        
+        echo CJavaScript::jsonEncode($data);
 	}
 }

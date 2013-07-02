@@ -6,14 +6,13 @@
  * The followings are the available columns in table 'proceso':
  * @property integer $k_idProceso
  * @property integer $k_idCreador
- * @property integer $PaqueteMatenimiento_k_idPaquete
  * @property integer $fk_idEstado
  * @property string $n_descripcion
  * @property integer $o_flagLeido
  *
  * The followings are the available model relations:
- * @property Paquetematenimiento $paqueteMatenimientoKIdPaquete
- * @property CrugeUser $kIdCreador
+ * @property Paquetematenimiento[] $paquetematenimientos
+ * @property Users $kIdCreador
  * @property Estados $fkIdEstado
  */
 class Proceso extends CActiveRecord
@@ -44,12 +43,12 @@ class Proceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idCreador, PaqueteMatenimiento_k_idPaquete, fk_idEstado', 'required'),
-			array('k_idCreador, PaqueteMatenimiento_k_idPaquete, fk_idEstado, o_flagLeido', 'numerical', 'integerOnly'=>true),
+			array('k_idCreador, fk_idEstado', 'required'),
+			array('k_idCreador, fk_idEstado, o_flagLeido', 'numerical', 'integerOnly'=>true),
 			array('n_descripcion', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idProceso, k_idCreador, PaqueteMatenimiento_k_idPaquete, fk_idEstado, n_descripcion, o_flagLeido', 'safe', 'on'=>'search'),
+			array('k_idProceso, k_idCreador, fk_idEstado, n_descripcion, o_flagLeido', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,8 +60,8 @@ class Proceso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'paqueteMatenimientoKIdPaquete' => array(self::BELONGS_TO, 'Paquetematenimiento', 'PaqueteMatenimiento_k_idPaquete'),
-			'kIdCreador' => array(self::BELONGS_TO, 'CrugeUser', 'k_idCreador'),
+			'paquetematenimientos' => array(self::HAS_MANY, 'Paquetematenimiento', 'k_idProceso'),
+			'kIdCreador' => array(self::BELONGS_TO, 'Users', 'k_idCreador'),
 			'fkIdEstado' => array(self::BELONGS_TO, 'Estados', 'fk_idEstado'),
 		);
 	}
@@ -75,7 +74,6 @@ class Proceso extends CActiveRecord
 		return array(
 			'k_idProceso' => 'K Id Proceso',
 			'k_idCreador' => 'K Id Creador',
-			'PaqueteMatenimiento_k_idPaquete' => 'Paquete Matenimiento K Id Paquete',
 			'fk_idEstado' => 'Fk Id Estado',
 			'n_descripcion' => 'N Descripcion',
 			'o_flagLeido' => 'O Flag Leido',
@@ -95,7 +93,6 @@ class Proceso extends CActiveRecord
 
 		$criteria->compare('k_idProceso',$this->k_idProceso);
 		$criteria->compare('k_idCreador',$this->k_idCreador);
-		$criteria->compare('PaqueteMatenimiento_k_idPaquete',$this->PaqueteMatenimiento_k_idPaquete);
 		$criteria->compare('fk_idEstado',$this->fk_idEstado);
 		$criteria->compare('n_descripcion',$this->n_descripcion,true);
 		$criteria->compare('o_flagLeido',$this->o_flagLeido);

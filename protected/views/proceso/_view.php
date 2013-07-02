@@ -13,8 +13,16 @@
 	<?php echo CHtml::encode($data->k_idCreador); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('PaqueteMatenimiento_k_idPaquete')); ?>:</b>
-	<?php echo CHtml::encode($data->PaqueteMatenimiento_k_idPaquete); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('fk_idEstado')); ?>:</b>
+	<?php echo CHtml::encode($data->fk_idEstado); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('n_descripcion')); ?>:</b>
+	<?php echo CHtml::encode($data->n_descripcion); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('o_flagLeido')); ?>:</b>
+	<?php echo CHtml::encode($data->o_flagLeido); ?>
 	<br />
 
 

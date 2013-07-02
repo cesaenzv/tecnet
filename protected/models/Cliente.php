@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'cliente':
  * @property integer $k_identificacion
+ * @property string $i_nit
  * @property string $n_nombre
  * @property string $n_apellido
  * @property string $o_direccion
@@ -14,7 +15,7 @@
  * @property integer $k_usuarioCrea
  *
  * The followings are the available model relations:
- * @property CrugeUser $kUsuarioCrea
+ * @property Users $kUsuarioCrea
  * @property Equipo[] $equipos
  */
 class Cliente extends CActiveRecord
@@ -45,13 +46,14 @@ class Cliente extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_identificacion, n_nombre, n_apellido, o_celular, o_fijo, k_usuarioCrea', 'required'),
+			array('k_identificacion, i_nit, n_nombre, n_apellido, o_celular, o_fijo, k_usuarioCrea', 'required'),
 			array('k_identificacion, k_usuarioCrea', 'numerical', 'integerOnly'=>true),
+			array('i_nit', 'length', 'max'=>2),
 			array('n_nombre, n_apellido, o_direccion, o_mail', 'length', 'max'=>50),
 			array('o_celular, o_fijo', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_identificacion, n_nombre, n_apellido, o_direccion, o_celular, o_fijo, o_mail, k_usuarioCrea', 'safe', 'on'=>'search'),
+			array('k_identificacion, i_nit, n_nombre, n_apellido, o_direccion, o_celular, o_fijo, o_mail, k_usuarioCrea', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +65,7 @@ class Cliente extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kUsuarioCrea' => array(self::BELONGS_TO, 'CrugeUser', 'k_usuarioCrea'),
+			'kUsuarioCrea' => array(self::BELONGS_TO, 'Users', 'k_usuarioCrea'),
 			'equipos' => array(self::HAS_MANY, 'Equipo', 'k_idCliente'),
 		);
 	}
@@ -74,13 +76,14 @@ class Cliente extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_identificacion' => 'K Identificacion',
-			'n_nombre' => 'N Nombre',
-			'n_apellido' => 'N Apellido',
-			'o_direccion' => 'O Direccion',
-			'o_celular' => 'O Celular',
-			'o_fijo' => 'O Fijo',
-			'o_mail' => 'O Mail',
+			'k_identificacion' => 'Identificacion',
+			'i_nit' => 'Nit',
+			'n_nombre' => 'Nombre',
+			'n_apellido' => 'Apellido',
+			'o_direccion' => 'Direccion',
+			'o_celular' => 'Celular',
+			'o_fijo' => 'Fijo',
+			'o_mail' => 'Mail',
 			'k_usuarioCrea' => 'K Usuario Crea',
 		);
 	}
@@ -97,6 +100,7 @@ class Cliente extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('k_identificacion',$this->k_identificacion);
+		$criteria->compare('i_nit',$this->i_nit,true);
 		$criteria->compare('n_nombre',$this->n_nombre,true);
 		$criteria->compare('n_apellido',$this->n_apellido,true);
 		$criteria->compare('o_direccion',$this->o_direccion,true);

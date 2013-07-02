@@ -7,6 +7,11 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
+$this->menu=array(
+	array('label'=>'List Proceso', 'url'=>array('index')),
+	array('label'=>'Create Proceso', 'url'=>array('create')),
+);
+
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
@@ -42,7 +47,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'k_idProceso',
 		'k_idCreador',
-		'PaqueteMatenimiento_k_idPaquete',
+		'fk_idEstado',
+		'n_descripcion',
+		'o_flagLeido',
 		array(
 			'class'=>'CButtonColumn',
 		),

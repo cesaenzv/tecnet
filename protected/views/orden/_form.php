@@ -26,6 +26,9 @@
 		<select id = "typeDocument" required>
 			<option value = "CC">CC</option>
 			<option value = "NIT">NIT</option>       
+			<option value = "TI">TI</option>       
+			<option value = "CE">CE</option>       
+			<option value = "PA">PA</option>       
 		</select>
 		<a id="searchClient"></a>
 	</div>

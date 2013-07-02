@@ -71,10 +71,10 @@ class Equipo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idEquipo' => 'K Id Equipo',
-			'n_nombreEquipo' => 'N Nombre Equipo',
-			'k_idCliente' => 'K Id Cliente',
-			'k_idEspecificacion' => 'K Id Especificacion',
+			'k_idEquipo' => 'Id Equipo',
+			'n_nombreEquipo' => 'Nombre Equipo',
+			'k_idCliente' => 'Cliente',
+			'k_idEspecificacion' => 'Especificacion',
 		);
 	}
 

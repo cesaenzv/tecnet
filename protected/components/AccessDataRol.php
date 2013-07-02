@@ -87,8 +87,8 @@ class AccessDataRol {
                                             'visible'=>!Yii::app()->user->isGuest);
                 }
                 $tasks= Authitemchild::model()->findAll("parent='".$rol."'");
-                $menuDenied= array('Administrar Especificaciones');
-                $operationsDenied = array('Update','View','Delete','Index','asignaservicio','asignService','GetServiciosGrid');
+                $menuDenied= array('Administrar Especificaciones','Administrar Equipo','Paquete Mantenimiento');
+                $operationsDenied = array('Update','View','Delete','Index','asignaservicio','asignService','GetServiciosGrid','SearchClient');
                 foreach ($tasks as $task){
                     $operations = Authitemchild::model()->findAll("parent='".$task->child."'");
                     $labelParent = str_replace( ".*", "",$task->child);

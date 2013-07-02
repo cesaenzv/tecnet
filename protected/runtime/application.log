@@ -7250,3 +7250,86 @@ Stack trace:
 REQUEST_URI=/tecnet/producto/asignaServicio
 in C:\xampp\htdocs\tecnet\protected\controllers\ProductoController.php (89)
 in C:\xampp\htdocs\tecnet\index.php (13)
+2013/07/02 05:43:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "giirden/admin"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('giirden/admin')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/giirden/admin
+---
+2013/07/02 05:45:13 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). La sentencia SQL ejecutada fue: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0).
+in C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php (53)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/07/02 05:45:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). The SQL statement executed was: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0)' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php(53): CActiveRecord->save()
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/create')
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/tecnet/orden/create
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/07/02 05:52:30 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). La sentencia SQL ejecutada fue: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0).
+in C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php (53)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/07/02 05:52:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). The SQL statement executed was: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0)' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php(53): CActiveRecord->save()
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/create')
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/tecnet/orden/create
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---
+2013/07/02 06:02:35 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). La sentencia SQL ejecutada fue: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0).
+in C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php (53)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/07/02 06:02:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`tecnet`.`orden`, CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`k_idUsuario`) REFERENCES `users` (`id`) ON DELETE CASCADE). The SQL statement executed was: INSERT INTO `orden` (`k_idUsuario`) VALUES (:yp0)' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php(53): CActiveRecord->save()
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('orden/create')
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/tecnet/orden/create
+HTTP_REFERER=http://localhost/tecnet/orden/create
+---

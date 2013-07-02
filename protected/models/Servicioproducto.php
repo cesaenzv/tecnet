@@ -61,9 +61,9 @@ class Servicioproducto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_servicio' => 'K Servicio',
-			'k_producto' => 'K Producto',
-			'q_costo' => 'Q Costo',
+			'k_servicio' => 'Servicio',
+			'k_producto' => 'Producto',
+			'q_costo' => 'Costo',
 		);
 	}
 

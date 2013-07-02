@@ -7,6 +7,10 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
+$this->menu=array(
+	array('label'=>'List Proceso', 'url'=>array('index')),
+	array('label'=>'Manage Proceso', 'url'=>array('admin')),
+);
 ?>
 
 <h1>Create Proceso</h1>
