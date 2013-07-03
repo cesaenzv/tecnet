@@ -49,8 +49,6 @@ class ServicioController extends Controller {
         $producto = array(  'model'=> new Producto,
                             'list' => $listProducto);
 
-        var_dump($producto['list']);
-
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 

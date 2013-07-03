@@ -2,12 +2,17 @@
 /* @var $this OrdenController */
 /* @var $model Orden */
 /* @var $form CActiveForm */
+
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js');
+
+echo $this->renderPartial('_clientTemplate');
 ?>
 <script type="text/javascript">
 	
 	var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>'
 	
 </script>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -32,6 +37,8 @@
 		</select>
 		<a id="searchClient"></a>
 	</div>
+
+	<div id="clientData"></div>
 
 	<div id="equiposGrid">
 

@@ -44,18 +44,27 @@ class EspecificacionController extends Controller {
      */
     public function actionCreate() {
         $model = new Especificacion;
+        $marca = array();
+        $marca['model'] = new Marca;
+        $marca['list'] = Marca::model()->findAll();
+        $tipoEquipo = array();
+        $tipoEquipo['model'] = new Tipoequipo;
+        $tipoEquipo['list'] = Tipoequipo::model()->findAll();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
-        if (isset($_POST['Especificacion'])) {
+        if (isset($_POST['Especificacion']) && isset($_POST['Tipoequipo']) && isset($_POST['Marca'])) {
             $model->attributes = $_POST['Especificacion'];
+            $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
+            $model->k_idMarca = $_POST['Marca']["k_idMarca"];
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_especificacion));
         }
 
         $this->render('create', array(
             'model' => $model,
+            'tipoEquipo' =>$tipoEquipo,
+            'marca' => $marca
         ));
     }
 

@@ -33,7 +33,6 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 	</div>
 
 	<?php
-		var_dump($marca['list']);
 		echo $form->labelEx($marca['model'],'n_nombreMarca'); 
 		$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'marca',
@@ -58,7 +57,6 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 	?>
 
 	<?php
-		var_dump($tipoEquipo['list']); 
 		echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
 		$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
 		    'name'=>'tipoequipo',

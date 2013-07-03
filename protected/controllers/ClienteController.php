@@ -159,18 +159,18 @@ class ClienteController extends Controller
 
 	public function actionSearchClient(){		
 		$Criteria = new CDbCriteria(); 
-        $Criteria->condition = "k_identificacion = '".$_GET['doc']."'";
+        $Criteria->condition = "k_identificacion = ".$_GET['doc']." AND i_nit = '".$_GET['typeDoc']."'";
         $client = Cliente::model()->find($Criteria);
         $data = array();
-        if($client){
+        if(count($client)>0){
         	$data["cliente"] = $client->attributes;
-        	$Criteria->condition = "k_idCliente = '".$_GET['doc']."'";
+        	$Criteria->condition = "k_idCliente = ".$_GET['doc'];
         	$equipos = Equipo::model()->findAll($Criteria);
-        	if($equipos){
+        	if(count($equipos)>0){
         		$data["equipos"] = array();        		
         		foreach($equipos as $equipo)
 				{
-				    $data[] = $equipo->attributes;
+				    $data["equipos"][] = $equipo->attributes;
 				}
         	}else{
         		$data["equipos"] = null;
