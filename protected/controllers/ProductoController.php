@@ -110,9 +110,10 @@ class ProductoController extends Controller {
                     ),
                 ));
         $ro=isset($_POST['rows'])?$_POST['rows']:1;
+        $response =  new stdClass();
         $response->page = $_POST['page'];
         $response->records = $dataProvider->getTotalItemCount();
-        $response->total = ceil($responce->records / $ro);
+        $response->total = ceil($response->records / $ro);
         $rows = $dataProvider->getData();
         foreach ($rows as $i => $row) {
             $response->rows[$i]['id'] = $row['k_producto'];

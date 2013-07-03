@@ -9,6 +9,7 @@ var equipoModule = (function(){
 	},setUrl = function(val){
 		url = val;
 	},getReferences = function(){
+		console.log("getReferences");
 		if (marca !== null && tipoEquipo !==null){
 			if ($("#especificacionInput").autocomplete()){
 				$("#especificacionInput").autocomplete('destroy');	

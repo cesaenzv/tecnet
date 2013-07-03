@@ -3,7 +3,7 @@
 /* @var $model Orden */
 /* @var $form CActiveForm */
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js');
+
 
 echo $this->renderPartial('_clientTemplate');
 ?>
@@ -40,9 +40,8 @@ echo $this->renderPartial('_clientTemplate');
 
 	<div id="clientData"></div>
 
-	<div id="equiposGrid">
-
-	</div>
+	<table id="equiposGrid"></table>	
+	<div id="pagerEquipo"></div>
 
 	
 

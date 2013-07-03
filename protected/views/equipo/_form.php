@@ -92,7 +92,3 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
-
-<?php 	
-	Yii::app()->clientScript->registerCoreScript('jquery');	
-?>

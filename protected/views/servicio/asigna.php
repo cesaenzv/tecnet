@@ -20,9 +20,9 @@
                 mtype: "POST",
                 colNames: ["Servicio", "Producto", "Costo"],
                 colModel: [
-                    { name: "k_servicio", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}, editoptions: { value: <?php echo json_encode($servicios); ?>} },
-                    { name: "k_producto", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}, editoptions: { value: <?php echo json_encode($productos); ?> } },
-                    { name: "q_costo", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true} },
+                    { name: "servicio", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}, editoptions: { value: <?php echo json_encode($servicios); ?>} },
+                    { name: "producto", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}, editoptions: { value: <?php echo json_encode($productos); ?> } },
+                    { name: "costo", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true} },
                 ],
                 pager: "#pager<?php echo $model->k_idServicio ?>",
                 rowNum: 10,

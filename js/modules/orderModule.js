@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	var orderModule = (function(){
-		var btnSearchClient, docClient, typeDocument, gridEquipos, plantillaClient,clientData;
+		var btnSearchClient, docClient, typeDocument, equiposGrid, plantillaClient,clientData;
 		var init = function(config){
 			clientData = config.clientData;
 			plantillaClient = $("#clientTemplate");
@@ -43,28 +43,41 @@ $(document).ready(function() {
 			clientData.html(contenido);
 		},
 		createEquipoGrid = function(equipos){
-			// gridEquipos.jqGrid({
-			// 	datatype: "json",
-			// 	colNames: ["ID", "Nombre","Especificación","Estado"],
-   //              colModel: [
-   //              	{ name: "id", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true},
-   //                  { name: "nombre", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true},
-   //                  { name: "especificacion", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true},
-   //                  { name: "estado", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}
-   //              ],
-			// 	rowNum: 20,
-   //  			rowList: [10, 20, 30],
-   //  			sortname: "k_idEquipo",
-   //  			sortorder: "desc",
-   //              viewrecords: true,
-   //              gridview: true,
-   //              afterSubmit:function(data,postd){
-   //                  console.log(data);
-   //                  console.log(postd);
-   //                  return {0:true};
-   //              },
-   //              autoencode: true,               
-			// });
+			equiposGrid.jqGrid({
+				data:equipos !== null ? equipos:"{}",
+				datatype: "json",
+				colNames: ["ID", "Nombre","Especificación","Estado"],
+                colModel: [
+                	{ name: "id", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}},
+                    { name: "nombre", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}},
+                    { name: "especificacion", width: 200,editable:true,hidden:false, edittype: "select", editrules:{edithidden:true, required:true}},
+                    { name: "estado", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}}
+                ],
+				rowNum: 20,
+    			rowList: [10, 20, 30],
+    			sortname: "k_idEquipo",
+    			sortorder: "desc",
+                viewrecords: true,
+                gridview: true,
+                afterSubmit:function(data,postd){
+                    console.log(data);
+                    console.log(postd);
+                    return {0:true};
+                },
+                autoencode: true,
+                caption: "Equipos"               
+			}).navGrid('#pagerEquipo', {
+                edit : true,
+                add : true,
+                del : true,
+                search :false,
+                closeAfterEdit: true,
+                closeAfterAdd:true,
+                afterComplete : function(response, postdata)
+                {
+                    alert("asdf");
+                } 
+            });
 		};
 		return {
 			init:init
@@ -75,7 +88,7 @@ $(document).ready(function() {
 		btnSearchClient:$("#searchClient"),
 		docClient:$("#Orden_k_idUsuario"),
 		typeDocument:$("#typeDocument"),
-		gridEquipos:$("#equiposGrid"),
+		equiposGrid:$("#equiposGrid"),
 		clientData:$("#clientData")
 	});	
 });
