@@ -49,14 +49,14 @@ $(document).ready(function() {
             equiposGrid.jqGrid({
                 data:equipos !== null ? equipos:"{}",
                 datatype: "json",
-                colNames: ["ID", "Nombre","Especificación","Estado"],
+				colNames: ["ID", "Nombre","Especificación","Estado","Servicio","Estado"],
                 colModel: [
                     {
                         name: "id", 
                         width: 200,
-                        editable:true,
-                        hidden:false, 
-                        edittype: "select", 
+                    { name: "estado", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}},
+                    { name: "servicio", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}},
+                    { name: "tecnico", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}}
                         editrules:{
                             edithidden:true, 
                             required:true
