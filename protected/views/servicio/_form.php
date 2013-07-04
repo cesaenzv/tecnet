@@ -2,6 +2,7 @@
 /* @var $this ServicioController */
 /* @var $model Servicio */
 /* @var $form CActiveForm */
+
 ?>
 
 <div class="form">

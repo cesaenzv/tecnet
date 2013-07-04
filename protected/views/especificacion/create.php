@@ -11,4 +11,4 @@ $this->breadcrumbs=array(
 
 <h1>Create Especificacion</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'producto'=>$producto)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'tipoEquipo'=>$tipoEquipo, 'marca'=>$marca)); ?>

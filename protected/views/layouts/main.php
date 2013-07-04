@@ -15,11 +15,17 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/Styles.css" />
-        <!--JQUERY GRID DOCUMENTS-->
-        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-1.10.3.custom.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo Yii::app()->request->baseUrl; ?>/plugins/jqGryd/css/ui.jqgrid.css" />
-        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/i18n/grid.locale-es.js'); ?>
-        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/plugins/jqGryd/js/jquery.jqGrid.min.js'); ?>
+        <?php
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js'); 
+            Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/fancybox/jquery.fancybox.css?v=2.1.5');
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.fancybox.js?v=2.1.5', CClientScript::POS_HEAD);
+            Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/ui.jqgrid.css');
+            Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
+            Yii::app()->clientScript->registerScriptFile('http://code.jquery.com/ui/1.10.3/jquery-ui.js', CClientScript::POS_HEAD);
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/grid.locale-es.js', CClientScript::POS_HEAD);
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.jqGrid.src.js', CClientScript::POS_HEAD);
+            
+        ?>
 
 
 

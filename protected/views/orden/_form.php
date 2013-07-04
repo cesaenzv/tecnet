@@ -2,12 +2,17 @@
 /* @var $this OrdenController */
 /* @var $model Orden */
 /* @var $form CActiveForm */
+
+
+
+echo $this->renderPartial('_clientTemplate');
 ?>
 <script type="text/javascript">
 	
 	var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>'
 	
 </script>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -33,9 +38,10 @@
 		<a id="searchClient"></a>
 	</div>
 
-	<div id="equiposGrid">
+	<div id="clientData"></div>
 
-	</div>
+	<table id="equiposGrid"></table>	
+	<div id="pagerEquipo"></div>
 
 	
 
