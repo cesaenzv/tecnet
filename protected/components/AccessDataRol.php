@@ -2,7 +2,7 @@
 
 class AccessDataRol {
 
-    private function getRolesName(){
+    public function getRolesName(){
         $roles = Rights::getAssignedRoles(Yii::app()->user->Id);
         return array_keys($roles);
     }

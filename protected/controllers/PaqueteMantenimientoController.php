@@ -27,7 +27,7 @@ class PaqueteMantenimientoController extends Controller
 	public function accessRules()
 	{
 		$accessRules=new AccessDataRol();
-            return $accessRules->getAccessRules("cliente");
+            return $accessRules->getAccessRules("paquetemantenimiento");
 	}
 
 	/**
@@ -157,28 +157,25 @@ class PaqueteMantenimientoController extends Controller
 		}
 	}
 
-	public function actionSearchClient(){		
-		$Criteria = new CDbCriteria(); 
-        $Criteria->condition = "k_identificacion = '".$_GET['doc']."'";
-        $client = Cliente::model()->find($Criteria);
-        $data = array();
-        if($client){
-        	$data["cliente"] = $client->attributes;
-        	$Criteria->condition = "k_idCliente = '".$_GET['doc']."'";
-        	$equipos = Equipo::model()->findAll($Criteria);
-        	if($equipos){
-        		$data["equipos"] = array();        		
-        		foreach($equipos as $equipo)
-				{
-				    $data[] = $equipo->attributes;
-				}
-        	}else{
-        		$data["equipos"] = null;
-        	}        		
-        }else{
-        	$data["cliente"] = null;
-        	$data["equipos"] = null;	
-        }        
-        echo CJavaScript::jsonEncode($data);
+	public function actionTratar(){
+		$userId =Yii::app()->user->Id;
+		$roles = array_keys(Rights::getAssignedRoles($userId));
+		$typeTec = null;
+        foreach ($roles as $rol) {
+        	if($rol == 'Tecnico Mantenimiento'){
+        		$typeTec = "TM";
+        	}else if($rol == 'Tecnico Recarga'){
+        		$typeTec = "TR";
+        	}
+        }
+        $Criteria = new CDbCriteria(); 
+        $Criteria->condition = "k_idCreador = ".$userId;|
+
+        $procesos = Proceso::model()->findAll($criteria);
+        
+		$this->render('tratarPaquetes',array(
+			'typeTec'=>$typeTec
+		));
 	}
+	
 }
