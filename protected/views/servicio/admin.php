@@ -51,6 +51,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'k_idServicio',
         'n_nomServicio',
         'v_costoServicio',
+        'v_costoServicioTecnico',
         array(
             'class' => 'CButtonColumn',
             'template' => '{view} {update} {delete} {asign}',

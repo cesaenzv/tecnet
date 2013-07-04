@@ -1,24 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "servicio".
+ * This is the model class for table "duracion".
  *
- * The followings are the available columns in table 'servicio':
- * @property integer $k_idServicio
- * @property string $n_nomServicio
- * @property integer $v_costoServicio
+ * The followings are the available columns in table 'duracion':
+ * @property integer $k_idDuracion
+ * @property string $f_inicio
+ * @property string $f_fin
+ * @property integer $fk_idProceso
  *
  * The followings are the available model relations:
- * @property Procesoservicio[] $procesoservicios
- * @property Producto[] $productos
- * @property Tipoequipo[] $tipoequipos
+ * @property Proceso $fkIdProceso
  */
-class Servicio extends CActiveRecord
+class Duracion extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Servicio the static model class
+	 * @return Duracion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -30,7 +29,7 @@ class Servicio extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'servicio';
+		return 'duracion';
 	}
 
 	/**
@@ -41,13 +40,12 @@ class Servicio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('n_nomServicio, v_costoServicio,v_costoServicioTecnico', 'required'),
-			array('n_nomServicio', 'unique'),
-			array('v_costoServicio,v_costoServicioTecnico', 'numerical', 'integerOnly'=>true),
-			array('n_nomServicio', 'length', 'max'=>50),
+			array('f_inicio, fk_idProceso', 'required'),
+			array('fk_idProceso', 'numerical', 'integerOnly'=>true),
+			array('f_fin', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idServicio, n_nomServicio, v_costoServicio,v_costoServicioTecnico', 'safe', 'on'=>'search'),
+			array('k_idDuracion, f_inicio, f_fin, fk_idProceso', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,9 +57,7 @@ class Servicio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'procesoservicios' => array(self::HAS_MANY, 'Procesoservicio', 'k_idServicio'),
-			'productos' => array(self::MANY_MANY, 'Producto', 'servicioproducto(k_servicio, k_producto)'),
-			'tipoequipos' => array(self::MANY_MANY, 'Tipoequipo', 'serviciotipoequipo(k_idServicio, k_idTipoEquipo)'),
+			'fkIdProceso' => array(self::BELONGS_TO, 'Proceso', 'fk_idProceso'),
 		);
 	}
 
@@ -71,10 +67,10 @@ class Servicio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idServicio' => 'Id Servicio',
-			'n_nomServicio' => 'Servicio',
-			'v_costoServicio' => 'Costo al público',
-			'v_costoServicioTecnico' => 'Costo del tecnico',
+			'k_idDuracion' => 'K Id Duracion',
+			'f_inicio' => 'F Inicio',
+			'f_fin' => 'F Fin',
+			'fk_idProceso' => 'Fk Id Proceso',
 		);
 	}
 
@@ -89,10 +85,10 @@ class Servicio extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('k_idServicio',$this->k_idServicio);
-		$criteria->compare('n_nomServicio',$this->n_nomServicio,true);
-		$criteria->compare('v_costoServicio',$this->v_costoServicio);
-		$criteria->compare('v_costoServicioTecnico',$this->v_costoServicioTecnico);
+		$criteria->compare('k_idDuracion',$this->k_idDuracion);
+		$criteria->compare('f_inicio',$this->f_inicio,true);
+		$criteria->compare('f_fin',$this->f_fin,true);
+		$criteria->compare('fk_idProceso',$this->fk_idProceso);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

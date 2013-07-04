@@ -43,7 +43,7 @@ class Equipo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('n_nombreEquipo, k_idCliente, k_idEspecificacion', 'required'),
-			array('k_idCliente', 'numerical', 'integerOnly'=>true),
+			array('k_idEquipo, k_idCliente', 'numerical', 'integerOnly'=>true),
 			array('n_nombreEquipo, k_idEspecificacion', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -75,6 +75,7 @@ class Equipo extends CActiveRecord
 			'n_nombreEquipo' => 'Nombre Equipo',
 			'k_idCliente' => 'Cliente',
 			'k_idEspecificacion' => 'Especificacion',
+			'i_inhouse' => 'En Tecnet',
 		);
 	}
 
@@ -93,6 +94,7 @@ class Equipo extends CActiveRecord
 		$criteria->compare('n_nombreEquipo',$this->n_nombreEquipo,true);
 		$criteria->compare('k_idCliente',$this->k_idCliente);
 		$criteria->compare('k_idEspecificacion',$this->k_idEspecificacion,true);
+		$criteria->compare('i_inhouse',$this->i_inhouse,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

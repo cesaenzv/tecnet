@@ -25,6 +25,11 @@
 		<?php echo $form->label($model,'v_costoServicio'); ?>
 		<?php echo $form->textField($model,'v_costoServicio'); ?>
 	</div>
+	
+        <div class="row">
+		<?php echo $form->label($model,'v_costoServicioTecnico'); ?>
+		<?php echo $form->textField($model,'v_costoServicioTecnico'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
