@@ -43,12 +43,12 @@ class Proceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idCreador, fk_idEstado', 'required'),
-			array('k_idCreador, fk_idEstado, o_flagLeido', 'numerical', 'integerOnly'=>true),
+			array('k_idTecnico, fk_idEstado', 'required'),
+			array('k_idTecnico, fk_idEstado, o_flagLeido', 'numerical', 'integerOnly'=>true),
 			array('n_descripcion', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idProceso, k_idCreador, fk_idEstado, n_descripcion, o_flagLeido', 'safe', 'on'=>'search'),
+			array('k_idProceso, k_idTecnico, fk_idEstado, n_descripcion, o_flagLeido', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +61,7 @@ class Proceso extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'paquetematenimientos' => array(self::HAS_MANY, 'Paquetematenimiento', 'k_idProceso'),
-			'kIdCreador' => array(self::BELONGS_TO, 'Users', 'k_idCreador'),
+			'kIdCreador' => array(self::BELONGS_TO, 'Users', 'k_idTecnico'),
 			'fkIdEstado' => array(self::BELONGS_TO, 'Estados', 'fk_idEstado'),
 		);
 	}
@@ -72,11 +72,11 @@ class Proceso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idProceso' => 'K Id Proceso',
-			'k_idCreador' => 'K Id Creador',
-			'fk_idEstado' => 'Fk Id Estado',
-			'n_descripcion' => 'N Descripcion',
-			'o_flagLeido' => 'O Flag Leido',
+			'k_idProceso' => 'Proceso',
+			'k_idTecnico' => 'Tecnico',
+			'fk_idEstado' => 'Estado',
+			'n_descripcion' => 'Descripcion',
+			'o_flagLeido' => 'Leido',
 		);
 	}
 
@@ -92,7 +92,7 @@ class Proceso extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('k_idProceso',$this->k_idProceso);
-		$criteria->compare('k_idCreador',$this->k_idCreador);
+		$criteria->compare('k_idTecnico',$this->k_idTecnico);
 		$criteria->compare('fk_idEstado',$this->fk_idEstado);
 		$criteria->compare('n_descripcion',$this->n_descripcion,true);
 		$criteria->compare('o_flagLeido',$this->o_flagLeido);

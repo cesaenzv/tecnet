@@ -32,11 +32,6 @@
                 sortorder: "desc",
                 viewrecords: true,
                 gridview: true,
-                afterSubmit:function(data,postd){
-                    console.log(data);
-                    console.log(postd);
-                    return {0:true};
-                },
                 autoencode: true,
                 caption: "Asigna Productos al servicio \"<?php echo $model->n_nomServicio; ?>\""
             });

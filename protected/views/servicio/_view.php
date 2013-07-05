@@ -16,6 +16,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('v_costoServicio')); ?>:</b>
 	<?php echo CHtml::encode($data->v_costoServicio); ?>
 	<br />
+	
+        <b><?php echo CHtml::encode($data->getAttributeLabel('v_costoServicioTecnico')); ?>:</b>
+	<?php echo CHtml::encode($data->v_costoServicioTecnico); ?>
+	<br />
 
 
 </div>

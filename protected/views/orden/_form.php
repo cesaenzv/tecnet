@@ -41,7 +41,7 @@ echo $this->renderPartial('_clientTemplate');
 	<div id="clientData"></div>
 
 	<table id="equiposGrid"></table>	
-	<div id="pagerEquipo"></div>
+	<div id="pagerEquipoGrid"></div>
 
 	
 

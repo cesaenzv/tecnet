@@ -29,6 +29,12 @@
         <?php echo $form->textField($model, 'v_costoServicio'); ?>
         <?php echo $form->error($model, 'v_costoServicio'); ?>
     </div>
+    
+    <div class="row">
+        <?php echo $form->labelEx($model, 'v_costoServicioTecnico'); ?>
+        <?php echo $form->textField($model, 'v_costoServicioTecnico'); ?>
+        <?php echo $form->error($model, 'v_costoServicioTecnico'); ?>
+    </div>
 
     <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
