@@ -169,13 +169,44 @@ class PaqueteMantenimientoController extends Controller
         	}
         }
         $Criteria = new CDbCriteria(); 
-        $Criteria->condition = "k_idCreador = ".$userId;|
+        $Criteria->condition = "k_idTecnico = ".$userId;
 
-        $procesos = Proceso::model()->findAll($criteria);
-        
-		$this->render('tratarPaquetes',array(
-			'typeTec'=>$typeTec
-		));
+        $procesos = Proceso::model()->with(array('fkIdEstado'=>array(
+										        // we don't want to select posts
+										        'select'=>false,
+										        // but want to get only users with published posts
+										        'joinType'=>'INNER JOIN',
+										        'condition'=>"fkIdEstado.n_nombreEstado like 'Ingresado'",
+										    )))->findAll($Criteria);
+        if(count($procesos)>0){
+        	foreach ($procesos as $i=>$proceso) {
+        		$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
+        		$procesos[$i]= new stdClass;
+        		$procesos[$i]->atributos = new stdClass;
+        		$procesos[$i]->atributos->proceso = $proceso->attributes;
+        		$temp = Usuario::model()->find($proceso->k_idTecnico);
+        		$procesos[$i]->atributos->tecnico = $temp->attributes;
+        		$temp = Estado::model()->find($proceso->fk_idEstado);
+        		$procesos[$i]->atributos->estado = $temp->attributes;
+        		$procesos[$i]->Paquetematenimiento = Paquetematenimiento::model()->findAll($Criteria);
+        		if(count($procesos[$i]->Paquetematenimiento)>0){
+	        		foreach ($procesos[$i]->Paquetematenimiento as $i => $temp) {
+	        			$procesos[$i]->Paquetematenimiento[$i] = $temp->attributes;
+	        		}
+        		}else{
+        			$procesos[$i]->Paquetematenimiento = null;
+        		} 		
+        	}
+        	$this->render('tratarPaquetes',array(
+				'typeTec'=>$typeTec,
+				'procesos'=>$procesos
+			));
+        }else{
+        	$this->render('tratarPaquetes',array(
+				'typeTec'=>$typeTec,
+				'procesos'=>null
+			));
+        }       	
 	}
 	
 }

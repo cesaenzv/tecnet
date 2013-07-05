@@ -8,11 +8,11 @@ $(document).ready(function() {
             btnSearchClient = config.btnSearchClient;
             docClient = config.docClient;
             typeDocument = config.typeDocument;
-            equiposGrid = config.equiposGrid;			
+            equiposGrid = config.equiposGrid;           
             bindEvents();
         },
         bindEvents = function(){
-            btnSearchClient.click(function(){			
+            btnSearchClient.click(function(){           
                 findClient();
             });
         },
@@ -31,7 +31,7 @@ $(document).ready(function() {
                         createEquipoGrid(data.equipos);
                     }else{
                         alert("Crear cliente");
-                        alert("Mostrar Grilla Vacia");
+                        createEquipoGrid(data.equipos);
                     }
                 },
                 error:function(){
@@ -39,8 +39,7 @@ $(document).ready(function() {
                 }
             });
         },
-        showClienteData = function(client){
-            console.log(client);
+        showClienteData = function(client){            
             var template = Handlebars.compile(plantillaClient.html());
             var contenido = template(client);
             clientData.html(contenido);
@@ -49,14 +48,11 @@ $(document).ready(function() {
             equiposGrid.jqGrid({
                 data:equipos !== null ? equipos:"{}",
                 datatype: "json",
-				colNames: ["ID", "Nombre","Especificación","Estado","Servicio","Estado"],
+                colNames: ["ID", "Nombre","Especificación","Estado"],
                 colModel: [
                     {
                         name: "id", 
-                        width: 200,
-                    { name: "estado", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}},
-                    { name: "servicio", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}},
-                    { name: "tecnico", width: 100, align: "right",editable:true,hidden:false,editrules:{edithidden:true, required:true}}
+                        width: 200,                    
                         editrules:{
                             edithidden:true, 
                             required:true
@@ -133,5 +129,5 @@ $(document).ready(function() {
         typeDocument:$("#typeDocument"),
         equiposGrid:$("#equiposGrid"),
         clientData:$("#clientData")
-    });	
+    }); 
 });
