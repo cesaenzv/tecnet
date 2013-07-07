@@ -5,15 +5,17 @@
  *
  * The followings are the available columns in table 'proceso':
  * @property integer $k_idProceso
- * @property integer $k_idCreador
+ * @property integer $k_idTecnico
  * @property integer $fk_idEstado
  * @property string $n_descripcion
  * @property integer $o_flagLeido
+ * @property integer $fk_idPaqueteManenimiento
  *
  * The followings are the available model relations:
- * @property Paquetematenimiento[] $paquetematenimientos
- * @property Users $kIdCreador
+ * @property Duracion[] $duracions
  * @property Estados $fkIdEstado
+ * @property Users $kIdTecnico
+ * @property Paquetematenimiento $fkIdPaqueteManenimiento
  */
 class Proceso extends CActiveRecord
 {
@@ -43,12 +45,12 @@ class Proceso extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idTecnico, fk_idEstado', 'required'),
-			array('k_idTecnico, fk_idEstado, o_flagLeido', 'numerical', 'integerOnly'=>true),
+			array('k_idTecnico, fk_idEstado, fk_idPaqueteManenimiento', 'required'),
+			array('k_idTecnico, fk_idEstado, o_flagLeido, fk_idPaqueteManenimiento', 'numerical', 'integerOnly'=>true),
 			array('n_descripcion', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idProceso, k_idTecnico, fk_idEstado, n_descripcion, o_flagLeido', 'safe', 'on'=>'search'),
+			array('k_idProceso, k_idTecnico, fk_idEstado, n_descripcion, o_flagLeido, fk_idPaqueteManenimiento', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,9 +62,10 @@ class Proceso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'paquetematenimientos' => array(self::HAS_MANY, 'Paquetematenimiento', 'k_idProceso'),
-			'kIdCreador' => array(self::BELONGS_TO, 'Users', 'k_idTecnico'),
+			'duracions' => array(self::HAS_MANY, 'Duracion', 'fk_idProceso'),
 			'fkIdEstado' => array(self::BELONGS_TO, 'Estados', 'fk_idEstado'),
+			'kIdTecnico' => array(self::BELONGS_TO, 'Users', 'k_idTecnico'),
+			'fkIdPaqueteManenimiento' => array(self::BELONGS_TO, 'Paquetematenimiento', 'fk_idPaqueteManenimiento'),
 		);
 	}
 
@@ -72,11 +75,12 @@ class Proceso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idProceso' => 'Proceso',
-			'k_idTecnico' => 'Tecnico',
-			'fk_idEstado' => 'Estado',
-			'n_descripcion' => 'Descripcion',
-			'o_flagLeido' => 'Leido',
+			'k_idProceso' => 'K Id Proceso',
+			'k_idTecnico' => 'K Id Tecnico',
+			'fk_idEstado' => 'Fk Id Estado',
+			'n_descripcion' => 'N Descripcion',
+			'o_flagLeido' => 'O Flag Leido',
+			'fk_idPaqueteManenimiento' => 'Fk Id Paquete Manenimiento',
 		);
 	}
 
@@ -96,6 +100,7 @@ class Proceso extends CActiveRecord
 		$criteria->compare('fk_idEstado',$this->fk_idEstado);
 		$criteria->compare('n_descripcion',$this->n_descripcion,true);
 		$criteria->compare('o_flagLeido',$this->o_flagLeido);
+		$criteria->compare('fk_idPaqueteManenimiento',$this->fk_idPaqueteManenimiento);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
