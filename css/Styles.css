@@ -39,25 +39,29 @@
 	font-size: 1.1em;
 }
 
-#paquetesM .paqM, #paquetesM .paqR{
+#paquetesM > div{
 	margin:0.3em;
 	border-bottom: 1px solid #2d444f;
 }
 
-#paquetesM .paqM span, #paquetesM .paqR span{
+#paquetesM > div span{
 	position: relative;
 	width: 30%;
 	display: inline-block;
 	margin-top: 0.3em;
 }
 
-#paquetesM .paqM label, #paquetesM .paqR label{
+#paquetesM > div label{
 	font-weight: 800;
 	color:#666e73;
 	margin:0 0.3em;
 }
 
-#paquetesM .paqM h3, #paquetesM .paqR h3{
+#paquetesM > div p{
+	margin:0.1em 0.3em;
+}
+
+#paquetesM > div h3{
 	background-color: #666e73;
 	margin-bottom: 0.5em;
 	color: white;
@@ -65,13 +69,13 @@
 	width: 40%;
 }
 
-#paquetesM .paqM .especificaciones, #paquetesM .paqR .especificaciones{
+#paquetesM > div .especificaciones{
 	margin: 0.5em;
 	padding: 0.3em;
 	box-shadow: 0px 0px 2px 1px gray
 }
 
-#paquetesM .paqM .especificaciones h4, #paquetesM .paqR .especificaciones h4{
+#paquetesM > div .especificaciones h4{
 	margin: 0 !important;
 	color: #2d444f;
 	font-weight: 600;
@@ -79,6 +83,17 @@
 	border-bottom: 1px solid gray;
 }
 
-#paquetesM .paqM .botones, , #paquetesM .paqR .botones{
+#paquetesM > div .botones{
 	margin: 1em;
+}
+
+.paqR .btn{
+	display: inline-block;
+	text-indent: -9999px;
+	height: 2em;
+	width: 2em;
+	margin:0.2em;
+}
+.paqR .playTimer{
+	background: url(../img/playBtn.png) no-repeat center;
 }

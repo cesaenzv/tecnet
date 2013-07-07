@@ -184,9 +184,11 @@ class PaqueteMantenimientoController extends Controller
         		$procesos[$i]->objetos->proceso = $proceso->attributes;
         		$temp = Estados::model()->find($proceso->fk_idEstado);
         		$procesos[$i]->objetos->estado = $temp->attributes;
-        		$procesos[$i]->paqueteMnt = Paquetematenimiento::model()->find($Criteria);
-        		if(count($procesos[$i]->paqueteMnt)>0){	
-        			$Criteria->condition = "k_idEquipo = ".$procesos[$i]->paqueteMnt->k_idEquipo;
+        		$Criteria->condition = "k_idPaquete = ".$temp->fk_idPaqueteMantenimiento;
+        		$temp = Paquetematenimiento::model()->find($Criteria);        		
+        		if(count($temp)>0){	
+        			$procesos[$i]->objetos->paqueteMnt = $temp->attributes;
+        			$Criteria->condition = "k_idEquipo = ".$temp->k_idEquipo;
         			$equipo = Equipo::model()->with("kIdEspecificacion")->find($Criteria);
         			$temp = Especificacion::model()->find($equipo->k_idEspecificacion);        			
         			$tempM =Marca::model()->find($temp->k_idMarca);
@@ -195,7 +197,6 @@ class PaqueteMantenimientoController extends Controller
         			$temp->k_idTipoEquipo= $tempTE->attributes;
         			$procesos[$i]->objetos->especificacion = $temp->attributes;
         			$procesos[$i]->objetos->equipo = $equipo->attributes;
-        			$procesos[$i]->objetos->paqueteMnt= $procesos[$i]->paqueteMnt->attributes;
         		}else{
         			$procesos[$i]->Paquetematenimiento = null;
         		} 		

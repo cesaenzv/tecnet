@@ -5,12 +5,12 @@
 			$objetos = $proceso->objetos;
 			$paquetesMnt = $proceso->objetos->paqueteMnt;
 	?>
-		<div class="paqM">
+		<div class="paqR">
 			<h3><strong>PAQUETE <?php echo $paquetesMnt["k_idPaquete"];?></strong></h3>
 			<!-- valores ha pasar para el tratado -->
-			<input type=hidden name='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"];?>/>
-			<input type=hidden name='idProceso' value=<?php echo $objetos->proceso["k_idProceso"];?>/>
-			<input type=hidden name='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"];?>/>
+			<input type=hidden name='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"];?> />
+			<input type=hidden name='idProceso' value=<?php echo $objetos->proceso["k_idProceso"];?> />
+			<input type=hidden name='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"];?> />
 
 			<span><label>DESCRIPCION: </label><?php echo $objetos->proceso["n_descripcion"];?></span>			
 			<span><label>NOMBRE EQUIPO: </label><?php echo $objetos->equipo["n_nombreEquipo"];?></span>
@@ -22,7 +22,7 @@
 				<span><label>REFERENCIA :</label><?php echo $objetos->especificacion["n_nombreEspecificacion"];?></span>
 			</div>
 			<div class="botones">
-				<button class="btnTratarPM">Tratar</button>
+				<a href="" class="playTimer btn" id="btnPlay">PLAY</a>
 				<button class="btnRetornar">Retornar</button>
 			</div>			
 		</div>

@@ -148,4 +148,11 @@ class ServicioController extends Controller {
         }
     }
 
+    public function GetServicioProcesos(){
+        $_POST["idEquipo"],$_POST["idProceso"],$_POST["idPaquete"]
+
+        
+
+    }
+
 }

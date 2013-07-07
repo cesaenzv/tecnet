@@ -1,3 +1,10 @@
+<?php 	
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/modules/mantenimientoModule.js', CClientScript::POS_HEAD);
+?>
+<script type="text/javascript">
+	var getServiciosPaqUrl = '<?php echo Yii::app()->createAbsoluteUrl("Servicio/GetServicioProcesos"); ?>';
+</script>
+
 <div id="paquetesM">
 	<?php
 	if(isset($procesos)){ 
@@ -5,14 +12,14 @@
 			$objetos = $proceso->objetos;
 			$paquetesMnt = $proceso->objetos->paqueteMnt;
 	?>
-		<div class="paqR">
+		<div class="paqM">
 			<h3><strong>PAQUETE <?php echo $paquetesMnt["k_idPaquete"];?></strong></h3>
 			<!-- valores ha pasar para el tratado -->
-			<input type=hidden name='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"];?>/>
-			<input type=hidden name='idProceso' value=<?php echo $objetos->proceso["k_idProceso"];?>/>
-			<input type=hidden name='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"];?>/>
+			<input type=hidden id='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"];?> />
+			<input type=hidden id='idProceso' value=<?php echo $objetos->proceso["k_idProceso"];?> />
+			<input type=hidden id='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"];?> />
 
-			<span><label>DESCRIPCION: </label><?php echo $objetos->proceso["n_descripcion"];?></span>			
+			<label>DESCRIPCION: </label><p><?php echo $objetos->proceso["n_descripcion"];?></p>
 			<span><label>NOMBRE EQUIPO: </label><?php echo $objetos->equipo["n_nombreEquipo"];?></span>
 			<span><label>ESTADO: </label><?php echo $objetos->estado["n_nombreEstado"];?></span>
 			<div class="especificaciones">
@@ -22,7 +29,7 @@
 				<span><label>REFERENCIA :</label><?php echo $objetos->especificacion["n_nombreEspecificacion"];?></span>
 			</div>
 			<div class="botones">
-				<button class="btnTratarR">Tratar</button>
+				<a class="btnTratarR">Tratar</a>
 				<button class="btnRetornar">Retornar</button>
 			</div>			
 		</div>
