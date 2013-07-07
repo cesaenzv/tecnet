@@ -172,9 +172,7 @@ class PaqueteMantenimientoController extends Controller
         $Criteria->condition = "k_idTecnico = ".$userId;
 
         $procesos = Proceso::model()->with(array('fkIdEstado'=>array(
-										        // we don't want to select posts
 										        'select'=>false,
-										        // but want to get only users with published posts
 										        'joinType'=>'INNER JOIN',
 										        'condition'=>"fkIdEstado.n_nombreEstado like 'Ingresado'",
 										    )))->findAll($Criteria);
@@ -182,17 +180,22 @@ class PaqueteMantenimientoController extends Controller
         	foreach ($procesos as $i=>$proceso) {
         		$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
         		$procesos[$i]= new stdClass;
-        		$procesos[$i]->atributos = new stdClass;
-        		$procesos[$i]->atributos->proceso = $proceso->attributes;
-        		$temp = Usuario::model()->find($proceso->k_idTecnico);
-        		$procesos[$i]->atributos->tecnico = $temp->attributes;
-        		$temp = Estado::model()->find($proceso->fk_idEstado);
-        		$procesos[$i]->atributos->estado = $temp->attributes;
-        		$procesos[$i]->Paquetematenimiento = Paquetematenimiento::model()->findAll($Criteria);
-        		if(count($procesos[$i]->Paquetematenimiento)>0){
-	        		foreach ($procesos[$i]->Paquetematenimiento as $i => $temp) {
-	        			$procesos[$i]->Paquetematenimiento[$i] = $temp->attributes;
-	        		}
+        		$procesos[$i]->objetos = new stdClass;
+        		$procesos[$i]->objetos->proceso = $proceso->attributes;
+        		$temp = Estados::model()->find($proceso->fk_idEstado);
+        		$procesos[$i]->objetos->estado = $temp->attributes;
+        		$procesos[$i]->paqueteMnt = Paquetematenimiento::model()->find($Criteria);
+        		if(count($procesos[$i]->paqueteMnt)>0){	
+        			$Criteria->condition = "k_idEquipo = ".$procesos[$i]->paqueteMnt->k_idEquipo;
+        			$equipo = Equipo::model()->with("kIdEspecificacion")->find($Criteria);
+        			$temp = Especificacion::model()->find($equipo->k_idEspecificacion);        			
+        			$tempM =Marca::model()->find($temp->k_idMarca);
+        			$tempTE =Tipoequipo::model()->find($temp->k_idTipoEquipo);
+        			$temp->k_idMarca = $tempM->attributes;
+        			$temp->k_idTipoEquipo= $tempTE->attributes;
+        			$procesos[$i]->objetos->especificacion = $temp->attributes;
+        			$procesos[$i]->objetos->equipo = $equipo->attributes;
+        			$procesos[$i]->objetos->paqueteMnt= $procesos[$i]->paqueteMnt->attributes;
         		}else{
         			$procesos[$i]->Paquetematenimiento = null;
         		} 		

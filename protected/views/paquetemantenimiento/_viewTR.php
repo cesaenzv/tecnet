@@ -1,15 +1,33 @@
-<h2>TECNICO RECARGA</h2>
+<div id="paquetesM">
+	<?php
+	if(isset($procesos)){ 
+		foreach ($procesos as $i => $proceso) {
+			$objetos = $proceso->objetos;
+			$paquetesMnt = $proceso->objetos->paqueteMnt;
+	?>
+		<div class="paqM">
+			<h3><strong>PAQUETE <?php echo $paquetesMnt["k_idPaquete"];?></strong></h3>
+			<!-- valores ha pasar para el tratado -->
+			<input type=hidden name='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"];?>/>
+			<input type=hidden name='idProceso' value=<?php echo $objetos->proceso["k_idProceso"];?>/>
+			<input type=hidden name='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"];?>/>
 
- 
-<?php foreach ($procesos as $i => $proceso) {
-	
-	$description = $proceso->atributos;
-	$paquetes = $proceso->Paquetematenimiento;
-	var_dump($description);
-?>	
-	<!-- <div class="ordenContent">
-		<span><label>ORDEN</label><?php echo $description["fk_idEstado"]; ?></span>
-		<span><label>ID PROCESO</label><?php echo $description["k_idProceso"]; ?></span>
-		<span><label>DESCRIPCION</label><?php echo $description["n_descripcion"];?></span>		
-	</div> -->
-<?php } ?>
+			<span><label>DESCRIPCION: </label><?php echo $objetos->proceso["n_descripcion"];?></span>			
+			<span><label>NOMBRE EQUIPO: </label><?php echo $objetos->equipo["n_nombreEquipo"];?></span>
+			<span><label>ESTADO: </label><?php echo $objetos->estado["n_nombreEstado"];?></span>
+			<div class="especificaciones">
+				<h4>ESPECIFICACION</h4>
+				<span><label>TIPO EQUIPO: </label><?php echo $objetos->especificacion["k_idTipoEquipo"]["n_tipoEquipo"];?></span>
+				<span><label>MARCA: </label><?php echo $objetos->especificacion["k_idMarca"]["n_nombreMarca"];?></span>
+				<span><label>REFERENCIA :</label><?php echo $objetos->especificacion["n_nombreEspecificacion"];?></span>
+			</div>
+			<div class="botones">
+				<button class="btnTratarPM">Tratar</button>
+				<button class="btnRetornar">Retornar</button>
+			</div>			
+		</div>
+	<?php 
+		}
+	}
+	?>
+</div>
