@@ -182,10 +182,14 @@ class PaqueteMantenimientoController extends Controller
         		$procesos[$i]= new stdClass;
         		$procesos[$i]->objetos = new stdClass;
         		$procesos[$i]->objetos->proceso = $proceso->attributes;
+        		$temp = Procesoservicio::model()->find($Criteria);
+        		$Criteria->condition = "k_idServicio = ".$temp->k_idServicio;
+        		$temp = Servicio::model()->find($Criteria);
+        		$procesos[$i]->objetos->servicio = $temp->attributes;
         		$temp = Estados::model()->find($proceso->fk_idEstado);
         		$procesos[$i]->objetos->estado = $temp->attributes;
-        		$Criteria->condition = "k_idPaquete = ".$temp->fk_idPaqueteMantenimiento;
-        		$temp = Paquetematenimiento::model()->find($Criteria);        		
+        		$Criteria->condition = "k_idPaquete = ".$proceso->fk_idPaqueteManenimiento;
+        		$temp = Paquetematenimiento::model()->find($Criteria);       		
         		if(count($temp)>0){	
         			$procesos[$i]->objetos->paqueteMnt = $temp->attributes;
         			$Criteria->condition = "k_idEquipo = ".$temp->k_idEquipo;

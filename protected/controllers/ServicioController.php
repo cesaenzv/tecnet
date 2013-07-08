@@ -148,11 +148,19 @@ class ServicioController extends Controller {
         }
     }
 
-    public function GetServicioProcesos(){
-        $_POST["idEquipo"],$_POST["idProceso"],$_POST["idPaquete"]
-
-        
-
+    public function actionGetServicioProcesos(){
+        $Criteria = new CDbCriteria(); 
+        $Criteria->condition = "k_servicio = ".$_GET["idServicio"];
+        $products = Servicioproducto::model()->findAll($Criteria);
+        $data = array();
+        $productos = array();
+        foreach ($products as $i => $product) {
+            $Criteria->condition = "k_idProducto = ".$product->k_producto;
+            $temp = Producto::model()->find($Criteria);
+            $productos[]=$temp->attributes;
+        }
+        $data["productos"] = $productos;
+        echo CJavaScript::jsonEncode($data);
     }
 
 }

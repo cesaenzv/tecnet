@@ -9866,3 +9866,342 @@ Stack trace:
 REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
 HTTP_REFERER=http://localhost/git/tecnet/
 ---
+2013/07/07 23:37:04 [error] [exception.CException] exception 'CException' with message 'Propiedad "Estados"."fk_idPaqueteMantenimiento" no se encuentra definida.' in C:\xampp\htdocs\git\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fk_idPaqueteMan...')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(187): CActiveRecord->__get('fk_idPaqueteMan...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('tratar')
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('paquetemantenim...')
+#13 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/07/07 23:37:19 [error] [exception.CException] exception 'CException' with message 'Propiedad "Estados"."fk_idPaqueteMantenimiento" no se encuentra definida.' in C:\xampp\htdocs\git\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fk_idPaqueteMan...')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(187): CActiveRecord->__get('fk_idPaqueteMan...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('tratar')
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('paquetemantenim...')
+#13 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/07/07 23:38:44 [error] [exception.CException] exception 'CException' with message 'Propiedad "Estados"."attribnutes" no se encuentra definida.' in C:\xampp\htdocs\git\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('attribnutes')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(187): CActiveRecord->__get('attribnutes')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('tratar')
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('paquetemantenim...')
+#13 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/07/07 23:39:37 [error] [exception.CException] exception 'CException' with message 'Propiedad "Proceso"."fk_idPaqueteMantenimiento" no se encuentra definida.' in C:\xampp\htdocs\git\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fk_idPaqueteMan...')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(187): CActiveRecord->__get('fk_idPaqueteMan...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('tratar')
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('paquetemantenim...')
+#13 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/07/08 00:02:21 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:14:08 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:16:04 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:16:59 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:17:05 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:19:01 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php:186)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (186)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 00:20:51 [error] [php] Undefined property: stdClass::$servicio (C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php:25)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php(16): PaqueteMantenimientoController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): PaqueteMantenimientoController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): PaqueteMantenimientoController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(213): PaqueteMantenimientoController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php (25)
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php (16)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (213)
+2013/07/08 00:21:41 [error] [php] Undefined property: stdClass::$servicio (C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php:25)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php(16): PaqueteMantenimientoController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): PaqueteMantenimientoController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): PaqueteMantenimientoController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(213): PaqueteMantenimientoController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php (25)
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php (16)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (213)
+2013/07/08 00:22:10 [error] [php] Undefined property: stdClass::$servicio (C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php:25)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php(16): PaqueteMantenimientoController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): PaqueteMantenimientoController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): PaqueteMantenimientoController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): PaqueteMantenimientoController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php(213): PaqueteMantenimientoController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): PaqueteMantenimientoController->actionTratar()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): PaqueteMantenimientoController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): PaqueteMantenimientoController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): PaqueteMantenimientoController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): PaqueteMantenimientoController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/paquetemantenimiento/tratar
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\_viewTM.php (25)
+in C:\xampp\htdocs\git\tecnet\protected\views\paquetemantenimiento\tratarPaquetes.php (16)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\PaqueteMantenimientoController.php (213)
+2013/07/08 01:17:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getservicioprocesos" solicitada.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(270): CController->missingAction('getservicioproc...')
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('getservicioproc...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Servicio/GetSer...')
+#3 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/git/tecnet/Servicio/GetServicioProcesos?idPaquete=1&idProceso=1&idEquipo=1
+HTTP_REFERER=http://localhost/git/tecnet/paquetemantenimiento/tratar
+---
+2013/07/08 01:17:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getservicioprocesos" solicitada.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(270): CController->missingAction('getservicioproc...')
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('getservicioproc...')
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Servicio/GetSer...')
+#3 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/git/tecnet/Servicio/GetServicioProcesos?idPaquete=1&idProceso=1&idEquipo=1&idServicio=1
+HTTP_REFERER=http://localhost/git/tecnet/paquetemantenimiento/tratar
+---
+2013/07/08 01:18:18 [error] [php] Undefined variable: POST (C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php:153)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): ServicioController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): ServicioController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): ServicioController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): ServicioController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/Servicio/GetServicioProcesos?idPaquete=1&idProceso=1&idEquipo=1&idServicio=1
+in C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php (153)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 01:18:59 [error] [php] Undefined index: idServicio (C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php:153)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): ServicioController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): ServicioController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): ServicioController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): ServicioController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/Servicio/GetServicioProcesos?idPaquete=1&idProceso=1&idEquipo=1&idServicio=1
+in C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php (153)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/07/08 02:02:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "css/multiselect.css"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('css/multiselect...')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/css/multiselect.css
+HTTP_REFERER=http://localhost/git/tecnet/paquetemantenimiento/tratar
+---
+2013/07/08 02:02:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.multiselect.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.multiselect.js
+HTTP_REFERER=http://localhost/git/tecnet/paquetemantenimiento/tratar
+---
+2013/07/08 02:02:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.multiselect.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.multiselect.js
+HTTP_REFERER=http://localhost/git/tecnet/paquetemantenimiento/tratar
+---
