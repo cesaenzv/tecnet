@@ -1,3 +1,4 @@
+/*<___________________________________________ CLIENTES ________________________________________________>*/
 .span-19{
 	width:99%;
 }
@@ -96,4 +97,38 @@
 }
 .paqR .playTimer{
 	background: url(../img/playBtn.png) no-repeat center;
+}
+/*<_____________________________________ REPORTES _______________________________________>*/
+
+#config {
+	border-bottom: 1px solid #2d444f;
+	padding-bottom: 1em;
+}
+
+#config span {	
+	width: 145px;
+	display: inline-block;
+	margin: 0 1em 0 0;
+	vertical-align: middle;
+}
+
+#config span span {
+	width:70%;
+	display:block;
+	margin: 0 auto;
+}
+
+#config span label {
+	color:#2d444f;
+	font-weight: 700;
+	display:block;
+}
+
+#config span#contentTipDoc {
+	display: none;
+}
+
+.button {
+	float: right;
+	margin-top: 0.5em;
 }
