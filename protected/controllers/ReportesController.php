@@ -48,36 +48,42 @@ class ReportesController extends Controller
 	public function actionGetHistorial(){
 		if(isset($_POST['typeConsult'])){
 			if($_POST['typeConsult'] == "clt"){
-				getClientHistory($_POST['doc'],$_POST['tipoDoc']);
+				echo CJavaScript::jsonEncode($this->getClientHistory($_POST['doc'],$_POST['tipoDoc']));
 			}else if($_POST['typeConsult'] == "maq"){
-				getClientHistory($_POST['doc']);
+				echo CJavaScript::jsonEncode($this->getMachineHistory($_POST['doc']));
 			}
 		}
 	}
 
 	private function getMachineHistory($id){
 		$data = array();
+		$equipo = Equipo::model()->find($id);
 		/*INFORMACION CLIENTE*/
-		$data['cliente'] = Cliente::model()->findByPk($id);
-		$paquetes = Paquetemantenimiento::model()->findAllByAttributes(array(
+		$data['cliente'] = Cliente::model()->findByPk($equipo->k_idCliente);
+		$paquetes = Paquetematenimiento::model()->findAllByAttributes(array(
             'k_idEquipo'=> $id
         ));
         /*NUMERO DE INGRESOS*/
 		$data['ingresos'] = count($paquetes);
-		$data['productos'] = array();
+		$temp = array();
 		foreach ($paquetes as $i => $paquete) {
 			$Criteria = new CDbCriteria(); 
-        	$Criteria->condition = "fk_idPaqueteManenimiento = ".$paquete->k_idPaquete." AND fk_idEstado = 3";
+        	$Criteria->condition = "fk_idPaqueteManenimiento = ".$paquete->k_idPaquete;
         	$procesos = Proceso::model()->findAll($Criteria);
-        	foreach ($procesos as $j => $proceso) {
-        		$Criteria->condition = "k_servicio = ".$proceso->k_idServicio;
-        		$Criteria->group = 'k_producto';
-        		$productos = Servicioproducto::model()->findAll($Criteria);
-        		var_dump($productos);        		
+        	foreach ($procesos as $j => $proceso) {        		
+        		$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
+        		$producto = Procesoservicio::model()->find($Criteria);        		
+        		if(!array_key_exists ($producto->k_idServicio,$temp)){
+        			$temp[$producto->k_idServicio] = array();	
+        			$temp[$producto->k_idServicio]['cantidadServicio'] = 1;
+        			$temp[$producto->k_idServicio]['Servicio'] = Servicio::model()->find($producto->k_idServicio);		
+        		}else{
+        			$temp[$producto->k_idServicio]['cantidadServicio']+=1;
+        		}
         	}
-        	die();
 		}
-
+		$data['servicios'] = $temp;
+		return $data;
 	}
 
 

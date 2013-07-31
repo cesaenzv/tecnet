@@ -88,7 +88,7 @@ class AccessDataRol {
                 }
                 $tasks= Authitemchild::model()->findAll("parent='".$rol."'");
                 $menuDenied= array('Paquete Mantenimiento');
-                $operationsDenied = array('Update','View','Delete','Index','asignaservicio','asignService','GetServiciosGrid','SearchClient','GetServicioProcesos');
+                $operationsDenied = array('Update','View','Delete','Index','asignaservicio','asignService','GetServiciosGrid','SearchClient','GetServicioProcesos','GetHistorial');
                 foreach ($tasks as $task){
                     $operations = Authitemchild::model()->findAll("parent='".$task->child."'");
                     $labelParent = str_replace( ".*", "",$task->child);

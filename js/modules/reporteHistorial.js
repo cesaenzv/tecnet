@@ -31,19 +31,21 @@ $(document).ready(function(){
 
 		},
 		consultarHistorial = function(){
+			console.log(url);
 			var typeConsult = $('input[name=tipoHistorial]:checked').val();
 			if(typeConsult !== undefined){
 				$.ajax({
+					type:'POST',
 					url:url,
 					data: {
 						typeConsult:typeConsult, 
 						// initDate:initDate.val(), 
 						// endDate:endDate.val(), 
-						doc: doc, 
+						doc: doc.val(), 
 						tipoDoc : tipoDoc.val()
 					},
 					success:function(data){
-						data =JSON.parse(data);
+						console.log(data);
 					},
 					error:function(){
 						console.log("error");
