@@ -1,4 +1,5 @@
-<?php 
+<?php
+	echo $this->renderPartial('_historialTemplate'); 
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/modules/reporteHistorial.js', CClientScript::POS_HEAD);
 ?>
 <script type="text/javascript">
@@ -27,6 +28,6 @@
 </div>
 <button id="consultBtn" class="button">Consultar</button>
 
-<div id="TemmplateContent">
+<div id="TemplateContent">
 	
 </div>

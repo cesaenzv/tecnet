@@ -21,8 +21,9 @@
 	background-color: rgba(175,175,175,1.5)
 }
 
-#clientData {
+#clientData{
 	font-size: 1.2em;
+	clear:both;
 }
 #clientData span{
 	width: 48%;
@@ -131,4 +132,62 @@
 .button {
 	float: right;
 	margin-top: 0.5em;
+}
+
+/*REPORTES*/
+.reporteContent {
+	border: 1px solid rgba(0,100,150,0.5);
+	width: 90%;
+	margin: 2.5em auto 0 auto;
+}
+.boxInfo{
+	clear: both;
+	border-bottom: 1px dotted #2d444f;
+	width: 90%;
+	padding: 0.5em;
+	margin: 0 auto 0.5em auto;
+	font-size: 1em;
+}
+
+.boxInfo h4{
+
+	background-color: #6399cd;
+	color: #EFF4FA;
+	font-weight: 700;
+	padding: 0.3em;
+	width: 100%;
+}
+
+.boxInfo span, .orden span{
+	width: 48%;
+	display: inline-block;	
+}
+
+.boxInfo span label, .orden span label{
+	display: inline-block;
+	margin-right: 0.9em;
+	font-weight: 800;
+}
+
+.boxInfo table{
+	border: 1px solid #D1C9C9;
+	width: 95%;
+	margin: 0 auto
+}
+
+.boxInfo .orden {
+	margin-bottom: 0.5em;
+	box-shadow: 0px 2px 2px 2px #cccccc;
+	padding-bottom: 0.5em;
+	padding-left: 0.5em;
+	width: 90%;
+	margin: 0 auto 0.5em auto;
+}
+
+.boxInfo h5{
+	margin: 0.2em 0 0.3em 0;
+	background: #9EAEC2;
+	padding: 0.2em;
+	font-weight: 800;
+	width: 98%;
 }

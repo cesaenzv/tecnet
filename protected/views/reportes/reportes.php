@@ -12,7 +12,7 @@
 			echo $this->renderPartial('_viewHistorial', array());
 			break;
 		case 'Tecnico':
-			echo $this->renderPartial('_viewTecnico', array());
+			echo $this->renderPartial('_viewTecnicos', array());
 			break;		
 		default:?>
 			<h2>NO SE ENCONTRO NINGUNO</h2>

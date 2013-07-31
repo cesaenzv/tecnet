@@ -1,12 +1,14 @@
 $(document).ready(function(){
 	var reporteHistorial = (function(){
-		var doc, tipoHistorial,tipoDoc,/*initDate,endDate,*/consultBtn;
+		var doc, tipoHistorial,tipoDoc,/*initDate,endDate,*/consultBtn,plantillaHistorial;
 		/*_________________Funciones_________________*/
 		var init = function(config){
 			doc = config.doc;
 			tipoDoc = config.tipoDoc;
 			// initDate = config.initDate;
 			// endDate = config.endDate;
+			historialData = $("#TemplateContent");
+			plantillaHistorial = $("#historialTemplate");
 			consultBtn = config.consultBtn;
 			bindEvents();
 		},
@@ -27,9 +29,6 @@ $(document).ready(function(){
 				$("#contentTipDoc").css('display','none');
 			}
 		},
-		checkTypeConsult = function(){
-
-		},
 		consultarHistorial = function(){
 			console.log(url);
 			var typeConsult = $('input[name=tipoHistorial]:checked').val();
@@ -37,6 +36,7 @@ $(document).ready(function(){
 				$.ajax({
 					type:'POST',
 					url:url,
+					dataType: "json",
 					data: {
 						typeConsult:typeConsult, 
 						// initDate:initDate.val(), 
@@ -45,14 +45,20 @@ $(document).ready(function(){
 						tipoDoc : tipoDoc.val()
 					},
 					success:function(data){
-						console.log(data);
+						showHistorialData(data);
 					},
 					error:function(){
-						console.log("error");
+						historialData.html('');
+						alert("La busqueda no fue exitosa, verifique los datos por favor");
 					}
 				});
 			}			
-		};
+		},
+		showHistorialData = function(data){
+			var template = Handlebars.compile(plantillaHistorial.html());
+            var contenido = template(data);           
+            historialData.html(contenido);
+        };
 
 		return {
 			init:init

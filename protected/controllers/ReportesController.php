@@ -38,60 +38,153 @@ class ReportesController extends Controller
 			));	
 	}
 
-	public function actionTecnicos ()
+	public function actionTecnicoInforme ()
 	{
 		$this->render('reportes',array(
 				'type'=>'Tecnico'
 			));		
 	}
 
+	public function actionGetTecnicos(){
+		$typeTec =null;$Criteria = new CDbCriteria();
+		if($_POST['typeTec'] == 'mnt'){
+			$typeTec = "Tecnico Mantenimiento";
+		}
+		else if($_POST['typeTec'] == 'rcg'){
+			$typeTec = "Tecnico Recarga";
+		}
+		$Criteria->condition = "itemname = '".$typeTec."'";
+		$users = Authassignment::model()->findAll($Criteria);
+		foreach ($users as $i => $u) {
+			$users[$i] = Users::model()->findByPk($u->userid);
+		}
+		echo CJavaScript::jsonEncode($users);
+
+	}
+
+	public function actionGetTecnicoInforme(){
+
+
+	}
 	public function actionGetHistorial(){
 		if(isset($_POST['typeConsult'])){
+			$data = null;
 			if($_POST['typeConsult'] == "clt"){
-				echo CJavaScript::jsonEncode($this->getClientHistory($_POST['doc'],$_POST['tipoDoc']));
+				$data =	$this->getClientHistory($_POST['doc'],$_POST['tipoDoc']);
 			}else if($_POST['typeConsult'] == "maq"){
-				echo CJavaScript::jsonEncode($this->getMachineHistory($_POST['doc']));
+				$data = $this->getMachineHistory($_POST['doc']);
 			}
+			echo CJavaScript::jsonEncode($data);
 		}
 	}
 
-	private function getMachineHistory($id){
+/*	HISTORIAL MAQUINAS Y CLIENTES    */
+
+	private function getMachineHistory($idEquipo){
 		$data = array();
-		$equipo = Equipo::model()->find($id);
+		/**INFORMACION EQUIPO*/
+		$data['equipos'] = array();
+		$equipo = Equipo::model()->findByPk($idEquipo);
+		$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
+		if($equipo->i_inhouse == 1) {
+			$equipo->i_inhouse = 'Si';
+		}else{
+			$equipo->i_inhouse = 'No';
+		}
+
+		$data['equipos'][] = $equipo;
 		/*INFORMACION CLIENTE*/
 		$data['cliente'] = Cliente::model()->findByPk($equipo->k_idCliente);
+		/*INFORMACION SERVICIOS*/
+		$data['servicios'] = $this->getCantidadTipoServicio($idEquipo);
+		return $data;
+	}
+
+
+	private function getClientHistory($idCliente = null, $typeDoc = null){        	
+		$data = array();$Criteria = new CDbCriteria();		
+		/*INFORMACION CLIENTE*/
+		$Criteria->condition = "k_idCliente = ".$idCliente."AND i_nit like '".$typeDoc."'";
+		$temp = Cliente::model()->findByPk($idCliente);
+		$data['cliente'] =$temp->attributes;		
+		/**INFORMACION EQUIPOS DEL CLIENTE */		
+		$Criteria->condition = "k_idCliente = ".$idCliente;
+		$equipos = Equipo::model()->findAll($Criteria);
+		// $data['servicios'] = array();		
+		foreach ($equipos as $i => $equipo) {
+			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
+			if($equipo->i_inhouse == 1) {
+				$equipo->i_inhouse = 'Si';
+			}else{
+				$equipo->i_inhouse = 'No';
+			}
+			$equipos[$i] = $equipo;
+		}
+		$data['equipos'] = $equipos;
+		
+		/**INFORMACION ORDENES DEL CLIENTE*/
+ 		$data['ordenes'] = $this->getOrdenesCliente($idCliente);
+ 		return $data;	
+	}
+
+	private function getEspecificacionEquipo($k_idEspecificacion){
+		$temp = Especificacion::model()->findByPk($k_idEspecificacion);
+		$temp2 = Tipoequipo::model()->findByPk($temp->k_idTipoEquipo);
+		$temp->k_idTipoEquipo = $temp2->n_tipoEquipo;
+		$temp2 = Marca::model()->findByPk($temp->k_idMarca);
+		$temp->k_idMarca = $temp2->n_nombreMarca;
+		return $temp;
+	}
+
+	private function getOrdenesCliente($idCliente){
+		$temp = array();$Criteria = new CDbCriteria();
+		$Criteria->condition = "k_idCliente = ".$idCliente;
+		$equipos = Equipo::model()->findAll($Criteria);
+		foreach ($equipos as $i => $equipo) {
+			$paquetes = Paquetematenimiento::model()->findAllByAttributes(array(
+	            'k_idEquipo'=> $equipo->k_idEquipo
+	        ));
+	        foreach ($paquetes as $j => $paquete) {
+	        	$temp2 = Orden::model()->findByPk($paquete->k_idOrden);
+	        	$cajero = Users::model()->findByPk($temp2->k_idUsuario);
+	        	$temp2->k_idUsuario = $cajero->username;
+	        	$servicios = $this->getCantidadTipoServicio($temp2->k_idOrden,'k_idOrden');
+	        	$orden = array("orden"=>$temp2->attributes,
+	        					"servicios" => $servicios);
+	        	$temp[] = $orden;
+	        }	
+		}
+		
+        return $temp;
+	}
+
+	private function getCantidadTipoServicio($id, $column = 'k_idEquipo'){
+		$Criteria = new CDbCriteria();
 		$paquetes = Paquetematenimiento::model()->findAllByAttributes(array(
-            'k_idEquipo'=> $id
+            $column => $id
         ));
-        /*NUMERO DE INGRESOS*/
+        
 		$data['ingresos'] = count($paquetes);
 		$temp = array();
 		foreach ($paquetes as $i => $paquete) {
-			$Criteria = new CDbCriteria(); 
         	$Criteria->condition = "fk_idPaqueteManenimiento = ".$paquete->k_idPaquete;
         	$procesos = Proceso::model()->findAll($Criteria);
         	foreach ($procesos as $j => $proceso) {        		
         		$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
         		$producto = Procesoservicio::model()->find($Criteria);        		
-        		if(!array_key_exists ($producto->k_idServicio,$temp)){
+        		if(!array_key_exists($producto->k_idServicio,$temp)){
         			$temp[$producto->k_idServicio] = array();	
-        			$temp[$producto->k_idServicio]['cantidadServicio'] = 1;
-        			$temp[$producto->k_idServicio]['Servicio'] = Servicio::model()->find($producto->k_idServicio);		
+        			$temp[$producto->k_idServicio]['cantidad'] = 1;
+        			$temp[$producto->k_idServicio]['Servicio'] = Servicio::model()->findByPk($producto->k_idServicio);		
         		}else{
         			$temp[$producto->k_idServicio]['cantidadServicio']+=1;
         		}
         	}
 		}
-		$data['servicios'] = $temp;
-		return $data;
+		return $temp;
 	}
 
-
-	private function getClientHistory($id = null, $typeDoc = null){
-		$data = array();
-		$data['cliente'] = Cliente::model()->findByPk($id);
-		
-	}
+/* CIERRE	HISTORIAL MAQUINAS Y CLIENTES    */
 
 	
 }
