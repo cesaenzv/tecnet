@@ -101,31 +101,38 @@
 }
 /*<_____________________________________ REPORTES _______________________________________>*/
 
-#config {
+.config {
 	border-bottom: 1px solid #2d444f;
 	padding-bottom: 1em;
 }
 
-#config span {	
-	width: 145px;
+.config span {	
+	width: 17%;
 	display: inline-block;
 	margin: 0 1em 0 0;
 	vertical-align: middle;
 }
 
-#config span span {
+.configTec span {	
+	width: 20%!important;
+}
+.configTec span span {	
+	width: 95% !important;
+}
+
+.config span span {
 	width:70%;
 	display:block;
 	margin: 0 auto;
 }
 
-#config span label {
+.config span label {
 	color:#2d444f;
 	font-weight: 700;
 	display:block;
 }
 
-#config span#contentTipDoc {
+.config span#contentTipDoc {
 	display: none;
 }
 
@@ -147,6 +154,7 @@
 	padding: 0.5em;
 	margin: 0 auto 0.5em auto;
 	font-size: 1em;
+	max-height: 400px;
 }
 
 .boxInfo h4{

@@ -1,19 +1,17 @@
 $(document).ready(function(){
 	var reporteHistorial = (function(){
-		var doc, tipoHistorial,tipoDoc,/*initDate,endDate,*/consultBtn,plantillaHistorial;
+		var doc, tipoHistorial,tipoDoc,consultBtn,plantillaHistorial;
 		/*_________________Funciones_________________*/
 		var init = function(config){
 			doc = config.doc;
 			tipoDoc = config.tipoDoc;
-			// initDate = config.initDate;
-			// endDate = config.endDate;
 			historialData = $("#TemplateContent");
 			plantillaHistorial = $("#historialTemplate");
 			consultBtn = config.consultBtn;
 			bindEvents();
 		},
 		bindEvents = function(){
-			$("#config").find("input[type=radio]").each(function(i,item){
+			$("#configContent").find("input[type=radio]").each(function(i,item){
 				$(item).click(function(){
 					showTypeDoc($(item));	
 				});
@@ -39,8 +37,6 @@ $(document).ready(function(){
 					dataType: "json",
 					data: {
 						typeConsult:typeConsult, 
-						// initDate:initDate.val(), 
-						// endDate:endDate.val(), 
 						doc: doc.val(), 
 						tipoDoc : tipoDoc.val()
 					},
@@ -68,8 +64,6 @@ $(document).ready(function(){
 	reporteHistorial.init({
 		doc : $("#idConsult"),
 		tipoDoc :$("#tipoDoc"),
-		// initDate :$("#initDate"),
-		// endDate :$("#endDate"),
 		consultBtn : $("#consultBtn")
 	});
 });

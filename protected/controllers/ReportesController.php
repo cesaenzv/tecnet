@@ -38,42 +38,20 @@ class ReportesController extends Controller
 			));	
 	}
 
-	public function actionTecnicoInforme ()
-	{
-		$this->render('reportes',array(
-				'type'=>'Tecnico'
-			));		
-	}
-
-	public function actionGetTecnicos(){
-		$typeTec =null;$Criteria = new CDbCriteria();
-		if($_POST['typeTec'] == 'mnt'){
-			$typeTec = "Tecnico Mantenimiento";
-		}
-		else if($_POST['typeTec'] == 'rcg'){
-			$typeTec = "Tecnico Recarga";
-		}
-		$Criteria->condition = "itemname = '".$typeTec."'";
-		$users = Authassignment::model()->findAll($Criteria);
-		foreach ($users as $i => $u) {
-			$users[$i] = Users::model()->findByPk($u->userid);
-		}
-		echo CJavaScript::jsonEncode($users);
-
-	}
-
-	public function actionGetTecnicoInforme(){
-
-
-	}
 	public function actionGetHistorial(){
 		if(isset($_POST['typeConsult'])){
 			$data = null;
-			if($_POST['typeConsult'] == "clt"){
-				$data =	$this->getClientHistory($_POST['doc'],$_POST['tipoDoc']);
-			}else if($_POST['typeConsult'] == "maq"){
-				$data = $this->getMachineHistory($_POST['doc']);
-			}
+			switch ($_POST['typeConsult']) {
+				case 'clt':
+					$data =	$this->getClientHistory($_POST['doc'],$_POST['tipoDoc']);
+					break;
+				case 'maq':
+					$data = $this->getMachineHistory($_POST['doc']);
+					break;				
+				default:
+					$data = "";
+					break;
+			}			
 			echo CJavaScript::jsonEncode($data);
 		}
 	}
@@ -186,5 +164,171 @@ class ReportesController extends Controller
 
 /* CIERRE	HISTORIAL MAQUINAS Y CLIENTES    */
 
+
+public function actionTecnicoInforme ()
+	{
+		$this->render('reportes',array(
+				'type'=>'Tecnico'
+			));		
+	}
+
+	public function actionGetTecnicos(){
+		$typeTec =null;$Criteria = new CDbCriteria();
+		if($_POST['typeTec'] == 'mnt'){
+			$typeTec = "Tecnico Mantenimiento";
+		}
+		else if($_POST['typeTec'] == 'rcg'){
+			$typeTec = "Tecnico Recarga";
+		}
+		$Criteria->condition = "itemname = '".$typeTec."'";
+		$users = Authassignment::model()->findAll($Criteria);
+		foreach ($users as $i => $u) {
+			$users[$i] = Users::model()->findByPk($u->userid);
+		}
+		echo CJavaScript::jsonEncode($users);
+
+	}
+
+	public function actionGetTecnicoInforme(){
+		if(isset($_POST['typeConsult']) && isset($_POST['tecId'])){
+			$data = null;
+			switch ($_POST['typeConsult']) {
+				case 'maqTec':
+					$data = $this->getMachinesTec($_POST['tecId'], $_POST['typeTec']);
+					break;
+				case 'fct':
+					$data = $this->getFacturacionTecnico($_POST['tecId'],$_POST['fchI'],$_POST['fchF']);
+					break;			
+				default:
+					$data = "";
+					break;
+			}
+			echo CJavaScript::jsonEncode($data);
+		}
+
+	}	
 	
+/*	TECNICOS REPORTES Y CONSULTAS */	
+	private function getMachinesTec($tecId, $typeTec){
+		$data = array();$equipos = array();$Criteria = new CDbCriteria();
+		$Criteria->condition = "k_idTecnico = ".$tecId;
+		$procesos = Proceso::model()->findAll($Criteria);
+		foreach ($procesos as $i => $proceso) {	
+			$Criteria->condition = "k_idPaquete = ".$proceso->fk_idPaqueteManenimiento;
+			$paquete = Paquetematenimiento::model()->find($Criteria);
+			$orden = Orden::model()->findByPk($paquete->k_idOrden);
+			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
+			if($orden->fchEntrega != "0000-00-00 00:00:00"){
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1);
+			}else{
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0);
+			}
+		}
+		$data['equipos'] = $equipos;
+		
+		return $data;
+	}
+
+	private function getFacturacionTecnico($idTec, $fchI, $fchF){
+		$data = array();$servicios = array();$Criteria = new CDbCriteria();
+		$data["servicios"] = array();
+		// $fchI = strtotime($fchI);
+		// $fchF = strtotime($fchF);
+		$Criteria->condition = "k_idTecnico = ".$idTec." AND fk_idEstado = 3 AND fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'";
+		$procesos = Proceso::model()->findAll($Criteria);
+		$total = 0;
+		foreach ($procesos as $i => $proceso) {			
+			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;			
+			$temp = Procesoservicio::model()->find($Criteria);
+			$temp = Servicio::model()->findByPk($temp->k_idServicio);
+			$total += $temp->v_costoServicioTecnico;
+			$temp = $temp->attributes;
+			$temp["fechaFin"]=$proceso->fchFinalizacion;
+			$data["servicios"][] = $temp;
+		}		
+		$data["total"] = $total;
+		return $data;
+	}
+
+
+	private function getServiciosTotalTecnico($tecId){
+		$data = array();$Criteria = new CDbCriteria();
+		$Criteria->condition = "k_idTecnico = ".$tecId;
+		$procesos = Proceso::model()->findAll($Criteria); 
+		$temp = array();
+		foreach ($procesos as $i => $proceso) {
+			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
+			$servicio = Procesoservicio::model()->findAll($Criteria);
+			if(!array_key_exists($servicio->k_idServicio,$temp)){
+				$temp[$servicio->k_idServicio]=array(
+						"cantidad"=>1
+						"servicio"=>$servicio->attributes
+					);
+			}else{
+				$temp[$servicio->k_idServicio]["cantidad"]+=1;
+			}
+		}
+		$data["servicios"]= $temp;
+		return $data;
+	}
+
+
+	private function getOrdenesEquipo($orden, $proceso, $equipo, $array,$est){
+		if(!array_key_exists($equipo->k_idEquipo,$array)){
+			$tempFinish = array();$tempProcess = array();		
+			
+			$ordenTemp = array();
+			$ordenTemp[$orden->k_idOrden] = array();
+			$ordenTemp[$orden->k_idOrden]["orden"] = $orden;
+			$ordenTemp[$orden->k_idOrden]["procesos"] = array();
+			$ordenTemp[$orden->k_idOrden]["procesos"][] = $proceso;
+
+			if($est == 1){
+				$tempFinish = $ordenTemp;
+			}else if($est == 0){
+				$tempProcess = $ordenTemp;
+			}
+
+			$array[$equipo->k_idEquipo] = array(
+				"equipo"=>$equipo,
+				"terminados"=>$tempFinish,
+				"procesando"=>$tempProcess
+			);
+		}else{
+			if($est == 1){
+				$temp = $array[$equipo->k_idEquipo]["terminados"];
+			}else if($est == 0){
+				$temp = $array[$equipo->k_idEquipo]["procesando"];
+			}
+
+			if(!array_key_exists($orden->k_idOrden,$array[$equipo->k_idEquipo]["ordenes"])){				
+				$temp[$orden->k_idOrden] = array();
+				$temp[$orden->k_idOrden]["orden"] = $orden;
+				$temp[$orden->k_idOrden]["procesos"] = array();
+				$temp["ordenes"][$orden->k_idOrden]["procesos"][] = $proceso;
+			}else{
+				$temp[$orden->k_idOrden]["procesos"][] = $proceso;
+			}
+
+			if($est == 1){
+				$array[$equipo->k_idEquipo]["terminados"] = $temp;
+			}else if($est == 0){
+				$array[$equipo->k_idEquipo]["procesando"] = $temp;
+			}
+		}
+		return $array;
+	}
+
+/*	CIERRE TECNICOS REPORTES Y CONSULTAS */
+
+	
+
+/* UTILIDADES EN VENTAS Y ORDENES*/
+	
+
+/* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
+
 }
+
+
+

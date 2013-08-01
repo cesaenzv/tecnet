@@ -6,7 +6,7 @@
 	var url = '<?php echo Yii::app()->createAbsoluteUrl("Reportes/GetHistorial"); ?>';
 </script>
 
-<div id="config">
+<div class="config" id="configContent">
 	<span>
 		<label>Codigo Identificacion: </label>
 		<input type="text" id="idConsult"/>

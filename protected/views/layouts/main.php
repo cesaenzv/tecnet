@@ -22,6 +22,7 @@
             Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/ui.jqgrid.css');
             Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
             Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/grid.locale-es.js', CClientScript::POS_HEAD);
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.ui.js', CClientScript::POS_HEAD);
             Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.jqGrid.src.js', CClientScript::POS_HEAD);
             // MULTISELECTOR
             Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/multi-select.css');
