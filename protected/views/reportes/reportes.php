@@ -13,7 +13,10 @@
 			break;
 		case 'Tecnico':
 			echo $this->renderPartial('_viewTecnicos', array());
-			break;		
+			break;	
+		case 'Caja':
+			echo $this->renderPartial('_viewCaja', array());
+			break;	
 		default:?>
 			<h2>NO SE ENCONTRO NINGUNO</h2>
 		<?php

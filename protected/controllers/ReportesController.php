@@ -165,7 +165,7 @@ class ReportesController extends Controller
 /* CIERRE	HISTORIAL MAQUINAS Y CLIENTES    */
 
 
-public function actionTecnicoInforme ()
+	public function actionTecnicoInforme ()
 	{
 		$this->render('reportes',array(
 				'type'=>'Tecnico'
@@ -218,6 +218,7 @@ public function actionTecnicoInforme ()
 			$paquete = Paquetematenimiento::model()->find($Criteria);
 			$orden = Orden::model()->findByPk($paquete->k_idOrden);
 			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
+			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
 			if($orden->fchEntrega != "0000-00-00 00:00:00"){
 				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1);
 			}else{
@@ -231,9 +232,7 @@ public function actionTecnicoInforme ()
 
 	private function getFacturacionTecnico($idTec, $fchI, $fchF){
 		$data = array();$servicios = array();$Criteria = new CDbCriteria();
-		$data["servicios"] = array();
-		// $fchI = strtotime($fchI);
-		// $fchF = strtotime($fchF);
+		$data["facturas"] = array();
 		$Criteria->condition = "k_idTecnico = ".$idTec." AND fk_idEstado = 3 AND fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'";
 		$procesos = Proceso::model()->findAll($Criteria);
 		$total = 0;
@@ -244,7 +243,7 @@ public function actionTecnicoInforme ()
 			$total += $temp->v_costoServicioTecnico;
 			$temp = $temp->attributes;
 			$temp["fechaFin"]=$proceso->fchFinalizacion;
-			$data["servicios"][] = $temp;
+			$data["facturas"][] = $temp;
 		}		
 		$data["total"] = $total;
 		return $data;
@@ -261,7 +260,7 @@ public function actionTecnicoInforme ()
 			$servicio = Procesoservicio::model()->findAll($Criteria);
 			if(!array_key_exists($servicio->k_idServicio,$temp)){
 				$temp[$servicio->k_idServicio]=array(
-						"cantidad"=>1
+						"cantidad"=>1,
 						"servicio"=>$servicio->attributes
 					);
 			}else{
@@ -321,7 +320,17 @@ public function actionTecnicoInforme ()
 
 /*	CIERRE TECNICOS REPORTES Y CONSULTAS */
 
-	
+	public function actionReporteCaja ()
+	{
+		$this->render('reportes',array(
+				'type'=>'Caja'
+			));		
+	}
+
+	public function actionGetReporteCaja()
+	{
+
+	}	
 
 /* UTILIDADES EN VENTAS Y ORDENES*/
 	
