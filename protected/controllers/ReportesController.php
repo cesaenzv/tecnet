@@ -254,6 +254,27 @@ class ReportesController extends Controller
 		$data = array();$Criteria = new CDbCriteria();
 		$Criteria->condition = "k_idTecnico = ".$tecId;
 		$procesos = Proceso::model()->findAll($Criteria); 
+		// $temp = array();
+		// foreach ($procesos as $i => $proceso) {
+		// 	$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
+		// 	$servicio = Procesoservicio::model()->findAll($Criteria);
+		// 	if(!array_key_exists($servicio->k_idServicio,$temp)){
+		// 		$temp[$servicio->k_idServicio]=array(
+		// 				"cantidad"=>1,
+		// 				"servicio"=>$servicio->attributes
+		// 			);
+		// 	}else{
+		// 		$temp[$servicio->k_idServicio]["cantidad"]+=1;
+		// 	}
+		// }
+		$data["servicios"]= $this->getProcesosByCriteria($tecId,"k_idTecnico");
+		return $data;
+	}
+
+	private function getProcesosByCriteria($id,$column){
+		$Criteria = new CDbCriteria();
+		$Criteria->condition = $column." = ".$id;
+		$procesos = Proceso::model()->findAll($Criteria); 
 		$temp = array();
 		foreach ($procesos as $i => $proceso) {
 			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
@@ -261,14 +282,12 @@ class ReportesController extends Controller
 			if(!array_key_exists($servicio->k_idServicio,$temp)){
 				$temp[$servicio->k_idServicio]=array(
 						"cantidad"=>1,
-						"servicio"=>$servicio->attributes
+						"servicio"=>$servicio->attributes						
 					);
 			}else{
-				$temp[$servicio->k_idServicio]["cantidad"]+=1;
+				$temp[$servicio->k_idServicio]["cantidad"]+=1;				
 			}
 		}
-		$data["servicios"]= $temp;
-		return $data;
 	}
 
 
@@ -329,15 +348,55 @@ class ReportesController extends Controller
 
 	public function actionGetReporteCaja()
 	{
-
+		if(isset($_POST['typeConsult'])){
+			$data = null;
+			switch ($_POST['typeConsult']) {
+				case 'ingO':
+					$data =	$this->getCajaOrdenRangoTiempo($_POST['fchI'],$_POST['fchF']);
+					break;
+				case 'cstS':
+					$data = $this->getCostosServicio($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+					break;				
+				case 'serP':
+					$data = $this->getCostosServicioPro($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+					break;
+				default:
+					$data = "";
+					break;
+			}			
+			echo CJavaScript::jsonEncode($data);
+		}
 	}	
 
 /* UTILIDADES EN VENTAS Y ORDENES*/
+
+	public function getCajaOrdenRangoTiempo($fchI, $fchF){
+		$data = array();;$Criteria = new CDbCriteria();
+		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
+		$ordenes = Orden::model()->findAll($Criteria);
+		$temp = array();
+		foreach ($ordenes as $i => $orden) {
+			$Criteria->condition = "k_idOrden =".$orden->k_idOrden;
+			$pqtOrden = Paquetematenimiento::model()->find($Criteria);			
+			$procesos = $this->getProcesosByCriteria($pqtOrden->k_idPaquete,"fk_idPaqueteManenimiento");
+
+			foreach ($procesos as $j => $proceso) {
+				$proceso['costoS']= $proceso['servicio']['v_costoServicio']*$proceso['cantidad'];
+				$proceso['costoST'] = $proceso['servicio']['v_costoServicioTecnico']*$proceso['cantidad'];
+				$procesos[$j] = $proceso;
+			}
+			$temp[]= array("orden"=>$orden,"procesos"=>$procesos);
+		}
+		$data['ordenesCaja'] = $temp;
+		return $data;
+	}
 	
 
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
 }
+
+
 
 
 

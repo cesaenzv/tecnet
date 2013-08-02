@@ -7,8 +7,17 @@
 </script>
 
 <div class="config" id="configContent">		
-
-		
+	<span>
+		<label>Seleccione tipo de consulta:</label>
+		<span>Ingresos por orden <input type="radio" name="cajaType" value="ingO"/> </span>
+		<span>Costos por servicios <input type="radio" name="cajaType" value="cstS"/> </span>	
+		<span>Costos por productos<input type="radio" name="cajaType" value="serP"/></span>
+	</span>
+	<span>
+		<label>Seleccione las fechas de consulta:</label>
+		<span>Inicio: <input type="input" id="fchI"/> </span>
+		<span>Fin: <input type="input" id="fchF"/> </span>	
+	</span>	
 </div>
 
 <button id="consultBtn" class="button">Consultar</button>
