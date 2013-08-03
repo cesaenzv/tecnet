@@ -221,7 +221,8 @@
 }
 
 .ordenes .ordColumn{
-	width: 50%;
-	margin-bottom:0.5em; 
+	width: 49%;
+	margin-bottom: 0.5em;
+	display: inline-block;
 }
 

@@ -172,6 +172,11 @@ class ReportesController extends Controller
 			));		
 	}
 
+	public function actionGetServicios(){
+
+		$servicios = Servicio::model()->findAll();
+		echo CJavaScript::jsonEncode($servicios);
+	}
 	public function actionGetTecnicos(){
 		$typeTec =null;$Criteria = new CDbCriteria();
 		if($_POST['typeTec'] == 'mnt'){
@@ -220,14 +225,34 @@ class ReportesController extends Controller
 			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
 			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
 			if($orden->fchEntrega != "0000-00-00 00:00:00"){
-				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1);
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1,$typeTec);
 			}else{
-				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0);
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0,$typeTec);
 			}
 		}
 		$data['equipos'] = $equipos;
 		
 		return $data;
+	}
+
+	private function getDuracionProceso($proceso, $typeTec){
+		$duracion=null;$Criteria = new CDbCriteria();
+
+		if($typeTec == "mnt"){
+			$dias = strtotime($proceso->fchFinalizacion)-strtotime($proceso->fchAsignacion);
+			return intval($dias/60/60/24)." días";
+
+		}else if($typeTec == "rcg"){
+			$Criteria->condition = "fk_idProceso = ".$proceso->k_idProceso;
+			$intervalos = Duracion::model()->findAll($Criteria);
+			$horas = 0;
+			foreach ($intervalos as $i => $intervalo) {
+				$duracion = strtotime($intervalo->f_fin) - strtotime($intervalo->f_inicio);
+				$horas += ($dias/60/60);
+			}
+			return intval($horas)." horas";
+		}
+
 	}
 
 	private function getFacturacionTecnico($idTec, $fchI, $fchF){
@@ -267,31 +292,33 @@ class ReportesController extends Controller
 		// 		$temp[$servicio->k_idServicio]["cantidad"]+=1;
 		// 	}
 		// }
-		$data["servicios"]= $this->getProcesosByCriteria($tecId,"k_idTecnico");
+		$data["servicios"]= $this->getProcesosByCriteria("k_idTecnico = "+$tecId);
 		return $data;
 	}
 
-	private function getProcesosByCriteria($id,$column){
+	private function getProcesosByCriteria($condicion){
 		$Criteria = new CDbCriteria();
-		$Criteria->condition = $column." = ".$id;
+		$Criteria->condition = $condicion;
 		$procesos = Proceso::model()->findAll($Criteria); 
 		$temp = array();
 		foreach ($procesos as $i => $proceso) {
 			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
-			$servicio = Procesoservicio::model()->findAll($Criteria);
+			$servicio = Procesoservicio::model()->find($Criteria);
 			if(!array_key_exists($servicio->k_idServicio,$temp)){
+				$s = Servicio::model()->findByPk($servicio->k_idServicio);
 				$temp[$servicio->k_idServicio]=array(
 						"cantidad"=>1,
-						"servicio"=>$servicio->attributes						
+						"servicio"=>$s->attributes
 					);
 			}else{
 				$temp[$servicio->k_idServicio]["cantidad"]+=1;				
 			}
 		}
+		return $temp;
 	}
 
 
-	private function getOrdenesEquipo($orden, $proceso, $equipo, $array,$est){
+	private function getOrdenesEquipo($orden, $proceso, $equipo, $array,$est, $typeTec){
 		if(!array_key_exists($equipo->k_idEquipo,$array)){
 			$tempFinish = array();$tempProcess = array();		
 			
@@ -299,7 +326,8 @@ class ReportesController extends Controller
 			$ordenTemp[$orden->k_idOrden] = array();
 			$ordenTemp[$orden->k_idOrden]["orden"] = $orden;
 			$ordenTemp[$orden->k_idOrden]["procesos"] = array();
-			$ordenTemp[$orden->k_idOrden]["procesos"][] = $proceso;
+			$ordenTemp[$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso, 
+																"duracion"=>$this->getDuracionProceso($proceso, $typeTec));
 
 			if($est == 1){
 				$tempFinish = $ordenTemp;
@@ -323,9 +351,11 @@ class ReportesController extends Controller
 				$temp[$orden->k_idOrden] = array();
 				$temp[$orden->k_idOrden]["orden"] = $orden;
 				$temp[$orden->k_idOrden]["procesos"] = array();
-				$temp["ordenes"][$orden->k_idOrden]["procesos"][] = $proceso;
+				$temp["ordenes"][$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso, 
+																"duracion"=>$this->getDuracionProceso($proceso, $typeTec));
 			}else{
-				$temp[$orden->k_idOrden]["procesos"][] = $proceso;
+				$temp[$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso, 
+																"duracion"=>$this->getDuracionProceso($proceso, $typeTec));
 			}
 
 			if($est == 1){
@@ -354,11 +384,11 @@ class ReportesController extends Controller
 				case 'ingO':
 					$data =	$this->getCajaOrdenRangoTiempo($_POST['fchI'],$_POST['fchF']);
 					break;
-				case 'cstS':
-					$data = $this->getCostosServicio($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+				case 'ingS':
+					$data = $this->getCajaServicioRangoTiempo($_POST['servicioID'],$_POST['fchI'],$_POST['fchF']);
 					break;				
-				case 'serP':
-					$data = $this->getCostosServicioPro($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+				case 'ingP':
+					$data = $this->getCostosProcesos($_POST['servicioID'],$_POST['fchI'],$_POST['fchF']);
 					break;
 				default:
 					$data = "";
@@ -371,27 +401,58 @@ class ReportesController extends Controller
 /* UTILIDADES EN VENTAS Y ORDENES*/
 
 	public function getCajaOrdenRangoTiempo($fchI, $fchF){
-		$data = array();;$Criteria = new CDbCriteria();
+		$data = array();$Criteria = new CDbCriteria();
 		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
 		$ordenes = Orden::model()->findAll($Criteria);
 		$temp = array();
+		$gananciaMes = 0;
 		foreach ($ordenes as $i => $orden) {
 			$Criteria->condition = "k_idOrden =".$orden->k_idOrden;
 			$pqtOrden = Paquetematenimiento::model()->find($Criteria);			
-			$procesos = $this->getProcesosByCriteria($pqtOrden->k_idPaquete,"fk_idPaqueteManenimiento");
-
-			foreach ($procesos as $j => $proceso) {
-				$proceso['costoS']= $proceso['servicio']['v_costoServicio']*$proceso['cantidad'];
-				$proceso['costoST'] = $proceso['servicio']['v_costoServicioTecnico']*$proceso['cantidad'];
-				$procesos[$j] = $proceso;
-			}
-			$temp[]= array("orden"=>$orden,"procesos"=>$procesos);
+			$procesos = $this->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqtOrden->k_idPaquete);
+			$procesos = $this->GetMargenGanancia($procesos);
+			$temp[]= array("orden"=>$orden,"servicios"=>$procesos);
 		}
 		$data['ordenesCaja'] = $temp;
 		return $data;
 	}
-	
 
+	private function GetMargenGanancia($items){
+		if(count($items)>0){
+			$gananciaMes = 0;
+			foreach ($items as $j => $item) {
+				$item['costoS']= $item['servicio']['v_costoServicio']*$item['cantidad'];
+				$item['costoT'] = $item['servicio']['v_costoServicioTecnico']*$item['cantidad'];
+				$item['margenGananacia'] = $item['costoS'] - $item['costoT'];
+				$gananciaMes = $gananciaMes + $item['margenGananacia'];
+				$items[$j] = $item;
+			}
+		}
+		return $items;
+	}
+	
+	private function getCajaServicioRangoTiempo($servicioId,$fchI, $fchF){
+		$data = array();
+		$procesos = $this->getProcesosByCriteria("fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'");		
+		$temp = array();
+		foreach ($procesos as $i => $proceso) {
+			if(!array_key_exists($proceso["servicio"]["k_idServicio"],$temp)){
+				$temp[$proceso["servicio"]["k_idServicio"]]=array(
+						"cantidad"=>$proceso["cantidad"],
+						"servicio"=>$proceso["servicio"]						
+					);
+			}else{
+				$temp[$proceso["servicio"]["k_idServicio"]]["cantidad"]+=1;				
+			}
+		}
+		$temp = $this->GetMargenGanancia($temp);
+		$data["servicios"] = $temp;
+		return $data;
+	}
+
+	private function getCostosServicio(){
+
+	}
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
 }

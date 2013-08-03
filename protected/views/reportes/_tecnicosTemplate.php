@@ -25,20 +25,26 @@
 														<th>Fecha Asignacion</th>
 														<th>Fecha Finalizacion</th>
 														<th>Descripcion</th>
+														<th>duracion</th>
 													</tr>
 												</thead>
 												<tbody>
 													{{#each procesos}}
 														<tr>
-															<td>{{fchAsignacion}}</td>
-															<td>{{fchFinalizacion}}</td>
-															<td>{{n_descripcion}}</td>
+															<td>{{proceso.fchAsignacion}}</td>
+															<td>{{proceso.fchFinalizacion}}</td>
+															<td>{{proceso.n_descripcion}}</td>
+															<td>{{duracion}} </td>
 														</tr>
 													{{/each}}
 												</tbody>
 											</table>
 										</div>
 									{{/each}}
+								
+								{{else}}
+									<div class="orden">
+									</div>
 								{{/if}}
 							</div>
 							<div class="ordColumn">
@@ -57,20 +63,26 @@
 														<th>Fecha Asignacion</th>
 														<th>Fecha Finalizacion</th>
 														<th>Descripcion</th>
+														<th>duracion</th>
 													</tr>
 												</thead>
 												<tbody>
 													{{#each procesos}}
 														<tr>
-															<td>{{fchAsignacion}}</td>
-															<td>{{fchFinalizacion}}</td>
-															<td>{{n_descripcion}}</td>
+															<td>{{proceso.fchAsignacion}}</td>
+															<td>{{proceso.fchFinalizacion}}</td>
+															<td>{{proceso.n_descripcion}}</td>
+															<td>{{duracion}} </td>
 														</tr>
 													{{/each}}
 												</tbody>
 											</table>
 										</div>
 									{{/each}}
+								
+								{{else}}
+									<div class="orden">
+									</div>	
 								{{/if}}
 							</div>
 					</div>
