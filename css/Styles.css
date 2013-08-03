@@ -144,9 +144,10 @@
 /*REPORTES*/
 .reporteContent {
 	border: 1px solid rgba(0,100,150,0.5);
-	width: 90%;
+	width: 95%;
 	margin: 2.5em auto 0 auto;
 }
+
 .boxInfo{
 	clear: both;
 	border-bottom: 1px dotted #2d444f;
@@ -157,33 +158,44 @@
 	max-height: 400px;
 }
 
-.boxInfo h4{
+.equipos{
+	clear: both;
+	padding: 0.5em;
+	margin: 0 auto 0.5em auto;
+	font-size: 1em;
+	max-height: 700px;
+}
 
+.equipo .equipoOrd{
+	max-height: 500px;
+}
+
+.boxInfo h4, .equipos h4{
 	background-color: #6399cd;
 	color: #EFF4FA;
 	font-weight: 700;
 	padding: 0.3em;
-	width: 100%;
+	width: 99%;
 }
 
-.boxInfo span, .orden span{
+.boxInfo span, .orden span, .equipos span{
 	width: 48%;
 	display: inline-block;	
 }
 
-.boxInfo span label, .orden span label{
+.boxInfo span label, .orden span label, .equipos span label{
 	display: inline-block;
 	margin-right: 0.9em;
 	font-weight: 800;
 }
 
-.boxInfo table{
+.boxInfo table, .equipos table{
 	border: 1px solid #D1C9C9;
 	width: 95%;
 	margin: 0 auto
 }
 
-.boxInfo .orden {
+.boxInfo .orden{
 	margin-bottom: 0.5em;
 	box-shadow: 0px 2px 2px 2px #cccccc;
 	padding-bottom: 0.5em;
@@ -192,10 +204,24 @@
 	margin: 0 auto 0.5em auto;
 }
 
-.boxInfo h5{
+.boxInfo h5, .equipos h5{
 	margin: 0.2em 0 0.3em 0;
 	background: #9EAEC2;
 	padding: 0.2em;
 	font-weight: 800;
-	width: 98%;
+	width: 99%;
 }
+
+.equipos h6{
+	margin: 0.1em 0 0.2em 0;
+	background: #9EAEC2;
+	padding: 0.1em;
+	font-weight: 700;
+	width: 97%;
+}
+
+.ordenes .ordColumn{
+	width: 50%;
+	margin-bottom:0.5em; 
+}
+

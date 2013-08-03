@@ -1,17 +1,19 @@
 $(document).ready(function(){
 	var reporteTecnico = (function(){
-		var userNameTec, tipoTec, plantillaTec,consultBtn,fchI,fchF;
+		var userNameTec, tipoTec, plantillaTec,consultBtn,fchI,fchF,fechasContent;
 		/*_________________Funciones_________________*/
 		var init = function(config){
+			fechasContent = config.fechasContent;
 			fchI = config.fchI;
 			fchF = config.fchF;
 			consultBtn = config.consultBtn;
-			historialData = $("#tecnicoContent");
+			tecData = $("#tecnicoContent");
 			plantillaTec = $("#tecnicosTemplate");
 			jQueryPlugins();
 			bindEvents();
 		},
 		jQueryPlugins = function(){
+			fechasContent.css('display','none');
 			fchI.datepicker({ dateFormat: "yy-mm-dd" });
 			fchF.datepicker({ dateFormat: "yy-mm-dd" });
 		},
@@ -19,6 +21,15 @@ $(document).ready(function(){
 			$("#configContent").find("input[name=tecType]:radio").each(function(i,item){
 				$(item).click(function(){
 					getTecs($(item));	
+				});
+			});
+			$("#configContent").find("input[name=reportType]:radio").each(function(i,item){
+				$(item).click(function(){
+					if($(item).val() != "fct"){
+						fechasContent.css('display','none');
+					}else{
+						fechasContent.css('display','inline-block');
+					}
 				});
 			});
 			consultBtn.on('click',function(){
@@ -29,8 +40,6 @@ $(document).ready(function(){
 			var typeConsult = $('input[name=reportType]:checked').val();
 			var tec = $('#tecSelected').val();
 			var typeTec = $('input[name=tecType]:checked').val();
-			console.log(fchI.val());
-			console.log(fchF.val());
 			if(typeConsult!== undefined && tec !== undefined ){
 				$.ajax({
 				type:'POST',
@@ -45,6 +54,7 @@ $(document).ready(function(){
 				},
 				success:function(data){
 					console.log(data);
+					showTecData(data);
 				},
 				error:function(){
 				}
@@ -60,7 +70,7 @@ $(document).ready(function(){
 				data: {
 					typeTec:item.val()
 				},
-				success:function(data){
+				success:function(data){					
 					showListTecs(data);
 				},
 				error:function(){
@@ -73,7 +83,13 @@ $(document).ready(function(){
 			    $('<option />', {value: tecs[x].id, text: tecs[x].username}).appendTo(s);
 			}
 			$("#listTecnicos").html(s);
-		};		
+			$("#listTecnicos").prepend("<label>Tecnicos</label>");
+		},
+		showTecData = function(data){
+			var template = Handlebars.compile(plantillaTec.html());
+            var contenido = template(data);           
+            tecData.html(contenido);
+		};
 
 		return {
 			init:init
@@ -81,6 +97,7 @@ $(document).ready(function(){
 	})();
 
 	reporteTecnico.init({
+		fechasContent : $("#fechas"),
 		consultBtn : $("#consultBtn"),
 		fchI: $("#fchI"),
 		fchF: $("#fchF")

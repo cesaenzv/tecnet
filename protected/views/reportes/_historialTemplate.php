@@ -35,9 +35,9 @@
 								<tbody>
 									{{#each servicios}}
 										<tr>
-											<th>{{cantidad}}</th>
-											<th>{{Servicio.n_nomServicio}}</th>
-											<th>{{Servicio.v_costoServicio}}</th>
+											<td>{{cantidad}}</td>
+											<td>{{Servicio.n_nomServicio}}</td>
+											<td>{{Servicio.v_costoServicio}}</td>
 										</tr>
 									{{/each}}
 								</tbody>
@@ -65,12 +65,12 @@
 					<tbody>
 					{{#each equipos}}
 						<tr>
-							<th>{{k_idEquipo}}</th>
-							<th>{{n_nombreEquipo}}</th>
-							<th>{{k_idEspecificacion.n_nombreEspecificacion}}</th>
-							<th>{{k_idEspecificacion.k_idTipoEquipo}}</th>
-							<th>{{k_idEspecificacion.k_idMarca}}</th>
-							<th>{{k_idEspecificacion.i_inhouse}}</th>
+							<td>{{k_idEquipo}}</td>
+							<td>{{n_nombreEquipo}}</td>
+							<td>{{k_idEspecificacion.n_nombreEspecificacion}}</td>
+							<td>{{k_idEspecificacion.k_idTipoEquipo}}</td>
+							<td>{{k_idEspecificacion.k_idMarca}}</td>
+							<td>{{k_idEspecificacion.i_inhouse}}</td>
 						</tr>
 					{{/each}}
 					</tbody>
@@ -92,9 +92,9 @@
 					<tbody>
 						{{#each servicios}}
 							<tr>
-								<th>{{cantidad}}</th>
-								<th>{{Servicio.n_nomServicio}}</th>
-								<th>{{Servicio.v_costoServicio}}</th>
+								<td>{{cantidad}}</td>
+								<td>{{Servicio.n_nomServicio}}</td>
+								<td>{{Servicio.v_costoServicio}}</td>
 							</tr>
 						{{/each}}
 					</tbody>

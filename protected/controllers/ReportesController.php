@@ -165,7 +165,7 @@ class ReportesController extends Controller
 /* CIERRE	HISTORIAL MAQUINAS Y CLIENTES    */
 
 
-public function actionTecnicoInforme ()
+	public function actionTecnicoInforme ()
 	{
 		$this->render('reportes',array(
 				'type'=>'Tecnico'
@@ -218,6 +218,7 @@ public function actionTecnicoInforme ()
 			$paquete = Paquetematenimiento::model()->find($Criteria);
 			$orden = Orden::model()->findByPk($paquete->k_idOrden);
 			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
+			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
 			if($orden->fchEntrega != "0000-00-00 00:00:00"){
 				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1);
 			}else{
@@ -231,9 +232,7 @@ public function actionTecnicoInforme ()
 
 	private function getFacturacionTecnico($idTec, $fchI, $fchF){
 		$data = array();$servicios = array();$Criteria = new CDbCriteria();
-		$data["servicios"] = array();
-		// $fchI = strtotime($fchI);
-		// $fchF = strtotime($fchF);
+		$data["facturas"] = array();
 		$Criteria->condition = "k_idTecnico = ".$idTec." AND fk_idEstado = 3 AND fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'";
 		$procesos = Proceso::model()->findAll($Criteria);
 		$total = 0;
@@ -244,7 +243,7 @@ public function actionTecnicoInforme ()
 			$total += $temp->v_costoServicioTecnico;
 			$temp = $temp->attributes;
 			$temp["fechaFin"]=$proceso->fchFinalizacion;
-			$data["servicios"][] = $temp;
+			$data["facturas"][] = $temp;
 		}		
 		$data["total"] = $total;
 		return $data;
@@ -255,21 +254,40 @@ public function actionTecnicoInforme ()
 		$data = array();$Criteria = new CDbCriteria();
 		$Criteria->condition = "k_idTecnico = ".$tecId;
 		$procesos = Proceso::model()->findAll($Criteria); 
+		// $temp = array();
+		// foreach ($procesos as $i => $proceso) {
+		// 	$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
+		// 	$servicio = Procesoservicio::model()->findAll($Criteria);
+		// 	if(!array_key_exists($servicio->k_idServicio,$temp)){
+		// 		$temp[$servicio->k_idServicio]=array(
+		// 				"cantidad"=>1,
+		// 				"servicio"=>$servicio->attributes
+		// 			);
+		// 	}else{
+		// 		$temp[$servicio->k_idServicio]["cantidad"]+=1;
+		// 	}
+		// }
+		$data["servicios"]= $this->getProcesosByCriteria($tecId,"k_idTecnico");
+		return $data;
+	}
+
+	private function getProcesosByCriteria($id,$column){
+		$Criteria = new CDbCriteria();
+		$Criteria->condition = $column." = ".$id;
+		$procesos = Proceso::model()->findAll($Criteria); 
 		$temp = array();
 		foreach ($procesos as $i => $proceso) {
 			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;
 			$servicio = Procesoservicio::model()->findAll($Criteria);
 			if(!array_key_exists($servicio->k_idServicio,$temp)){
 				$temp[$servicio->k_idServicio]=array(
-						"cantidad"=>1
-						"servicio"=>$servicio->attributes
+						"cantidad"=>1,
+						"servicio"=>$servicio->attributes						
 					);
 			}else{
-				$temp[$servicio->k_idServicio]["cantidad"]+=1;
+				$temp[$servicio->k_idServicio]["cantidad"]+=1;				
 			}
 		}
-		$data["servicios"]= $temp;
-		return $data;
 	}
 
 
@@ -321,14 +339,64 @@ public function actionTecnicoInforme ()
 
 /*	CIERRE TECNICOS REPORTES Y CONSULTAS */
 
-	
+	public function actionReporteCaja ()
+	{
+		$this->render('reportes',array(
+				'type'=>'Caja'
+			));		
+	}
+
+	public function actionGetReporteCaja()
+	{
+		if(isset($_POST['typeConsult'])){
+			$data = null;
+			switch ($_POST['typeConsult']) {
+				case 'ingO':
+					$data =	$this->getCajaOrdenRangoTiempo($_POST['fchI'],$_POST['fchF']);
+					break;
+				case 'cstS':
+					$data = $this->getCostosServicio($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+					break;				
+				case 'serP':
+					$data = $this->getCostosServicioPro($_POST['servicioID'],$_POST['fchI'],$_POST['fchf']);
+					break;
+				default:
+					$data = "";
+					break;
+			}			
+			echo CJavaScript::jsonEncode($data);
+		}
+	}	
 
 /* UTILIDADES EN VENTAS Y ORDENES*/
+
+	public function getCajaOrdenRangoTiempo($fchI, $fchF){
+		$data = array();;$Criteria = new CDbCriteria();
+		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
+		$ordenes = Orden::model()->findAll($Criteria);
+		$temp = array();
+		foreach ($ordenes as $i => $orden) {
+			$Criteria->condition = "k_idOrden =".$orden->k_idOrden;
+			$pqtOrden = Paquetematenimiento::model()->find($Criteria);			
+			$procesos = $this->getProcesosByCriteria($pqtOrden->k_idPaquete,"fk_idPaqueteManenimiento");
+
+			foreach ($procesos as $j => $proceso) {
+				$proceso['costoS']= $proceso['servicio']['v_costoServicio']*$proceso['cantidad'];
+				$proceso['costoST'] = $proceso['servicio']['v_costoServicioTecnico']*$proceso['cantidad'];
+				$procesos[$j] = $proceso;
+			}
+			$temp[]= array("orden"=>$orden,"procesos"=>$procesos);
+		}
+		$data['ordenesCaja'] = $temp;
+		return $data;
+	}
 	
 
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
 }
+
+
 
 
 
