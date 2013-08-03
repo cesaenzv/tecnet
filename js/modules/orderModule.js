@@ -30,8 +30,9 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(data.equipos);
                     }else{
-                        alert("Crear cliente");
-                        createEquipoGrid(data.equipos);
+                        $("#createCliente").fancybox({});
+                        $("#createCliente").click();
+                        //alert($("#Orden_k_idUsuario").val());
                     }
                 },
                 error:function(){
