@@ -16,7 +16,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/Styles.css" />
         <?php
-            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js'); 
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js');            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js');
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.json-2.4.js');            Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/handlebars.js');
             Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/fancybox/jquery.fancybox.css?v=2.1.5');
             Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/libs/jquery.fancybox.js?v=2.1.5', CClientScript::POS_HEAD);
             Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl.'/css/ui.jqgrid.css');

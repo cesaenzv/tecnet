@@ -26,12 +26,12 @@ $(document).ready(function() {
                 },
                 success:function(data){
                     console.log(data);
-                    if( data.cliente !== undefined && data.cliente !== null ){
+                    if( data.cliente !== null && data.cliente !== null ){
                         showClienteData(data.cliente)
-                        createEquipoGrid(data.equipos);
+                        createEquipoGrid(docClient.val());
                     }else{
-                        alert("Crear cliente");
-                        createEquipoGrid(data.equipos);
+                        window.location="http://localhost/tecnet/cliente/create"
+                        //alert($("#Orden_k_idUsuario").val());
                     }
                 },
                 error:function(){
@@ -44,14 +44,23 @@ $(document).ready(function() {
             var contenido = template(client);
             clientData.html(contenido);
         },
-        createEquipoGrid = function(equipos){
+        createMantenimiento = function(){
+            var rowid = $(equiposGrid).jqGrid('getGridParam', 'selrow');
+            if (rowid == null) {
+                alert("Debe seleccionar un equipo para realizar el mantenimiento");
+                return false;
+            }
+            var ret = $(equiposGrid).getRowData(rowid);
+        }
+        createEquipoGrid = function(idCliente){
             equiposGrid.jqGrid({
-                data:equipos !== null ? equipos:"{}",
+                url: "http://localhost/tecnet/cliente/GetEquipoGrid/"+idCliente,
                 datatype: "json",
+                mtype: "POST",
                 colNames: ["ID", "Nombre","Especificación","Estado"],
                 colModel: [
                     {
-                        name: "id", 
+                        name: "k_idEquipo", 
                         width: 200,                    
                         editrules:{
                             edithidden:true, 
@@ -60,11 +69,10 @@ $(document).ready(function() {
                     },
 
                     {
-                        name: "nombre", 
+                        name: "n_nombreEquipo", 
                         width: 200,
                         editable:true,
-                        hidden:false, 
-                        edittype: "select", 
+                        hidden:false,
                         editrules:{
                             edithidden:true, 
                             required:true
@@ -72,11 +80,12 @@ $(document).ready(function() {
                     },
 
                     {
-                        name: "especificacion", 
+                        name: "k_idEspecificacion", 
                         width: 200,
                         editable:true,
                         hidden:false, 
                         edittype: "select", 
+                        editoptions:{dataUrl: "http://localhost/tecnet/cliente/GetEspecificaciones/"},
                         editrules:{
                             edithidden:true, 
                             required:true
@@ -84,10 +93,12 @@ $(document).ready(function() {
                     },
 
                     {
-                        name: "estado", 
+                        name: "i_inhouse", 
                         width: 100, 
                         align: "right",
                         editable:true,
+                        edittype: "select", 
+                        editoptions:{dataUrl: "http://localhost/tecnet/cliente/GetEstados/"},
                         hidden:false,
                         editrules:{
                             edithidden:true, 
@@ -108,14 +119,18 @@ $(document).ready(function() {
             equiposGrid.jqGrid('navGrid', '#pagerEquipoGrid', {
                 edit : true,
                 add : true,
-                del : true,
+                del : false,
                 search :false,
                 closeAfterEdit: true,
                 closeAfterAdd:true,
                 afterComplete : function(response, postdata)
                 {
-                    alert("asdf");
                 } 
+            }).navButtonAdd("#pagerEquipoGrid", { caption: "mantenimiento", buttonicon: "ui-icon-newwin",
+                onClickButton: function (data) { 
+                    createMantenimiento();
+                },
+                position: "last", title: "Forzar Realizacion", cursor: "pointer"
             });
         };
         return {
