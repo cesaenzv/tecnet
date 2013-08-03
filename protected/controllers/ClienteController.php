@@ -175,4 +175,68 @@ class ClienteController extends Controller {
         echo CJavaScript::jsonEncode($data);
     }
 
+    public function actionGetEspecificaciones() {
+        $especificacion = Especificacion::model()->findAll();
+        $resultado = "<select>";
+        foreach ($especificacion as $val){
+        $tipoEquipo = Tipoequipo::model()->findByPk($val->k_idTipoEquipo);
+        $valEspecifica = $tipoEquipo->n_tipoEquipo . " " . $val->n_nombreEspecificacion;
+        $resultado=$resultado."<option val='".$val->k_especificacion."'>".$valEspecifica."</option>";
+        }
+        $resultado = $resultado."</select>";
+        echo $resultado;
+        
+    }
+    /*public function actionGetEstados() {
+        $especificacion = Especificacion::model()->findAll();
+        $resultado = "<select>";
+        $resultado=$resultado."<option val='1'>En Tecnet</option>";
+        $resultado=$resultado."<option val='0'>En casa de cliente</option>";
+        $resultado = $resultado."</select>";
+        echo $resultado;
+        
+    }*/
+    public function actionGetEstados() {
+        $especificacion = Especificacion::model()->findAll();
+        $resultado = "<select>";
+        $resultado=$resultado."<option val='1'>En Tecnet</option>";
+        $resultado=$resultado."<option val='0'>En casa de cliente</option>";
+        $resultado = $resultado."</select>";
+        echo $resultado;
+        
+    }
+    public function actionGetEquipoGrid($id) {
+        $criteria = new CDbCriteria;
+        if (isset($_POST['sidx']) && isset($_POST['sord']))
+            $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+        $criteria->condition = "k_idCliente = " . $id;
+        $dataProvider = new CActiveDataProvider('Equipo', array(
+                    'criteria' => $criteria,
+                    'pagination' => array(
+                        'pageSize' => $_POST['rows'],
+                        'currentPage' => $_POST['page'] - 1,
+                    ),
+                ));
+        $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+        $response = new stdClass();
+        $response->page = $_POST['page'];
+        $response->records = $dataProvider->getTotalItemCount();
+        $response->total = ceil($response->records / $ro);
+        $rows = $dataProvider->getData();
+        foreach ($rows as $i => $row) {
+            $especificacion = Especificacion::model()->findByPk($row['k_idEspecificacion']);
+            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+            $especificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
+
+            $response->rows[$i]['id'] = $row['k_idEquipo'];
+            $response->rows[$i]['cell'] = array(
+                $row['k_idEquipo'],
+                $row['n_nombreEquipo'],
+                $especificacion,
+                $row['i_inhouse'] == 1 ? "En Tecnet" : "En Casa",
+            );
+        }
+        echo json_encode($response);
+    }
+
 }
