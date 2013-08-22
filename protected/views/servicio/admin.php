@@ -85,6 +85,9 @@ init=function() {
 	});
 } 
 </script>
+<style type="text/css">
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br{z-index: 1000000 !important;}
+</style>
 <?php
 $servicios = Servicio::model()->findAll();
 foreach ($servicios as $val){
