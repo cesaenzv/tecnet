@@ -231,3 +231,84 @@ Stack trace:
 REQUEST_URI=/git/tecnet/Reportes/GetReporteCaja
 in C:\xampp\htdocs\git\tecnet\protected\controllers\ReportesController.php (388)
 in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/08/22 02:05:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/handlebars.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/handleb...')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/handlebars.js
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/08/22 02:05:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.multi-select.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.multi-select.js
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/08/22 02:05:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.fancybox.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.fancybox.js?v=2.1.5
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/08/22 02:05:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/handlebars.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/handleb...')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/handlebars.js
+HTTP_REFERER=http://localhost/git/tecnet/user/login
+---
+2013/08/22 02:05:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.fancybox.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.fancybox.js?v=2.1.5
+HTTP_REFERER=http://localhost/git/tecnet/user/login
+---
+2013/08/22 02:05:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.multi-select.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.multi-select.js
+HTTP_REFERER=http://localhost/git/tecnet/user/login
+---
+2013/08/22 02:06:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.multi-select.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.multi-select.js
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/08/22 02:06:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/jquery.fancybox.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/jquery....')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/jquery.fancybox.js?v=2.1.5
+HTTP_REFERER=http://localhost/git/tecnet/
+---
+2013/08/22 02:06:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/libs/handlebars.js"' in C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/libs/handleb...')
+#1 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/git/tecnet/js/libs/handlebars.js
+HTTP_REFERER=http://localhost/git/tecnet/
+---
