@@ -64,20 +64,16 @@ class EquipoController extends Controller {
             $especificacion = Especificacion::model()->find($Criteria);
             if($especificacion !=  null){
                 $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
-                die();
+
             }else{
                 $especificacion = new Especificacion();
                 $especificacion->k_idMarca = $_POST['Marca']['n_nombreMarca'];
                 $especificacion->k_idTipoEquipo = $_POST['Tipoequipo']['n_tipoEquipo'];
                 $especificacion->n_nombreEspecificacion = $_POST['Especificacion']["n_nombreEspecificacion"];
                 $equipo->k_idEspecificacion = $especificacion->k_especificacion;
-                
-                if($especificacion->save()){
-                    echo "GUARDO";
+                if($especificacion->save(false)){
                     $equipo->k_idEspecificacion = $especificacion->k_especificacion;
                 }
-                var_dump($equipo->attributes);
-                die();
             }
             
             if($equipo->save())

@@ -1436,3 +1436,19 @@ Stack trace:
 REQUEST_URI=/git/tecnet/equipo/create
 in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (65)
 in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/08/23 14:34:07 [error] [php] Undefined variable: save (C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php:75)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/create
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (75)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
