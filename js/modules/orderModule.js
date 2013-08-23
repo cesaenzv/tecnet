@@ -30,8 +30,8 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
                     }else{
-                        window.location="http://localhost/tecnet/cliente/create"
-                        //alert($("#Orden_k_idUsuario").val());
+                        $("#createCliente").attr("href","http://localhost/tecnet/cliente/createFancy/"+docClient.val())
+                        $("#createCliente").click();
                     }
                 },
                 error:function(){
@@ -57,7 +57,7 @@ $(document).ready(function() {
                 url: "http://localhost/tecnet/cliente/GetEquipoGrid/"+idCliente,
                 datatype: "json",
                 mtype: "POST",
-                colNames: ["ID", "Nombre","Especificación","Estado"],
+                colNames: ["ID", "Serial","Especificación","Estado"],
                 colModel: [
                     {
                         name: "k_idEquipo", 
@@ -111,6 +111,7 @@ $(document).ready(function() {
                 rowList: [10, 20, 30],
                 sortname: "k_idEquipo",
                 sortorder: "desc",
+                editurl:"http://localhost/tecnet/equipo/saveGrid/"+idCliente,
                 viewrecords: true,
                 gridview: true,
                 autoencode: true,
@@ -123,10 +124,34 @@ $(document).ready(function() {
                 search :false,
                 closeAfterEdit: true,
                 closeAfterAdd:true,
-                afterComplete : function(response, postdata)
+                afterSubmit : function(response, postdata)
                 {
                 } 
-            }).navButtonAdd("#pagerEquipoGrid", { caption: "mantenimiento", buttonicon: "ui-icon-newwin",
+            },
+                {//edit data
+                    serializeEditData:function(postdata){
+                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                        postdata.k_idEspecificacion=ret.idsubtipo;
+                        return postdata;
+                    }
+                },
+                {//add data
+                    serializeAddData:function(postdata){
+                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                        postdata.idsubtipo=ret.idsubtipo;
+                        return postdata;
+                    }
+                },
+                {//delete data
+                    serializeDelData: function (postdata) {
+                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                        postdata.idsubtipo=ret.idsubtipo;
+                        return postdata;
+                    }
+                }).navButtonAdd("#pagerEquipoGrid", { caption: "mantenimiento", buttonicon: "ui-icon-newwin",
                 onClickButton: function (data) { 
                     createMantenimiento();
                 },

@@ -60,9 +60,11 @@ class ClienteController extends Controller {
         ));
     }
 
-    public function actionCreateFancy() {
+    public function actionCreateFancy($id) {
         $model = new Cliente;
-        $this->render('create', array(
+        $this->layout="_blank";
+        $model->k_identificacion=$id;
+        $this->render('createFancy', array(
             'model' => $model,
         ));
     }

@@ -1,5 +1,5 @@
 
-<div id="servicio_<?php echo $model->k_idServicio ?>" style="display: none;">
+<div id="servicio_<?php echo $model->k_idServicio ?>">
     <table id="list<?php echo $model->k_idServicio ?>"></table> 
     <div id="pager<?php echo $model->k_idServicio ?>"></div>
     <?php
