@@ -1,5 +1,5 @@
 <script type="text/x-handlebars-template" id="tecnicosTemplate">
-	<div class="reporteContent">
+	<div id="reporteContent">
 		{{#if equipos}}
 			<div class="equipos">
 				{{#each equipos}}
@@ -97,6 +97,7 @@
 						<th>Fecha</th>
 						<th>Servicio</th>
 						<th>Pago Tecnico</th>
+						<th>Cancelar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -105,6 +106,13 @@
 							<td>{{fechaFin}}</td>
 							<td>{{n_nomServicio}}</td>
 							<td>{{v_costoServicioTecnico}}</td>
+							<td>
+								{{#if estadoPago}}
+									<strong style="color:red;">Pagado</strong>
+								{{else}}
+									<input type="button" class="pagoServicio" data-ids={{k_idServicio}} data-idp={{k_idProceso}} value="Pagar"/>
+								{{/if}}
+							</td>
 						</tr>
 					{{/each}}
 				</tbody>			

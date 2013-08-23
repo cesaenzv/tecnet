@@ -6,11 +6,7 @@
  * The followings are the available columns in table 'procesoservicio':
  * @property integer $k_idProceso
  * @property integer $k_idServicio
- * @property integer $k_idUsuario
- *
- * The followings are the available model relations:
- * @property Servicio $kIdServicio
- * @property CrugeUser $kIdUsuario
+ * @property integer $q_estadoPago
  */
 class Procesoservicio extends CActiveRecord
 {
@@ -40,11 +36,11 @@ class Procesoservicio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idProceso, k_idServicio, k_idUsuario', 'required'),
-			array('k_idProceso, k_idServicio, k_idUsuario', 'numerical', 'integerOnly'=>true),
+			array('k_idProceso, k_idServicio', 'required'),
+			array('k_idProceso, k_idServicio, q_estadoPago', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idProceso, k_idServicio, k_idUsuario', 'safe', 'on'=>'search'),
+			array('k_idProceso, k_idServicio, q_estadoPago', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +52,6 @@ class Procesoservicio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kIdServicio' => array(self::BELONGS_TO, 'Servicio', 'k_idServicio'),
-			'kIdUsuario' => array(self::BELONGS_TO, 'CrugeUser', 'k_idUsuario'),
 		);
 	}
 
@@ -67,9 +61,9 @@ class Procesoservicio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idProceso' => 'Proceso',
-			'k_idServicio' => 'Servicio',
-			'k_idUsuario' => 'Usuario',
+			'k_idProceso' => 'K Id Proceso',
+			'k_idServicio' => 'K Id Servicio',
+			'q_estadoPago' => 'Q Estado Pago',
 		);
 	}
 
@@ -86,7 +80,7 @@ class Procesoservicio extends CActiveRecord
 
 		$criteria->compare('k_idProceso',$this->k_idProceso);
 		$criteria->compare('k_idServicio',$this->k_idServicio);
-		$criteria->compare('k_idUsuario',$this->k_idUsuario);
+		$criteria->compare('q_estadoPago',$this->q_estadoPago);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
