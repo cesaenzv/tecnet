@@ -205,7 +205,8 @@ class ClienteController extends Controller {
         echo $resultado;
         
     }
-    public function actionGetEquipoGrid($id) {
+    public function actionGetEquipoGrid() {
+        $id = $_GET['idCliente'];
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];

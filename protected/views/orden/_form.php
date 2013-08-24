@@ -10,7 +10,7 @@ echo $this->renderPartial('_clientTemplate');
 <script type="text/javascript">
 	
 	var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>';
-	
+	var	createEquipoGridUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/GetEquipoGrid"); ?>';
 </script>
 
 <div class="form">
