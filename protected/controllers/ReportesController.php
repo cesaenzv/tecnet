@@ -195,7 +195,7 @@ class ReportesController extends Controller
 	}
 
 	public function actionGetTecnicoInforme(){
-		if(isset($_POST['typeConsult']) && isset($_POST['tecId'])){
+		if(isset($_POST['typeConsult'])){
 			$data = null;
 			switch ($_POST['typeConsult']) {
 				case 'maqTec':
@@ -203,6 +203,9 @@ class ReportesController extends Controller
 					break;
 				case 'fct':
 					$data = $this->getFacturacionTecnico($_POST['tecId'],$_POST['fchI'],$_POST['fchF']);
+					break;
+				case 'paySer':
+					$data = $this->pagarServicio($_POST['idS'],$_POST['idP']);
 					break;			
 				default:
 					$data = "";
@@ -213,7 +216,21 @@ class ReportesController extends Controller
 
 	}	
 	
-/*	TECNICOS REPORTES Y CONSULTAS */	
+/*	TECNICOS REPORTES Y CONSULTAS */
+
+	private function pagarServicio($idS,$idP){
+		$data = array();$Criteria = new CDbCriteria();
+		$Criteria->condition = "k_idServicio = ".$idS." AND k_idProceso = ".$idP;
+		$pS = Procesoservicio::model()->find($Criteria);
+		$pS->q_estadoPago = 1;
+		if($pS->save()){
+			return $data["msg"] = true;
+		}else{
+			return $data["msg"] = false;
+		}
+
+	}
+
 	private function getMachinesTec($tecId, $typeTec){
 		$data = array();$equipos = array();$Criteria = new CDbCriteria();
 		$Criteria->condition = "k_idTecnico = ".$tecId;
@@ -263,13 +280,16 @@ class ReportesController extends Controller
 		$total = 0;
 		foreach ($procesos as $i => $proceso) {			
 			$Criteria->condition = "k_idProceso = ".$proceso->k_idProceso;			
-			$temp = Procesoservicio::model()->find($Criteria);
-			$temp = Servicio::model()->findByPk($temp->k_idServicio);
+			$pS = Procesoservicio::model()->find($Criteria);
+			$temp = Servicio::model()->findByPk($pS->k_idServicio);
 			$total += $temp->v_costoServicioTecnico;
 			$temp = $temp->attributes;
 			$temp["fechaFin"]=$proceso->fchFinalizacion;
+			$temp["estadoPago"] = $pS->q_estadoPago == 0? false:true;
+			$temp["k_idProceso"] = $pS->k_idProceso; 			
 			$data["facturas"][] = $temp;
 		}		
+
 		$data["total"] = $total;
 		return $data;
 	}

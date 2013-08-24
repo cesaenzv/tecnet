@@ -37,6 +37,24 @@ class EquipoController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+    
+    public function actionSaveGrid($id) {
+        extract($_REQUEST);
+        
+        if(isset($oper)){
+            if($oper=="add"){
+                $equipo = new Equipo();
+                $equipo->i_inhouse=trim($i_inhouse)=="En Tecnet"?1:0;
+                $equipo->k_idEspecificacion=$k_idEspecificacion;
+                $equipo->n_nombreEquipo=$n_nombreEquipo;
+                if($equipo->save()){
+                    echo "{Result:'OK', Message:'Datos guardados correctamente.'}";
+                }else{
+                    echo "{Result:'Fail', Message:'Ocurrio un error inesperado.'}";
+                }
+            }
+        }
+    }
 
     /**
      * Creates a new model.
@@ -46,23 +64,36 @@ class EquipoController extends Controller {
         $manageM = new ManageModel;
         $equipo = new Equipo;
 
-        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'n_nombreMarca');
+        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'k_idMarca','n_nombreMarca');
         $marca =  array('model' => new Marca,
                         'list' => $listMarca); 
 
-        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'n_tipoEquipo');        
+        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'k_idTipo','n_tipoEquipo');        
         $tipoEquipo = array('model' => new Tipoequipo,
                             'list' => $listTipoEquipo);
 
-        $especificacion = new Especificacion;
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-        if (isset($_POST['Equipo']) && isset($_POST['marca']) && isset($_POST['tipoequipo']) && isset($_POST['Especificacion'])) {
+        $especificacion = new Especificacion();
+
+        if (isset($_POST['Equipo']) && isset($_POST['Marca']) && isset($_POST['Tipoequipo']) && isset($_POST['Especificacion'])) {
             $equipo->attributes = $_POST['Equipo'];
+            $equipo->i_inhouse = 0;
             $Criteria = new CDbCriteria(); 
-            $Criteria->condition = "n_nombreEspecificacion = '".$_POST['Especificacion']["n_nombreEspecificacion"]."'";
+            $Criteria->condition = "k_idMarca = ".$_POST['Marca']['n_nombreMarca']." AND k_idTipoEquipo = ".$_POST['Tipoequipo']['n_tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['Especificacion']["n_nombreEspecificacion"]."'";
             $especificacion = Especificacion::model()->find($Criteria);
-            $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+            if($especificacion !=  null){
+                $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
+
+            }else{
+                $especificacion = new Especificacion();
+                $especificacion->k_idMarca = $_POST['Marca']['n_nombreMarca'];
+                $especificacion->k_idTipoEquipo = $_POST['Tipoequipo']['n_tipoEquipo'];
+                $especificacion->n_nombreEspecificacion = $_POST['Especificacion']["n_nombreEspecificacion"];
+                $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                if($especificacion->save(false)){
+                    $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                }
+            }
+            
             if($equipo->save())
                 $this->redirect(array('view', 'id' => $equipo->k_idEquipo));            
         }

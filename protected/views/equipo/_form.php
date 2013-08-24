@@ -33,50 +33,12 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 	</div>
 
 	<?php
-		echo $form->labelEx($marca['model'],'n_nombreMarca'); 
-		$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'marca',
-		    'model'=>$marca['model'],
-		    'source'=>$marca['list'],
-		    // additional javascript options for the autocomplete plugin
-		    'options'=>array(
-		        'minLength'=>'2',
-		        'change'=>"js:function(event, ui) {
-                              	if (!ui.item) {
-                                	$('#marca').val('');
-                              	}else{
-                              		equipoModule.setMarca(ui.item);
-                              	}
+		echo $form->labelEx($marca['model'],'n_nombreMarca');
+		echo $form->dropDownList($marca['model'], 'n_nombreMarca', $marca['list'],null);
 
-                            }",
-		    ),
-		    'htmlOptions'=>array(		        
-		    	'id'=>'marca'
-		    ),
-		));
-	?>
-
-	<?php
 		echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
-		$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-		    'name'=>'tipoequipo',
-		    'model'=>$tipoEquipo['model'],
-		    'source'=>$tipoEquipo['list'],
-		    // additional javascript options for the autocomplete plugin
-		    'options'=>array(
-		        'minLength'=>'2',
-		        'change'=>"js:function(event, ui) {
-                         	if(!ui.item) {
-                            	$('#tipoEquipo').val('');
-                          	}else{
-                          		equipoModule.setTipoEquipo(ui.item);
-                            }	
-                        }",
-		    ),
-		    'htmlOptions'=>array(
-		    	'id'=>'tipoEquipo'		        
-		    ),
-		));
+		echo $form->dropDownList($tipoEquipo['model'], 'n_tipoEquipo', $tipoEquipo['list'],null);
+
 	?>	
 
 	<div class="row">
