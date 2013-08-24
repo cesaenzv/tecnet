@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <?php 
-Yii::app()->clientScript->registerScript('helloscript',"init();",CClientScript::POS_READY);
+//Yii::app()->clientScript->registerScript('helloscript',"init();",CClientScript::POS_READY);
 ?>
 
 <h1>Manage Servicios</h1>
@@ -72,27 +72,26 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
     ),
 ));
+
+?>
+<?php 
+$this->widget('application.extensions.fancybox.EFancyBox', array(
+    'target'=>'a.assing',
+    'config'=>array(),
+    )
+);
 ?>
 
-<script type="text/javascript">
-init=function() {
-    $("a.assing").fancybox({
-		'transitionIn'	:	'elastic',
-		'transitionOut'	:	'elastic',
-		'speedIn'		:	600, 
-		'speedOut'		:	200, 
-		'overlayShow'	:	false
-	});
-} 
-</script>
 <style type="text/css">
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br{z-index: 1000000 !important;}
 </style>
+<div  style="display: none;">
 <?php
 $servicios = Servicio::model()->findAll();
 foreach ($servicios as $val){
     echo $this->renderPartial('asigna', array('model'=>$val));
 }
 ?>
+</div>
 
 

@@ -53,7 +53,6 @@ $(document).ready(function(){
 					typeTec:typeTec,
 				},
 				success:function(data){
-					console.log(data);
 					showTecData(data);
 				},
 				error:function(){
@@ -89,6 +88,34 @@ $(document).ready(function(){
 			var template = Handlebars.compile(plantillaTec.html());
             var contenido = template(data);           
             tecData.html(contenido);
+            bindEventCancelBtn();
+		},
+		bindEventCancelBtn =  function(){
+			$("#reporteContent").find("input.pagoServicio").each(function(i, item){
+				$(item).on("click",function(){
+					$.ajax({
+						type:'POST',
+						url:url,
+						dataType: "json",
+						data: {
+							idS: $(item).attr("data-ids"),
+							idP: $(item).attr("data-idp"),
+							typeConsult:"paySer",
+						},
+						success:function(data){
+							if(data.msg){
+								alert("Exito al realizar el pago");
+								consultarReporte();
+							}else{
+								alert("Problemas al realizar el pago");
+							}
+						},
+						error:function(){
+						}	
+					});
+				})
+				
+			});
 		};
 
 		return {
