@@ -25,7 +25,6 @@ $(document).ready(function() {
                     typeDoc:typeDocument.val()
                 },
                 success:function(data){
-                    console.log(data);
                     if( data.cliente !== null && data.cliente !== null ){
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
@@ -54,7 +53,7 @@ $(document).ready(function() {
         }
         createEquipoGrid = function(idCliente){
             equiposGrid.jqGrid({
-                url: "http://localhost/tecnet/cliente/GetEquipoGrid/"+idCliente,
+                url: createEquipoGridUrl+"?idCliente="+idCliente,
                 datatype: "json",
                 mtype: "POST",
                 colNames: ["ID", "Nombre","Especificación","Estado"],
