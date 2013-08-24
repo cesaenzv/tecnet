@@ -21,12 +21,12 @@ return array(
     'modules' => array(
 // uncomment the following to enable the Gii tool
         
-          'gii'=>array(
+          /*'gii'=>array(
           'class'=>'system.gii.GiiModule',
           'password'=>'123456789',
           // If removed, Gii defaults to localhost only. Edit carefully to taste.
           'ipFilters'=>array('127.0.0.1','::1'),
-          ),
+          ),*/
          
         'user' => array(
             'tableUsers' => 'users',
@@ -51,6 +51,9 @@ return array(
             'showScriptName'=>false,
             'caseSensitive'=>false,
         ),
+       /* 
+        * db local
+        */
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=tecnet',
             'emulatePrepare' => true,
@@ -59,6 +62,18 @@ return array(
             'charset' => 'utf8',
             'tablePrefix' => 'tbl_',
         ),
+        /*
+         * db tecnet
+         */
+        /*
+        'db' => array(
+            'connectionString' => 'mysql:host=localhost;dbname=artifexs_tecnetpc',
+            'emulatePrepare' => true,
+            'username' => 'artifexs_tecnetp',
+            'password' => 'tecnet2013',
+            'charset' => 'utf8',
+            'tablePrefix' => '',
+        ),*/
         'errorHandler' => array(
 // use 'site/error' action to display errors
             'errorAction' => 'site/error',

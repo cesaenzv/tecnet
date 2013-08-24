@@ -37,6 +37,24 @@ class EquipoController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+    
+    public function actionSaveGrid($id) {
+        extract($_REQUEST);
+        
+        if(isset($oper)){
+            if($oper=="add"){
+                $equipo = new Equipo();
+                $equipo->i_inhouse=trim($i_inhouse)=="En Tecnet"?1:0;
+                $equipo->k_idEspecificacion=$k_idEspecificacion;
+                $equipo->n_nombreEquipo=$n_nombreEquipo;
+                if($equipo->save()){
+                    echo "{Result:'OK', Message:'Datos guardados correctamente.'}";
+                }else{
+                    echo "{Result:'Fail', Message:'Ocurrio un error inesperado.'}";
+                }
+            }
+        }
+    }
 
     /**
      * Creates a new model.
