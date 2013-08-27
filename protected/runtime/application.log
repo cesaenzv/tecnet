@@ -1441,24 +1441,24 @@ Stack trace:
 REQUEST_URI=/git/tecnet/equipo/create
 in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (75)
 #11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
-#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('savegrid')
-#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/saveGrid')
-#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
-#17 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
-#18 {main}
-REQUEST_URI=/tecnet/equipo/saveGrid/1033729279
-HTTP_REFERER=http://localhost/tecnet/orden/create
----
-2013/08/08 02:55:25 [error] [exception.CException] exception 'CException' with message 'Propiedad "Especificacion"."0" no se encuentra definida.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+2013/08/24 09:28:26 [error] [php] Missing argument 3 for ManageModel::getColumnList(), called in C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php on line 48 and defined (C:\xampp\htdocs\git\tecnet\protected\models\ManageModel.php:5)
 Stack trace:
-#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('0')
-#1 C:\xampp\htdocs\tecnet\framework\base\CModel.php(595): CActiveRecord->__get('0')
-#2 C:\xampp\htdocs\tecnet\protected\controllers\EquipoController.php(50): CModel->offsetGet(0)
-#3 [internal function]: EquipoController->actionSaveGrid('1033729279')
-#4 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EquipoController), Array)
-#5 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EquipoController), Object(ReflectionMethod), Array)
-#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): ServicioController->runAction()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): ServicioController->filterAccessControl()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): ServicioController->runActionWithFilters()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): ServicioController->run()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/servicio/create
+in C:\xampp\htdocs\git\tecnet\protected\models\ManageModel.php (5)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\ServicioController.php (48)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
 #7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
 #8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
 #9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))

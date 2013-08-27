@@ -45,7 +45,7 @@ class ServicioController extends Controller {
     public function actionCreate() {
         $manageM = new ManageModel;
         $model = new Servicio;
-        $listProducto = $manageM->getColumnList(Producto::model()->findAll(),'n_nombreProducto');
+        $listProducto = $manageM->getColumnList(Producto::model()->findAll(),'n_nombreProducto','k_idProducto');
         $producto = array(  'model'=> new Producto,
                             'list' => $listProducto);
 
