@@ -49,6 +49,7 @@ class Cliente extends CActiveRecord
 			array('k_identificacion, i_nit, n_nombre, n_apellido, o_celular, o_fijo, k_usuarioCrea', 'required'),
 			array('k_identificacion, k_usuarioCrea', 'numerical', 'integerOnly'=>true),
 			array('i_nit', 'length', 'max'=>2),
+			array('k_identificacion', 'unique'),
 			array('n_nombre, n_apellido, o_direccion, o_mail', 'length', 'max'=>50),
 			array('o_celular, o_fijo', 'length', 'max'=>15),
 			// The following rule is used by search().
