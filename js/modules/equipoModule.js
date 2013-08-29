@@ -1,39 +1,45 @@
-var equipoModule = (function(){
-	var marca = null, tipoEquipo=null, url;
-	var setMarca =function(val){
-		marca = val.value;
-		getReferences();
-	},setTipoEquipo = function(val){
-		tipoEquipo = val.value;
-		getReferences();
-	},setUrl = function(val){
-		url = val;
-	},getReferences = function(){
-		console.log("getReferences");
-		if (marca !== null && tipoEquipo !==null){
+$(document).ready(function() {
+	var equipoModule = (function(){
+		var marca = null, tipoEquipo=null;
+		var init = function(config){
+			console.log("init");
+			marca = config.marca;
+			tipoEquipo = config.tipoEquipo;
+			getEspecificacion();
+			bindEvents();
+		},
+		bindEvents = function(){			
+			marca.change(getEspecificacion);
+			tipoEquipo.change(getEspecificacion);
+		},
+		getEspecificacion = function(){
 			if ($("#especificacionInput").autocomplete()){
 				$("#especificacionInput").autocomplete('destroy');	
-			};			
+			};
+
 			$.ajax({
+				type:"POST",
 				url:url,
-				data: {marca:marca, tipoEquipo:tipoEquipo},
+				dataType:"json",
+				data: {marca:marca.val(), tipoEquipo:tipoEquipo.val()},
 				success:function(data){
-					data =JSON.parse(data);
 					$("#especificacionInput").autocomplete({
 					  source: data.list,
 					  minLength:2
 					});
 				},
-				error:function(){
-					console.log("error");
+				error:function(error){
+					console.log(error);
 				}
 			});
+		};
+		return {
+			init: init
 		}
-	};
-	return {
-		setTipoEquipo:setTipoEquipo,
-		setMarca:setMarca,
-		setUrl:setUrl
-	}
-})();
+	})();
 
+	equipoModule.init({
+		marca : $("#Marca_n_nombreMarca"),
+		tipoEquipo : $("#Tipoequipo_n_tipoEquipo")
+	});
+});
