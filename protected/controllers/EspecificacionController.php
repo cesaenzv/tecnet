@@ -154,15 +154,12 @@ class EspecificacionController extends Controller {
 
     public function actiongetEspecificationList(){
         $manageM = new ManageModel;
-        $marca = $_GET['marca'];
-        $tipoEquipo =$_GET['tipoEquipo'];
-        $marca = Marca::model()->find("n_nombreMarca=:marca",array(":marca"=>$marca));
-
-        $tipoEquipo = Tipoequipo::model()->find("n_tipoEquipo=:tipoEquipo",array(":tipoEquipo"=>$tipoEquipo));
+        //$marca = Marca::model()->findByPk($_POST['marca']);
+        //$tipoEquipo = Tipoequipo::model()->findByPk($_POST['tipoEquipo']);
         $Criteria = new CDbCriteria(); 
-        $Criteria->condition = "k_idMarca = ".$marca->k_idMarca." AND k_idTipoEquipo = ".$tipoEquipo->k_idTipo;
+        $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo'];
         $especificaciones = Especificacion::model()->findAll($Criteria);
-        $data = array('list' => $manageM->getColumnList($especificaciones,'n_nombreEspecificacion'));      
+        $data = array('list' => $manageM->getColumnListName($especificaciones,'n_nombreEspecificacion'));      
         echo CJavaScript::jsonEncode($data);
     }
 

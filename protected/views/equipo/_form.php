@@ -4,11 +4,10 @@
 /* @var $form CActiveForm */
 Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/modules/equipoModule.js"); 
 ?>
+
 <script type="text/javascript">
-	equipoModule.setUrl('<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>');
+	var url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
 </script>
-
-
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
