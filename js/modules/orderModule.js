@@ -15,6 +15,11 @@ $(document).ready(function() {
             btnSearchClient.click(function(){           
                 findClient();
             });
+            $("#adminOrdenes").buttonset();
+            $("input[name=radio]:radio").change(function () {
+                $(".ordenes").hide();
+                $("#"+$("input[name=radio]:checked").val()).show();
+            })
         },
         findClient = function(){
             $.ajax({
