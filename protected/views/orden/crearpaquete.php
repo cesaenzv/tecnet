@@ -14,7 +14,7 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
     <div id="ordenMantenimientoGridPager"></div>
 </div>
 <script type="text/javascript">
-    var url="<?php echo Yii::app()->createUrl("orden/proceso"); ?>"
+    var url="<?php echo Yii::app()->createUrl("orden/proceso", array("id" => $id,'equipo'=>'')); ?>"
     init = function(){
         $("#equiposMantenimientoGrid").jqGrid({
             url: "<?php echo Yii::app()->createUrl("orden/GetEquiposPaquete", array("id" => $id)); ?>",
@@ -102,7 +102,7 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
         $("#ordenMantenimiento").show();
         $('#ordenMantenimientoGrid').jqGrid('GridUnload');
         $("#ordenMantenimientoGrid").jqGrid({
-            url: url,
+            url: url+data.k_idEquipo,
             datatype: "json",
             mtype: "POST",
             colNames: ["ID", "Serial","Especificación","Estado"],

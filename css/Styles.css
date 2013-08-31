@@ -156,6 +156,7 @@
 	margin: 0 auto 0.5em auto;
 	font-size: 1em;
 	max-height: 400px;
+        overflow: scroll;
 }
 
 .equipos{
