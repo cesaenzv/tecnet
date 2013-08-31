@@ -21,6 +21,12 @@ $(document).ready(function() {
                 e.preventDefault();
                 crearEquipoCliente(docClient.val());
             });
+
+            $("#callViewCrearEquipo").click(function(e){
+                e.preventDefault();
+                console.log($(this).attr('href'));
+                window.open($(this).attr('href')+'/?idC='+docClient.val());
+            })
         },
         findClient = function(){
             $.ajax({

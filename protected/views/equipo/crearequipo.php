@@ -7,14 +7,18 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-
+Yii::app()->clientScript ->registerCoreScript('jquery')
 ?>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/modules/orderModule.js'); ?>
+
+<script type="text/javascript">
+	var urlCrearEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrden"); ?>';
+</script>
+
 
 <div class="form">
 	<div class="row">
 		<label>Nombre Equipo</label>
-		<input type="text" id="nombreEquipo"></input>
+		<input type="text" value='<?php	echo $clienteId?>' id="nombreEquipo"></input>
 	</div>
 
 	<label>Marca</label>
@@ -34,3 +38,5 @@ $this->breadcrumbs=array(
 	<button id="CrearEquipoBtn">CrearEquipo</button>
 
 </div>
+
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/modules/orderModule.js'); ?>
