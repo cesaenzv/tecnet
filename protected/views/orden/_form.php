@@ -43,7 +43,9 @@ echo $this->renderPartial('_clientTemplate');
 	<table id="equiposGrid"></table>	
 	<div id="pagerEquipoGrid"></div>
 
-	<a href='<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView"); ?>'>CrearEquipo</a>
+	<a href='<?php
+		echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView/"); 
+	?>' id="callViewCrearEquipo">CrearEquipo</a>
 
 <?php $this->endWidget(); ?>
 

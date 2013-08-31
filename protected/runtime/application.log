@@ -2624,3 +2624,267 @@ Stack trace:
 REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
 HTTP_REFERER=http://localhost/git/tecnet/orden/create
 ---
+2013/08/31 07:42:27 [error] [php] Undefined index: subject (C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php:47)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php(15): OrdenController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): OrdenController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): OrdenController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php(59): OrdenController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): OrdenController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): OrdenController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): OrdenController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): OrdenController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/orden/create
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php (47)
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php (15)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php (59)
+2013/08/31 07:44:13 [error] [php] Undefined index: Orden[k_idUsuario] (C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php:48)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php(15): OrdenController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): OrdenController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): OrdenController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php(59): OrdenController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): OrdenController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): OrdenController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): OrdenController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): OrdenController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/orden/create
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php (48)
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php (15)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php (59)
+2013/08/31 07:44:52 [error] [php] Undefined index: Orden[k_idUsuario] (C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php:48)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php(15): OrdenController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): OrdenController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): OrdenController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php(59): OrdenController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): OrdenController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): OrdenController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): OrdenController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): OrdenController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/orden/create
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php (48)
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php (15)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php (59)
+2013/08/31 07:45:21 [error] [php] Undefined index: Orden[k_idUsuario] (C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php:48)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#1 C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php(15): OrdenController->renderPartial()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CBaseController.php(95): OrdenController->renderInternal()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(869): OrdenController->renderFile()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(782): OrdenController->renderPartial()
+#6 C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php(59): OrdenController->render()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(49): OrdenController->actionCreate()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): OrdenController->runAction()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): OrdenController->filterAccessControl()
+#13 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): OrdenController->runActionWithFilters()
+#16 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): OrdenController->run()
+#17 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/orden/create
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\_form.php (48)
+in C:\xampp\htdocs\git\tecnet\protected\views\orden\create.php (15)
+in C:\xampp\htdocs\git\tecnet\protected\controllers\OrdenController.php (59)
+2013/08/31 07:48:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:48:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:48:35 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:48:42 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:48:47 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:49:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:50:37 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView/1033729279
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:50:45 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\git\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('createeordenvie...')
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEO...')
+#10 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView/1033729279
+HTTP_REFERER=http://localhost/git/tecnet/orden/create
+---
+2013/08/31 07:51:38 [error] [php] Undefined index: idC (C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php:60)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/CreateEOrdenView/1033729279
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (60)
+in C:\xampp\htdocs\git\tecnet\index.php (13)

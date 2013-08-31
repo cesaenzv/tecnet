@@ -73,7 +73,8 @@ class EquipoController extends Controller {
         $this->layout="_blank";
         $this->render('crearequipo', array(
             'marca' =>$marca,
-            'tipoEquipo' => $tipoEquipo
+            'tipoEquipo' => $tipoEquipo,
+            'clienteId'=>$_GET['idC']
         ));
     }
 
