@@ -24,7 +24,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js
 	</div>
 
 	<div class="row">
-		<label>Nombre Equipo</label>
+		<label>Serial</label>
 		<input type="text" id="nombreEquipo"/>
 	</div>
 
