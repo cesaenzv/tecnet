@@ -79,38 +79,42 @@ class EquipoController extends Controller {
     }
 
     public function  actionCreateEOrden(){
-        
+        $equipo = new Equipo;
+        try{
+            if(isset($_POST['clienteId'])&&isset($_POST['marca'])&&isset($_POST['especificacion'])&isset($_POST['tipoEquipo'])&isset($_POST['nombreEquipo'])){
+                $equipo->n_nombreEquipo = $_POST['nombreEquipo'];
+                $equipo->k_idCliente = $_POST['clienteId'];
+                $Criteria = new CDbCriteria(); 
+                $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['especificacion']."'";
+                $especificacion = Especificacion::model()->find($Criteria);
+                if($especificacion !=  null){
+                    $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
 
-        if(isset($_POST['clienteId'])&&isset($_POST['marca'])&&isset($_POST['especificacion'])&isset($_POST['tipoEquipo'])&isset($_POST['nombreEquipo'])){
-            $equipo->n_nombreEquipo = $_POST['nombreEquipo'];
-            $equipo->k_idCliente = $_POST['clienteId'];
-            $Criteria = new CDbCriteria(); 
-            $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['especificacion']."'";
-            $especificacion = Especificacion::model()->find($Criteria);
-            if($especificacion !=  null){
-                $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
-
-            }else{
-                $especificacion = new Especificacion();
-                $especificacion->k_idMarca = $_POST['Marca']['n_nombreMarca'];
-                $especificacion->k_idTipoEquipo = $_POST['Tipoequipo']['n_tipoEquipo'];
-                $especificacion->n_nombreEspecificacion = $_POST['Especificacion']["n_nombreEspecificacion"];
-                $equipo->k_idEspecificacion = $especificacion->k_especificacion;
-                if($especificacion->save(false)){
+                }else{
+                    $especificacion = new Especificacion();
+                    $especificacion->k_idMarca = $_POST['marca'];
+                    $especificacion->k_idTipoEquipo = $_POST['tipoEquipo'];
+                    $especificacion->n_nombreEspecificacion = $_POST['especificacion'];
                     $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                    if($especificacion->save(false)){
+                        $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                    }
                 }
-            }
-            if($equipo->save())
-            {
-                $data['msg'] = "OK";
-            }else{
-                $data['msg'] = "PROBLEM";
-            }
+                if($equipo->save())
+                {
+                    $data['msg'] = "OK";
+                }else{
+                    $data['msg'] = "PROBLEM";
+                }
 
-            echo CJavaScript::jsonEncode($data['msg']);
-            
+                echo CJavaScript::jsonEncode($data);
+            }
         }
-
+        catch(Exception $e){
+            $data['msg'] = "PROBLEM";
+            echo CJavaScript::jsonEncode($data);    
+        }
+            
         
 
     }
