@@ -125,11 +125,55 @@ class OrdenController extends Controller {
         }
         echo CJSON::encode($respuesta);
     }
-    
+
     public function actionCreatePaquete($id) {
-        $model = Paquetematenimiento::model()->findByPk($id);
-        $this->layout="_blank";
-        $this->render('crearpaquete');
+        $this->layout = "mainFancy";
+        $this->render('crearpaquete', array("id" => $id));
+    }
+
+    public function actionGetEquiposPaquete($id) {
+        $paqueteMantenimiento = Paquetematenimiento::model()->findAll("k_idOrden= :orden", array(":orden" => $id));
+        if (count($paqueteMantenimiento) > 0) {
+            $condicion = "";
+            foreach ($paqueteMantenimiento as $paquete) {
+                $condicion = $condicion . "k_idEquipo = " . $paquete->k_idEquipo . " OR ";
+            }
+            $condicion = substr($condicion, 0, strlen($condicion) - 4);
+            $criteria = new CDbCriteria;
+            if (isset($_POST['sidx']) && isset($_POST['sord'])){
+                $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+            }
+            $criteria->condition = $condicion;
+            $dataProvider = new CActiveDataProvider('Equipo', array(
+                        'criteria' => $criteria,
+                        'pagination' => array(
+                            'pageSize' => $_POST['rows'],
+                            'currentPage' => $_POST['page'] - 1,
+                        ),
+                    ));
+            $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+            $response = new stdClass();
+            $response->page = $_POST['page'];
+            $response->records = $dataProvider->getTotalItemCount();
+            $response->total = ceil($response->records / $ro);
+            $rows = $dataProvider->getData();
+            foreach ($rows as $i => $row) {
+                $especificacion = Especificacion::model()->findByPk($row['k_idEspecificacion']);
+                $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+                $especificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
+
+                $response->rows[$i]['id'] = $row['k_idEquipo'];
+                $response->rows[$i]['cell'] = array(
+                    $row['k_idEquipo'],
+                    $row['n_nombreEquipo'],
+                    $especificacion,
+                    $row['i_inhouse'] == 1 ? "En Tecnet" : "En Casa",
+                );
+            }
+        } else {
+            $response = "Error";
+        }
+        echo json_encode($response);
     }
 
     /**

@@ -21,11 +21,11 @@ return array(
     'modules' => array(
 // uncomment the following to enable the Gii tool
         
-          /*'gii'=>array(
+        /*  'gii'=>array(
           'class'=>'system.gii.GiiModule',
           'password'=>'123456789',
           // If removed, Gii defaults to localhost only. Edit carefully to taste.
-          'ipFilters'=>array('127.0.0.1','::1'),
+          'ipFilters'=>array('186.116.189.23','::1'),
           ),*/
          
         'user' => array(
