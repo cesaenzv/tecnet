@@ -39,7 +39,6 @@ echo $this->renderPartial('_clientTemplate');
 	</div>
 
 	<div id="clientData"></div>
-
 	<table id="equiposGrid"></table>	
 	<div id="pagerEquipoGrid"></div>
 

@@ -104,6 +104,34 @@ class OrdenController extends Controller {
         ));
     }
 
+    public function actionCreateOrden() {
+        $this->layout = "_blank";
+        extract($_REQUEST);
+        $ids = split(',', $ids);
+        $orden = new Orden;
+        $orden->k_idUsuario = Yii::app()->user->Id;
+        $respuesta = new stdClass();
+        if ($orden->save()) {
+            $respuesta->idOrden = $orden->k_idOrden;
+            foreach ($ids as $equipo) {
+                $paqueteMantenimiento = new Paquetematenimiento;
+                $paqueteMantenimiento->k_idOrden = $orden->k_idOrden;
+                $paqueteMantenimiento->k_idEquipo = $equipo;
+                $paqueteMantenimiento->save();
+            }
+            $respuesta->mensaje = "OK";
+        } else {
+            $respuesta->mensaje = "FAIL";
+        }
+        echo CJSON::encode($respuesta);
+    }
+    
+    public function actionCreatePaquete($id) {
+        $model = Paquetematenimiento::model()->findByPk($id);
+        $this->layout="_blank";
+        $this->render('crearpaquete');
+    }
+
     /**
      * Manages all models.
      */
