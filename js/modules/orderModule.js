@@ -15,11 +15,6 @@ $(document).ready(function() {
             btnSearchClient.click(function(){           
                 findClient();
             });
-            $("#adminOrdenes").buttonset();
-            $("input[name=radio]:radio").change(function () {
-                $(".ordenes").hide();
-                $("#"+$("input[name=radio]:checked").val()).show();
-            })
         },
         findClient = function(){
             $.ajax({
@@ -34,7 +29,7 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
                     }else{
-                        $("#createCliente").attr("href","http://localhost/tecnet/cliente/createFancy/"+docClient.val())
+                        $("#createCliente").attr("href","../cliente/createFancy/"+docClient.val())
                         $("#createCliente").click();
                     }
                 },
@@ -49,12 +44,33 @@ $(document).ready(function() {
             clientData.html(contenido);
         },
         createMantenimiento = function(){
-            var rowid = $(equiposGrid).jqGrid('getGridParam', 'selrow');
+            var rowid = $(equiposGrid).jqGrid('getGridParam', 'selarrrow');
             if (rowid == null) {
-                alert("Debe seleccionar un equipo para realizar el mantenimiento");
+                alert("Debe seleccionar al menos un equipo para realizar el mantenimiento");
                 return false;
             }
-            var ret = $(equiposGrid).getRowData(rowid);
+            var mensaje="Esta seguro que desea realizar mantenimiento a los equipos con serial:\n";
+            for (var i =0 ; i<rowid.length;i++){
+                mensaje+=($(equiposGrid).getRowData(rowid[i]).n_nombreEquipo)+"\n";
+            }
+            mensaje+="Recuerde que esta acción no se puede deshacer";
+            if(confirm(mensaje)){
+                $.ajax({
+                    type: "POST",
+                    url: "../orden/CreateOrden/",
+                    data: "ids="+(rowid),
+                    success: function(response){
+                        if(response.mensaje=="fail"){
+                            alert("No se ha podido crear la orden, porfavor intente nuevamente");
+                            return false;
+                        }else{
+                            $("#createCliente").attr("href","../orden/createPaquete/"+response.idOrden)
+                            $("#createCliente").click();
+                        }
+                    },
+                    dataType: 'json'
+                });
+            }
         }
         createEquipoGrid = function(idCliente){
             equiposGrid.jqGrid({
@@ -63,63 +79,68 @@ $(document).ready(function() {
                 mtype: "POST",
                 colNames: ["ID", "Serial","Especificación","Estado"],
                 colModel: [
-                    {
-                        name: "k_idEquipo", 
-                        width: 200,                    
-                        editrules:{
-                            edithidden:true, 
-                            required:true
-                        }
-                    },
-
-                    {
-                        name: "n_nombreEquipo", 
-                        width: 200,
-                        editable:true,
-                        hidden:false,
-                        editrules:{
-                            edithidden:true, 
-                            required:true
-                        }
-                    },
-
-                    {
-                        name: "k_idEspecificacion", 
-                        width: 200,
-                        editable:true,
-                        hidden:false, 
-                        edittype: "select", 
-                        editoptions:{dataUrl: "http://localhost/tecnet/cliente/GetEspecificaciones/"},
-                        editrules:{
-                            edithidden:true, 
-                            required:true
-                        }
-                    },
-
-                    {
-                        name: "i_inhouse", 
-                        width: 100, 
-                        align: "right",
-                        editable:true,
-                        edittype: "select", 
-                        editoptions:{dataUrl: "http://localhost/tecnet/cliente/GetEstados/"},
-                        hidden:false,
-                        editrules:{
-                            edithidden:true, 
-                            required:true
-                        }
+                {
+                    name: "k_idEquipo", 
+                    width: 200,                    
+                    editrules:{
+                        edithidden:true, 
+                        required:true
                     }
+                },
+
+                {
+                    name: "n_nombreEquipo", 
+                    width: 200,
+                    editable:true,
+                    hidden:false,
+                    editrules:{
+                        edithidden:true, 
+                        required:true
+                    }
+                },
+
+                {
+                    name: "k_idEspecificacion", 
+                    width: 200,
+                    editable:true,
+                    hidden:false, 
+                    edittype: "select", 
+                    editoptions:{
+                        dataUrl: "..cliente/GetEspecificaciones/"
+                    },
+                    editrules:{
+                        edithidden:true, 
+                        required:true
+                    }
+                },
+
+                {
+                    name: "i_inhouse", 
+                    width: 100, 
+                    align: "right",
+                    editable:true,
+                    edittype: "select", 
+                    editoptions:{
+                        dataUrl: "../cliente/GetEstados/"
+                    },
+                    hidden:false,
+                    editrules:{
+                        edithidden:true, 
+                        required:true
+                    }
+                }
                 ],
                 pager: "#pagerEquipoGrid",
                 rowNum: 20,
                 rowList: [10, 20, 30],
                 sortname: "k_idEquipo",
                 sortorder: "desc",
-                editurl:"http://localhost/tecnet/equipo/saveGrid/"+idCliente,
+                editurl:"../equipo/saveGrid/"+idCliente,
                 viewrecords: true,
                 gridview: true,
                 autoencode: true,
-                caption: "Equipos"               
+                caption: "Equipos",
+                multiselect: true
             });
             equiposGrid.jqGrid('navGrid', '#pagerEquipoGrid', {
                 edit : true,
@@ -132,34 +153,38 @@ $(document).ready(function() {
                 {
                 } 
             },
-                {//edit data
-                    serializeEditData:function(postdata){
-                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
-                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
-                        postdata.k_idEspecificacion=ret.idsubtipo;
-                        return postdata;
-                    }
-                },
-                {//add data
-                    serializeAddData:function(postdata){
-                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
-                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
-                        postdata.idsubtipo=ret.idsubtipo;
-                        return postdata;
-                    }
-                },
-                {//delete data
-                    serializeDelData: function (postdata) {
-                        var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
-                        var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
-                        postdata.idsubtipo=ret.idsubtipo;
-                        return postdata;
-                    }
-                }).navButtonAdd("#pagerEquipoGrid", { caption: "mantenimiento", buttonicon: "ui-icon-newwin",
+            {//edit data
+                serializeEditData:function(postdata){
+                    var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                    var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                    postdata.k_idEspecificacion=ret.idsubtipo;
+                    return postdata;
+                }
+            },
+            {//add data
+                serializeAddData:function(postdata){
+                    var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                    var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                    postdata.idsubtipo=ret.idsubtipo;
+                    return postdata;
+                }
+            },
+            {//delete data
+                serializeDelData: function (postdata) {
+                    var rowid = jQuery("#tablaCategoriaGrid").jqGrid('getGridParam', 'selrow');
+                    var ret = jQuery("#tablaCategoriaGrid").getRowData(rowid);
+                    postdata.idsubtipo=ret.idsubtipo;
+                    return postdata;
+                }
+            }).navButtonAdd("#pagerEquipoGrid", {
+                caption: "mantenimiento", 
+                buttonicon: "ui-icon-newwin",
                 onClickButton: function (data) { 
                     createMantenimiento();
                 },
-                position: "last", title: "Forzar Realizacion", cursor: "pointer"
+                position: "last", 
+                title: "Forzar Realizacion", 
+                cursor: "pointer"
             });
         };
         return {
