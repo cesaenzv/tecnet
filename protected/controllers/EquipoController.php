@@ -56,6 +56,64 @@ class EquipoController extends Controller {
         }
     }
 
+    public function actionCreateEOrdenView(){
+        $manageM = new ManageModel;
+        $equipo = new Equipo;
+
+        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'k_idMarca','n_nombreMarca');
+        $marca =  array('model' => new Marca,
+                        'list' => $listMarca); 
+
+        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'k_idTipo','n_tipoEquipo');        
+        $tipoEquipo = array('model' => new Tipoequipo,
+                            'list' => $listTipoEquipo);
+
+        $especificacion = new Especificacion();
+
+        $this->layout="_blank";
+        $this->render('crearequipo', array(
+            'marca' =>$marca,
+            'tipoEquipo' => $tipoEquipo
+        ));
+    }
+
+    public function  actionCreateEOrden(){
+        
+
+        if(isset($_POST['clienteId'])&&isset($_POST['marca'])&&isset($_POST['especificacion'])&isset($_POST['tipoEquipo'])&isset($_POST['nombreEquipo'])){
+            $equipo->n_nombreEquipo = $_POST['nombreEquipo'];
+            $equipo->k_idCliente = $_POST['clienteId'];
+            $Criteria = new CDbCriteria(); 
+            $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['especificacion']."'";
+            $especificacion = Especificacion::model()->find($Criteria);
+            if($especificacion !=  null){
+                $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
+
+            }else{
+                $especificacion = new Especificacion();
+                $especificacion->k_idMarca = $_POST['Marca']['n_nombreMarca'];
+                $especificacion->k_idTipoEquipo = $_POST['Tipoequipo']['n_tipoEquipo'];
+                $especificacion->n_nombreEspecificacion = $_POST['Especificacion']["n_nombreEspecificacion"];
+                $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                if($especificacion->save(false)){
+                    $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                }
+            }
+            if($equipo->save())
+            {
+                $data['msg'] = "OK";
+            }else{
+                $data['msg'] = "PROBLEM";
+            }
+
+            echo CJavaScript::jsonEncode($data['msg']);
+            
+        }
+
+        
+
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.

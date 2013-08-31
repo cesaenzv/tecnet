@@ -1,19 +1,25 @@
 $(document).ready(function() {
 
     var orderModule = (function(){
-        var btnSearchClient, docClient, typeDocument, equiposGrid, plantillaClient,clientData;
+        var btnSearchClient, docClient, typeDocument, equiposGrid, plantillaClient,clientData,crearEquipo;
         var init = function(config){
             clientData = config.clientData;
             plantillaClient = $("#clientTemplate");
             btnSearchClient = config.btnSearchClient;
             docClient = config.docClient;
             typeDocument = config.typeDocument;
-            equiposGrid = config.equiposGrid;           
+            equiposGrid = config.equiposGrid;
+            crearEquipo = config.crearEquipo;          
             bindEvents();
         },
         bindEvents = function(){
             btnSearchClient.click(function(){           
                 findClient();
+            });
+
+            crearEquipo.click(function(e){
+                e.preventDefault();
+                crearEquipoCliente(docClient.val());
             });
         },
         findClient = function(){
@@ -186,6 +192,26 @@ $(document).ready(function() {
                 title: "Forzar Realizacion", 
                 cursor: "pointer"
             });
+        }, 
+        crearEquipoCliente = function(idCliente){
+            $.ajax({
+                type:"POST",
+                url:urlCrearEquipo,
+                dataType: "json",
+                data: {
+                    clienteId:idCliente,
+                    especificacion:$("#nombreEspecificacion").val(),
+                    nombreEquipo:$("#nombreEquipo").val(),
+                    marca:$("#marcaInput").val(),
+                    tipoEquipo:$("#tipoequipoInput").val()
+                },
+                success:function(data){
+                    alert(data.msg);
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
         };
         return {
             init:init
@@ -197,6 +223,7 @@ $(document).ready(function() {
         docClient:$("#Orden_k_idUsuario"),
         typeDocument:$("#typeDocument"),
         equiposGrid:$("#equiposGrid"),
-        clientData:$("#clientData")
+        clientData:$("#clientData"),
+        crearEquipo:$("#CrearEquipoBtn")
     }); 
 });

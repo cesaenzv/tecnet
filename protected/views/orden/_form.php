@@ -11,6 +11,7 @@ echo $this->renderPartial('_clientTemplate');
 	
 	var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>';
 	var	createEquipoGridUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/GetEquipoGrid"); ?>';
+	var urlCrearEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrden"); ?>';
 </script>
 
 <div class="form">
@@ -41,6 +42,8 @@ echo $this->renderPartial('_clientTemplate');
 	<div id="clientData"></div>
 	<table id="equiposGrid"></table>	
 	<div id="pagerEquipoGrid"></div>
+
+	<a href='<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView"); ?>'>CrearEquipo</a>
 
 <?php $this->endWidget(); ?>
 

@@ -55,10 +55,10 @@ return array(
         * db local
         */
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=artifexs_tecnetpc',
+            'connectionString' => 'mysql:host=localhost;dbname=tecnet',
             'emulatePrepare' => true,
-            'username' => 'artifexs_tecnetp',
-            'password' => 'tecnet2013',
+            'username' => 'root',
+            'password' => '',
             'charset' => 'utf8',
             'tablePrefix' => '',
         ),
