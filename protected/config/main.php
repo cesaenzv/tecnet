@@ -49,23 +49,23 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
             'showScriptName'=>false,
-            'caseSensitive'=>false,
+            'caseSensitive'=>true,
         ),
        /* 
         * db local
         */
-        'db' => array(
+      /*  'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=tecnet',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
             'tablePrefix' => '',
-        ),
+        ),*/
         /*
          * db tecnet
          */
-        /*
+        
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=artifexs_tecnetpc',
             'emulatePrepare' => true,
@@ -73,7 +73,7 @@ return array(
             'password' => 'tecnet2013',
             'charset' => 'utf8',
             'tablePrefix' => '',
-        ),*/
+        ),
         'errorHandler' => array(
 // use 'site/error' action to display errors
             'errorAction' => 'site/error',

@@ -32,6 +32,8 @@
     </head>
 
     <body>
+        <div style="text-align: center; width: 630px;">
             <?php echo $content; ?>
+        </div>
     </body>
 </html>

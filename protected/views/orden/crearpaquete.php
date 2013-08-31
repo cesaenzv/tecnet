@@ -4,23 +4,50 @@ $this->breadcrumbs = array(
     'Create',
 );
 Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript::POS_READY);
+$usuarioRoles=Authassignment::model()->findAll("itemname like '%ecnico%'");
+$nombreUsuario=array();
+$i=0;
+foreach ($usuarioRoles as $usuarios){
+    $usu=  Users::model()->findByPk($usuarios->userid);
+    $nombreUsuario[$usuarios->userid]=$usu->username;
+    $i++;
+}
+
 ?>
+<label id="mensaje"></label>
+<br/>
 <div id="equiposMantenimiento" >
     <table id="equiposMantenimientoGrid"></table>
     <div id="equiposMantenimientoGridPager"></div>
 </div>
-<div id="ordenMantenimiento" style="display:none">
+<br/>
+<div id="ordenMantenimiento">
     <table id="ordenMantenimientoGrid"></table>
     <div id="ordenMantenimientoGridPager"></div>
 </div>
+<br/>
+<div>
+    <span>Tecnico Asignado </span>
+    <?php 
+        echo CHtml::dropDownList('usuarios', "", 
+              $nombreUsuario);
+    ?>
+</div>
+<br/>
+<div>
+    <span>Observaciones </span>
+    <textarea id="observaciones" cols="20" rows="5"></textarea>
+</div>
+<div id="crearAsignacion">Guardar</div>
 <script type="text/javascript">
-    var url="<?php echo Yii::app()->createUrl("orden/proceso", array("id" => $id,'equipo'=>'')); ?>"
+    var url="<?php echo Yii::app()->createUrl("orden/proceso", array("id" => $id, 'equipo' => '')); ?>"
     init = function(){
+        ordenMantenimiento();
         $("#equiposMantenimientoGrid").jqGrid({
             url: "<?php echo Yii::app()->createUrl("orden/GetEquiposPaquete", array("id" => $id)); ?>",
             datatype: "json",
             mtype: "POST",
-            colNames: ["ID", "Serial","Especificación","Estado"],
+            colNames: ["ID", "Serial","Especificación",""],
             colModel: [
                 {
                     name: "k_idEquipo", 
@@ -55,12 +82,12 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
                 },
 
                 {
-                    name: "i_inhouse", 
+                    name: "fk_idpaqMantenimiento", 
                     width: 100, 
                     align: "right",
                     editable:true,
                     edittype: "select",
-                    hidden:false,
+                    hidden:true,
                     editrules:{
                         edithidden:true, 
                         required:true
@@ -84,31 +111,16 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
             search :false,
             closeAfterEdit: false,
             closeAfterAdd:false
-        }).navButtonAdd("#equiposMantenimientoGridPager", {
-            caption: "Asignar servicios", 
-            buttonicon: "ui-icon-newwin",
-            onClickButton: function (data) { 
-                var rowid = jQuery("#equiposMantenimientoGrid").jqGrid('getGridParam', 'selrow');
-                var ret = jQuery("#equiposMantenimientoGrid").getRowData(rowid);
-                if($.toJSON(ret)=="{}"){
-                    alert("Debe seleccionar un equipo para asignar servicios");
-                    return false;
-                }
-                ordenMantenimiento(ret);
-            }
         });
-    }
-    ordenMantenimiento=function(data){
-        $("#ordenMantenimiento").show();
-        $('#ordenMantenimientoGrid').jqGrid('GridUnload');
+        
         $("#ordenMantenimientoGrid").jqGrid({
-            url: url+data.k_idEquipo,
+            url: "<?php echo Yii::app()->createUrl("orden/GetServicios"); ?>",
             datatype: "json",
             mtype: "POST",
-            colNames: ["ID", "Serial","Especificación","Estado"],
+            colNames: ["Servicio", "Costo"],
             colModel: [
                 {
-                    name: "k_idEquipo", 
+                    name: "n_nomServicio", 
                     width: 200,                    
                     editrules:{
                         edithidden:true, 
@@ -117,7 +129,7 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
                 },
 
                 {
-                    name: "n_nombreEquipo", 
+                    name: "v_costoServicio", 
                     width: 200,
                     editable:true,
                     hidden:false,
@@ -126,49 +138,64 @@ Yii::app()->clientScript->registerScript('helloscript', "init();", CClientScript
                         required:true
                     }
                 },
-
-                {
-                    name: "k_idEspecificacion", 
-                    width: 200,
-                    editable:true,
-                    hidden:false, 
-                    edittype: "select",
-                    editrules:{
-                        edithidden:true, 
-                        required:true
-                    }
-                },
-
-                {
-                    name: "i_inhouse", 
-                    width: 100, 
-                    align: "right",
-                    editable:true,
-                    edittype: "select",
-                    hidden:false,
-                    editrules:{
-                        edithidden:true, 
-                        required:true
-                    }
-                }
             ],
             pager: "#ordenMantenimientoGridPager",
             rowNum: 20,
             rowList: [10, 20, 30],
-            sortname: "k_idEquipo",
+            sortname: "k_idServicio",
             sortorder: "desc",
             viewrecords: true,
             gridview: true,
             autoencode: true,
-            caption: "Equipos"
+            caption: "Servicios",
+            multiselect: true
         });
         $("#ordenMantenimientoGrid").jqGrid('navGrid', '#ordenMantenimientoGridPager', {
             edit : false,
-            add : true,
+            add : false,
             del : false,
             search :false,
             closeAfterEdit: false,
             closeAfterAdd:false
         });
+    }
+    ordenMantenimiento=function(){
+    $("#crearAsignacion").button().click(function(){
+        var equipoId = jQuery("#equiposMantenimientoGrid").jqGrid('getGridParam', 'selrow');
+        var dataEquipo = jQuery("#equiposMantenimientoGrid").getRowData(equipoId);
+
+        if(equipoId==null){
+            alert("Debe seleccionar un equipo para asignar servicios");
+            return false;
+        }
+        var serviciosId = jQuery("#ordenMantenimientoGrid").jqGrid('getGridParam', 'selarrrow');
+        if(serviciosId==null){
+            alert("Debe seleccionar por lo menos un servicio para asignar");
+            return false;
+        }
+        mensaje="Esta seguro que desea realizar esta acción, recuerde que no se puede deshacer";
+            if(confirm(mensaje)){
+                var param={
+                    paqueteMantenimiento:dataEquipo.fk_idpaqMantenimiento,
+                    servicios:serviciosId,
+                    tecnico:$("#usuarios").val(),
+                    observaciones:$("#observaciones").val()
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo Yii::app()->createUrl("orden/createProceso"); ?>",
+                    data:param,
+                    success: function(response){
+                        if(response.mensaje=="Fail"){
+                            $("#mensaje").css("color","#ff0000");
+                        }else{
+                            $("#mensaje").css("color","#00ff00");
+                        }
+                        $("#mensaje").val(response.message);
+                    },
+                    dataType: 'json'
+                });
+            }
+    });
     }
 </script>
