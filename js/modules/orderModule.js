@@ -13,20 +13,23 @@ $(document).ready(function() {
             bindEvents();
         },
         bindEvents = function(){
+
             btnSearchClient.click(function(){           
                 findClient();
             });
 
             crearEquipo.click(function(e){
                 e.preventDefault();
-                crearEquipoCliente(docClient.val());
+                crearEquipoCliente();
             });
 
             $("#callViewCrearEquipo").click(function(e){
                 e.preventDefault();
-                console.log($(this).attr('href'));
                 window.open($(this).attr('href')+'/?idC='+docClient.val());
-            })
+            });
+
+            $("#marcaInput").change(getEspecificacion);
+            $("#tipoequipoInput").change(getEspecificacion);
         },
         findClient = function(){
             $.ajax({
@@ -198,14 +201,35 @@ $(document).ready(function() {
                 title: "Forzar Realizacion", 
                 cursor: "pointer"
             });
-        }, 
-        crearEquipoCliente = function(idCliente){
+        },
+        getEspecificacion = function(){
+            if ($("#especificacionInput").autocomplete()){
+                $("#especificacionInput").autocomplete('destroy');  
+            };
+
+            $.ajax({
+                type:"POST",
+                url:url,
+                dataType:"json",
+                data: {marca:$("#marcaInput").val(), tipoEquipo:$("#tipoequipoInput").val()},
+                success:function(data){
+                    $("#nombreEspecificacion").autocomplete({
+                      source: data.list,
+                      minLength:2
+                    });
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        }; 
+        crearEquipoCliente = function(){
             $.ajax({
                 type:"POST",
                 url:urlCrearEquipo,
                 dataType: "json",
                 data: {
-                    clienteId:idCliente,
+                    clienteId:$("#idClienteLbl").text(),
                     especificacion:$("#nombreEspecificacion").val(),
                     nombreEquipo:$("#nombreEquipo").val(),
                     marca:$("#marcaInput").val(),

@@ -6,19 +6,26 @@ $this->breadcrumbs=array(
 	'Ordens'=>array('index'),
 	'Create',
 );
-
-Yii::app()->clientScript ->registerCoreScript('jquery')
+Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
+Yii::app()->clientScript ->registerCoreScript('jquery');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery.ui.js', CClientScript::POS_HEAD);
 ?>
 
 <script type="text/javascript">
 	var urlCrearEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrden"); ?>';
+	var url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
 </script>
 
 
 <div class="form">
 	<div class="row">
+		<label>Identificacion del Cliente</label>
+		<label id="idClienteLbl"><?php echo $clienteId ?></label>
+	</div>
+
+	<div class="row">
 		<label>Nombre Equipo</label>
-		<input type="text" value='<?php	echo $clienteId?>' id="nombreEquipo"></input>
+		<input type="text" id="nombreEquipo"/>
 	</div>
 
 	<label>Marca</label>
