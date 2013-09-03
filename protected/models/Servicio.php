@@ -7,9 +7,11 @@
  * @property integer $k_idServicio
  * @property string $n_nomServicio
  * @property integer $v_costoServicio
+ * @property integer $v_costoServicioTecnico
+ * @property string $n_tipoServicio
  *
  * The followings are the available model relations:
- * @property Procesoservicio[] $procesoservicios
+ * @property Proceso[] $procesos
  * @property Producto[] $productos
  * @property Tipoequipo[] $tipoequipos
  */
@@ -41,13 +43,13 @@ class Servicio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('n_nomServicio, v_costoServicio,v_costoServicioTecnico', 'required'),
-			array('n_nomServicio', 'unique'),
-			array('v_costoServicio,v_costoServicioTecnico', 'numerical', 'integerOnly'=>true),
+			array('n_nomServicio, v_costoServicio, v_costoServicioTecnico, n_tipoServicio', 'required'),
+			array('v_costoServicio, v_costoServicioTecnico', 'numerical', 'integerOnly'=>true),
 			array('n_nomServicio', 'length', 'max'=>50),
+			array('n_tipoServicio', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idServicio, n_nomServicio, v_costoServicio,v_costoServicioTecnico', 'safe', 'on'=>'search'),
+			array('k_idServicio, n_nomServicio, v_costoServicio, v_costoServicioTecnico, n_tipoServicio', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +61,7 @@ class Servicio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'procesoservicios' => array(self::HAS_MANY, 'Procesoservicio', 'k_idServicio'),
+			'procesos' => array(self::MANY_MANY, 'Proceso', 'procesoservicio(k_idServicio, k_idProceso)'),
 			'productos' => array(self::MANY_MANY, 'Producto', 'servicioproducto(k_servicio, k_producto)'),
 			'tipoequipos' => array(self::MANY_MANY, 'Tipoequipo', 'serviciotipoequipo(k_idServicio, k_idTipoEquipo)'),
 		);
@@ -71,10 +73,11 @@ class Servicio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'k_idServicio' => 'Id Servicio',
-			'n_nomServicio' => 'Servicio',
-			'v_costoServicio' => 'Costo al público',
-			'v_costoServicioTecnico' => 'Costo del tecnico',
+			'k_idServicio' => 'K Id Servicio',
+			'n_nomServicio' => 'N Nom Servicio',
+			'v_costoServicio' => 'V Costo Servicio',
+			'v_costoServicioTecnico' => 'V Costo Servicio Tecnico',
+			'n_tipoServicio' => 'N Tipo Servicio',
 		);
 	}
 
@@ -93,6 +96,7 @@ class Servicio extends CActiveRecord
 		$criteria->compare('n_nomServicio',$this->n_nomServicio,true);
 		$criteria->compare('v_costoServicio',$this->v_costoServicio);
 		$criteria->compare('v_costoServicioTecnico',$this->v_costoServicioTecnico);
+		$criteria->compare('n_tipoServicio',$this->n_tipoServicio,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

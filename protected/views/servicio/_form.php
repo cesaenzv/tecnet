@@ -36,6 +36,12 @@
         <?php echo $form->error($model, 'v_costoServicioTecnico'); ?>
     </div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'n_tipoServicio'); ?>
+        <?php echo $form->dropDownList($model, 'n_tipoServicio', array('M'=>'Mantenimiento', 'R'=>'Recargas'));?>
+        <?php echo $form->error($model,'n_tipoServicio'); ?>
+    </div>
+
     <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
     </div>
