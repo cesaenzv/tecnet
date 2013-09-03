@@ -125,11 +125,113 @@ class OrdenController extends Controller {
         }
         echo CJSON::encode($respuesta);
     }
-    
+
     public function actionCreatePaquete($id) {
-        $model = Paquetematenimiento::model()->findByPk($id);
-        $this->layout="_blank";
-        $this->render('crearpaquete');
+        $this->layout = "mainFancy";
+        $this->render('crearpaquete', array("id" => $id));
+    }
+
+    public function actionCreateProceso() {
+        extract($_REQUEST);
+        $proceso = new Proceso;
+        $proceso->k_idTecnico = $tecnico;
+        $proceso->fk_idEstado = 2;
+        $proceso->n_descripcion = $observaciones;
+        $proceso->o_flagLeido = 0;
+        $proceso->fk_idPaqueteManenimiento = $paqueteMantenimiento;
+        $respuesta = new stdClass();
+        if ($proceso->save()) {
+            foreach ($servicios as $val) {
+                $procesoServicio = new Procesoservicio;
+                $procesoServicio->k_idProceso=$proceso->k_idProceso;
+                $procesoServicio->k_idServicio=$val;
+                $procesoServicio->k_idUsuario=  Yii::app()->user->id;
+                $procesoServicio->q_estadoPago=0;
+                $procesoServicio->save();
+            }
+            $respuesta->status = "OK";
+            $respuesta->message = "Sus datos han sido guardados correctamente.";
+        } else {
+            $respuesta->status = "Fail";
+            $respuesta->message = "Ha ocurrido un error inesperado";
+        }
+        echo CJSON::encode($respuesta);
+    }
+
+    public function actionGetServicios() {
+        $criteria = new CDbCriteria;
+        if (isset($_POST['sidx']) && isset($_POST['sord'])) {
+            $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+        }
+        $dataProvider = new CActiveDataProvider('Servicio', array(
+                    'criteria' => $criteria,
+                    'pagination' => array(
+                        'pageSize' => $_POST['rows'],
+                        'currentPage' => $_POST['page'] - 1,
+                    ),
+                ));
+        $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+        $response = new stdClass();
+        $response->page = $_POST['page'];
+        $response->records = $dataProvider->getTotalItemCount();
+        $response->total = ceil($response->records / $ro);
+        $rows = $dataProvider->getData();
+        foreach ($rows as $i => $row) {
+
+            $response->rows[$i]['id'] = $row['k_idServicio'];
+            $response->rows[$i]['cell'] = array(
+                $row['n_nomServicio'],
+                $row['v_costoServicio'],
+            );
+        }
+        echo json_encode($response);
+    }
+
+    public function actionGetEquiposPaquete($id) {
+        $paqueteMantenimiento = Paquetematenimiento::model()->findAll("k_idOrden= :orden", array(":orden" => $id));
+        if (count($paqueteMantenimiento) > 0) {
+            $condicion = "";
+            $idPaquete = array();
+            foreach ($paqueteMantenimiento as $paquete) {
+                $condicion = $condicion . "k_idEquipo = " . $paquete->k_idEquipo . " OR ";
+                $idPaquete[$paquete->k_idEquipo] = $paquete->k_idPaquete;
+            }
+            $condicion = substr($condicion, 0, strlen($condicion) - 4);
+            $criteria = new CDbCriteria;
+            if (isset($_POST['sidx']) && isset($_POST['sord'])) {
+                $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+            }
+            $criteria->condition = $condicion;
+            $dataProvider = new CActiveDataProvider('Equipo', array(
+                        'criteria' => $criteria,
+                        'pagination' => array(
+                            'pageSize' => $_POST['rows'],
+                            'currentPage' => $_POST['page'] - 1,
+                        ),
+                    ));
+            $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+            $response = new stdClass();
+            $response->page = $_POST['page'];
+            $response->records = $dataProvider->getTotalItemCount();
+            $response->total = ceil($response->records / $ro);
+            $rows = $dataProvider->getData();
+            foreach ($rows as $i => $row) {
+                $especificacion = Especificacion::model()->findByPk($row['k_idEspecificacion']);
+                $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+                $especificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
+
+                $response->rows[$i]['id'] = $row['k_idEquipo'];
+                $response->rows[$i]['cell'] = array(
+                    $row['k_idEquipo'],
+                    $row['n_nombreEquipo'],
+                    $especificacion,
+                    $idPaquete[$row['k_idEquipo']]
+                );
+            }
+        } else {
+            $response = "Error";
+        }
+        echo json_encode($response);
     }
 
     /**

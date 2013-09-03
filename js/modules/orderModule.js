@@ -121,7 +121,7 @@ $(document).ready(function() {
                     hidden:false, 
                     edittype: "select", 
                     editoptions:{
-                        dataUrl: "..cliente/GetEspecificaciones/"
+                        dataUrl: "../cliente/GetEspecificaciones/"
                     },
                     editrules:{
                         edithidden:true, 

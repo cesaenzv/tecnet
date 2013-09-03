@@ -95,7 +95,7 @@ class AccessDataRol {
                     if($this->canAppend($labelParent, $menuDenied)){
                         $operations_task = array();
                         foreach($operations as $operation){
-                            $url = strtolower(str_replace( ".", "/",$operation->child));
+                            $url = (str_replace( ".", "/",$operation->child));
                             $labelSon = explode(".",$operation->child);
                             if($this->canAppend($labelSon[1], $operationsDenied)){
                                 $operations_task[] = array('label' => $labelSon[1], 'url' => array($url));                             
