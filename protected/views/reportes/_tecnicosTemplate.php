@@ -40,8 +40,7 @@
 												</tbody>
 											</table>
 										</div>
-									{{/each}}
-								
+									{{/each}}								
 								{{else}}
 									<div class="orden">
 									</div>
@@ -78,13 +77,13 @@
 												</tbody>
 											</table>
 										</div>
-									{{/each}}
-								
+									{{/each}}								
 								{{else}}
 									<div class="orden">
 									</div>	
 								{{/if}}
 							</div>
+						</div>
 					</div>
 				{{/each}}
 			</div>
@@ -97,7 +96,9 @@
 						<th>Fecha</th>
 						<th>Servicio</th>
 						<th>Pago Tecnico</th>
-						<th>Cancelar</th>
+						{{#if pagable}}
+							<th>Cancelar</th>
+						{{/if}}
 					</tr>
 				</thead>
 				<tbody>
@@ -106,13 +107,15 @@
 							<td>{{fechaFin}}</td>
 							<td>{{n_nomServicio}}</td>
 							<td>{{v_costoServicioTecnico}}</td>
-							<td>
-								{{#if estadoPago}}
-									<strong style="color:red;">Pagado</strong>
-								{{else}}
-									<input type="button" class="pagoServicio" data-ids={{k_idServicio}} data-idp={{k_idProceso}} value="Pagar"/>
-								{{/if}}
-							</td>
+							{{#if pagable}}
+								<td>								
+									{{#if estadoPago}}
+										<strong style="color:red;">Pagado</strong>
+									{{else}}
+										<input type="button" class="pagoServicio" data-ids={{k_idServicio}} data-idp={{k_idProceso}} value="Pagar"/>
+									{{/if}}								
+								</td>
+							{{/if}}
 						</tr>
 					{{/each}}
 				</tbody>			

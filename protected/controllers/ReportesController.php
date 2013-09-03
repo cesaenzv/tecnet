@@ -43,7 +43,7 @@ class ReportesController extends Controller
 			$data = null;
 			switch ($_POST['typeConsult']) {
 				case 'clt':
-					$data =	$this->getClientHistory($_POST['doc'],$_POST['tipoDoc']);
+					$data =	$this->getClientHistory($_POST['doc'],$_POST['tipoDoc'],$_POST['fchIni'],$_POST['fchFin']);
 					break;
 				case 'maq':
 					$data = $this->getMachineHistory($_POST['doc']);
@@ -58,7 +58,7 @@ class ReportesController extends Controller
 
 /*	HISTORIAL MAQUINAS Y CLIENTES    */
 
-	private function getMachineHistory($idEquipo){
+	private function getMachineHistory($idEquipo = null, $fchIni = null , $fchFin = null){
 		$data = array();
 		/**INFORMACION EQUIPO*/
 		$data['equipos'] = array();
@@ -74,12 +74,12 @@ class ReportesController extends Controller
 		/*INFORMACION CLIENTE*/
 		$data['cliente'] = Cliente::model()->findByPk($equipo->k_idCliente);
 		/*INFORMACION SERVICIOS*/
-		$data['servicios'] = $this->getCantidadTipoServicio($idEquipo);
+		$data['servicios'] = $this->getCantidadTipoServicio($idEquipo,$fchIni, $fchFin);
 		return $data;
 	}
 
 
-	private function getClientHistory($idCliente = null, $typeDoc = null){        	
+	private function getClientHistory($idCliente = null, $typeDoc = null, $fchIni = null , $fchFin = null){        	
 		$data = array();$Criteria = new CDbCriteria();		
 		/*INFORMACION CLIENTE*/
 		$Criteria->condition = "k_idCliente = ".$idCliente."AND i_nit like '".$typeDoc."'";
@@ -101,7 +101,7 @@ class ReportesController extends Controller
 		$data['equipos'] = $equipos;
 		
 		/**INFORMACION ORDENES DEL CLIENTE*/
- 		$data['ordenes'] = $this->getOrdenesCliente($idCliente);
+ 		$data['ordenes'] = $this->getOrdenesCliente($idCliente, strtotime($fchIni), strtotime($fchFin));
  		return $data;	
 	}
 
@@ -114,7 +114,7 @@ class ReportesController extends Controller
 		return $temp;
 	}
 
-	private function getOrdenesCliente($idCliente){
+	private function getOrdenesCliente($idCliente, $fchIni, $fchFin){
 		$temp = array();$Criteria = new CDbCriteria();
 		$Criteria->condition = "k_idCliente = ".$idCliente;
 		$equipos = Equipo::model()->findAll($Criteria);
@@ -124,15 +124,18 @@ class ReportesController extends Controller
 	        ));
 	        foreach ($paquetes as $j => $paquete) {
 	        	$temp2 = Orden::model()->findByPk($paquete->k_idOrden);
-	        	$cajero = Users::model()->findByPk($temp2->k_idUsuario);
-	        	$temp2->k_idUsuario = $cajero->username;
-	        	$servicios = $this->getCantidadTipoServicio($temp2->k_idOrden,'k_idOrden');
-	        	$orden = array("orden"=>$temp2->attributes,
-	        					"servicios" => $servicios);
-	        	$temp[] = $orden;
+	        	$fI = strtotime($temp2->fchIngreso);
+	        	$fF = strtotime($temp2->fchEntrega);
+	        	if(( $fI >= $fchIni && $fI <= $fchFin) || ($fF >= $fchIni && $fF <= $fchFin)){
+		        	$cajero = Users::model()->findByPk($temp2->k_idUsuario);
+		        	$temp2->k_idUsuario = $cajero->username;
+		        	$servicios = $this->getCantidadTipoServicio($temp2->k_idOrden,'k_idOrden');
+		        	$orden = array("orden"=>$temp2->attributes,
+		        					"servicios" => $servicios);
+		        	$temp[] = $orden;
+	        	}
 	        }	
-		}
-		
+		}		
         return $temp;
 	}
 
@@ -202,7 +205,7 @@ class ReportesController extends Controller
 					$data = $this->getMachinesTec($_POST['tecId'], $_POST['typeTec']);
 					break;
 				case 'fct':
-					$data = $this->getFacturacionTecnico($_POST['tecId'],$_POST['fchI'],$_POST['fchF']);
+					$data = $this->getFacturacionTecnico($_POST['tecId'],$_POST['fchI'],$_POST['fchF'], $_POST['typeTec']);
 					break;
 				case 'paySer':
 					$data = $this->pagarServicio($_POST['idS'],$_POST['idP']);
@@ -272,7 +275,7 @@ class ReportesController extends Controller
 
 	}
 
-	private function getFacturacionTecnico($idTec, $fchI, $fchF){
+	private function getFacturacionTecnico($idTec, $fchI, $fchF, $tipoTec){
 		$data = array();$servicios = array();$Criteria = new CDbCriteria();
 		$data["facturas"] = array();
 		$Criteria->condition = "k_idTecnico = ".$idTec." AND fk_idEstado = 3 AND fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'";
@@ -286,7 +289,8 @@ class ReportesController extends Controller
 			$temp = $temp->attributes;
 			$temp["fechaFin"]=$proceso->fchFinalizacion;
 			$temp["estadoPago"] = $pS->q_estadoPago == 0? false:true;
-			$temp["k_idProceso"] = $pS->k_idProceso; 			
+			$temp["k_idProceso"] = $pS->k_idProceso;
+			$temp["pagable"] = $tipoTec == "rcg" ? false : true; 			
 			$data["facturas"][] = $temp;
 		}		
 
@@ -407,8 +411,8 @@ class ReportesController extends Controller
 				case 'ingS':
 					$data = $this->getCajaServicioRangoTiempo($_POST['servicioID'],$_POST['fchI'],$_POST['fchF']);
 					break;				
-				case 'ingP':
-					$data = $this->getCostosProcesos($_POST['servicioID'],$_POST['fchI'],$_POST['fchF']);
+				case 'ingTS':
+					$data = $this->getCostosTipoServicio($_POST['tipoServicio'],$_POST['fchI'],$_POST['fchF']);
 					break;
 				default:
 					$data = "";
@@ -470,9 +474,10 @@ class ReportesController extends Controller
 		return $data;
 	}
 
-	private function getCostosServicio(){
-
-	}
+	/*private function getCostosTipoServicio(tipoServicio, $fchI, $fchF){
+		$data = array();$Criteria = new CDbCriteria();
+		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
+	}*/
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
 }

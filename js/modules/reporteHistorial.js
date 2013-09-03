@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var reporteHistorial = (function(){
-		var doc, tipoHistorial,tipoDoc,consultBtn,plantillaHistorial;
+		var doc, tipoHistorial,tipoDoc,consultBtn,plantillaHistorial, fchIni, fchFin;
 		/*_________________Funciones_________________*/
 		var init = function(config){
 			doc = config.doc;
@@ -8,7 +8,11 @@ $(document).ready(function(){
 			historialData = $("#TemplateContent");
 			plantillaHistorial = $("#historialTemplate");
 			consultBtn = config.consultBtn;
+			fchFin = config.fchFin;
+			fchIni = config.fchIni;	
+			jQueryPlugins();		
 			bindEvents();
+			
 		},
 		bindEvents = function(){
 			$("#configContent").find("input[type=radio]").each(function(i,item){
@@ -20,15 +24,21 @@ $(document).ready(function(){
 				consultarHistorial();
 			});
 		},
+		jQueryPlugins = function(){
+			$("#contentFecha").css('display','none');
+			fchIni.datepicker({ dateFormat: "yy-mm-dd" });
+			fchFin.datepicker({ dateFormat: "yy-mm-dd" });
+		},
 		showTypeDoc = function (item) {
 			if(item.val() === "clt"){
 				$("#contentTipDoc").css('display','inline-block');
+				$("#contentFecha").css('display','inline-block');
 			}else{
 				$("#contentTipDoc").css('display','none');
+				$("#contentFecha").css('display','none');
 			}
 		},
 		consultarHistorial = function(){
-			console.log(url);
 			var typeConsult = $('input[name=tipoHistorial]:checked').val();
 			if(typeConsult !== undefined){
 				$.ajax({
@@ -38,7 +48,9 @@ $(document).ready(function(){
 					data: {
 						typeConsult:typeConsult, 
 						doc: doc.val(), 
-						tipoDoc : tipoDoc.val()
+						tipoDoc : tipoDoc.val(),
+						fchIni : fchIni.val(),
+						fchFin : fchFin.val(),
 					},
 					success:function(data){
 						showHistorialData(data);
@@ -64,6 +76,8 @@ $(document).ready(function(){
 	reporteHistorial.init({
 		doc : $("#idConsult"),
 		tipoDoc :$("#tipoDoc"),
-		consultBtn : $("#consultBtn")
+		consultBtn : $("#consultBtn"),
+		fchIni : $("#initDate"),
+		fchFin : $("#endDate")
 	});
 });

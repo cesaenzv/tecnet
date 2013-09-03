@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	var reporteCaja = (function(){
-		var fchI, fchF, cajaData, consultBtn, plantillaCaja;
+		var fchI, fchF, cajaData, consultBtn, plantillaCaja, listTipoSer;
 		/*_________________Funciones_________________*/
 		var init = function(config){
-			console.log("INicio");
 			fchI = config.fchI;
 			fchF = config.fchF;
+			listTipoSer = $("#listTipoSer");
 			listServicios = $("#listServicios");
 			cajaData = $("#TemplateContent");
 			plantillaCaja = $("#cajaTemplate");
@@ -14,6 +14,7 @@ $(document).ready(function(){
 			bindEvents();
 		},
 		jQueryPlugins = function(){
+			listTipoSer.css("display","none");
 			listServicios.css("display","none");
 			fchI.datepicker({ dateFormat: "yy-mm-dd" });
 			fchF.datepicker({ dateFormat: "yy-mm-dd" });
@@ -23,8 +24,13 @@ $(document).ready(function(){
 				$(item).click(function(){
 					if($(item).val() == 'ingS'){
 						getServicios($(item));
-					}else{
+						listTipoSer.css("display","none");						
+					}else if($(item).val() == 'ingTS'){
+						listTipoSer.css("display","inline-block");
 						listServicios.css("display","none");
+					}else if($(item).val() == 'ingO'){
+						listServicios.css("display","none");
+						listTipoSer.css("display","none");
 					}						
 				});
 			});
@@ -68,11 +74,11 @@ $(document).ready(function(){
 						servicioID:servicio,
 						typeConsult:typeConsult, 
 						fchF:fchF.val(),
-						fchI:fchI.val()
+						fchI:fchI.val(),
+						tipoServicio:$("#tipoServicio").val()
 					},
 					success:function(data){
 						showCajaData(data);
-						console.log(data);
 					},
 					error:function(){
 						historialData.html('');

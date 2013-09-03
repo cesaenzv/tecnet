@@ -14,37 +14,47 @@
 		{{/if}}
 
 		{{#if ordenes}}
-			<div class="ordenes boxInfo">
+			<div class="contentOrden">
 				<h4>ORDENES</h4>
-				{{#each ordenes}}					
-					<div class="orden">
-						<h5>ORDEN #{{orden.k_idOrden}}</h5>						
-						<span><label>CAJERO</label>{{orden.k_idUsuario}}</span>
-						<span><label>FECHA INGRESO</label>{{orden.fchIngreso}}</span>
-						<span><label>FECHA ENTREGA</label>{{orden.fchEntrega}}</span>
-						<div class="serviciosOrden">
-							<h5>SERVICIOS DE LA ORDEN {{orden.k_idOrden}}</h5>
-							<table>
-								<thead>
-									<tr>
-								    	<th>CANTIDAD</th>
-								      	<th>NOMBRE SERVICIO</th>
-								      	<th>COSTO</th>			      	
-								    </tr>
-								</thead>
-								<tbody>
-									{{#each servicios}}
+				<ul class="ordenList">
+					{{#each ordenes}}						
+						<li>
+							<a href="#{{orden.k_idOrden}}_O">ORDEN #{{orden.k_idOrden}}</a>
+						</li>						
+					{{/each}}
+				</ul>
+				<div class="ordenes boxInfo">
+									
+					{{#each ordenes}}					
+						<div class="orden" id="{{orden.k_idOrden}}_O">
+							<h5>ORDEN #{{orden.k_idOrden}}</h5>						
+							<span><label>CAJERO</label>{{orden.k_idUsuario}}</span>
+							<span><label>FECHA INGRESO</label>{{orden.fchIngreso}}</span>
+							<span><label>FECHA ENTREGA</label>{{orden.fchEntrega}}</span>
+							<div class="serviciosOrden">
+								<h5>SERVICIOS DE LA ORDEN {{orden.k_idOrden}}</h5>
+								<table>
+									<thead>
 										<tr>
-											<td>{{cantidad}}</td>
-											<td>{{Servicio.n_nomServicio}}</td>
-											<td>{{Servicio.v_costoServicio}}</td>
-										</tr>
-									{{/each}}
-								</tbody>
-							</table>
+									    	<th>CANTIDAD</th>
+									      	<th>NOMBRE SERVICIO</th>
+									      	<th>COSTO</th>			      	
+									    </tr>
+									</thead>
+									<tbody>
+										{{#each servicios}}
+											<tr>
+												<td>{{cantidad}}</td>
+												<td>{{Servicio.n_nomServicio}}</td>
+												<td>{{Servicio.v_costoServicio}}</td>
+											</tr>
+										{{/each}}
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
-				{{/each}}	
+					{{/each}}	
+				</div>
 			</div>
 		{{/if}}
 

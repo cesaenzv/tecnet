@@ -20,11 +20,11 @@
 		<label>Tipo documento:</label>
 		<?php echo CHtml::dropDownList(null, null, array('CC'=>'CC', 'TI'=>'TI','NIT'=>'NIT','CE'=>'CE','PA'=>'PA'), array('id'=>'tipoDoc'))?>
 	</span>	
-	<!-- <span>
+	<span id="contentFecha">
 		<label>Fechas:</label>
-		<span>Inicio:<input id="initDate" type="date" placeholder="dd/mm/yyyy"/></span>
-		<span>Fin:<input id="endDate" type="date" placeholder="dd/mm/yyyy"/></span>
-	</span>	 -->	
+		<span>Inicio:<input id="initDate" type="text" placeholder="dd/mm/yyyy"/></span>
+		<span>Fin:<input id="endDate" type="text" placeholder="dd/mm/yyyy"/></span>
+	</span>
 </div>
 <button id="consultBtn" class="button">Consultar</button>
 

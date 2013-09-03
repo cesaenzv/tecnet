@@ -11,7 +11,14 @@
 	<span>
 		<label>Seleccione tipo de consulta:</label>
 		<span>Ingresos por orden <input type="radio" name="cajaType" value="ingO"/> </span>
-		<span>Ingresos por servicios <input type="radio" name="cajaType" value="ingS"/> </span>			
+		<span>Ingresos por servicios <input type="radio" name="cajaType" value="ingS"/> </span>	
+		<span>Ingresos tipo servicio <input type="radio" name="cajaType" value="ingTS"/> </span>			
+	</span>
+	<span id="listTipoSer">
+		<select id="tipoServicio">
+			<option value="mnt" selected="selected">Mantenimiento</option>
+			<option value="rcg">Recargas</option>
+		</select>	
 	</span>
 	<span  id="listServicios">
 		

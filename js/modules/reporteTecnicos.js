@@ -50,7 +50,7 @@ $(document).ready(function(){
 					fchF: fchF.val(),
 					tecId:tec,
 					typeConsult:typeConsult,
-					typeTec:typeTec,
+					typeTec:typeTec
 				},
 				success:function(data){
 					showTecData(data);
@@ -103,7 +103,8 @@ $(document).ready(function(){
 							typeConsult:"paySer",
 						},
 						success:function(data){
-							if(data.msg){
+							console.log(data);
+							if(data == true){
 								alert("Exito al realizar el pago");
 								consultarReporte();
 							}else{
