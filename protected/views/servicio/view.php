@@ -17,5 +17,7 @@ $this->breadcrumbs=array(
 		'k_idServicio',
 		'n_nomServicio',
 		'v_costoServicio',
+		'v_costoServicioTecnico',
+		'n_tipoServicio',
 	),
 )); ?>

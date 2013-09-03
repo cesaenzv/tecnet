@@ -474,10 +474,32 @@ class ReportesController extends Controller
 		return $data;
 	}
 
-	/*private function getCostosTipoServicio(tipoServicio, $fchI, $fchF){
-		$data = array();$Criteria = new CDbCriteria();
-		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
-	}*/
+	private function getCostosTipoServicio(tipoServicio, $fchI, $fchF){
+		$data = array();$Criteria = new CDbCriteria(), $servList = array();
+		$Criteria->condition = "n_tipoServicio ='".$tipoServicio."'";
+		$servicios = Servicio::findAll($Criteria);
+		foreach ($s as $i => $servicios) {
+			$Criteria->condition = "k_idServicio ='".$s->k_idServicio."'";
+			$procServ = Procesoservicio::model()->findAll($Criteria);
+			foreach ($pS as $j => $procServ) {
+				$p = Proceso::model()->findByPk($pS->k_idProceso);
+				$fA = strtotime($p->fchAsignacion);
+	        	$fF = strtotime($p->fchFinalizacion);
+	        	if(( $fA >= $fchIni && $fA <= $fchFin) || ($fF >= $fchIni && $fF <= $fchFin)){
+	        		if(!array_key_exists($s->k_idServicio,$servList)){
+						$servList[$s->k_idServicio]=array(
+								"cantidad"=>1,
+								"servicio"=>$s->attributes						
+							);
+					}else{
+						$servList[$s->k_idServicio]["cantidad"]+=1;				
+					}
+	        	}
+			}
+		}
+		$data['servicios'] = $servList;
+		return $data;
+	}
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
 }

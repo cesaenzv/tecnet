@@ -16,8 +16,8 @@
 	</span>
 	<span id="listTipoSer">
 		<select id="tipoServicio">
-			<option value="mnt" selected="selected">Mantenimiento</option>
-			<option value="rcg">Recargas</option>
+			<option value="M" selected="selected">Mantenimiento</option>
+			<option value="R">Recargas</option>
 		</select>	
 	</span>
 	<span  id="listServicios">

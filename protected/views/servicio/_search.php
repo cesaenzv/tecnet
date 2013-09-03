@@ -25,10 +25,15 @@
 		<?php echo $form->label($model,'v_costoServicio'); ?>
 		<?php echo $form->textField($model,'v_costoServicio'); ?>
 	</div>
-	
-        <div class="row">
+
+	<div class="row">
 		<?php echo $form->label($model,'v_costoServicioTecnico'); ?>
 		<?php echo $form->textField($model,'v_costoServicioTecnico'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'n_tipoServicio'); ?>
+		<?php echo $form->textField($model,'n_tipoServicio',array('size'=>1,'maxlength'=>1)); ?>
 	</div>
 
 	<div class="row buttons">
