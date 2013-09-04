@@ -229,7 +229,44 @@ class ReportesController extends Controller
 			}
 			echo CJavaScript::jsonEncode($data);
 		}
-	}	
+	}
+	public function actionGetDetalleEquipo(){
+        //$equipo = Equipo::model()->findByPk($_POST['idE']);
+        $data = array();$Criteria = new CDbCriteria();
+        $fI = $_POST['fchI'];$fF = $_POST['fchF'];
+
+        $Criteria->condition = "k_idEquipo =".$_POST['idEquipo'];
+        $paqsMant = Paquetematenimiento::model()->findAll($Criteria);
+        $temp = array();
+        foreach ($paqsMant as $i => $pM) {
+        	$orden = Orden::model()->findByPk($pM->k_idOrden);   	
+        	if( $fI <= $orden->fchIngreso && $fF >= $orden->fchEntrega){
+        		$Criteria->condition = "fk_idPaqueteManenimiento = ".$pM->k_idPaquete."";
+        		$Criteria->order = "fchAsignacion DESC";
+        		$procesos = Proceso::model()->findAll($Criteria);       	
+	        	foreach ($procesos as $i => $p) {
+	        		$Criteria->condition = "k_idProceso =".$p->k_idProceso;
+	        		$Criteria->order = "";
+	        		$proserv = Procesoservicio::model()->find($Criteria);
+	        		if($_POST["servicio"] == $proserv->k_idServicio){
+		        		$tecnico = Users::model()->findByPk($p->k_idTecnico);
+		        	    $estado = Estados::model()->findByPk($p->fk_idEstado);		        		
+		        		$servicio = Servicio::model()->findByPk($proserv->k_idServicio);	        		
+	        			$temp[] = array(    "servicio" => $servicio->n_nomServicio,
+	        							"tecnico" => $tecnico->username,
+	        							"descripcion" =>$p->n_descripcion,
+	        							"estado" => $estado->n_nombreEstado,
+	        							"fchI" =>$p->fchAsignacion ,
+	        							"fchF" =>$p->fchFinalizacion
+	        			);
+	        		}	        		
+	        	}	        	
+	        }
+        }
+        $data["timeline"] = $temp;
+
+        echo CJavaScript::jsonEncode($data); 
+    }	
 	
 /*	TECNICOS REPORTES Y CONSULTAS */
 
@@ -516,43 +553,16 @@ class ReportesController extends Controller
 	}
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
 
-	public function actionGetDetalleEquipo(){
-        //$equipo = Equipo::model()->findByPk($_POST['idE']);
-        $data = array();$Criteria = new CDbCriteria();
-        $fI = $_POST['fchI'];$fF = $_POST['fchF'];
+/* REPORTES DE TIEMPOS TECNICOS  */
+	
+	public function actionTiemposReporte ()	{
+		$this->render('reportes',array(
+				'type'=>'Tiempos'
+			));		
+	}
 
-        $Criteria->condition = "k_idEquipo =".$_POST['idEquipo'];
-        $paqsMant = Paquetematenimiento::model()->findAll($Criteria);
-        $temp = array();
-        foreach ($paqsMant as $i => $pM) {
-        	$orden = Orden::model()->findByPk($pM->k_idOrden);   	
-        	if( $fI <= $orden->fchIngreso && $fF >= $orden->fchEntrega){
-        		$Criteria->condition = "fk_idPaqueteManenimiento = ".$pM->k_idPaquete."";
-        		$Criteria->order = "fchAsignacion DESC";
-        		$procesos = Proceso::model()->findAll($Criteria);       	
-	        	foreach ($procesos as $i => $p) {
-	        		$Criteria->condition = "k_idProceso =".$p->k_idProceso;
-	        		$Criteria->order = "";
-	        		$proserv = Procesoservicio::model()->find($Criteria);
-	        		if($_POST["servicio"] == $proserv->k_idServicio){
-		        		$tecnico = Users::model()->findByPk($p->k_idTecnico);
-		        	    $estado = Estados::model()->findByPk($p->fk_idEstado);		        		
-		        		$servicio = Servicio::model()->findByPk($proserv->k_idServicio);	        		
-	        			$temp[] = array(    "servicio" => $servicio->n_nomServicio,
-	        							"tecnico" => $tecnico->username,
-	        							"descripcion" =>$p->n_descripcion,
-	        							"estado" => $estado->n_nombreEstado,
-	        							"fchI" =>$p->fchAsignacion ,
-	        							"fchF" =>$p->fchFinalizacion
-	        			);
-	        		}	        		
-	        	}	        	
-	        }
-        }
-        $data["timeline"] = $temp;
+/* CIERRE REPORTES DE TIEMPOS TECNICOS */	
 
-        echo CJavaScript::jsonEncode($data); 
-    }
 
 }
 

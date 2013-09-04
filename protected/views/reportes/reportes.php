@@ -16,6 +16,9 @@
 		case 'Caja':
 			echo $this->renderPartial('_viewCaja', array());
 			break;	
+		case 'Tiempos':
+			echo $this->renderPartial('_viewTiempos', array());
+			break;	
 		default:?>
 			<h2>NO SE ENCONTRO NINGUNO</h2>
 		<?php
