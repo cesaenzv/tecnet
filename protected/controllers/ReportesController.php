@@ -256,9 +256,9 @@ class ReportesController extends Controller
 			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
 			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
 			if($orden->fchEntrega != "0000-00-00 00:00:00"){
-				$equipos[] = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1,$typeTec);
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1,$typeTec);
 			}else{
-				$equipos[] = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0,$typeTec);
+				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0,$typeTec);
 			}
 		}
 		$data['equipos'] = $equipos;
@@ -385,10 +385,10 @@ class ReportesController extends Controller
 				$temp[$orden->k_idOrden] = array();
 				$temp[$orden->k_idOrden]["orden"] = $orden;
 				$temp[$orden->k_idOrden]["procesos"] = array();
-				$temp["ordenes"][$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso, 
+				$temp["ordenes"][$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso->attributes, 
 																"duracion"=>$this->getDuracionProceso($proceso, $typeTec));
 			}else{
-				$temp[$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso, 
+				$temp[$orden->k_idOrden]["procesos"][] = array("proceso"=>$proceso->attributes, 
 																"duracion"=>$this->getDuracionProceso($proceso, $typeTec));
 			}
 
