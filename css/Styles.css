@@ -198,7 +198,7 @@
 	font-weight: 800;
 }
 
-.boxInfo table, .equipos table{
+.boxInfo table, .equipos table, .paqR table{
 	border: 1px solid #D1C9C9;
 	width: 95%;
 	margin: 0 auto

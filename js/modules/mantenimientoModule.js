@@ -5,7 +5,6 @@ $(document).ready(function() {
             contentPaq = config.contentPaq;
             plantillaProducts = $("#procesServicesTemplate");
             divTratamiento = config.divTratamiento;
-			
             bindEvents();
         },
         bindEvents = function(){

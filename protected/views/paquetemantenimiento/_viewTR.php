@@ -21,8 +21,9 @@
 				<span><label>MARCA: </label><?php echo $objetos->especificacion["k_idMarca"]["n_nombreMarca"];?></span>
 				<span><label>REFERENCIA :</label><?php echo $objetos->especificacion["n_nombreEspecificacion"];?></span>
 			</div>
+                        <table ></table>
 			<div class="botones">
-				<a href="" class="playTimer btn" id="btnPlay">PLAY</a>
+				<a href="" class="playTimer btn" id="btnPlay<?php echo $paquetesMnt["k_idPaquete"];?>">PLAY</a>
 				<button class="btnRetornar">Retornar</button>
 			</div>			
 		</div>

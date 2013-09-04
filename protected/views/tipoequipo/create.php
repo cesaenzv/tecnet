@@ -6,11 +6,6 @@ $this->breadcrumbs=array(
 	'Tipoequipos'=>array('index'),
 	'Create',
 );
-
-$this->menu=array(
-	array('label'=>'List Tipoequipo', 'url'=>array('index')),
-	array('label'=>'Manage Tipoequipo', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Tipoequipo</h1>
