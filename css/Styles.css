@@ -178,7 +178,7 @@
 }
 
 
-.boxInfo h4, .equipos h4{
+.servicios h4, .boxInfo h4, .equipos h4{
 	background-color: #6399cd;
 	color: #EFF4FA;
 	font-weight: 700;
@@ -289,3 +289,19 @@
 	width: 90%;
 }
 
+.totalesContent span{
+	display: inline-block;
+	width: 30%;
+	margin:0.2em;
+	background-color:#EFEFEF;
+	padding:0.3em;
+}
+
+.totalesContent span *{
+	display: inline-block;
+	font-weight: 800;
+	font-size: 1.1em;
+	color:#6399cd;
+	padding: 0 0.3em;	
+
+}

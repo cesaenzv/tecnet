@@ -78,6 +78,7 @@ $(document).ready(function(){
 						tipoServicio:$("#tipoServicio").val()
 					},
 					success:function(data){
+						console.log(data);
 						showCajaData(data);
 					},
 					error:function(){

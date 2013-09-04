@@ -58,7 +58,7 @@ class ReportesController extends Controller
 
 /*	HISTORIAL MAQUINAS Y CLIENTES    */
 
-	private function getMachineHistory($idEquipo = null, $fchIni = null , $fchFin = null){
+	private function getMachineHistory($idEquipo = null){
 		$data = array();
 		/**INFORMACION EQUIPO*/
 		$data['equipos'] = array();
@@ -74,7 +74,7 @@ class ReportesController extends Controller
 		/*INFORMACION CLIENTE*/
 		$data['cliente'] = Cliente::model()->findByPk($equipo->k_idCliente);
 		/*INFORMACION SERVICIOS*/
-		$data['servicios'] = $this->getCantidadTipoServicio($idEquipo,$fchIni, $fchFin);
+		$data['servicios'] = $this->getCantidadTipoServicio($idEquipo);
 		return $data;
 	}
 
@@ -158,7 +158,7 @@ class ReportesController extends Controller
         			$temp[$producto->k_idServicio]['cantidad'] = 1;
         			$temp[$producto->k_idServicio]['Servicio'] = Servicio::model()->findByPk($producto->k_idServicio);		
         		}else{
-        			$temp[$producto->k_idServicio]['cantidadServicio']+=1;
+        			$temp[$producto->k_idServicio]['cantidad']+=1;
         		}
         	}
 		}
@@ -443,16 +443,19 @@ class ReportesController extends Controller
 
 	private function GetMargenGanancia($items){
 		if(count($items)>0){
-			$gananciaMes = 0;
+			$gananciaTotal = 0; $costoSTotal=0; $costoTTotal=0;
 			foreach ($items as $j => $item) {
 				$item['costoS']= $item['servicio']['v_costoServicio']*$item['cantidad'];
 				$item['costoT'] = $item['servicio']['v_costoServicioTecnico']*$item['cantidad'];
 				$item['margenGananacia'] = $item['costoS'] - $item['costoT'];
-				$gananciaMes = $gananciaMes + $item['margenGananacia'];
+				/***  Valores Total  ***/
+				$gananciaTotal = $gananciaTotal + $item['margenGananacia'];
+				$costoSTotal = $costoSTotal+ $item['costoS'];
+				$costoTTotal = $costoTTotal + $item['costoT'];
 				$items[$j] = $item;
 			}
 		}
-		return $items;
+		return array("servicios"=>$items,"totales"=>array("ganTotal"=>$gananciaTotal,"serTotal"=>$costoSTotal,"tecTotal"=>$costoTTotal));
 	}
 	
 	private function getCajaServicioRangoTiempo($servicioId,$fchI, $fchF){
@@ -470,22 +473,25 @@ class ReportesController extends Controller
 			}
 		}
 		$temp = $this->GetMargenGanancia($temp);
-		$data["servicios"] = $temp;
+		$data["servicios"] = $temp["servicios"];
+		$data["totales"] = $temp["totales"];
 		return $data;
 	}
 
-	private function getCostosTipoServicio(tipoServicio, $fchI, $fchF){
-		$data = array();$Criteria = new CDbCriteria(), $servList = array();
+	private function getCostosTipoServicio($tipoServicio, $fchI, $fchF){
+		$data = array();$Criteria = new CDbCriteria(); $servList = array();
 		$Criteria->condition = "n_tipoServicio ='".$tipoServicio."'";
-		$servicios = Servicio::findAll($Criteria);
-		foreach ($s as $i => $servicios) {
+		$servicios = Servicio::model()->findAll($Criteria);
+		foreach ($servicios as $i => $s) {
 			$Criteria->condition = "k_idServicio ='".$s->k_idServicio."'";
-			$procServ = Procesoservicio::model()->findAll($Criteria);
-			foreach ($pS as $j => $procServ) {
+			$procServs = Procesoservicio::model()->findAll($Criteria);
+			foreach ($procServs as $j => $pS) {
 				$p = Proceso::model()->findByPk($pS->k_idProceso);
-				$fA = strtotime($p->fchAsignacion);
-	        	$fF = strtotime($p->fchFinalizacion);
-	        	if(( $fA >= $fchIni && $fA <= $fchFin) || ($fF >= $fchIni && $fF <= $fchFin)){
+				/*$fA = strtotime($p->fchAsignacion);
+	        	$fF = strtotime($p->fchFinalizacion);*/
+	        	$fA = $p->fchAsignacion;
+	        	$fF = $p->fchFinalizacion;
+	        	if(( $fA >= $fchI && $fA <= $fchF) || ($fF >= $fchI && $fF <= $fchF)){
 	        		if(!array_key_exists($s->k_idServicio,$servList)){
 						$servList[$s->k_idServicio]=array(
 								"cantidad"=>1,
@@ -497,7 +503,9 @@ class ReportesController extends Controller
 	        	}
 			}
 		}
-		$data['servicios'] = $servList;
+		$servList = $this->GetMargenGanancia($servList);
+		$data["servicios"] = $servList["servicios"];
+		$data["totales"] = $servList["totales"];
 		return $data;
 	}
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/

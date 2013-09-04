@@ -1,6 +1,7 @@
 <script type="text/x-handlebars-template" id="cajaTemplate">
 	{{#if servicios}}
-		<h3>REGISTROS VENTAS SERVICIOS<h4>		
+	<div class="servicios">
+		<h4>REGISTROS VENTAS SERVICIOS</h4>		
 		<table>
 			<thead>
 				<tr>
@@ -24,8 +25,18 @@
 					</tr>
 				{{/each}}
 			</tbody>
-		</table>		
+		</table>
+	</div>		
 	{{/if}}
+
+	{{#if totales}}
+		<div class="totalesContent">
+			<span><label>Ganancia Total</label>{{totales.ganTotal}}</span>
+			<span><label>Costo Servicio Total</label>{{totales.serTotal}}</span>
+			<span><label>Costo Tecnico Total</label>{{totales.tecTotal}}</span>
+		</div>
+	{{/if}}
+
 	{{#if ordenesCaja}}
 		<div class="ordenes boxInfo">
 			<h4>ORDENES</h4>
