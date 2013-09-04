@@ -69,18 +69,20 @@
 					      	<th>ESPECIFICACION</th>
 					      	<th>TIPO EQUIPO</th>
 					      	<th>MARCA</th>
-					      	<th>INGRESADO</th>				      	
+					      	<th>INGRESADO</th>
+					      	<th>DETALLE</th>				      	
 					    </tr>
 					</thead>
 					<tbody>
 					{{#each equipos}}
-						<tr>
-							<td>{{k_idEquipo}}</td>
+						<tr class="trData">
+							<td><span class="idE">{{k_idEquipo}}</span></td>
 							<td>{{n_nombreEquipo}}</td>
 							<td>{{k_idEspecificacion.n_nombreEspecificacion}}</td>
 							<td>{{k_idEspecificacion.k_idTipoEquipo}}</td>
 							<td>{{k_idEspecificacion.k_idMarca}}</td>
 							<td>{{k_idEspecificacion.i_inhouse}}</td>
+							<td> <a class="linkFancy" href="">Ver Detalle</a></td>
 						</tr>
 					{{/each}}
 					</tbody>

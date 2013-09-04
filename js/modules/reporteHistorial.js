@@ -54,6 +54,7 @@ $(document).ready(function(){
 					},
 					success:function(data){
 						showHistorialData(data);
+						activeFancys();
 					},
 					error:function(){
 						historialData.html('');
@@ -61,6 +62,14 @@ $(document).ready(function(){
 					}
 				});
 			}			
+		},
+		activeFancys = function(){
+			$("div.equipos.boxInfo").find("tr.trData").each(function(i,item){
+				var idE = $(item).find("span.idE").text();
+				var fancy = $(item).find("a.linkFancy");
+				fancy.attr('href',urlFancyEquipoDetalle+"/"+idE);
+				fancy.fancybox({width:500});
+			});
 		},
 		showHistorialData = function(data){
 			var template = Handlebars.compile(plantillaHistorial.html());

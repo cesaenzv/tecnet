@@ -39,6 +39,7 @@ foreach ($usuarioRoles as $usuarios){
     <textarea id="observaciones" cols="20" rows="5"></textarea>
 </div>
 <div id="crearAsignacion">Guardar</div>
+
 <script type="text/javascript">
     var url="<?php echo Yii::app()->createUrl("orden/proceso", array("id" => $id, 'equipo' => '')); ?>"
     init = function(){

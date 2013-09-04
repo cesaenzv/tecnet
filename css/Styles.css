@@ -198,7 +198,7 @@
 	font-weight: 800;
 }
 
-.boxInfo table, .equipos table{
+.boxInfo table, .equipos table, .detalleMaq table{
 	border: 1px solid #D1C9C9;
 	width: 95%;
 	margin: 0 auto
@@ -302,6 +302,23 @@
 	font-weight: 800;
 	font-size: 1.1em;
 	color:#6399cd;
-	padding: 0 0.3em;	
+	padding: 0 0.3em;
+}
 
+.detalleEquipo{
+	width: 900px;
+}
+.detalleEquipo .row {
+	margin:0 !important;
+}
+.detalleEquipo .row label {
+	display: inline-block;
+	width: 48%;
+	margin: 0 0.2em;
+}
+
+#TemplateContentDetalle {
+	max-height: 600px;	
+	width: 90%;
+	overflow-y: auto; 
 }

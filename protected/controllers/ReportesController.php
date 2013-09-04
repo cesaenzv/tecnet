@@ -31,6 +31,21 @@ class ReportesController extends Controller
             return $accessRules->getAccessRules("reportes");
 	}
 
+	/**********************************************************************************************/
+
+	public function actiongetFancyDetalleEquipo($id){
+		$manageM = new ManageModel;
+ 		$listServicios = $manageM->getColumnList(Servicio::model()->findAll(),'k_idServicio','n_nomServicio');
+		$this->layout="_blank";
+		$this->render('fancy_EquipoDetalle', array(
+            'serviciosList' => $listServicios,
+            'euipoId'=>$id
+        ));    	    
+    }
+
+	/**********************************************************************************************/
+
+
 	public function actionClientesMaquinas(){
 
 		$this->render('reportes',array(
@@ -168,18 +183,17 @@ class ReportesController extends Controller
 /* CIERRE	HISTORIAL MAQUINAS Y CLIENTES    */
 
 
-	public function actionTecnicoInforme ()
-	{
+	public function actionTecnicoInforme ()	{
 		$this->render('reportes',array(
 				'type'=>'Tecnico'
 			));		
 	}
 
 	public function actionGetServicios(){
-
 		$servicios = Servicio::model()->findAll();
 		echo CJavaScript::jsonEncode($servicios);
 	}
+
 	public function actionGetTecnicos(){
 		$typeTec =null;$Criteria = new CDbCriteria();
 		if($_POST['typeTec'] == 'mnt'){
@@ -194,7 +208,6 @@ class ReportesController extends Controller
 			$users[$i] = Users::model()->findByPk($u->userid);
 		}
 		echo CJavaScript::jsonEncode($users);
-
 	}
 
 	public function actionGetTecnicoInforme(){
@@ -216,7 +229,6 @@ class ReportesController extends Controller
 			}
 			echo CJavaScript::jsonEncode($data);
 		}
-
 	}	
 	
 /*	TECNICOS REPORTES Y CONSULTAS */
@@ -231,7 +243,6 @@ class ReportesController extends Controller
 		}else{
 			return $data["msg"] = false;
 		}
-
 	}
 
 	private function getMachinesTec($tecId, $typeTec){
@@ -245,9 +256,9 @@ class ReportesController extends Controller
 			$equipo = Equipo::model()->findByPk($paquete->k_idEquipo);
 			$equipo->k_idEspecificacion = $this->getEspecificacionEquipo($equipo->k_idEspecificacion);
 			if($orden->fchEntrega != "0000-00-00 00:00:00"){
-				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1,$typeTec);
+				$equipos[] = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,1,$typeTec);
 			}else{
-				$equipos = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0,$typeTec);
+				$equipos[] = $this->getOrdenesEquipo($orden,$proceso,$equipo,$equipos,0,$typeTec);
 			}
 		}
 		$data['equipos'] = $equipos;
@@ -272,7 +283,6 @@ class ReportesController extends Controller
 			}
 			return intval($horas)." horas";
 		}
-
 	}
 
 	private function getFacturacionTecnico($idTec, $fchI, $fchF, $tipoTec){
@@ -342,7 +352,7 @@ class ReportesController extends Controller
 	}
 
 
-	private function getOrdenesEquipo($orden, $proceso, $equipo, $array,$est, $typeTec){
+	private function getOrdenesEquipo($orden, $proceso, $equipo, $array, $est, $typeTec){
 		if(!array_key_exists($equipo->k_idEquipo,$array)){
 			$tempFinish = array();$tempProcess = array();		
 			
@@ -370,8 +380,8 @@ class ReportesController extends Controller
 			}else if($est == 0){
 				$temp = $array[$equipo->k_idEquipo]["procesando"];
 			}
-
-			if(!array_key_exists($orden->k_idOrden,$array[$equipo->k_idEquipo]["ordenes"])){				
+			
+			if(!array_key_exists($orden->k_idOrden,$temp)){				
 				$temp[$orden->k_idOrden] = array();
 				$temp[$orden->k_idOrden]["orden"] = $orden;
 				$temp[$orden->k_idOrden]["procesos"] = array();
@@ -393,15 +403,13 @@ class ReportesController extends Controller
 
 /*	CIERRE TECNICOS REPORTES Y CONSULTAS */
 
-	public function actionReporteCaja ()
-	{
+	public function actionReporteCaja (){
 		$this->render('reportes',array(
 				'type'=>'Caja'
 			));		
-	}
+	}	
 
-	public function actionGetReporteCaja()
-	{
+	public function actionGetReporteCaja(){
 		if(isset($_POST['typeConsult'])){
 			$data = null;
 			switch ($_POST['typeConsult']) {
@@ -487,8 +495,6 @@ class ReportesController extends Controller
 			$procServs = Procesoservicio::model()->findAll($Criteria);
 			foreach ($procServs as $j => $pS) {
 				$p = Proceso::model()->findByPk($pS->k_idProceso);
-				/*$fA = strtotime($p->fchAsignacion);
-	        	$fF = strtotime($p->fchFinalizacion);*/
 	        	$fA = $p->fchAsignacion;
 	        	$fF = $p->fchFinalizacion;
 	        	if(( $fA >= $fchI && $fA <= $fchF) || ($fF >= $fchI && $fF <= $fchF)){
@@ -509,6 +515,44 @@ class ReportesController extends Controller
 		return $data;
 	}
 /* CIERRE UTILIDADES EN VENTAS Y ORDENES*/
+
+	public function actionGetDetalleEquipo(){
+        //$equipo = Equipo::model()->findByPk($_POST['idE']);
+        $data = array();$Criteria = new CDbCriteria();
+        $fI = $_POST['fchI'];$fF = $_POST['fchF'];
+
+        $Criteria->condition = "k_idEquipo =".$_POST['idEquipo'];
+        $paqsMant = Paquetematenimiento::model()->findAll($Criteria);
+        $temp = array();
+        foreach ($paqsMant as $i => $pM) {
+        	$orden = Orden::model()->findByPk($pM->k_idOrden);   	
+        	if( $fI <= $orden->fchIngreso && $fF >= $orden->fchEntrega){
+        		$Criteria->condition = "fk_idPaqueteManenimiento = ".$pM->k_idPaquete."";
+        		$Criteria->order = "fchAsignacion DESC";
+        		$procesos = Proceso::model()->findAll($Criteria);       	
+	        	foreach ($procesos as $i => $p) {
+	        		$Criteria->condition = "k_idProceso =".$p->k_idProceso;
+	        		$Criteria->order = "";
+	        		$proserv = Procesoservicio::model()->find($Criteria);
+	        		if($_POST["servicio"] == $proserv->k_idServicio){
+		        		$tecnico = Users::model()->findByPk($p->k_idTecnico);
+		        	    $estado = Estados::model()->findByPk($p->fk_idEstado);		        		
+		        		$servicio = Servicio::model()->findByPk($proserv->k_idServicio);	        		
+	        			$temp[] = array(    "servicio" => $servicio->n_nomServicio,
+	        							"tecnico" => $tecnico->username,
+	        							"descripcion" =>$p->n_descripcion,
+	        							"estado" => $estado->n_nombreEstado,
+	        							"fchI" =>$p->fchAsignacion ,
+	        							"fchF" =>$p->fchFinalizacion
+	        			);
+	        		}	        		
+	        	}	        	
+	        }
+        }
+        $data["timeline"] = $temp;
+
+        echo CJavaScript::jsonEncode($data); 
+    }
 
 }
 
