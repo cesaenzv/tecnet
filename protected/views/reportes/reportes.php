@@ -3,7 +3,6 @@
 		'Reportes'
 	);
 ?>
-
 <h1>Reporte <?php echo $type?></h1>
 
 <?php 
@@ -21,5 +20,5 @@
 			<h2>NO SE ENCONTRO NINGUNO</h2>
 		<?php
 			break;
-	}
+	}	
 ?>

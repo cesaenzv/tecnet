@@ -3394,3 +3394,860 @@ REQUEST_URI=/git/tecnet/Reportes/GetHistorial
 in C:\xampp\htdocs\git\tecnet\protected\controllers\ReportesController.php (161)
 in C:\xampp\htdocs\git\tecnet\protected\controllers\ReportesController.php (77)
 in C:\xampp\htdocs\git\tecnet\protected\controllers\ReportesController.php (49)
+2013/09/04 18:39:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+HTTP_REFERER=http://localhost:1234/tecnet/Equipo/Create
+---
+2013/09/04 18:39:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+HTTP_REFERER=http://localhost:1234/tecnet/Equipo/Create
+---
+2013/09/04 18:39:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+---
+2013/09/04 18:40:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+HTTP_REFERER=http://localhost:1234/tecnet/Equipo/Create
+---
+2013/09/04 20:13:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:15:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:16:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:17:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:19:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:19:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:21:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:23:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "getFancyDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('getFancyDetalle...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:24:33 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getFancyDetalle...')
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/getFan...')
+#10 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:26:19 [error] [php] Undefined variable: manageM (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:37)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (37)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 20:27:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319239060
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:32:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319526269
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:32:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319574576
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:33:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319623301
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:34:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319640069
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:35:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319711877
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:35:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319743424
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:36:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "js/modules/equiDetalleModulo.js"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('js/modules/equi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/js/modules/equiDetalleModulo.js?_=1378319772672
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 20:41:20 [error] [php] Object of class CClientScript could not be converted to string (C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php:29)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(869): ReportesController->renderFile()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(782): ReportesController->renderPartial()
+#2 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(43): ReportesController->render()
+#3 unknown(0): ReportesController->actiongetFancyDetalleEquipo()
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+in C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php (29)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (43)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 20:41:21 [error] [php] Object of class CClientScript could not be converted to string (C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php:29)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(869): ReportesController->renderFile()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(782): ReportesController->renderPartial()
+#2 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(43): ReportesController->render()
+#3 unknown(0): ReportesController->actiongetFancyDetalleEquipo()
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+in C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php (29)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (43)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 20:41:22 [error] [php] Object of class CClientScript could not be converted to string (C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php:29)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(869): ReportesController->renderFile()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(782): ReportesController->renderPartial()
+#2 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(43): ReportesController->render()
+#3 unknown(0): ReportesController->actiongetFancyDetalleEquipo()
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+in C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php (29)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (43)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 20:41:23 [error] [php] Object of class CClientScript could not be converted to string (C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php:29)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(869): ReportesController->renderFile()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(782): ReportesController->renderPartial()
+#2 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(43): ReportesController->render()
+#3 unknown(0): ReportesController->actiongetFancyDetalleEquipo()
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#11 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#15 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/getFancyDetalleEquipo/2
+in C:\xampp\htdocs\tecnet\protected\views\reportes\fancy_EquipoDetalle.php (29)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (43)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 20:45:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+HTTP_REFERER=http://localhost:1234/tecnet/Equipo/Create
+---
+2013/09/04 20:45:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(RWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('getEspecificati...')
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('especificacion/...')
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/tecnet/especificacion/getEspecificationList
+---
+2013/09/04 21:43:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "GetDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('GetDetalleEquip...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('GetDetalleEquip...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Equipo/GetDetal...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Equipo/GetDetalleEquipo
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 21:44:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "GetDetalleEquipo" solicitada.' in C:\xampp\htdocs\tecnet\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(270): CController->missingAction('GetDetalleEquip...')
+#1 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('GetDetalleEquip...')
+#2 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Equipo/GetDetal...')
+#3 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/tecnet/Equipo/GetDetalleEquipo
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 21:46:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:528)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (528)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 21:49:18 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:528)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (528)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 21:50:30 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:528)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (528)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 21:51:11 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:528)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (528)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 22:05:08 [error] [exception.CException] exception 'CException' with message 'Propiedad "Orden"."fchEntreg" no se encuentra definida.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fchEntreg')
+#1 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(531): CActiveRecord->__get('fchEntreg')
+#2 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetDetalleEquipo()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('GetDetalleEquip...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/GetDet...')
+#13 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 22:06:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:539)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (539)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 22:16:21 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:539)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (539)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 22:20:04 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:538)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (538)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 22:22:00 [error] [exception.CException] exception 'CException' with message 'Propiedad "Proceso"."tecnico" no se encuentra definida.' in C:\xampp\htdocs\tecnet\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(159): CComponent->__set('tecnico', 'tecnicomantenim...')
+#1 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(538): CActiveRecord->__set('tecnico', 'tecnicomantenim...')
+#2 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetDetalleEquipo()
+#3 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('GetDetalleEquip...')
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/GetDet...')
+#13 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 22:23:40 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fchAsignacion' in 'order clause'. La sentencia SQL ejecutada fue: SELECT * FROM `procesoservicio` `t` WHERE k_idProceso =3 ORDER BY fchAsignacion DESC LIMIT 1.
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (541)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 22:23:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fchAsignacion' in 'order clause'. The SQL statement executed was: SELECT * FROM `procesoservicio` `t` WHERE k_idProceso =3 ORDER BY fchAsignacion DESC LIMIT 1' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php(541): CActiveRecord->find(Object(CDbCriteria))
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetDetalleEquipo()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('GetDetalleEquip...')
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Reportes/GetDet...')
+#15 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+HTTP_REFERER=http://localhost:1234/tecnet/Reportes/ClientesMaquinas
+---
+2013/09/04 22:53:30 [error] [php] Undefined index: servicio (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:537)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#1 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#4 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#7 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetDetalleEquipo
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (537)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/04 23:05:08 [error] [php] Undefined index: ordenes (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:384)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (384)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:05:12 [error] [php] Undefined index: ordenes (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:384)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (384)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:05:25 [error] [php] Undefined index: ordenes (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:384)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (384)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:41:35 [error] [php] Undefined index: ordenes (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:384)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (384)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:41:51 [error] [php] Undefined index: ordenes (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:384)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (384)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:59:19 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/04 23:59:49 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:03:37 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:03:47 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:03:55 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:05:19 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:06:27 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)
+2013/09/05 00:13:26 [error] [php] Undefined index: procesando (C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ReportesController->actionGetTecnicoInforme()
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ReportesController->runAction()
+#3 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ReportesController->filterAccessControl()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ReportesController->runActionWithFilters()
+#9 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ReportesController->run()
+#10 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/Reportes/GetTecnicoInforme
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (381)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (261)
+in C:\xampp\htdocs\tecnet\protected\controllers\ReportesController.php (218)

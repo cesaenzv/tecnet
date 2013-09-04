@@ -55,7 +55,7 @@ class EquipoController extends Controller {
             }
         }
     }
-
+   
     public function actionCreateEOrdenView(){
         $manageM = new ManageModel;
         $equipo = new Equipo;
@@ -252,5 +252,7 @@ class EquipoController extends Controller {
             Yii::app()->end();
         }
     }
+
+    
 
 }

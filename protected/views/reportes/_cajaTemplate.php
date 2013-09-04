@@ -30,10 +30,10 @@
 	{{/if}}
 
 	{{#if totales}}
-		<div class="totalesContent">
-			<span><label>Ganancia Total</label>{{totales.ganTotal}}</span>
-			<span><label>Costo Servicio Total</label>{{totales.serTotal}}</span>
-			<span><label>Costo Tecnico Total</label>{{totales.tecTotal}}</span>
+		<div class="totalesContent">			
+			<span><label>Cobro Servicio Totalizado</label>{{totales.serTotal}}</span>
+			<span><label>Costo Tecnico Totalizado</label>{{totales.tecTotal}}</span>
+			<span><label>Ganancia Totalizado</label>{{totales.ganTotal}}</span>
 		</div>
 	{{/if}}
 
