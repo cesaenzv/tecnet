@@ -72,9 +72,9 @@ class Equipo extends CActiveRecord
 	{
 		return array(
 			'k_idEquipo' => 'Id Equipo',
-			'n_nombreEquipo' => 'Nombre Equipo',
+			'n_nombreEquipo' => 'Serial',
 			'k_idCliente' => 'Cliente',
-			'k_idEspecificacion' => 'Especificacion',
+			'k_idEspecificacion' => 'Modelo',
 			'i_inhouse' => 'En Tecnet',
 		);
 	}
