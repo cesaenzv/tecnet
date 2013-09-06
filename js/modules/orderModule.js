@@ -22,6 +22,12 @@ $(document).ready(function() {
                 e.preventDefault();
                 crearEquipoCliente();
             });
+            
+            $("#Orden_k_idUsuario").keypress(function(event){
+                if(event.which==13){
+                    btnSearchClient.click();
+                }
+            });
 
             $("#marcaInput").change(getEspecificacion);
             $("#tipoequipoInput").change(getEspecificacion);

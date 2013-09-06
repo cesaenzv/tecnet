@@ -32,16 +32,17 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 	</div>
 
 	<?php
+		echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
+		echo $form->dropDownList($tipoEquipo['model'], 'n_tipoEquipo', $tipoEquipo['list'],null);
+                
 		echo $form->labelEx($marca['model'],'n_nombreMarca');
 		echo $form->dropDownList($marca['model'], 'n_nombreMarca', $marca['list'],null);
 
-		echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
-		echo $form->dropDownList($tipoEquipo['model'], 'n_tipoEquipo', $tipoEquipo['list'],null);
 
 	?>	
 
 	<div class="row">
-		<?php echo $form->labelEx($especificacion,'Especificacion'); ?>
+		<?php echo $form->labelEx($especificacion,'Modelo'); ?>
 		<?php echo $form->textField($especificacion,'n_nombreEspecificacion',array('size'=>50,'maxlength'=>50, 'id'=>"especificacionInput")); ?>
 		<?php echo $form->error($especificacion,'n_nombreEspecificacion'); ?>
 	</div>
