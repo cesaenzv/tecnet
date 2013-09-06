@@ -5,11 +5,6 @@
 $this->breadcrumbs=array(
 	'Tipoequipos',
 );
-
-$this->menu=array(
-	array('label'=>'Create Tipoequipo', 'url'=>array('create')),
-	array('label'=>'Manage Tipoequipo', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Tipoequipos</h1>

@@ -22,10 +22,11 @@ $(document).ready(function() {
                 e.preventDefault();
                 crearEquipoCliente();
             });
-
-            $("#callViewCrearEquipo").click(function(e){
-                e.preventDefault();
-                window.open($(this).attr('href')+'/?idC='+docClient.val());
+            
+            $("#Orden_k_idUsuario").keypress(function(event){
+                if(event.which==13){
+                    btnSearchClient.click();
+                }
             });
 
             $("#marcaInput").change(getEspecificacion);
@@ -58,6 +59,10 @@ $(document).ready(function() {
             var contenido = template(client);
             clientData.html(contenido);
         },
+        agregarEquipo = function(){
+                $("#callViewCrearEquipo").attr('href',url+'/?idC='+docClient.val());
+                $("#callViewCrearEquipo").click();
+        }
         createMantenimiento = function(){
             var rowid = $(equiposGrid).jqGrid('getGridParam', 'selarrrow');
             if (rowid == null) {
@@ -158,8 +163,8 @@ $(document).ready(function() {
                 multiselect: true
             });
             equiposGrid.jqGrid('navGrid', '#pagerEquipoGrid', {
-                edit : true,
-                add : true,
+                edit : false,
+                add : false,
                 del : false,
                 search :false,
                 closeAfterEdit: true,
@@ -200,13 +205,23 @@ $(document).ready(function() {
                 position: "last", 
                 title: "Forzar Realizacion", 
                 cursor: "pointer"
+            }).navButtonAdd("#pagerEquipoGrid", {
+                caption: "", 
+                buttonicon: "ui-icon-circle-plus",
+                onClickButton: function (data) { 
+                    agregarEquipo();
+                },
+                position: "first", 
+                title: "Forzar Realizacion", 
+                cursor: "pointer"
             });
+            
+            equiposGrid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false});
         },
         getEspecificacion = function(){
             if ($("#especificacionInput").autocomplete()){
                 $("#especificacionInput").autocomplete('destroy');  
             };
-
             $.ajax({
                 type:"POST",
                 url:url,

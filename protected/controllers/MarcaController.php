@@ -58,6 +58,22 @@ class MarcaController extends Controller {
             'model' => $model,
         ));
     }
+    public function actionCreateFancy() {
+        $model = new Marca;
+
+        // Uncomment the following line if AJAX validation is needed
+         $this->performAjaxValidation($model);
+
+        if (isset($_POST['Marca'])) {
+            $model->attributes = $_POST['Marca'];
+            if ($model->save())
+                $this->redirect(array('view', 'id' => $model->k_idMarca));
+        }
+
+        $this->render('create', array(
+            'model' => $model,
+        ));
+    }
 
     /**
      * Updates a particular model.

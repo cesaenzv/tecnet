@@ -139,7 +139,7 @@ class EquipoController extends Controller {
 
         if (isset($_POST['Equipo']) && isset($_POST['Marca']) && isset($_POST['Tipoequipo']) && isset($_POST['Especificacion'])) {
             $equipo->attributes = $_POST['Equipo'];
-            $equipo->i_inhouse = 0;
+            $equipo->i_inhouse = 1;
             $Criteria = new CDbCriteria(); 
             $Criteria->condition = "k_idMarca = ".$_POST['Marca']['n_nombreMarca']." AND k_idTipoEquipo = ".$_POST['Tipoequipo']['n_tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['Especificacion']["n_nombreEspecificacion"]."'";
             $especificacion = Especificacion::model()->find($Criteria);
