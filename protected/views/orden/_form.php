@@ -21,7 +21,8 @@ echo $this->renderPartial('_clientTemplate');
     <p class="note">Fields with <span class="required">*</span> are required.</p>
 
     <div class="row">
-        <label class="required" for="Orden_k_idUsuario">Usuario <span class="required">*</span></label><input type="text" id="Orden_k_idUsuario" name="Orden[k_idUsuario]">        <select required="" id="typeDocument">
+        <label class="required" for="Orden_k_idUsuario">Usuario <span class="required">*</span></label><input type="text" id="Orden_k_idUsuario" name="Orden[k_idUsuario]">        
+        <select required="" id="typeDocument">
             <option value="CC">CC</option>
             <option value="NIT">NIT</option>       
             <option value="TI">TI</option>       
@@ -36,8 +37,8 @@ echo $this->renderPartial('_clientTemplate');
     <div id="pagerEquipoGrid"></div>
 
     <a href='<?php
-echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView/");
-?>' id="callViewCrearEquipo" class="link-fancy"></a>
+    echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView/");
+    ?>' id="callViewCrearEquipo" class="link-fancy"></a>
 
 </div><!-- form -->
 

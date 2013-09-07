@@ -45,6 +45,7 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
                     }else{
+                        $("#createCliente").attr("href","");
                         $("#createCliente").attr("href","../cliente/createFancy/"+docClient.val())
                         $("#createCliente").click();
                     }
@@ -64,14 +65,15 @@ $(document).ready(function() {
                 $("#callViewCrearEquipo").click();
         }
         createMantenimiento = function(){
-            var rowid = $(equiposGrid).jqGrid('getGridParam', 'selarrrow');
+            var rowid = equiposGrid.jqGrid('getGridParam', 'selarrrow');
             if (rowid == null) {
                 alert("Debe seleccionar al menos un equipo para realizar el mantenimiento");
                 return false;
             }
             var mensaje="Esta seguro que desea realizar mantenimiento a los equipos con serial:\n";
             for (var i =0 ; i<rowid.length;i++){
-                mensaje+=($(equiposGrid).getRowData(rowid[i]).n_nombreEquipo)+"\n";
+                var msj = equiposGrid.getRowData(rowid[i]).n_nombreEquipo;
+                mensaje+= msj +"\n";
             }
             mensaje+="Recuerde que esta acción no se puede deshacer";
             if(confirm(mensaje)){
@@ -84,6 +86,7 @@ $(document).ready(function() {
                             alert("No se ha podido crear la orden, porfavor intente nuevamente");
                             return false;
                         }else{
+                            console.log(response.idOrden);
                             $("#createCliente").attr("href","../orden/createPaquete/"+response.idOrden)
                             $("#createCliente").click();
                         }

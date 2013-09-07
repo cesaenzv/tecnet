@@ -42,9 +42,17 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'k_idOrden',
-		'k_idUsuario',
+		array(
+            'name' => 'k_idUsuario',
+            'filter' => CHtml::listData(Users::model()->findAll(), 'id', 'username'), // fields from country table
+            'value' => 'Users::Model()->FindByPk($data->k_idUsuario)->username',
+        ),
+		'fchIngreso',
+		'fchEntrega',
+		'n_Observaciones',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '',
 		),
 	),
 )); ?>

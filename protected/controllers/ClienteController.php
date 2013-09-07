@@ -207,8 +207,95 @@ class ClienteController extends Controller {
         echo $resultado;
         
     }
+
     public function actionGetEquipoGrid() {
         $id = $_GET['idCliente'];
+        $response = null;
+        if(isset($_GET['garantia'])){
+            $response = $this->getMantenimientoForGrid($id);
+        }else{
+            $response = $this->getEquipoForGrid($id);
+        }
+        echo json_encode($response);
+    }
+
+    public function getMantenimientoForGrid($id){
+        $criteria = new CDbCriteria;
+        if (isset($_POST['sidx']) && isset($_POST['sord']))
+            $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+
+        $criteria->condition = "fk_idEstado = 5 OR fk_idEstado = 6";
+
+        $dataProvider = new CActiveDataProvider('Proceso', array(
+                    'criteria' => $criteria,
+                    'pagination' => array(
+                        'pageSize' => $_POST['rows'],
+                        'currentPage' => $_POST['page'] - 1,
+                    ),
+                ));
+
+
+        $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+        $response = new stdClass();
+        $response->page = $_POST['page'];
+        $response->records = $dataProvider->getTotalItemCount();
+        $response->total = ceil($response->records / $ro);
+        $rows = $dataProvider->getData();
+        foreach ($rows as $i => $row) {
+            $row = $this->tratarProceso($row, $id);
+            if($row != false){
+                $response->rows[$i]['id'] = $row['k_idProceso'];
+                $response->rows[$i]['cell'] = array(
+                    $row['k_idProceso'],
+                    $row['nombreE'],//nombreEquipo
+                    $row['especificacion'],//Especificacion                                         
+                    $row['k_idTecnico']['username'],//Tecnico
+                    $row['n_descripcion'],//Descripcion
+                    $row['o_flagLeido'],//Estado leido
+                    $row['fchAsignacion'],//
+                    $row['fchFinalizacion'],
+                    $row['fk_idEstado']//Estado Garantia    
+                );    
+            }            
+        }
+
+        echo json_encode($response);
+    }
+
+    protected function tratarProceso ($proceso, $idCliente){ 
+        var_dump($proceso->attributes);
+        $Criteria = new CDbCriteria;
+        $Criteria->condition = "k_idPaquete = "+ $proceso->fk_idPaqueteManenimiento;
+
+        $temp = Paquetematenimiento::model()->findAll($Criteria);
+        $pM =null;
+
+        foreach ($temp as $i => $p) {
+            if($p->k_idPaquete == $proceso->fk_idPaqueteManenimiento)
+            {
+                $pM=$p;
+            }
+        }
+
+        $equipo = Equipo::model()->findByPk($pM->k_idEquipo);
+        if($equipo->k_idCliente == $idCliente){
+            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
+            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+            $tecnico = Users::model()->findByPk($proceso->k_idTecnico);
+            $proceso = $proceso->attributes;
+
+            $proceso["especificacion"] = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;            
+            $proceso['nombreE'] = $equipo->n_nombreEquipo;
+            $proceso['k_idTecnico'] = $tecnico->attributes;
+            $proceso['o_flagLeido'] = $proceso['o_flagLeido'] == 0? "No Tratado": "Revisado";
+            $proceso['fk_idEstado'] =$proceso['fk_idEstado'] == 5 ? "En Garantia" : "Dev. Garantia";
+
+            return $proceso;
+        }
+        return false;
+    }
+
+    public function getEquipoForGrid($id){
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
@@ -239,7 +326,8 @@ class ClienteController extends Controller {
                 $row['i_inhouse'] == 1 ? "En Tecnet" : "En Casa",
             );
         }
-        echo json_encode($response);
+
+        return $response;
     }
 
 }

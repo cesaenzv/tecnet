@@ -107,7 +107,7 @@ class OrdenController extends Controller {
     public function actionCreateOrden() {
         $this->layout = "_blank";
         extract($_REQUEST);
-        $ids = split(',', $ids);
+        $ids = explode(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
         $respuesta = new stdClass();
@@ -232,6 +232,11 @@ class OrdenController extends Controller {
             $response = "Error";
         }
         echo json_encode($response);
+    }
+
+    public function actionVerGarantia() {        
+
+        $this->render('viewGarantia',array());    
     }
 
     /**

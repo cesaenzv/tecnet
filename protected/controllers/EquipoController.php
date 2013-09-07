@@ -55,6 +55,62 @@ class EquipoController extends Controller {
             }
         }
     }
+
+    public function actionCreateEMantenimientoView(){
+        $manageM = new ManageModel;
+
+        $Criteria = new CDbCriteria();         
+        $Criteria->condition = "itemname = 'Tecnico Recarga' OR itemname = 'Tecnico Mantenimiento'";
+        $users = Authassignment::model()->findAll($Criteria);
+        $tempU = array();
+        foreach ($users as $i => $u) {
+            $temp = Users::model()->findByPk($u->userid);
+            $tempU[$temp->id] = $temp->username;
+        }
+        $Criteria->condition = "k_idCliente = "+$_GET['idC'];
+
+        $listEquipos = $manageM->getColumnList(Equipo::model()->findAll($Criteria),'k_idEquipo','n_nombreEquipo');
+
+
+        $this->layout="_blank";
+        $this->render('creargarantia', array(
+            "idC" => $_GET['idC'],
+            "users" => $tempU,
+            "equipos" =>$listEquipos
+            ));        
+    }
+
+    public function actionCreateEMantenimiento(){
+        $orden = new Orden;
+        $orden->k_idUsuario = Yii::app()->user->id;      
+        $orden->fchIngreso = date('m/d/Y h:i:s a', time()) ;
+        $orden->n_Observaciones = $_POST['descripcion'];
+
+        if($orden->save(false)){
+            $pM = new Paquetematenimiento;
+            $pM->k_idOrden = $orden->k_idOrden;
+            $pM->k_idEquipo = $_POST['equipoId'];
+            if($pM->save()){
+                $proceso = new Proceso;
+                $proceso->k_idTecnico = $_POST['tecnicoId'];
+                $proceso->fk_idEstado = 5;
+                $proceso->o_flagLeido = 0;
+                $proceso->fk_idPaqueteManenimiento = $pM->k_idPaquete;
+                $proceso->fchAsignacion = date('m/d/Y h:i:s a', time());
+                if($proceso->save(false)){
+                    echo CJavaScript::jsonEncode(array("msg" => "OK"));
+                }else{
+                    echo CJavaScript::jsonEncode(array("msg" => "ERROR"));
+                }
+            }else{
+                echo CJavaScript::jsonEncode(array("msg" => "ERROR"));
+            }
+        }else{
+            echo CJavaScript::jsonEncode(array("msg" => "ERROR"));    
+        }
+        
+
+    }
    
     public function actionCreateEOrdenView(){
         $manageM = new ManageModel;
