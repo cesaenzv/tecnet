@@ -34,7 +34,7 @@ $(document).ready(function() {
                 },
                 success:function(data){
                     if( data.cliente !== null && data.cliente !== null ){
-                        showClienteData(data.cliente)
+                        showClienteData(data.cliente);
                         createGarantiaGrid(docClient.val());
                     }else{
                     	console.log("Mostrar fancy");
@@ -52,13 +52,10 @@ $(document).ready(function() {
             var template = Handlebars.compile(plantillaClient.html());
             var contenido = template(client);
             clientData.html(contenido);
-        },createGarantiaGrid = function(idClient){
-
-
-            garantiaGrid.jqGrid('GridUnload');
+        },createGarantiaGrid = function(idClient){            
             garantiaGrid.jqGrid('clearGridData');
             garantiaGrid.jqGrid({
-                url: createEquipoGridUrl+"?idCliente="+idClient+"&garantia='true'",
+                url: createEquipoGridUrl+"?idCliente="+docClient.val()+"&garantia='true'",
                 datatype: "json",
                 mtype: "POST",
                 width:900,
@@ -155,7 +152,7 @@ $(document).ready(function() {
                 ],
                 pager: "#pagerGarantiaGrid",
                 rowNum: 20,
-                rowList: [10, 20, 30],
+                rowList: [20, 40, 60],
                 sortname: "k_idProceso",
                 sortorder: "desc",               
                 viewrecords: true,
@@ -163,8 +160,7 @@ $(document).ready(function() {
                 autoencode: true,
                 caption: "Mantenimientos Cliente",
                 multiselect: false,
-            });
-            garantiaGrid.jqGrid('navGrid', '#pagerGarantiaGrid', {
+            }).navGrid('#pagerGarantiaGrid', {
                 edit : false,
                 add : false,
                 del : false,
