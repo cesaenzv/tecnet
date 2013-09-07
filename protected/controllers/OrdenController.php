@@ -107,7 +107,7 @@ class OrdenController extends Controller {
     public function actionCreateOrden() {
         $this->layout = "_blank";
         extract($_REQUEST);
-        $ids = explode(',', $ids);
+        $ids = split(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
         $respuesta = new stdClass();

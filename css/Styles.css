@@ -322,3 +322,31 @@
 	width: 90%;
 	overflow-y: auto; 
 }
+
+/********Tecnicos**********/
+#AllTecs{
+	border: 1px solid #ccc;
+	margin-top: 0.2em;
+	box-shadow: 0px 0px 0px 1px #efefef;
+}
+
+#contentBtnTec a {
+	color: white;
+	text-decoration: none;
+	background-color: #555;
+	padding: 0.5em 0.5em 0.2em 0.5em;
+	font-size: 1.1em;
+	border-radius: 1em 1em 0 0;
+	box-shadow: 0px -1px 2px 1px black;
+	
+}
+
+#contentBtnTec a.no-selected {
+	opacity: 0.8;
+	box-shadow: 0px 0px 4px 1px #ccc;
+}
+
+#contentBtnTec a:hover {
+	cursor: default;
+	text-shadow:0px 0px 1px white;
+}

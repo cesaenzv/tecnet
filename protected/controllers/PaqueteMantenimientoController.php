@@ -148,15 +148,20 @@ class PaqueteMantenimientoController extends Controller {
         $userId = Yii::app()->user->Id;
         $roles = array_keys(Rights::getAssignedRoles($userId));
         $typeTec = null;
+        $Criteria = new CDbCriteria();
         foreach ($roles as $rol) {
             if ($rol == 'Tecnico Mantenimiento') {
                 $typeTec = "TM";
+                $Criteria->condition = "k_idTecnico = " . $userId;
             } else if ($rol == 'Tecnico Recarga') {
                 $typeTec = "TR";
+                $Criteria->condition = "k_idTecnico = " . $userId;
+            } else if($rol == 'Caja' || $rol = 'Admin Tecnet'){
+                $typeTec = "All";
+
             }
         }
-        $Criteria = new CDbCriteria();
-        $Criteria->condition = "k_idTecnico = " . $userId;
+
 
         $procesos = Proceso::model()->with(array('fkIdEstado' => array(
                         'select' => false,

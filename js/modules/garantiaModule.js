@@ -53,21 +53,20 @@ $(document).ready(function() {
             var contenido = template(client);
             clientData.html(contenido);
         },createGarantiaGrid = function(idClient){
-            
+
+
+            garantiaGrid.jqGrid('GridUnload');
+            garantiaGrid.jqGrid('clearGridData');
             garantiaGrid.jqGrid({
                 url: createEquipoGridUrl+"?idCliente="+idClient+"&garantia='true'",
                 datatype: "json",
                 mtype: "POST",
-                autowidth:true,
-                serializeGridData : function(data) {
-                    console.log(data);
-                    return data;
-                },
+                width:900,
                 colNames: ["ID", "Equipo", "Especificacion", "Tecnico", "Descripcion", "Leido","Fecha Asignacion","Fecha Entrega","Estado"],
                 colModel: [
                 {
                     name: "k_idProceso", 
-                    width: 200,
+                    width: 0,
                     hidden:true,                    
                     editrules:{
                         edithidden:true, 
@@ -76,9 +75,9 @@ $(document).ready(function() {
                 },
                 {
                     name: "nombreE", 
-                    width: 200,
+                    width: 250,
                     editable:true,
-                    hidden:true,
+                    hidden:false,
                     editrules:{
                         edithidden:true, 
                         required:true
@@ -88,7 +87,7 @@ $(document).ready(function() {
                     name: "especificacion", 
                     width: 200,
                     editable:true,
-                    hidden:true,
+                    hidden:false,
                     editrules:{
                         edithidden:true, 
                         required:true
@@ -116,7 +115,7 @@ $(document).ready(function() {
                 },
                 {
                     name: "o_flagLeido", 
-                    width: 100,                     
+                    width: 200,                     
                     hidden:false,
                     editrules:{
                         edithidden:true, 
@@ -163,7 +162,7 @@ $(document).ready(function() {
                 gridview: true,
                 autoencode: true,
                 caption: "Mantenimientos Cliente",
-                multiselect: true
+                multiselect: false,
             });
             garantiaGrid.jqGrid('navGrid', '#pagerGarantiaGrid', {
                 edit : false,
@@ -186,11 +185,11 @@ $(document).ready(function() {
                     agregarMantenimiento();
                 },
                 position: "first", 
-                title: "Forzar Realizacion", 
+                title: "Nuevo Mant.", 
                 cursor: "pointer"
             });
             
-            garantiaGrid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false});
+            garantiaGrid.jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
         },
         agregarMantenimiento = function(){
                 $("#callViewCrearMantenimiento").attr('href',"");

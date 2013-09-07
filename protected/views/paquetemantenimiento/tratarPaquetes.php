@@ -16,6 +16,8 @@ $this->breadcrumbs=array(
 			echo $this->renderPartial('_viewTM', array('procesos'=>$procesos));
 		}else if($typeTec == "TR"){
 			echo $this->renderPartial('_viewTR', array('procesos'=>$procesos));
+		}else if($typeTec == "All"){
+			echo $this->renderPartial('_viewAll', array('procesos'=>$procesos));
 		}
 	}
 ?>

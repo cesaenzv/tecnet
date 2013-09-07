@@ -60,8 +60,10 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js
                 descripcion : $("#txtDescripcion").val()
             },
             success:function(data){
-                console.log(data);
-                garantiaGrid.trigger( 'reloadGrid' );                    
+                if(data.msg == "OK"){
+                	$.fancybox.close()
+                	createGarantiaGrid($("#idClienteLbl").text());
+                }
             },
             error:function(){
                 console.log("error");
