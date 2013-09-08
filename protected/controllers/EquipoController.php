@@ -83,20 +83,20 @@ class EquipoController extends Controller {
     public function actionCreateEMantenimiento(){
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->id;      
-        $orden->fchIngreso = date('m/d/Y h:i:s a', time()) ;
+        $orden->fchIngreso = date('Y-m-d H:i:s');
         $orden->n_Observaciones = $_POST['descripcion'];
 
         if($orden->save(false)){
             $pM = new Paquetematenimiento;
             $pM->k_idOrden = $orden->k_idOrden;
             $pM->k_idEquipo = $_POST['equipoId'];
-            if($pM->save()){
+            if($pM->save(false)){
                 $proceso = new Proceso;
                 $proceso->k_idTecnico = $_POST['tecnicoId'];
                 $proceso->fk_idEstado = 5;
                 $proceso->o_flagLeido = 0;
                 $proceso->fk_idPaqueteManenimiento = $pM->k_idPaquete;
-                $proceso->fchAsignacion = date('m/d/Y h:i:s a', time());
+                $proceso->fchAsignacion = date('Y-m-d H:i:s');
                 if($proceso->save(false)){
                     echo CJavaScript::jsonEncode(array("msg" => "OK"));
                 }else{

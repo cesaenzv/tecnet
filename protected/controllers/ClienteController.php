@@ -245,9 +245,7 @@ class ClienteController extends Controller {
 
         $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
         $response = new stdClass();
-        $response->page = $_POST['page'];
-        $response->records = $dataProvider->getTotalItemCount();
-        $response->total = ceil($response->records / $ro);
+        $response->page = $_POST['page'];        
         $rows = $dataProvider->getData();
         $count = 0;
         foreach ($rows as $i => $row) {
@@ -268,6 +266,8 @@ class ClienteController extends Controller {
                 $count += 1;
             }
         }
+        $response->records = $count;
+        $response->total = ceil($response->records / $ro);
 
         return $response;
     }
