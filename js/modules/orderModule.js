@@ -3,6 +3,9 @@ $(document).ready(function() {
     var orderModule = (function(){
         var btnSearchClient, docClient, typeDocument, equiposGrid, plantillaClient,clientData,crearEquipo;
         var init = function(config){
+            $("#dialog-iframe").dialog({
+                autoOpen: false
+            });
             clientData = config.clientData;
             plantillaClient = $("#clientTemplate");
             btnSearchClient = config.btnSearchClient;
@@ -45,9 +48,14 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
                     }else{
-                        $("#createCliente").attr("href","");
-                        $("#createCliente").attr("href","../cliente/createFancy/"+docClient.val())
-                        $("#createCliente").click();
+                        $("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
+                        $("#dialog-iframe").dialog( "option", "width", 450 );
+                        $("#dialog-iframe").dialog( "option", "resizable", false );
+                        $("#dialog-iframe").dialog("open");
+                        $("#iframe").attr('src',"../cliente/createFancy/"+docClient.val());
+                        $("#iframe").attr('width',"400");
+                        $("#iframe").attr('height',"525");
+                        $("#dialog-iframe").dialog( "option", "position", "center");
                     }
                 },
                 error:function(){
@@ -60,10 +68,16 @@ $(document).ready(function() {
             var contenido = template(client);
             clientData.html(contenido);
         },
-        agregarEquipo = function(){
-                $("#callViewCrearEquipo").attr('href',url+'/?idC='+docClient.val());
-                $("#callViewCrearEquipo").click();
-        }
+        agregarEquipo = function(){         
+            $("#dialog-iframe").dialog( "option", "title", "Crear Equipo" );
+            $("#dialog-iframe").dialog( "option", "width", 350 );
+            $("#dialog-iframe").dialog( "option", "resizable", false );
+            $("#dialog-iframe").dialog("open");
+            $("#iframe").attr('src',url+'/?idC='+docClient.val());
+            $("#iframe").attr('width',"300");
+            $("#iframe").attr('height',"170");
+            $("#dialog-iframe").dialog( "option", "position", "center");
+        },
         createMantenimiento = function(){
             var rowid = equiposGrid.jqGrid('getGridParam', 'selarrrow');
             if (rowid == null) {
@@ -94,7 +108,11 @@ $(document).ready(function() {
                     dataType: 'json'
                 });
             }
-        }
+        },
+        confirmaCliente= function(){
+            $("#dialog-iframe").dialog("close");
+            findClient();
+        },
         createEquipoGrid = function(idCliente){
             equiposGrid.jqGrid({
                 url: createEquipoGridUrl+"?idCliente="+idCliente,
@@ -219,7 +237,10 @@ $(document).ready(function() {
                 cursor: "pointer"
             });
             
-            equiposGrid.jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false});
+            equiposGrid.jqGrid('filterToolbar',{
+                stringResult: true,
+                searchOnEnter : false
+            });
         },
         getEspecificacion = function(){
             if ($("#especificacionInput").autocomplete()){
@@ -229,11 +250,14 @@ $(document).ready(function() {
                 type:"POST",
                 url:url,
                 dataType:"json",
-                data: {marca:$("#marcaInput").val(), tipoEquipo:$("#tipoequipoInput").val()},
+                data: {
+                    marca:$("#marcaInput").val(), 
+                    tipoEquipo:$("#tipoequipoInput").val()
+                },
                 success:function(data){
                     $("#nombreEspecificacion").autocomplete({
-                      source: data.list,
-                      minLength:2
+                        source: data.list,
+                        minLength:2
                     });
                 },
                 error:function(error){
@@ -242,6 +266,7 @@ $(document).ready(function() {
             });
         }; 
         crearEquipoCliente = function(){
+            alert("asfa");
             $.ajax({
                 type:"POST",
                 url:urlCrearEquipo,
@@ -262,7 +287,8 @@ $(document).ready(function() {
             });
         };
         return {
-            init:init
+            init:init,
+            confirmaCliente:confirmaCliente
         }
     })();
 
@@ -273,5 +299,5 @@ $(document).ready(function() {
         equiposGrid:$("#equiposGrid"),
         clientData:$("#clientData"),
         crearEquipo:$("#CrearEquipoBtn")
-    }); 
+    });
 });
