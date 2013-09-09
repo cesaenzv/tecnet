@@ -126,7 +126,7 @@ class EquipoController extends Controller {
 
         $especificacion = new Especificacion();
 
-        $this->layout="_blank";
+        $this->layout="mainFancy";
         $this->render('crearequipo', array(
             'marca' =>$marca,
             'tipoEquipo' => $tipoEquipo,

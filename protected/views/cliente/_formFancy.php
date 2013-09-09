@@ -72,7 +72,6 @@
             'type' => 'post',
             'success' => 'function(data) {
                          alert(data);
-                         $("#dialog-iframe").dialog("close");
                     }'
                 )
         );

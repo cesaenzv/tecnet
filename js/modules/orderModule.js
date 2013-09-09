@@ -70,12 +70,12 @@ $(document).ready(function() {
         },
         agregarEquipo = function(){         
             $("#dialog-iframe").dialog( "option", "title", "Crear Equipo" );
-            $("#dialog-iframe").dialog( "option", "width", 350 );
+            $("#dialog-iframe").dialog( "option", "width", 550 );
             $("#dialog-iframe").dialog( "option", "resizable", false );
             $("#dialog-iframe").dialog("open");
             $("#iframe").attr('src',url+'/?idC='+docClient.val());
-            $("#iframe").attr('width',"300");
-            $("#iframe").attr('height',"170");
+            $("#iframe").attr('width',"500");
+            $("#iframe").attr('height',"300");
             $("#dialog-iframe").dialog( "option", "position", "center");
         },
         createMantenimiento = function(){
