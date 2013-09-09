@@ -17,6 +17,8 @@
     var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>';
     var	createEquipoGridUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/GetEquipoGrid"); ?>'; 
     var urlView = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimientoView"); ?>';
+
+    var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimiento"); ?>';
 </script>
 
 <a style="display: block" class="link-fancy" href="" id="createCliente"></a>
@@ -40,10 +42,12 @@
     <table id="garantiaGrid"></table>    
     <div id="pagerGarantiaGrid"></div>
 
-    <a href='<?php
-    echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimientoView/");
-    ?>' id="callViewCrearMantenimiento" class="link-fancy"></a>
+    
 
+</div>
+
+<div id="callViewCrearMantenimiento">    
+    
 </div>
 
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/modules/garantiaModule.js'); ?>

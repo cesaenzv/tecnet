@@ -6,7 +6,9 @@
  * The followings are the available columns in table 'procesoservicio':
  * @property integer $k_idProceso
  * @property integer $k_idServicio
+ * @property integer $k_idUsuario
  * @property integer $q_estadoPago
+ * @property string $fchPagoTecnico
  */
 class Procesoservicio extends CActiveRecord
 {
@@ -36,11 +38,12 @@ class Procesoservicio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idProceso, k_idServicio', 'required'),
-			array('k_idProceso, k_idServicio, q_estadoPago', 'numerical', 'integerOnly'=>true),
+			array('k_idProceso, k_idServicio, k_idUsuario, q_estadoPago', 'required'),
+			array('k_idProceso, k_idServicio, k_idUsuario, q_estadoPago', 'numerical', 'integerOnly'=>true),
+			array('fchPagoTecnico', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idProceso, k_idServicio, q_estadoPago', 'safe', 'on'=>'search'),
+			array('k_idProceso, k_idServicio, k_idUsuario, q_estadoPago, fchPagoTecnico', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +66,9 @@ class Procesoservicio extends CActiveRecord
 		return array(
 			'k_idProceso' => 'K Id Proceso',
 			'k_idServicio' => 'K Id Servicio',
+			'k_idUsuario' => 'K Id Usuario',
 			'q_estadoPago' => 'Q Estado Pago',
+			'fchPagoTecnico' => 'Fch Pago Tecnico',
 		);
 	}
 
@@ -80,7 +85,9 @@ class Procesoservicio extends CActiveRecord
 
 		$criteria->compare('k_idProceso',$this->k_idProceso);
 		$criteria->compare('k_idServicio',$this->k_idServicio);
+		$criteria->compare('k_idUsuario',$this->k_idUsuario);
 		$criteria->compare('q_estadoPago',$this->q_estadoPago);
+		$criteria->compare('fchPagoTecnico',$this->fchPagoTecnico,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

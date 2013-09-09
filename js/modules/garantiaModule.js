@@ -12,6 +12,7 @@ $(document).ready(function() {
             garantiaGrid = config.garantiaGrid;
             crearEquipo = config.crearEquipo;          
             bindEvents();
+            jQPlugins();
 		},
         bindEvents = function(){
             btnSearchClient.click(function(){           
@@ -22,6 +23,14 @@ $(document).ready(function() {
                 if(event.which==13){
                     btnSearchClient.click();
                 }
+            });
+        },
+        jQPlugins = function(){
+            $("#callViewCrearMantenimiento").dialog({
+                resizable: false,  
+                autoOpen: false,            
+                modal: false,
+                title:"Crear Garantia",                
             });
         },
         findClient = function(){
@@ -187,10 +196,22 @@ $(document).ready(function() {
             
             garantiaGrid.jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
         },
-        agregarMantenimiento = function(){
-                $("#callViewCrearMantenimiento").attr('href',"");
-                $("#callViewCrearMantenimiento").attr('href',urlView+'/?idC='+docClient.val());
-                $("#callViewCrearMantenimiento").click();
+        agregarMantenimiento = function(){                
+                $.ajax({
+                    url:urlView+'/?idC='+docClient.val(),
+                    dataType: "html",
+                    data: {
+                        doc:docClient.val(), 
+                        typeDoc:typeDocument.val()
+                    },
+                    success:function(data){
+                        $("#callViewCrearMantenimiento").html(data);
+                        $("#callViewCrearMantenimiento").dialog();
+                    },
+                    error:function(){
+                        alert("error");
+                    }
+                });
         };
 
 

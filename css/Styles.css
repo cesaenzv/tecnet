@@ -198,10 +198,19 @@
 	font-weight: 800;
 }
 
-.boxInfo table, .equipos table, .paqR table, .detalleMaq table{
+.boxInfo table, .equipos table, .serviciosOrden table, .paqR table, .detalleMaq table{
 	border: 1px solid #D1C9C9;
 	width: 95%;
 	margin: 0 auto
+}
+
+.serviciosOrden table tbody td, .servicios table tbody td{
+	border: 1px solid rgba(10,90,70,0.2);
+	text-align: right;
+}
+
+.serviciosOrden{
+	width: 1250px;
 }
 
 .boxInfo .orden{
@@ -321,6 +330,11 @@
 	max-height: 600px;	
 	width: 90%;
 	overflow-y: auto; 
+}
+
+#TemplateContent{
+	overflow-x: auto;
+	margin-top: 50px;
 }
 
 /********Tecnicos**********/

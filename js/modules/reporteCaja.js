@@ -79,19 +79,44 @@ $(document).ready(function(){
 					},
 					success:function(data){
 						console.log(data);
-						showCajaData(data);
+						if(typeConsult == 'ingS' || typeConsult == 'ingTS'){
+							console.log(data.servicios.length);
+							if(data.servicios.length != 0){
+								showCajaData(data);	
+							}else{
+								cajaData.html("<h1>Sin resultados</h1>");
+							}							
+						}else{
+							if(data.ordenesRCaja.length != 0){
+								getTotalesOrdeneReport(data);	
+							}else{
+								cajaData.html("<h1>Sin resultados</h1>");
+							}								
+						}				
+						
 					},
 					error:function(){
-						historialData.html('');
+						cajaData.html('');
 						alert("La busqueda no fue exitosa, verifique los datos por favor");
 					}
 				});
 			}			
 		},
-		showCajaData = function(data){
+		showCajaData = function(data){			
 			var template = Handlebars.compile(plantillaCaja.html());
             var contenido = template(data);           
             cajaData.html(contenido);
+        },
+        getTotalesOrdeneReport =  function(data){
+        	var totales = {valorOrden:0, costoTecnico : 0, costoPartes : 0, utilidad: 0 };
+    		for (var i = 0; i < data.ordenesRCaja.length; i++) {
+    			totales.costoPartes += data.ordenesRCaja[i].valores.costoPartes;	
+    			totales.costoTecnico += data.ordenesRCaja[i].valores.costoTecnico;
+    			totales.utilidad += data.ordenesRCaja[i].valores.utilidad;
+    			totales.valorOrden += data.ordenesRCaja[i].valores.valorOrden;
+    		}
+    		data.totalesOrdenR = totales;
+        	showCajaData(data);
         };
 
 		return {
