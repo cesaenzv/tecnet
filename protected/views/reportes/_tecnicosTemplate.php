@@ -115,6 +115,9 @@
 										<input type="button" class="pagoServicio" data-ids={{k_idServicio}} data-idp={{k_idProceso}} value="Pagar"/>
 									{{/if}}								
 								</td>
+								<td>
+									{{fchPagoTecnico}}
+								</td>
 							{{/if}}
 						</tr>
 					{{/each}}
