@@ -111,13 +111,17 @@ class OrdenController extends Controller {
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
         $respuesta = new stdClass();
-        if ($orden->save()) {
+        if ($orden->save(false)) {
             $respuesta->idOrden = $orden->k_idOrden;
             foreach ($ids as $equipo) {
                 $paqueteMantenimiento = new Paquetematenimiento;
                 $paqueteMantenimiento->k_idOrden = $orden->k_idOrden;
                 $paqueteMantenimiento->k_idEquipo = $equipo;
-                $paqueteMantenimiento->save();
+                if($paqueteMantenimiento->save(false)){
+                    $equipo = Equipo::model()->findByPk($equipo);
+                    $equipo->i_inhouse=1;
+                    $equipo->save(false);
+                }
             }
             $respuesta->mensaje = "OK";
         } else {

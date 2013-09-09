@@ -96,13 +96,18 @@ $(document).ready(function() {
                     url: "../orden/CreateOrden/",
                     data: "ids="+(rowid),
                     success: function(response){
-                        if(response.mensaje=="fail"){
+                        if(response.mensaje.toLowerCase()=="fail"){
                             alert("No se ha podido crear la orden, porfavor intente nuevamente");
                             return false;
                         }else{
-                            console.log(response.idOrden);
-                            $("#createCliente").attr("href","../orden/createPaquete/"+response.idOrden)
-                            $("#createCliente").click();
+                            $("#dialog-iframe").dialog( "option", "title", "Crear Mantenimiento" );
+                            $("#dialog-iframe").dialog( "option", "width", 700 );
+                            $("#dialog-iframe").dialog( "option", "resizable", false );
+                            $("#dialog-iframe").dialog("open");
+                            $("#iframe").attr('src',"../orden/createPaquete/"+response.idOrden);
+                            $("#iframe").attr('width',"650");
+                            $("#iframe").attr('height',"800");
+                            $("#dialog-iframe").dialog( "option", "position", "center");
                         }
                     },
                     dataType: 'json'
