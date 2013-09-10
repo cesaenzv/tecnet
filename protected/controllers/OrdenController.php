@@ -110,6 +110,7 @@ class OrdenController extends Controller {
         $ids = split(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
+        $orden->q_diasGarantia = $diasGarantia;
         $respuesta = new stdClass();
         if ($orden->save(false)) {
             $respuesta->idOrden = $orden->k_idOrden;
@@ -119,7 +120,7 @@ class OrdenController extends Controller {
                 $paqueteMantenimiento->k_idEquipo = $equipo;
                 if($paqueteMantenimiento->save(false)){
                     $equipo = Equipo::model()->findByPk($equipo);
-                    $equipo->i_inhouse=1;
+                    $equipo->i_inhouse='LOC';
                     $equipo->save(false);
                 }
             }

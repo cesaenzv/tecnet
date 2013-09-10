@@ -91,10 +91,14 @@ $(document).ready(function() {
             }
             mensaje+="Recuerde que esta acción no se puede deshacer";
             if(confirm(mensaje)){
+                var diasGarantia="";
+                do{
+                diasGarantia = prompt("Ingrese el numero de dias (calendario) de garantia","");
+                }while (diasGarantia == "" || parseInt(diasGarantia) <=0 );
                 $.ajax({
                     type: "POST",
                     url: "../orden/CreateOrden/",
-                    data: "ids="+(rowid),
+                    data: "ids="+(rowid)+"&diasGarantia="+diasGarantia,
                     success: function(response){
                         if(response.mensaje.toLowerCase()=="fail"){
                             alert("No se ha podido crear la orden, porfavor intente nuevamente");

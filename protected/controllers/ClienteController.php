@@ -210,8 +210,9 @@ class ClienteController extends Controller {
     public function actionGetEstados() {
         $especificacion = Especificacion::model()->findAll();
         $resultado = "<select>";
-        $resultado = $resultado . "<option val='1'>En Tecnet</option>";
-        $resultado = $resultado . "<option val='0'>En casa de cliente</option>";
+        $resultado = $resultado . "<option val='LOC'>Local</option>";
+        $resultado = $resultado . "<option val='LAB'>Laboratorio</option>";
+        $resultado = $resultado . "<option val='ENT'>Entregado</option>";
         $resultado = $resultado . "</select>";
         echo $resultado;
     }
@@ -308,7 +309,7 @@ class ClienteController extends Controller {
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
-        $criteria->condition = "k_idCliente = " . $id;
+        $criteria->condition = "k_idCliente = " . $id." AND (i_inhouse='NEW' OR i_inhouse='ENT') ";
         $dataProvider = new CActiveDataProvider('Equipo', array(
                     'criteria' => $criteria,
                     'pagination' => array(
@@ -326,13 +327,19 @@ class ClienteController extends Controller {
             $especificacion = Especificacion::model()->findByPk($row['k_idEspecificacion']);
             $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
             $especificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
-
+            switch ($row['i_inhouse']){
+                case 'LOC': $estadoEquipo="Local";break;
+                case 'LAB': $estadoEquipo="Laboratorio";break;
+                case 'ENT': $estadoEquipo="Entregado";break;
+                case 'NEW': $estadoEquipo="Nuevo";break;
+                default: $estadoEquipo="Sin Estado";
+            }
             $response->rows[$i]['id'] = $row['k_idEquipo'];
             $response->rows[$i]['cell'] = array(
                 $row['k_idEquipo'],
                 $row['n_nombreEquipo'],
                 $especificacion,
-                $row['i_inhouse'] == 1 ? "En Tecnet" : "En Casa",
+                $estadoEquipo,
             );
         }
 

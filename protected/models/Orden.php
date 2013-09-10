@@ -48,7 +48,7 @@ class Orden extends CActiveRecord
 			array('fchEntrega', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('k_idOrden, k_idUsuario, fchIngreso, fchEntrega, n_Observaciones', 'safe', 'on'=>'search'),
+			array('k_idOrden, k_idUsuario, fchIngreso, fchEntrega, n_Observaciones, q_diasGarantia', 'safe', 'on'=>'search'),
 		);
 	}
 

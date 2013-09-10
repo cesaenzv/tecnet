@@ -46,7 +46,7 @@ class Cliente extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_identificacion, i_nit, n_nombre, o_celular, o_fijo, k_usuarioCrea', 'required'),
+			array('k_identificacion, i_nit, n_nombre, k_usuarioCrea', 'required'),
 			array('k_identificacion, k_usuarioCrea', 'numerical', 'integerOnly'=>true),
 			array('i_nit', 'length', 'max'=>2),
 			array('k_identificacion', 'unique'),
@@ -82,8 +82,8 @@ class Cliente extends CActiveRecord
 			'n_nombre' => 'Nombre/Razón Social',
 			'n_apellido' => 'Apellido',
 			'o_direccion' => 'Direccion',
-			'o_celular' => 'Celular',
-			'o_fijo' => 'Fijo',
+			'o_celular' => 'Numero de contacto 1',
+			'o_fijo' => 'Numero de contacto 2',
 			'o_mail' => 'Mail',
 			'k_usuarioCrea' => 'K Usuario Crea',
 		);
