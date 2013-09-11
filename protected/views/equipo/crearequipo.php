@@ -77,7 +77,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
                 if(response.msg=="OK"){
                     alert("equipo creado satisfactoriamente.");
                 }else{
-                    alert("Ha ocurrido un error inesperado.");
+                    alert(response.msg);
                 }
             },
             dataType: 'json'

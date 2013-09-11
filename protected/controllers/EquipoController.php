@@ -21,7 +21,7 @@ class EquipoController extends Controller {
     /**
      * Specifies the access control rules.
      * This method is used by the 'accessControl' filter.
-     * @return array access control rules
+     * @return array access control rulesfa
      */
     public function accessRules() {
         $accessRules = new AccessDataRol();
@@ -148,7 +148,7 @@ class EquipoController extends Controller {
                     $especificacion = new Especificacion();
                     $especificacion->k_idMarca = $_POST['marca'];
                     $especificacion->k_idTipoEquipo = $_POST['tipoEquipo'];
-                    $especificacion->n_nombreEspecificacion = $_POST['especificacion'];
+                    $especificacion->n_nombreEspecificacion = strtoupper($_POST['especificacion']);
                     $equipo->k_idEspecificacion = $especificacion->k_especificacion;
                     if ($especificacion->save(false)) {
                         $equipo->k_idEspecificacion = $especificacion->k_especificacion;
@@ -157,7 +157,13 @@ class EquipoController extends Controller {
                 if ($equipo->save()) {
                     $data['msg'] = "OK";
                 } else {
-                    $data['msg'] = "PROBLEM";
+                    $msg="";
+                    foreach($equipo->getErrors() as $errores){
+                        foreach($errores as $mensaje){
+                            $msg=$msg.$mensaje."\n";
+                        }
+                    }
+                    $data['msg'] = $msg;
                 }
 
                 echo CJavaScript::jsonEncode($data);

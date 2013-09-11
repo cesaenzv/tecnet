@@ -110,7 +110,6 @@ class OrdenController extends Controller {
         $ids = split(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
-        $orden->q_diasGarantia = $diasGarantia;
         $respuesta = new stdClass();
         if ($orden->save(false)) {
             $respuesta->idOrden = $orden->k_idOrden;
@@ -144,6 +143,10 @@ class OrdenController extends Controller {
         $proceso->n_descripcion = $observaciones;
         $proceso->o_flagLeido = 0;
         $proceso->fk_idPaqueteManenimiento = $paqueteMantenimiento;
+        $paqueteMant = Paquetematenimiento::model()->find("k_idPaquete=:paquete",array(":paquete"=>$paqueteMantenimiento));
+        $paqueteMant->q_diasGarantia=$garantia;
+        $paqueteMant->q_descuento=$descuento;
+        $paqueteMant->save();
         $respuesta = new stdClass();
         if ($proceso->save()) {
             foreach ($servicios as $val) {

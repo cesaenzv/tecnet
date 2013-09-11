@@ -45,6 +45,7 @@ class Equipo extends CActiveRecord
 			array('n_nombreEquipo, k_idCliente, k_idEspecificacion', 'required'),
 			array('k_idEquipo, k_idCliente', 'numerical', 'integerOnly'=>true),
 			array('n_nombreEquipo, k_idEspecificacion', 'length', 'max'=>50),
+			array('n_nombreEquipo', 'unique',),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('k_idEquipo, n_nombreEquipo, k_idCliente, k_idEspecificacion', 'safe', 'on'=>'search'),

@@ -41,8 +41,8 @@ class Paquetematenimiento extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_idOrden, k_idEquipo', 'required'),
-			array('k_idOrden, k_idEquipo', 'numerical', 'integerOnly'=>true),
+			array('k_idOrden, k_idEquipo, q_diasGarantia', 'required'),
+			array('k_idOrden, k_idEquipo, q_diasGarantia, q_descuento', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('k_idPaquete, k_idOrden, k_idEquipo', 'safe', 'on'=>'search'),
@@ -72,6 +72,8 @@ class Paquetematenimiento extends CActiveRecord
 			'k_idPaquete' => 'K Id Paquete',
 			'k_idOrden' => 'K Id Orden',
 			'k_idEquipo' => 'K Id Equipo',
+			'q_diasGarantia' => 'Dias de garantia',
+			'q_descuento' => 'Descuento',
 		);
 	}
 
@@ -89,6 +91,8 @@ class Paquetematenimiento extends CActiveRecord
 		$criteria->compare('k_idPaquete',$this->k_idPaquete);
 		$criteria->compare('k_idOrden',$this->k_idOrden);
 		$criteria->compare('k_idEquipo',$this->k_idEquipo);
+		$criteria->compare('q_diasGarantia',$this->q_diasGarantia);
+		$criteria->compare('q_descuento',$this->q_descuento);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
