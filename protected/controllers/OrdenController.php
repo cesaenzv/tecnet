@@ -39,8 +39,9 @@ class OrdenController extends Controller {
         $count = 1;
         $paquetesMostrar = array();
         foreach($paquetesA as $i=>$paquete){
-            $ingresadoP = 0; $laboratorioP =0; $finalizadoP =0;             
-            foreach ($paquete['procesos'] as $j => $p) {
+            $ingresadoP = 0; $laboratorioP =0; $finalizadoP =0;
+            if(count($paquete['procesos']) > 0){
+                foreach ($paquete['procesos'] as $j => $p) {
                 switch ($p['proceso']['fk_idEstado']) {
                     case 1:
                         $ingresado += 1;
@@ -57,13 +58,15 @@ class OrdenController extends Controller {
                         $finalizado += 1;
                         $finalizadoP += 1;
                         break; 
-                }
-                $count += 1;
-            }                        
-            $paquetesMostrar[] = array( "equipo"=>$paquete['equipo'],
-                                        "garantia"=>$paquete['paqueteEquipo']['q_diasGarantia'],
-                                        "descuento"=>$paquete['paqueteEquipo']['q_descuento'],
-                                        "estado"=>$finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado':'En laboratorio'));
+                    }
+                    $count += 1;
+                }                        
+                $paquetesMostrar[] = array( "equipo"=>$paquete['equipo'],
+                                            "garantia"=>$paquete['paqueteEquipo']['q_diasGarantia'],
+                                            "descuento"=>$paquete['paqueteEquipo']['q_descuento'],
+                                            "estado"=>$finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado':'En laboratorio'));    
+            }             
+            
         }
 
         $this->render('view', array(
@@ -106,24 +109,26 @@ class OrdenController extends Controller {
         $count=0;
 
         foreach($paquetesA AS $i=>$paquete){
-            foreach ($paquete['procesos'] as $j => $p) {
-                $response->rows[$count]['id'] = $p['proceso']['k_idProceso'];
-                $response->rows[$count]['cell'] = array(
-                    $p['proceso']['k_idProceso'],
-                    $paquete['equipo']['k_idEquipo'],
-                    $paquete['equipo']['n_nombreEquipo'],
-                    $paquete['equipo']['k_idEspecificacion'],
-                    $paquete['equipo']['i_inhouse'],              
-                    $p['proceso']['n_descripcion'],
-                    $p['proceso']['nombreEstado'],
-                    $p['proceso']['o_flagLeido'] == 0? "No" : "Si",
-                    $p['proceso']['fchAsignacion'],
-                    $p['proceso']['fchFinalizacion'],
-                    $p['servicio']['n_nomServicio'],
-                    $p['responsable']
-                );
-                $count+=1;
-            }
+            if(count($paquete['procesos'])>0){
+                foreach ($paquete['procesos'] as $j => $p) {
+                    $response->rows[$count]['id'] = $p['proceso']['k_idProceso'];
+                    $response->rows[$count]['cell'] = array(
+                        $p['proceso']['k_idProceso'],
+                        $paquete['equipo']['k_idEquipo'],
+                        $paquete['equipo']['n_nombreEquipo'],
+                        $paquete['equipo']['k_idEspecificacion'],
+                        $paquete['equipo']['i_inhouse'],              
+                        $p['proceso']['n_descripcion'],
+                        $p['proceso']['nombreEstado'],
+                        $p['proceso']['o_flagLeido'] == 0? "No" : "Si",
+                        $p['proceso']['fchAsignacion'],
+                        $p['proceso']['fchFinalizacion'],
+                        $p['servicio']['n_nomServicio'],
+                        $p['responsable']
+                    );
+                    $count+=1;
+                }
+            }            
         }                       
         $response->records = $count+1;
         $response->page = $_POST['page'];
