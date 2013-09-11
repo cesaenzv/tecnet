@@ -14,6 +14,7 @@ foreach ($usuarioRoles as $usuarios){
 }
 
 ?>
+<h2>Orden <?php echo $id ?></h2>
 <label id="mensaje"></label>
 <br/>
 <div id="equiposMantenimiento" >
