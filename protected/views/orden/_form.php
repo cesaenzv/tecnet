@@ -37,8 +37,12 @@ echo $this->renderPartial('_clientTemplate');
     <div id="pagerEquipoGrid"></div>
 
     <a href='<?php
-    echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView/");
-    ?>' id="callViewCrearEquipo" class="link-fancy"></a>
+echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrdenView/");
+?>' id="callViewCrearEquipo" class="link-fancy"></a>
+    <div id ="dialog-iframe">
+        <iframe id="iframe">
+        </iframe>
+    </div>
 
 </div><!-- form -->
 

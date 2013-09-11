@@ -32,7 +32,7 @@
     </head>
 
     <body>
-        <div style="text-align: center; width: 630px;">
+        <div style="width: 380px;">
             <?php echo $content; ?>
         </div>
     </body>

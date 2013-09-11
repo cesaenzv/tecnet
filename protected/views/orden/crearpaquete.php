@@ -14,6 +14,7 @@ foreach ($usuarioRoles as $usuarios){
 }
 
 ?>
+<h2>Orden <?php echo $id ?></h2>
 <label id="mensaje"></label>
 <br/>
 <div id="equiposMantenimiento" >
@@ -35,12 +36,21 @@ foreach ($usuarioRoles as $usuarios){
 </div>
 <br/>
 <div>
+    <span>Días de garantia </span>
+    <input type="number" id="garantia" value="30" />
+</div>
+<div>
+    <span>Descuento </span>
+    <input type="number" id="descuento" value="0" />
+</div>
+<div>
     <span>Observaciones </span>
     <textarea id="observaciones" cols="20" rows="5"></textarea>
 </div>
 <div id="crearAsignacion">Guardar</div>
 
 <script type="text/javascript">
+    var equiposMantenimiento = new Array();
     var url="<?php echo Yii::app()->createUrl("orden/proceso", array("id" => $id, 'equipo' => '')); ?>"
     init = function(){
         ordenMantenimiento();
@@ -160,6 +170,14 @@ foreach ($usuarioRoles as $usuarios){
             closeAfterAdd:false
         });
     }
+    datoEnArray=function(dato,arreglo){
+        for(var i=0; i<arreglo.length; i++){
+            if(arreglo[i]==dato){
+                return true;
+            }
+        }
+        return false;
+    }
     ordenMantenimiento=function(){
     $("#crearAsignacion").button().click(function(){
         var equipoId = jQuery("#equiposMantenimientoGrid").jqGrid('getGridParam', 'selrow');
@@ -168,6 +186,12 @@ foreach ($usuarioRoles as $usuarios){
         if(equipoId==null){
             alert("Debe seleccionar un equipo para asignar servicios");
             return false;
+        }
+        if(datoEnArray(dataEquipo.fk_idpaqMantenimiento,equiposMantenimiento)){
+            alert("Ya se asigno servicio al equipo");
+            return false;
+        }else{
+            equiposMantenimiento.push(dataEquipo.fk_idpaqMantenimiento);
         }
         var serviciosId = jQuery("#ordenMantenimientoGrid").jqGrid('getGridParam', 'selarrrow');
         if(serviciosId==null){
@@ -180,6 +204,8 @@ foreach ($usuarioRoles as $usuarios){
                     paqueteMantenimiento:dataEquipo.fk_idpaqMantenimiento,
                     servicios:serviciosId,
                     tecnico:$("#usuarios").val(),
+                    garantia:$("#garantia").val(),
+                    descuento:$("#descuento").val(),
                     observaciones:$("#observaciones").val()
                 }
                 $.ajax({
@@ -192,7 +218,7 @@ foreach ($usuarioRoles as $usuarios){
                         }else{
                             $("#mensaje").css("color","#00ff00");
                         }
-                        $("#mensaje").val(response.message);
+                        $("#mensaje").text(response.message);
                     },
                     dataType: 'json'
                 });

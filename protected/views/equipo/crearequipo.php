@@ -6,14 +6,11 @@ $this->breadcrumbs = array(
     'Ordens' => array('index'),
     'Create',
 );
-Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
-Yii::app()->clientScript->registerCoreScript('jquery');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery.ui.js', CClientScript::POS_HEAD);
 Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", CClientScript::POS_READY);
 $this->widget('application.extensions.fancybox.EFancyBox', array(
-    'target'=>'a.link-fancy',
-    'config'=>array(),
-    )
+    'target' => 'a.link-fancy',
+    'config' => array(),
+        )
 );
 ?>
 
@@ -55,12 +52,37 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
         <label>Especificacion</label>
         <input type="text" id="nombreEspecificacion"></input>
     </div>
-    <button id="CrearEquipoBtn">CrearEquipo</button>
+    <button id="CrearEquipoBtn">Crear Equipo</button>
     <a id="createEspecificacionEquipo"></a>
 </div>
 
 <script type="text/javascript">
     var linkEspeficicacion=$("#createEspecificacionEquipo");
+    $("#CrearEquipoBtn").click(function(){
+        var clienteId=$("#idClienteLbl").text();
+        var marca=$("#marcaInput").val();
+        var especificacion=$("#nombreEspecificacion").val();
+        var tipoEquipo=$("#tipoequipoInput").val();
+        var nombreEquipo=$("#nombreEquipo").val();
+        if(nombreEquipo=="" ||tipoEquipo==""||especificacion==""||marca==""){
+            alert("Todos los campos son obligatorios");
+            return false;
+        }
+        
+        $.ajax({
+            type: "POST",
+            url:urlCrearEquipo,
+            data: "clienteId="+clienteId+"&marca="+marca+"&especificacion="+especificacion+"&tipoEquipo="+tipoEquipo+"&nombreEquipo="+nombreEquipo,
+            success: function(response){
+                if(response.msg=="OK"){
+                    alert("equipo creado satisfactoriamente.");
+                }else{
+                    alert(response.msg);
+                }
+            },
+            dataType: 'json'
+        });
+    });
     initCreate= function(){
         linkEspeficicacion.fancybox({});
         $("#addEquipo").button({
