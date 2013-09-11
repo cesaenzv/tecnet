@@ -79,14 +79,14 @@ $(document).ready(function() {
             $("#dialog-iframe").dialog( "option", "position", "center");
         },
         createMantenimiento = function(){
-            var rowid = equiposGrid.jqGrid('getGridParam', 'selarrrow');
+            var rowid = $(equiposGrid).jqGrid('getGridParam', 'selarrrow');
             if (rowid == null) {
                 alert("Debe seleccionar al menos un equipo para realizar el mantenimiento");
                 return false;
             }
             var mensaje="Esta seguro que desea realizar mantenimiento a los equipos con serial:\n";
             for (var i =0 ; i<rowid.length;i++){
-                var msj = equiposGrid.getRowData(rowid[i]).n_nombreEquipo;
+                var msj = $(equiposGrid).getRowData(rowid[i]).n_nombreEquipo;
                 mensaje+= msj +"\n";
             }
             mensaje+="Recuerde que esta acción no se puede deshacer";
@@ -119,7 +119,9 @@ $(document).ready(function() {
             findClient();
         },
         createEquipoGrid = function(idCliente){
-            equiposGrid.jqGrid({
+            $(equiposGrid).jqGrid("clearGridData");
+            $(equiposGrid).jqGrid("GridUnload");
+            $(equiposGrid).jqGrid({
                 url: createEquipoGridUrl+"?idCliente="+idCliente,
                 datatype: "json",
                 mtype: "POST",
@@ -188,7 +190,7 @@ $(document).ready(function() {
                 caption: "Equipos",
                 multiselect: true
             });
-            equiposGrid.jqGrid('navGrid', '#pagerEquipoGrid', {
+            $(equiposGrid).jqGrid('navGrid', '#pagerEquipoGrid', {
                 edit : false,
                 add : false,
                 del : false,
@@ -242,7 +244,7 @@ $(document).ready(function() {
                 cursor: "pointer"
             });
             
-            equiposGrid.jqGrid('filterToolbar',{
+            $(equiposGrid).jqGrid('filterToolbar',{
                 stringResult: true,
                 searchOnEnter : false
             });
@@ -301,7 +303,7 @@ $(document).ready(function() {
         btnSearchClient:$("#searchClient"),
         docClient:$("#Orden_k_idUsuario"),
         typeDocument:$("#typeDocument"),
-        equiposGrid:$("#equiposGrid"),
+        equiposGrid:"#equiposGrid",
         clientData:$("#clientData"),
         crearEquipo:$("#CrearEquipoBtn")
     });

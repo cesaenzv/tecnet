@@ -236,6 +236,7 @@ class ReportesController extends Controller
 			echo CJavaScript::jsonEncode($data);
 		}
 	}
+
 	public function actionGetDetalleEquipo(){
         //$equipo = Equipo::model()->findByPk($_POST['idE']);
         $data = array();$Criteria = new CDbCriteria();
@@ -354,14 +355,14 @@ class ReportesController extends Controller
 
 
 	private function getServiciosTotalTecnico($tecId){
-		$data = array();$Criteria = new CDbCriteria();
+		$data = array();$Criteria = new CDbCriteria();$manageM = new ManageModel;
 		$Criteria->condition = "k_idTecnico = ".$tecId;
 		$procesos = Proceso::model()->findAll($Criteria); 
-		$data["servicios"]= $this->getProcesosByCriteria("k_idTecnico = "+$tecId);
+		$data["servicios"]= $manageM->getProcesosByCriteria("k_idTecnico = "+$tecId);
 		return $data;
 	}
 
-	private function getProcesosByCriteria($condicion, $idServicio =null, $temp = array()){
+	/*private function getProcesosByCriteria($condicion, $idServicio =null, $temp = array()){
 		$Criteria = new CDbCriteria();
 		$Criteria->condition = $condicion;
 		$procesos = Proceso::model()->findAll($Criteria);
@@ -389,8 +390,7 @@ class ReportesController extends Controller
 			}
 		}
 		return $temp;
-	}
-
+	}*/
 
 	private function getOrdenesEquipo($orden, $proceso, $equipo, $array, $est, $typeTec){
 		if(!array_key_exists($equipo->k_idEquipo,$array)){
@@ -473,7 +473,7 @@ class ReportesController extends Controller
 /* UTILIDADES EN VENTAS Y ORDENES*/
 
 	public function getCajaOrdenRangoTiempo($fchI, $fchF){
-		$data = array();$Criteria = new CDbCriteria();
+		$data = array();$Criteria = new CDbCriteria(); $manageM = new ManageModel;
 		$Criteria->condition = "fchEntrega BETWEEN '".$fchI."' AND  '".$fchF."'";
 		$ordenes = Orden::model()->findAll($Criteria);
 		$temp = array();
@@ -487,13 +487,13 @@ class ReportesController extends Controller
 			if(count($pqtOrden)>1){
 				foreach ($pqtOrden as $j => $pqO) {
 					if(isset($pqtOrden->k_idPaquete)){						
-						$procesos = $this->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqO->k_idPaquete." AND fk_idEstado != 5 AND fk_idEstado != 6",null,$procesos);
+						$procesos = $manageM->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqO->k_idPaquete." AND fk_idEstado != 5 AND fk_idEstado != 6",null,$procesos);
 						$tecnicos =$this->getPagosTecnicoOrden($pqO->k_idPaquete, $tecnicos);
 					}
 				}	
 			}else{				
 				if(isset($pqtOrden[0]->k_idPaquete)){
-					$procesos = $this->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqtOrden[0]->k_idPaquete." AND fk_idEstado != 5 AND fk_idEstado != 6");
+					$procesos = $manageM->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqtOrden[0]->k_idPaquete." AND fk_idEstado != 5 AND fk_idEstado != 6");
 					$tecnicos = $this->getPagosTecnicoOrden($pqtOrden[0]->k_idPaquete, $tecnicos);
 				}
 			}
@@ -564,8 +564,8 @@ class ReportesController extends Controller
 	}
 	
 	private function getCajaServicioRangoTiempo($servicioId,$fchI, $fchF){
-		$data = array();
-		$procesos = $this->getProcesosByCriteria("fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'",$servicioId);		
+		$data = array();$manageM = new ManageModel;
+		$procesos = $manageM->getProcesosByCriteria("fchFinalizacion BETWEEN '".$fchI."' AND  '".$fchF."'",$servicioId);		
 		$temp = array();
 		foreach ($procesos as $i => $proceso) {
 			if(!array_key_exists($proceso["servicio"]["k_idServicio"],$temp)){

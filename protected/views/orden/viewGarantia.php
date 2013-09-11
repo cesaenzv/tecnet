@@ -1,9 +1,4 @@
 <?php
-	$this->breadcrumbs=array(
-		'Ordens'=>array('index'),
-		'Ver Garantias',
-	);
-
 	echo $this->renderPartial('_clientTemplate');
 	$this->widget('application.extensions.fancybox.EFancyBox', array(
     'target'=>'a.link-fancy',

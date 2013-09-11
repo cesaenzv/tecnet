@@ -18,7 +18,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
     var urlCrearEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEOrden"); ?>';
     var url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
     var urlCrearTipoEquipo = '<?php echo Yii::app()->createAbsoluteUrl("tipoequipo/createFancy"); ?>';
-    var urlCrearMarca = '<?php echo Yii::app()->createAbsoluteUrl("marca/getEspecificationList"); ?>';
+    var urlCrearMarca = '<?php echo Yii::app()->createAbsoluteUrl("marca/Create"); ?>';
 </script>
 
 

@@ -33,9 +33,103 @@ class OrdenController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $orden = $this->loadModel($id);
+        $paquetesA = $this->getPaquetesOrden($id);
+        $ingresado = 0; $laboratorio =0; $finalizado =0;
+        $count = 1;
+        $paquetesMostrar = array();
+        foreach($paquetesA as $i=>$paquete){
+            $ingresadoP = 0; $laboratorioP =0; $finalizadoP =0;             
+            foreach ($paquete['procesos'] as $j => $p) {
+                switch ($p['proceso']['fk_idEstado']) {
+                    case 1:
+                        $ingresado += 1;
+                        $ingresadoP += 1;
+                        break;                    
+                    case 2:
+                    case 4:
+                    case 5:
+                        $laboratorio +=1;
+                        $laboratorioP +=1;
+                        break; 
+                    case 3:
+                    case 6:
+                        $finalizado += 1;
+                        $finalizadoP += 1;
+                        break; 
+                }
+                $count += 1;
+            }                        
+            $paquetesMostrar[] = array( "equipo"=>$paquete['equipo'],
+                                        "garantia"=>$paquete['paqueteEquipo']['q_diasGarantia'],
+                                        "descuento"=>$paquete['paqueteEquipo']['q_descuento'],
+                                        "estado"=>$finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado':'En laboratorio'));
+        }
+
         $this->render('view', array(
             'model' => $this->loadModel($id),
+            'estado' => $finalizado == $count ? 'Finalizado' : ($ingresado == $count ? 'No iniciado':'En laboratorio'),
+            'paquetes' => $paquetesMostrar
         ));
+    }
+
+    protected function getPaquetesOrden($id){
+        $manageM = new ManageModel;
+        $pqtOrden = Paquetematenimiento::model()->findAllByAttributes(
+            array(),
+            $condition  = 'k_idOrden = :idO',
+            $params     = array(':idO' => $id));
+        $paquetesA = array();
+        foreach ($pqtOrden as $j => $pqO) {
+            $procesos = $manageM->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqO->k_idPaquete,null,null,true);
+            $equipo = Equipo::model()->findByPk($pqO->k_idEquipo);
+            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
+            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+            $equipo->k_idEspecificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
+            $paquetesA[] = array('paqueteEquipo' => $pqO->attributes, 'procesos'=> $procesos, 'equipo'=>$equipo->attributes);
+        }
+        return $paquetesA;     
+    }
+
+    public function actionGetEquiposOrden($id){
+        $criteria = new CDbCriteria;
+        $paquetesA = $this->getPaquetesOrden($id);
+
+        if (isset($_POST['sidx']) && isset($_POST['sord'])) {
+            $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+        }
+
+        $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+        /*TRAER LA INFORMACION DE LA ORDEN LOS PAQUETES DE MANTENIMIENTO Y SUS PROCESOS*/
+        
+        $response = new stdClass();
+        $count=0;
+
+        foreach($paquetesA AS $i=>$paquete){
+            foreach ($paquete['procesos'] as $j => $p) {
+                $response->rows[$count]['id'] = $p['proceso']['k_idProceso'];
+                $response->rows[$count]['cell'] = array(
+                    $p['proceso']['k_idProceso'],
+                    $paquete['equipo']['k_idEquipo'],
+                    $paquete['equipo']['n_nombreEquipo'],
+                    $paquete['equipo']['k_idEspecificacion'],
+                    $paquete['equipo']['i_inhouse'],              
+                    $p['proceso']['n_descripcion'],
+                    $p['proceso']['nombreEstado'],
+                    $p['proceso']['o_flagLeido'] == 0? "No" : "Si",
+                    $p['proceso']['fchAsignacion'],
+                    $p['proceso']['fchFinalizacion'],
+                    $p['servicio']['n_nomServicio'],
+                    $p['responsable']
+                );
+                $count+=1;
+            }
+        }                       
+        $response->records = $count+1;
+        $response->page = $_POST['page'];
+        $response->total = ceil($response->records / $ro);
+        
+        echo json_encode($response);   
     }
 
     /**

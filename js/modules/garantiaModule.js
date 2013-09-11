@@ -61,14 +61,18 @@ $(document).ready(function() {
             var template = Handlebars.compile(plantillaClient.html());
             var contenido = template(client);
             clientData.html(contenido);
-        },createGarantiaGrid = function(idClient){            
-            garantiaGrid.jqGrid('clearGridData');
-            garantiaGrid.jqGrid({
+        },createGarantiaGrid = function(idClient){
+            $(garantiaGrid).jqGrid("clearGridData");
+            $(garantiaGrid).jqGrid("GridUnload");
+            $(garantiaGrid).jqGrid({
+                loadtext:"Cargando datos...",
                 url: createEquipoGridUrl+"?idCliente="+docClient.val()+"&garantia='true'",
+                emptyrecords: "Sin registros",
+                loadonce:false,
                 datatype: "json",
                 mtype: "POST",
                 width:900,
-                colNames: ["ID", "Equipo", "Especificacion", "Tecnico", "Descripcion", "Leido","Fecha Asignacion","Fecha Entrega","Estado"],
+                colNames: ["ID", "Equipo", "Especificacion", "Tecnico", "Descripcion", "Leido", "Servicio","Fecha Asignacion","Fecha Entrega","Estado"],
                 colModel: [
                 {
                     name: "k_idProceso", 
@@ -129,6 +133,16 @@ $(document).ready(function() {
                     }
                 },
                 {
+                    name: "nombre_servicio", 
+                    width: 200,
+                    editable:true,
+                    hidden:false,                     
+                    editrules:{
+                        edithidden:true, 
+                        required:true
+                    }
+                },
+                {
                     name: "fch_Asignacion", 
                     width: 200,
                     editable:true,
@@ -175,15 +189,8 @@ $(document).ready(function() {
                 del : false,
                 search :false,
                 closeAfterEdit: true,
-                closeAfterAdd:true,
-                afterSubmit : function(response, postdata)
-                {
-                } 
-            },
-            {},
-            {},
-            {
-            }).navButtonAdd("#pagerGarantiaGrid", {
+                closeAfterAdd:true
+                }).navButtonAdd("#pagerGarantiaGrid", {
                 caption: "", 
                 buttonicon: "ui-icon-circle-plus",
                 onClickButton: function (data) { 
@@ -194,7 +201,7 @@ $(document).ready(function() {
                 cursor: "pointer"
             });
             
-            garantiaGrid.jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
+            $(garantiaGrid).jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
         },
         agregarMantenimiento = function(){                
                 $.ajax({
@@ -224,7 +231,7 @@ $(document).ready(function() {
 		btnSearchClient:$("#searchClient"),
         docClient:$("#Orden_k_idUsuario"),
         typeDocument:$("#typeDocument"),
-        garantiaGrid:$("#garantiaGrid"),
+        garantiaGrid:"#garantiaGrid",
         clientData:$("#clientData")
 	});
 });
