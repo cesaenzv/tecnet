@@ -21,7 +21,7 @@ class EquipoController extends Controller {
     /**
      * Specifies the access control rules.
      * This method is used by the 'accessControl' filter.
-     * @return array access control rules
+     * @return array access control rulesfa
      */
     public function accessRules() {
         $accessRules = new AccessDataRol();
@@ -37,29 +37,29 @@ class EquipoController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
-    
+
     public function actionSaveGrid($id) {
         extract($_REQUEST);
-        
-        if(isset($oper)){
-            if($oper=="add"){
+
+        if (isset($oper)) {
+            if ($oper == "add") {
                 $equipo = new Equipo();
-                $equipo->i_inhouse=trim($i_inhouse)=="En Tecnet"?1:0;
-                $equipo->k_idEspecificacion=$k_idEspecificacion;
-                $equipo->n_nombreEquipo=$n_nombreEquipo;
-                if($equipo->save()){
+                $equipo->i_inhouse = trim($i_inhouse) == "En Tecnet" ? 1 : 0;
+                $equipo->k_idEspecificacion = $k_idEspecificacion;
+                $equipo->n_nombreEquipo = $n_nombreEquipo;
+                if ($equipo->save()) {
                     echo "{Result:'OK', Message:'Datos guardados correctamente.'}";
-                }else{
+                } else {
                     echo "{Result:'Fail', Message:'Ocurrio un error inesperado.'}";
                 }
             }
         }
     }
 
-    public function actionCreateEMantenimientoView(){
+    public function actionCreateEMantenimientoView() {
         $manageM = new ManageModel;
 
-        $Criteria = new CDbCriteria();         
+        $Criteria = new CDbCriteria();
         $Criteria->condition = "itemname = 'Tecnico Recarga' OR itemname = 'Tecnico Mantenimiento'";
         $users = Authassignment::model()->findAll($Criteria);
         $tempU = array();
@@ -67,112 +67,111 @@ class EquipoController extends Controller {
             $temp = Users::model()->findByPk($u->userid);
             $tempU[$temp->id] = $temp->username;
         }
-        $Criteria->condition = "k_idCliente = "+$_GET['idC'];
+        $Criteria->condition = "k_idCliente = " + $_GET['idC'];
 
-        $listEquipos = $manageM->getColumnList(Equipo::model()->findAll($Criteria),'k_idEquipo','n_nombreEquipo');
+        $listEquipos = $manageM->getColumnList(Equipo::model()->findAll($Criteria), 'k_idEquipo', 'n_nombreEquipo');
 
 
-        $this->layout="_blank";
+        $this->layout = "_blank";
         $this->render('creargarantia', array(
             "idC" => $_GET['idC'],
             "users" => $tempU,
-            "equipos" =>$listEquipos
-            ));        
+            "equipos" => $listEquipos
+        ));
     }
 
-    public function actionCreateEMantenimiento(){
+    public function actionCreateEMantenimiento() {
         $orden = new Orden;
-        $orden->k_idUsuario = Yii::app()->user->id;      
+        $orden->k_idUsuario = Yii::app()->user->id;
         $orden->fchIngreso = date('Y-m-d H:i:s');
         $orden->n_Observaciones = $_POST['descripcion'];
 
-        if($orden->save(false)){
+        if ($orden->save(false)) {
             $pM = new Paquetematenimiento;
             $pM->k_idOrden = $orden->k_idOrden;
             $pM->k_idEquipo = $_POST['equipoId'];
-            if($pM->save(false)){
+            if ($pM->save(false)) {
                 $proceso = new Proceso;
                 $proceso->k_idTecnico = $_POST['tecnicoId'];
                 $proceso->fk_idEstado = 5;
                 $proceso->o_flagLeido = 0;
                 $proceso->fk_idPaqueteManenimiento = $pM->k_idPaquete;
                 $proceso->fchAsignacion = date('Y-m-d H:i:s');
-                if($proceso->save(false)){
+                if ($proceso->save(false)) {
                     echo CJavaScript::jsonEncode(array("msg" => "OK"));
-                }else{
+                } else {
                     echo CJavaScript::jsonEncode(array("msg" => "ERROR"));
                 }
-            }else{
+            } else {
                 echo CJavaScript::jsonEncode(array("msg" => "ERROR"));
             }
-        }else{
-            echo CJavaScript::jsonEncode(array("msg" => "ERROR"));    
+        } else {
+            echo CJavaScript::jsonEncode(array("msg" => "ERROR"));
         }
-        
-
     }
-   
-    public function actionCreateEOrdenView(){
+
+    public function actionCreateEOrdenView() {
         $manageM = new ManageModel;
         $equipo = new Equipo;
 
-        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'k_idMarca','n_nombreMarca');
-        $marca =  array('model' => new Marca,
-                        'list' => $listMarca); 
+        $listMarca = $manageM->getColumnList(Marca::model()->findAll(), 'k_idMarca', 'n_nombreMarca');
+        $marca = array('model' => new Marca,
+            'list' => $listMarca);
 
-        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'k_idTipo','n_tipoEquipo');        
+        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(), 'k_idTipo', 'n_tipoEquipo');
         $tipoEquipo = array('model' => new Tipoequipo,
-                            'list' => $listTipoEquipo);
+            'list' => $listTipoEquipo);
 
         $especificacion = new Especificacion();
 
-        $this->layout="_blank";
+        $this->layout = "mainFancy";
         $this->render('crearequipo', array(
-            'marca' =>$marca,
+            'marca' => $marca,
             'tipoEquipo' => $tipoEquipo,
-            'clienteId'=>$_GET['idC']
+            'clienteId' => $_GET['idC']
         ));
     }
 
-    public function  actionCreateEOrden(){
+    public function actionCreateEOrden() {
         $equipo = new Equipo;
-        try{
-            if(isset($_POST['clienteId'])&&isset($_POST['marca'])&&isset($_POST['especificacion'])&isset($_POST['tipoEquipo'])&isset($_POST['nombreEquipo'])){
+        try {
+            if (isset($_POST['clienteId']) && isset($_POST['marca']) && isset($_POST['especificacion']) & isset($_POST['tipoEquipo']) & isset($_POST['nombreEquipo'])) {
                 $equipo->n_nombreEquipo = $_POST['nombreEquipo'];
                 $equipo->k_idCliente = $_POST['clienteId'];
-                $Criteria = new CDbCriteria(); 
-                $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['especificacion']."'";
+                $equipo->i_inhouse = 'NEW';
+                $Criteria = new CDbCriteria();
+                $Criteria->condition = "k_idMarca = " . $_POST['marca'] . " AND k_idTipoEquipo = " . $_POST['tipoEquipo'] . " AND n_nombreEspecificacion like '" . $_POST['especificacion'] . "'";
                 $especificacion = Especificacion::model()->find($Criteria);
-                if($especificacion !=  null){
-                    $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
-
-                }else{
+                if ($especificacion != null) {
+                    $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+                } else {
                     $especificacion = new Especificacion();
                     $especificacion->k_idMarca = $_POST['marca'];
                     $especificacion->k_idTipoEquipo = $_POST['tipoEquipo'];
-                    $especificacion->n_nombreEspecificacion = $_POST['especificacion'];
+                    $especificacion->n_nombreEspecificacion = strtoupper($_POST['especificacion']);
                     $equipo->k_idEspecificacion = $especificacion->k_especificacion;
-                    if($especificacion->save(false)){
+                    if ($especificacion->save(false)) {
                         $equipo->k_idEspecificacion = $especificacion->k_especificacion;
                     }
                 }
-                if($equipo->save())
-                {
+                if ($equipo->save()) {
                     $data['msg'] = "OK";
-                }else{
-                    $data['msg'] = "PROBLEM";
+                } else {
+                    $msg="";
+                    foreach($equipo->getErrors() as $errores){
+                        foreach($errores as $mensaje){
+                            $msg=$msg.$mensaje."\n";
+                        }
+                    }
+                    $data['msg'] = $msg;
                 }
 
                 echo CJavaScript::jsonEncode($data);
             }
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             $data['msg'] = "PROBLEM";
-            echo CJavaScript::jsonEncode($data);    
+            echo CJavaScript::jsonEncode($data);
         }
-            
-        
-
     }
 
     /**
@@ -183,43 +182,42 @@ class EquipoController extends Controller {
         $manageM = new ManageModel;
         $equipo = new Equipo;
 
-        $listMarca = $manageM->getColumnList(Marca::model()->findAll(),'k_idMarca','n_nombreMarca');
-        $marca =  array('model' => new Marca,
-                        'list' => $listMarca); 
+        $listMarca = $manageM->getColumnList(Marca::model()->findAll(), 'k_idMarca', 'n_nombreMarca');
+        $marca = array('model' => new Marca,
+            'list' => $listMarca);
 
-        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(),'k_idTipo','n_tipoEquipo');        
+        $listTipoEquipo = $manageM->getColumnList(Tipoequipo::model()->findAll(), 'k_idTipo', 'n_tipoEquipo');
         $tipoEquipo = array('model' => new Tipoequipo,
-                            'list' => $listTipoEquipo);
+            'list' => $listTipoEquipo);
 
         $especificacion = new Especificacion();
 
         if (isset($_POST['Equipo']) && isset($_POST['Marca']) && isset($_POST['Tipoequipo']) && isset($_POST['Especificacion'])) {
             $equipo->attributes = $_POST['Equipo'];
-            $equipo->i_inhouse = 1;
-            $Criteria = new CDbCriteria(); 
-            $Criteria->condition = "k_idMarca = ".$_POST['Marca']['n_nombreMarca']." AND k_idTipoEquipo = ".$_POST['Tipoequipo']['n_tipoEquipo']." AND n_nombreEspecificacion like '".$_POST['Especificacion']["n_nombreEspecificacion"]."'";
+            $equipo->i_inhouse = 'NEW';
+            $Criteria = new CDbCriteria();
+            $Criteria->condition = "k_idMarca = " . $_POST['Marca']['n_nombreMarca'] . " AND k_idTipoEquipo = " . $_POST['Tipoequipo']['n_tipoEquipo'] . " AND n_nombreEspecificacion like '" . $_POST['Especificacion']["n_nombreEspecificacion"] . "'";
             $especificacion = Especificacion::model()->find($Criteria);
-            if($especificacion !=  null){
-                $equipo->k_idEspecificacion = $especificacion->k_especificacion; 
-
-            }else{
+            if ($especificacion != null) {
+                $equipo->k_idEspecificacion = $especificacion->k_especificacion;
+            } else {
                 $especificacion = new Especificacion();
                 $especificacion->k_idMarca = $_POST['Marca']['n_nombreMarca'];
                 $especificacion->k_idTipoEquipo = $_POST['Tipoequipo']['n_tipoEquipo'];
                 $especificacion->n_nombreEspecificacion = $_POST['Especificacion']["n_nombreEspecificacion"];
                 $equipo->k_idEspecificacion = $especificacion->k_especificacion;
-                if($especificacion->save(false)){
+                if ($especificacion->save(false)) {
                     $equipo->k_idEspecificacion = $especificacion->k_especificacion;
                 }
             }
-            
-            if($equipo->save())
-                $this->redirect(array('view', 'id' => $equipo->k_idEquipo));            
+
+            if ($equipo->save())
+                $this->redirect(array('view', 'id' => $equipo->k_idEquipo));
         }
-        
+
         $this->render('create', array(
             'equipo' => $equipo,
-            'marca' =>$marca,
+            'marca' => $marca,
             'tipoEquipo' => $tipoEquipo,
             'especificacion' => $especificacion
         ));
@@ -308,7 +306,5 @@ class EquipoController extends Controller {
             Yii::app()->end();
         }
     }
-
-    
 
 }

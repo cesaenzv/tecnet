@@ -60,13 +60,21 @@ class ClienteController extends Controller {
         ));
     }
 
-    public function actionCreateFancy($id) {
+    public function actionCreateFancy($id = null) {
         $model = new Cliente;
-        $this->layout="_blank";
-        $model->k_identificacion=$id;
-        $this->render('createFancy', array(
-            'model' => $model,
-        ));
+        $this->performAjaxValidation($model);
+        $this->layout = "mainFancy";
+        $model->k_identificacion = $id;
+        if (isset($_POST['Cliente'])) {
+            $model->attributes = $_POST['Cliente'];
+            $model->k_usuarioCrea = Yii::app()->user->Id;
+            if ($model->save())
+                echo CJavaScript::jsonEncode("Cliente creado correctamente");
+        }else {
+            $this->render('createFancy', array(
+                'model' => $model,
+            ));
+        }
     }
 
     /**
@@ -180,46 +188,47 @@ class ClienteController extends Controller {
     public function actionGetEspecificaciones() {
         $especificacion = Especificacion::model()->findAll();
         $resultado = "<select>";
-        foreach ($especificacion as $val){
-        $tipoEquipo = Tipoequipo::model()->findByPk($val->k_idTipoEquipo);
-        $valEspecifica = $tipoEquipo->n_tipoEquipo . " " . $val->n_nombreEspecificacion;
-        $resultado=$resultado."<option val='".$val->k_especificacion."'>".$valEspecifica."</option>";
+        foreach ($especificacion as $val) {
+            $tipoEquipo = Tipoequipo::model()->findByPk($val->k_idTipoEquipo);
+            $valEspecifica = $tipoEquipo->n_tipoEquipo . " " . $val->n_nombreEspecificacion;
+            $resultado = $resultado . "<option val='" . $val->k_especificacion . "'>" . $valEspecifica . "</option>";
         }
-        $resultado = $resultado."</select>";
+        $resultado = $resultado . "</select>";
         echo $resultado;
-        
     }
-    /*public function actionGetEstados() {
-        $especificacion = Especificacion::model()->findAll();
-        $resultado = "<select>";
-        $resultado=$resultado."<option val='1'>En Tecnet</option>";
-        $resultado=$resultado."<option val='0'>En casa de cliente</option>";
-        $resultado = $resultado."</select>";
-        echo $resultado;
-        
-    }*/
+
+    /* public function actionGetEstados() {
+      $especificacion = Especificacion::model()->findAll();
+      $resultado = "<select>";
+      $resultado=$resultado."<option val='1'>En Tecnet</option>";
+      $resultado=$resultado."<option val='0'>En casa de cliente</option>";
+      $resultado = $resultado."</select>";
+      echo $resultado;
+
+      } */
+
     public function actionGetEstados() {
         $especificacion = Especificacion::model()->findAll();
         $resultado = "<select>";
-        $resultado=$resultado."<option val='1'>En Tecnet</option>";
-        $resultado=$resultado."<option val='0'>En casa de cliente</option>";
-        $resultado = $resultado."</select>";
+        $resultado = $resultado . "<option val='LOC'>Local</option>";
+        $resultado = $resultado . "<option val='LAB'>Laboratorio</option>";
+        $resultado = $resultado . "<option val='ENT'>Entregado</option>";
+        $resultado = $resultado . "</select>";
         echo $resultado;
-        
     }
 
     public function actionGetEquipoGrid() {
         $id = $_GET['idCliente'];
         $response = null;
-        if(isset($_GET['garantia'])){
+        if (isset($_GET['garantia'])) {
             $response = $this->getMantenimientoForGrid($id);
-        }else{
+        } else {
             $response = $this->getEquipoForGrid($id);
         }
         echo json_encode($response);
     }
 
-    public function getMantenimientoForGrid($id){
+    public function getMantenimientoForGrid($id) {
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
@@ -239,24 +248,24 @@ class ClienteController extends Controller {
         $response = new stdClass();
         $response->page = $_POST['page'];        
         $rows = $dataProvider->getData();
-        $count =0;
+        $count = 0;
         foreach ($rows as $i => $row) {
             $row = $this->tratarProceso($row, $id);
-            if($row != false){
+            if ($row != false) {
                 $response->rows[$count]['id'] = $row['k_idProceso'];
                 $response->rows[$count]['cell'] = array(
                     $row['k_idProceso'],
-                    $row['nombreE'],//nombreEquipo
-                    $row['especificacion'],//Especificacion                                         
-                    $row['k_idTecnico']['username'],//Tecnico
-                    $row['n_descripcion'],//Descripcion
-                    $row['o_flagLeido'],//Estado leido
-                    $row['fchAsignacion'],//
+                    $row['nombreE'], //nombreEquipo
+                    $row['especificacion'], //Especificacion                                         
+                    $row['k_idTecnico']['username'], //Tecnico
+                    $row['n_descripcion'], //Descripcion
+                    $row['o_flagLeido'], //Estado leido
+                    $row['fchAsignacion'], //
                     $row['fchFinalizacion'],
                     $row['fk_idEstado']//Estado Garantia    
                 );
-                $count += 1;    
-            }            
+                $count += 1;
+            }
         }
         $response->records = $count;
         $response->total = ceil($response->records / $ro);
@@ -264,44 +273,43 @@ class ClienteController extends Controller {
         return $response;
     }
 
-    protected function tratarProceso ($proceso, $idCliente){         
+    protected function tratarProceso($proceso, $idCliente) {
         $Criteria = new CDbCriteria;
-        $Criteria->condition = "k_idPaquete = "+ $proceso->fk_idPaqueteManenimiento;
+        $Criteria->condition = "k_idPaquete = " + $proceso->fk_idPaqueteManenimiento;
 
         $temp = Paquetematenimiento::model()->findAll($Criteria);
-        $pM =null;
+        $pM = null;
 
         foreach ($temp as $i => $p) {
-            if($p->k_idPaquete == $proceso->fk_idPaqueteManenimiento)
-            {
-                $pM=$p;
+            if ($p->k_idPaquete == $proceso->fk_idPaqueteManenimiento) {
+                $pM = $p;
             }
         }
 
         $equipo = Equipo::model()->findByPk($pM->k_idEquipo);
         $orden = Orden::model()->findByPk($pM->k_idOrden);
-        if($equipo->k_idCliente == $idCliente){
+        if ($equipo->k_idCliente == $idCliente) {
             $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
             $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
             $tecnico = Users::model()->findByPk($proceso->k_idTecnico);
             $proceso = $proceso->attributes;
-            $proceso["especificacion"] = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;            
+            $proceso["especificacion"] = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
             $proceso['nombreE'] = $equipo->n_nombreEquipo;
             $proceso['k_idTecnico'] = $tecnico->attributes;
-            $proceso['o_flagLeido'] = $proceso['o_flagLeido'] == 0? "No Tratado": "Revisado";
-            $proceso['n_descripcion'] =$proceso['fk_idEstado'] == 6 ? $proceso['n_descripcion'] : $orden->n_Observaciones;
-            $proceso['fk_idEstado'] =$proceso['fk_idEstado'] == 5 ? "En Garantia" : "Dev. Garantia";
+            $proceso['o_flagLeido'] = $proceso['o_flagLeido'] == 0 ? "No Tratado" : "Revisado";
+            $proceso['n_descripcion'] = $proceso['fk_idEstado'] == 6 ? $proceso['n_descripcion'] : $orden->n_Observaciones;
+            $proceso['fk_idEstado'] = $proceso['fk_idEstado'] == 5 ? "En Garantia" : "Dev. Garantia";
 
             return $proceso;
         }
         return false;
     }
 
-    public function getEquipoForGrid($id){
+    public function getEquipoForGrid($id) {
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
-        $criteria->condition = "k_idCliente = " . $id;
+        $criteria->condition = "k_idCliente = " . $id." AND (i_inhouse='NEW' OR i_inhouse='ENT') ";
         $dataProvider = new CActiveDataProvider('Equipo', array(
                     'criteria' => $criteria,
                     'pagination' => array(
@@ -319,13 +327,19 @@ class ClienteController extends Controller {
             $especificacion = Especificacion::model()->findByPk($row['k_idEspecificacion']);
             $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
             $especificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
-
+            switch ($row['i_inhouse']){
+                case 'LOC': $estadoEquipo="Local";break;
+                case 'LAB': $estadoEquipo="Laboratorio";break;
+                case 'ENT': $estadoEquipo="Entregado";break;
+                case 'NEW': $estadoEquipo="Nuevo";break;
+                default: $estadoEquipo="Sin Estado";
+            }
             $response->rows[$i]['id'] = $row['k_idEquipo'];
             $response->rows[$i]['cell'] = array(
                 $row['k_idEquipo'],
                 $row['n_nombreEquipo'],
                 $especificacion,
-                $row['i_inhouse'] == 1 ? "En Tecnet" : "En Casa",
+                $estadoEquipo,
             );
         }
 

@@ -12,7 +12,11 @@
 	vertical-align: middle;
 	border-radius: 1em;
 }
-
+.ui-widget-overlay{
+    background-color: #000 !important; 
+    opacity:1 !important; 
+    z-index:1000 !important;
+}
 #searchClient:hover{
 	background-color: rgba(175,175,175,0.5)
 }
