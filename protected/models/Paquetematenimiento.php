@@ -74,6 +74,7 @@ class Paquetematenimiento extends CActiveRecord
 			'k_idEquipo' => 'K Id Equipo',
 			'q_diasGarantia' => 'Dias de garantia',
 			'q_descuento' => 'Descuento',
+			'n_accesorios' => 'Accesorios',
 		);
 	}
 
@@ -93,6 +94,7 @@ class Paquetematenimiento extends CActiveRecord
 		$criteria->compare('k_idEquipo',$this->k_idEquipo);
 		$criteria->compare('q_diasGarantia',$this->q_diasGarantia);
 		$criteria->compare('q_descuento',$this->q_descuento);
+		$criteria->compare('n_accesorios',$this->n_accesorios);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

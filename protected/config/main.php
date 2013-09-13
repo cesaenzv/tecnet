@@ -20,14 +20,13 @@ return array(
     ),
     'modules' => array(
 // uncomment the following to enable the Gii tool
-        
-          'gii'=>array(
-          'class'=>'system.gii.GiiModule',
-          'password'=>'123456789',
-          // If removed, Gii defaults to localhost only. Edit carefully to taste.
-          'ipFilters'=>array('186.116.189.23','::1'),
-          ),
-         
+
+        'gii' => array(
+            'class' => 'system.gii.GiiModule',
+            'password' => '123456789',
+            // If removed, Gii defaults to localhost only. Edit carefully to taste.
+            'ipFilters' => array('186.116.189.23', '::1'),
+        ),
         'user' => array(
             'tableUsers' => 'users',
             'tableProfiles' => 'profiles',
@@ -48,29 +47,31 @@ return array(
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
-            'showScriptName'=>false,
-            'caseSensitive'=>true,
+            'showScriptName' => false,
+            'caseSensitive' => true,
         ),
-       /* 
-        * db local
-        */
-      /*  'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=tecnet',
-            'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-            'tablePrefix' => '',
-        ),*/
-        /*
-         * db tecnet
-         */
-        
+        'ePdf' => array(
+            'class' => 'ext.pdf.EYiiPdf',
+            'params' => array(
+                'HTML2PDF' => array(
+                    'librarySourcePath' => 'application.vendors.html2pdf.*',
+                    'classFile' => 'html2pdf.class.php', // For adding to Yii::$classMap
+                    'defaultParams' => array(// More info: http://wiki.spipu.net/doku.php?id=html2pdf:en:v4:accueil
+                        'orientation' => 'P', // landscape or portrait orientation
+                        'format' => 'A4', // format A4, A5, ...
+                        'language' => 'es', // language: fr, en, it ...
+                        'unicode' => true, // TRUE means clustering the input text IS unicode (default = true)
+                        'encoding' => 'UTF-8', // charset encoding; Default is UTF-8
+                        'marges' => array(5, 5, 5, 8), // margins by default, in order (left, top, right, bottom)
+                    )
+                )
+            ),
+        ),
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=tecnet',
+            'connectionString' => 'mysql:host=localhost;dbname=artifexs_tecnetpc',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
+            'username' => 'artifexs_tecnetp',
+            'password' => 'tecnet2013',
             'charset' => 'utf8',
             'tablePrefix' => '',
         ),
@@ -111,5 +112,5 @@ return array(
 // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
     ),
-    'language'=>'es',
+    'language' => 'es',
 );

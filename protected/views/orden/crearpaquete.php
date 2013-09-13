@@ -47,7 +47,12 @@ foreach ($usuarioRoles as $usuarios){
     <span>Observaciones </span>
     <textarea id="observaciones" cols="20" rows="5"></textarea>
 </div>
+<div>
+    <span>Accesorios </span>
+    <textarea id="accesorios" cols="20" rows="5"></textarea>
+</div>
 <div id="crearAsignacion">Guardar</div>
+<div id="prevOrden">previsualizar orden</div>
 
 <script type="text/javascript">
     var equiposMantenimiento = new Array();
@@ -179,6 +184,9 @@ foreach ($usuarioRoles as $usuarios){
         return false;
     }
     ordenMantenimiento=function(){
+    $("#prevOrden").button().click(function(){
+        window.open('<?php echo Yii::app()->request->baseUrl . Yii::app()->createUrl("orden/viewPDF", array("id" => $model->k_idOrden)); ?>', '_blank', 'height=600,width=850,toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no');
+    });
     $("#crearAsignacion").button().click(function(){
         var equipoId = jQuery("#equiposMantenimientoGrid").jqGrid('getGridParam', 'selrow');
         var dataEquipo = jQuery("#equiposMantenimientoGrid").getRowData(equipoId);
@@ -206,7 +214,8 @@ foreach ($usuarioRoles as $usuarios){
                     tecnico:$("#usuarios").val(),
                     garantia:$("#garantia").val(),
                     descuento:$("#descuento").val(),
-                    observaciones:$("#observaciones").val()
+                    observaciones:$("#observaciones").val(),
+                    accesorios:$("accesorios").val()
                 }
                 $.ajax({
                     type: "POST",
