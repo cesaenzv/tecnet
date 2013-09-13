@@ -47,6 +47,10 @@ foreach ($usuarioRoles as $usuarios){
     <span>Observaciones </span>
     <textarea id="observaciones" cols="20" rows="5"></textarea>
 </div>
+<div>
+    <span>Accesorios </span>
+    <textarea id="accesorios" cols="20" rows="5"></textarea>
+</div>
 <div id="crearAsignacion">Guardar</div>
 
 <script type="text/javascript">
@@ -206,7 +210,8 @@ foreach ($usuarioRoles as $usuarios){
                     tecnico:$("#usuarios").val(),
                     garantia:$("#garantia").val(),
                     descuento:$("#descuento").val(),
-                    observaciones:$("#observaciones").val()
+                    observaciones:$("#observaciones").val(),
+                    accesorios:$("accesorios").val()
                 }
                 $.ajax({
                     type: "POST",

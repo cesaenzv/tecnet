@@ -319,6 +319,7 @@ class OrdenController extends Controller {
                 $procesoServicio->k_idServicio = $val;
                 $procesoServicio->k_idUsuario = Yii::app()->user->id;
                 $procesoServicio->q_estadoPago = 0;
+                $procesoServicio->n_accesorios=$accesorios;
                 $procesoServicio->save();
             }
             $respuesta->status = "OK";
