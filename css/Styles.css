@@ -1,3 +1,12 @@
+/*___________________________________________Estilos formularios________________________________________*/
+.oneFilerow label{
+	display: inline-block !important;
+	width: 40% !important;
+	vertical-align: middle;
+}
+
+
+
 /*<___________________________________________ CLIENTES ________________________________________________>*/
 .span-19{
 	width:99%;
@@ -13,9 +22,7 @@
 	border-radius: 1em;
 }
 .ui-widget-overlay{
-    background-color: #000 !important; 
-    opacity:1 !important; 
-    z-index:1000 !important;
+    background-color: rgba(0,0,0,0.2) !important; 
 }
 #searchClient:hover{
 	background-color: rgba(175,175,175,0.5)

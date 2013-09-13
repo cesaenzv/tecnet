@@ -26,12 +26,24 @@ $(document).ready(function() {
             });
         },
         jQPlugins = function(){
-            $("#callViewCrearMantenimiento").dialog({
-                resizable: false,  
-                autoOpen: false,            
-                modal: false,
-                width:900,
-                title:"Crear Garantia",                
+            $("#dialog-iframe").dialog({
+                autoOpen: false
+            });
+            $("#callViewCrearGarantia").dialog({
+                autoOpen: false,                
+                resizable: true,  
+                autoOpen: false,
+                width:500,
+                title:"Crear Garantia",
+                modal:true,
+                show: {
+                    effect: "blind",
+                    duration: 400
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 400
+                }                
             });
         },
         findClient = function(){
@@ -47,10 +59,14 @@ $(document).ready(function() {
                         showClienteData(data.cliente);
                         createGarantiaGrid(docClient.val());
                     }else{
-                    	console.log("Mostrar fancy");
-                    	$("#createCliente").attr("href","");
-                        $("#createCliente").attr("href","../cliente/createFancy/"+docClient.val())
-                        $("#createCliente").click();
+                        $("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
+                        $("#dialog-iframe").dialog( "option", "width", 450 );
+                        $("#dialog-iframe").dialog( "option", "resizable", false );
+                        $("#dialog-iframe").dialog("open");
+                        $("#iframe").attr('src',"../cliente/createFancy/"+docClient.val());
+                        $("#iframe").attr('width',"400");
+                        $("#iframe").attr('height',"525");
+                        $("#dialog-iframe").dialog( "option", "position", "center");
                     }
                 },
                 error:function(){
@@ -195,7 +211,7 @@ $(document).ready(function() {
                 caption: "", 
                 buttonicon: "ui-icon-circle-plus",
                 onClickButton: function (data) { 
-                    agregarMantenimiento();
+                    agregarGarantia();
                 },
                 position: "first", 
                 title: "Nuevo Mant.", 
@@ -204,22 +220,22 @@ $(document).ready(function() {
             
             $(garantiaGrid).jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
         },
-        agregarMantenimiento = function(){                
-                $.ajax({
-                    url:urlView+'/?idC='+docClient.val(),
-                    dataType: "html",
-                    data: {
-                        doc:docClient.val(), 
-                        typeDoc:typeDocument.val()
-                    },
-                    success:function(data){
-                        $("#callViewCrearMantenimiento").html(data);
-                        $("#callViewCrearMantenimiento").dialog();
-                    },
-                    error:function(){
-                        alert("error");
-                    }
-                });
+        agregarGarantia = function(){                
+            $.ajax({
+                url:urlView+'/?idC='+docClient.val(),
+                dataType: "html",
+                data: {
+                    doc:docClient.val(), 
+                    typeDoc:typeDocument.val()
+                },
+                success:function(data){
+                    $("#callViewCrearGarantia").html(data);
+                    $("#callViewCrearGarantia").dialog("open");
+                },
+                error:function(){
+                    alert("error");
+                }
+            });
         };
 
 

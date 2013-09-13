@@ -1,12 +1,4 @@
-<?php 
-Yii::app()->getClientScript()->registerCssFile('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
-Yii::app()->clientScript->registerCoreScript('jquery');
-Yii::app()->getClientScript()->registerCssFile(Yii::app()->request->baseUrl . '/css/ui.jqgrid.css');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery.ui.js', CClientScript::POS_HEAD);
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/grid.locale-es.js', CClientScript::POS_HEAD);
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/libs/jquery.jqGrid.src.js', CClientScript::POS_HEAD);
 
-?>
 <script type="text/javascript"> 
 
 	var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimiento"); ?>';
@@ -16,30 +8,34 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js
 </script>
 
 <div class="form">
-    <div>
+    <div class="row">
         <label>Identificacion del Cliente</label>
         <label id="idClienteLbl"><?php echo $idC ?></label>
-        <label>Tecnico</label>
-        <?php
-        echo CHtml::dropDownList('userTec', 'userTec', $users, null);
-        ?>   
-    </div>
-    <div>
-    	<label>Equipos</label>
-        <?php
-        echo CHtml::dropDownList('equipoId', 'equipoId', $equipos, null);
-        ?>        
     </div>
 
-    <div>
+    <div class="oneFilerow">
+        <label>Tecnico
+            <?php
+            echo CHtml::dropDownList('userTec', 'userTec', $users, null);
+            ?>
+        </label>
+        
+        <label>Equipos
+            <?php
+            echo CHtml::dropDownList('equipoId', 'equipoId', $equipos, null);
+            ?> 
+        </label>
+                
+    </div>
+
+    <div style="margin: 0 20%;">
         <table id="tableGridOrden"></table>
         <div id="pagerGridOrden"></div>
     </div>
 
     <div class="row">
         <label>Descripcion</label>
-        <textarea id="txtDescripcion" rows="10" cols="25"></textarea>
-        
+        <textarea id="txtDescripcion" rows="4" cols="40" maxlength="250"></textarea>        
     </div>
     <button id="crearGarantia">Crear Garantia</button>    
 </div>
@@ -102,8 +98,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js
             }
             ],
             pager: pagerGrid,
-            rowNum: 20,
-            rowList: [20, 40, 60],
+            rowNum: 10,
+            rowList: [10, 20, 30, 40, 50, 60],
             sortname: "k_idOrden",
             sortorder: "desc",               
             viewrecords: true,

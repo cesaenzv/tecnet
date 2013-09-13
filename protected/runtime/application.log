@@ -6974,3 +6974,216 @@ Stack trace:
 REQUEST_URI=/tecnet/index.php
 ---
 >>>>>>> 6f9f0ef3e468a2ac3e354d3515bef62e9ad6d31c
+2013/09/13 16:07:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'artifexs_tecnetp'@'localhost' (using password: YES)' in C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\xampp\htdocs\tecnet\framework\web\auth\CDbAuthManager.php(589): CModule->getComponent('db')
+#4 C:\xampp\htdocs\tecnet\framework\web\auth\CDbAuthManager.php(59): CDbAuthManager->getDbConnection()
+#5 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): CDbAuthManager->init()
+#6 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(185): CModule->getComponent('authManager')
+#7 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(27): CWebApplication->getAuthManager()
+#8 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): RAuthorizer->init()
+#9 C:\xampp\htdocs\tecnet\protected\modules\rights\RightsModule.php(192): CModule->getComponent('authorizer')
+#10 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(287): RightsModule->getAuthorizer()
+#11 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(60): Rights::getAuthorizer()
+#12 C:\xampp\htdocs\tecnet\protected\components\AccessDataRol.php(6): Rights::getAssignedRoles(NULL)
+#13 C:\xampp\htdocs\tecnet\protected\components\AccessDataRol.php(79): AccessDataRol->getRolesName()
+#14 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(49): AccessDataRol->getItems()
+#15 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#19 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#20 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#21 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#22 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#23 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#24 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#25 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#26 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#27 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#28 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#29 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#30 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#32 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#33 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/tecnet/
+---
+2013/09/13 16:27:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'artifexs_tecnetp'@'localhost' (using password: YES)' in C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\tecnet\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\xampp\htdocs\tecnet\framework\web\auth\CDbAuthManager.php(589): CModule->getComponent('db')
+#4 C:\xampp\htdocs\tecnet\framework\web\auth\CDbAuthManager.php(59): CDbAuthManager->getDbConnection()
+#5 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): CDbAuthManager->init()
+#6 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(185): CModule->getComponent('authManager')
+#7 C:\xampp\htdocs\tecnet\protected\modules\rights\components\RAuthorizer.php(27): CWebApplication->getAuthManager()
+#8 C:\xampp\htdocs\tecnet\framework\base\CModule.php(387): RAuthorizer->init()
+#9 C:\xampp\htdocs\tecnet\protected\modules\rights\RightsModule.php(192): CModule->getComponent('authorizer')
+#10 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(287): RightsModule->getAuthorizer()
+#11 C:\xampp\htdocs\tecnet\protected\modules\rights\components\Rights.php(60): Rights::getAuthorizer()
+#12 C:\xampp\htdocs\tecnet\protected\components\AccessDataRol.php(6): Rights::getAssignedRoles(NULL)
+#13 C:\xampp\htdocs\tecnet\protected\components\AccessDataRol.php(79): AccessDataRol->getRolesName()
+#14 C:\xampp\htdocs\tecnet\protected\views\layouts\main.php(49): AccessDataRol->getItems()
+#15 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\tecnet\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#19 C:\xampp\htdocs\tecnet\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#20 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(206): COutputProcessor->run()
+#21 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#22 C:\xampp\htdocs\tecnet\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#23 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#24 C:\xampp\htdocs\tecnet\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#25 C:\xampp\htdocs\tecnet\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#26 C:\xampp\htdocs\tecnet\protected\controllers\SiteController.php(32): CController->render('index')
+#27 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#28 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#29 C:\xampp\htdocs\tecnet\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#30 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('')
+#32 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#33 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/tecnet/
+---
+2013/09/13 16:28:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:28:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:41:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:42:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:42:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:42:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:42:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 16:43:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "tecnet/orden/viewPDF/26"' in C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('tecnet/orden/vi...')
+#1 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tecnet/tecnet/orden/viewPDF/26
+HTTP_REFERER=http://localhost:1234/tecnet/orden/26
+---
+2013/09/13 17:57:40 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND i_nit = 'CC' LIMIT 1' at line 1. La sentencia SQL ejecutada fue: SELECT * FROM `cliente` `t` WHERE k_identificacion =  AND i_nit = 'CC' LIMIT 1.
+in C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php (167)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/13 17:57:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND i_nit = 'CC' LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `cliente` `t` WHERE k_identificacion =  AND i_nit = 'CC' LIMIT 1' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(167): CActiveRecord->find(Object(CDbCriteria))
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ClienteController->actionSearchClient()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('SearchClient')
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente/SearchC...')
+#15 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/tecnet/Cliente/SearchClient?doc=&typeDoc=CC
+HTTP_REFERER=http://localhost:1234/tecnet/Orden/VerGarantia
+---
+2013/09/13 18:24:23 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND i_nit = 'CC' LIMIT 1' at line 1. La sentencia SQL ejecutada fue: SELECT * FROM `cliente` `t` WHERE k_identificacion =  AND i_nit = 'CC' LIMIT 1.
+in C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php (167)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/13 18:24:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND i_nit = 'CC' LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `cliente` `t` WHERE k_identificacion =  AND i_nit = 'CC' LIMIT 1' in C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\tecnet\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(167): CActiveRecord->find(Object(CDbCriteria))
+#4 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): ClienteController->actionSearchClient()
+#5 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('SearchClient')
+#14 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('Cliente/SearchC...')
+#15 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/tecnet/Cliente/SearchClient?doc=&typeDoc=CC
+HTTP_REFERER=http://localhost:1234/tecnet/Orden/VerGarantia
+---

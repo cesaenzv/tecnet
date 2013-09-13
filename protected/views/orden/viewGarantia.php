@@ -11,7 +11,7 @@
     var	searchClientUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/SearchClient"); ?>';
     var	createEquipoGridUrl = '<?php echo Yii::app()->createAbsoluteUrl("Cliente/GetEquipoGrid"); ?>'; 
     var urlView = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimientoView"); ?>';
-
+    var crearClienteUrl = '<?php echo Yii::app()->createAbsoluteUrl("cliente/createFancy"); ?>'; 
     var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimiento"); ?>';
 </script>
 
@@ -40,7 +40,12 @@
 
 </div>
 
-<div id="callViewCrearMantenimiento">    
+<div id ="dialog-iframe">
+    <iframe id="iframe">
+    </iframe>
+</div>
+
+<div id="callViewCrearGarantia" >    
     
 </div>
 
