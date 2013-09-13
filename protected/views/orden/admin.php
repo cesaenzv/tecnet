@@ -18,27 +18,29 @@ $('.search-form form').submit(function(){
 
 <h1>Buscar Orden</h1>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button')); ?>
 <div class="search-form" style="display:none">
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'orden-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'k_idOrden',
-		array(
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'orden-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'k_idOrden',
+        array(
             'name' => 'k_idUsuario',
             'filter' => CHtml::listData(Users::model()->findAll(), 'id', 'username'), // fields from country table
             'value' => 'Users::Model()->FindByPk($data->k_idUsuario)->username',
         ),
-		'fchIngreso',
-		'fchEntrega',
-		'n_Observaciones',
-		array(
-			'class'=>'CButtonColumn',
-			'template' => '{view}',
-		),
-	),
-)); ?>
+        'fchIngreso',
+        'fchEntrega',
+        'n_Observaciones',
+        array(
+            'class' => 'CButtonColumn',
+            'template' => '{view}',
+        ),
+    ),
+));
+?>

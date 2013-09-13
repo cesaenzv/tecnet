@@ -35,66 +35,72 @@ class OrdenController extends Controller {
     public function actionView($id) {
         $orden = $this->loadModel($id);
         $paquetesA = $this->getPaquetesOrden($id);
-        $ingresado = 0; $laboratorio =0; $finalizado =0;
+        $ingresado = 0;
+        $laboratorio = 0;
+        $finalizado = 0;
         $count = 1;
         $paquetesMostrar = array();
-        foreach($paquetesA as $i=>$paquete){
-            $ingresadoP = 0; $laboratorioP =0; $finalizadoP =0;
-            if(count($paquete['procesos']) > 0){
+        foreach ($paquetesA as $i => $paquete) {
+            $ingresadoP = 0;
+            $laboratorioP = 0;
+            $finalizadoP = 0;
+            if (count($paquete['procesos']) > 0) {
                 foreach ($paquete['procesos'] as $j => $p) {
-                switch ($p['proceso']['fk_idEstado']) {
-                    case 1:
-                        $ingresado += 1;
-                        $ingresadoP += 1;
-                        break;                    
-                    case 2:
-                    case 4:
-                    case 5:
-                        $laboratorio +=1;
-                        $laboratorioP +=1;
-                        break; 
-                    case 3:
-                    case 6:
-                        $finalizado += 1;
-                        $finalizadoP += 1;
-                        break; 
+                    switch ($p['proceso']['fk_idEstado']) {
+                        case 1:
+                            $ingresado += 1;
+                            $ingresadoP += 1;
+                            break;
+                        case 2:
+                        case 4:
+                        case 5:
+                            $laboratorio +=1;
+                            $laboratorioP +=1;
+                            break;
+                        case 3:
+                        case 6:
+                            $finalizado += 1;
+                            $finalizadoP += 1;
+                            break;
                     }
                     $count += 1;
-                }                        
-                $paquetesMostrar[] = array( "equipo"=>$paquete['equipo'],
-                                            "garantia"=>$paquete['paqueteEquipo']['q_diasGarantia'],
-                                            "descuento"=>$paquete['paqueteEquipo']['q_descuento'],
-                                            "estado"=>$finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado':'En laboratorio'));    
-            }             
-            
+                }
+                $paquetesMostrar[] = array("equipo" => $paquete['equipo'],
+                    "garantia" => $paquete['paqueteEquipo']['q_diasGarantia'],
+                    "descuento" => $paquete['paqueteEquipo']['q_descuento'],
+                    "estado" => $finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado' : 'En laboratorio'));
+            }
         }
-
+        $cliente="";
+        if(count($paquetesMostrar)>0){
+            $cliente=  Cliente::model()->findByPk($paquetesMostrar[0]["equipo"]["k_idCliente"]);
+        }
         $this->render('view', array(
-            'model' => $this->loadModel($id),
-            'estado' => $finalizado == $count ? 'Finalizado' : ($ingresado == $count ? 'No iniciado':'En laboratorio'),
-            'paquetes' => $paquetesMostrar
+            'model' => $orden,
+            'estado' => $finalizado == $count ? 'Finalizado' : ($ingresado == $count ? 'No iniciado' : 'En laboratorio'),
+            'paquetes' => $paquetesMostrar,
+            'datosCliente'=>$cliente
         ));
     }
 
-    protected function getPaquetesOrden($id){
+    protected function getPaquetesOrden($id) {
         $manageM = new ManageModel;
         $pqtOrden = Paquetematenimiento::model()->findAllByAttributes(
-            array(),
-            $condition  = 'k_idOrden = :idO',
-            $params     = array(':idO' => $id));
+                array(), $condition = 'k_idOrden = :idO', $params = array(':idO' => $id));
         $paquetesA = array();
-        foreach ($pqtOrden as $j => $pqO) {
-            $procesos = $manageM->getProcesosByCriteria("fk_idPaqueteManenimiento = ".$pqO->k_idPaquete,null,null,true);
+        foreach ($pqtOrden as $pqO) {
+            $procesos = $manageM->getProcesosByCriteria("fk_idPaqueteManenimiento = " . $pqO->k_idPaquete, null, array(), true);
             $equipo = Equipo::model()->findByPk($pqO->k_idEquipo);
             $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
             $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
             $equipo->k_idEspecificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
-            $paquetesA[] = array('paqueteEquipo' => $pqO->attributes, 'procesos'=> $procesos, 'equipo'=>$equipo->attributes);
+            $paquetesA[] = array('paqueteEquipo' => $pqO->attributes, 'procesos' => $procesos, 'equipo' => $equipo->attributes);
         }
-        return $paquetesA;     
+        
+        return $paquetesA;
     }
 
-    public function actionGetEquiposOrden($id){
+    public function actionGetEquiposOrden($id) {
         $criteria = new CDbCriteria;
         $paquetesA = $this->getPaquetesOrden($id);
 
@@ -103,13 +109,13 @@ class OrdenController extends Controller {
         }
 
         $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
-        /*TRAER LA INFORMACION DE LA ORDEN LOS PAQUETES DE MANTENIMIENTO Y SUS PROCESOS*/
-        
-        $response = new stdClass();
-        $count=0;
+        /* TRAER LA INFORMACION DE LA ORDEN LOS PAQUETES DE MANTENIMIENTO Y SUS PROCESOS */
 
-        foreach($paquetesA AS $i=>$paquete){
-            if(count($paquete['procesos'])>0){
+        $response = new stdClass();
+        $count = 0;
+
+        foreach ($paquetesA AS $i => $paquete) {
+            if (count($paquete['procesos']) > 0) {
                 foreach ($paquete['procesos'] as $j => $p) {
                     $response->rows[$count]['id'] = $p['proceso']['k_idProceso'];
                     $response->rows[$count]['cell'] = array(
@@ -117,10 +123,10 @@ class OrdenController extends Controller {
                         $paquete['equipo']['k_idEquipo'],
                         $paquete['equipo']['n_nombreEquipo'],
                         $paquete['equipo']['k_idEspecificacion'],
-                        $paquete['equipo']['i_inhouse'],              
+                        $paquete['equipo']['i_inhouse'],
                         $p['proceso']['n_descripcion'],
                         $p['proceso']['nombreEstado'],
-                        $p['proceso']['o_flagLeido'] == 0? "No" : "Si",
+                        $p['proceso']['o_flagLeido'] == 0 ? "No" : "Si",
                         $p['proceso']['fchAsignacion'],
                         $p['proceso']['fchFinalizacion'],
                         $p['servicio']['n_nomServicio'],
@@ -128,13 +134,13 @@ class OrdenController extends Controller {
                     );
                     $count+=1;
                 }
-            }            
-        }                       
-        $response->records = $count+1;
+            }
+        }
+        $response->records = $count + 1;
         $response->page = $_POST['page'];
         $response->total = ceil($response->records / $ro);
-        
-        echo json_encode($response);   
+
+        echo json_encode($response);
     }
 
     /**
@@ -216,9 +222,9 @@ class OrdenController extends Controller {
                 $paqueteMantenimiento = new Paquetematenimiento;
                 $paqueteMantenimiento->k_idOrden = $orden->k_idOrden;
                 $paqueteMantenimiento->k_idEquipo = $equipo;
-                if($paqueteMantenimiento->save(false)){
+                if ($paqueteMantenimiento->save(false)) {
                     $equipo = Equipo::model()->findByPk($equipo);
-                    $equipo->i_inhouse='LOC';
+                    $equipo->i_inhouse = 'LOC';
                     $equipo->save(false);
                 }
             }
@@ -242,18 +248,18 @@ class OrdenController extends Controller {
         $proceso->n_descripcion = $observaciones;
         $proceso->o_flagLeido = 0;
         $proceso->fk_idPaqueteManenimiento = $paqueteMantenimiento;
-        $paqueteMant = Paquetematenimiento::model()->find("k_idPaquete=:paquete",array(":paquete"=>$paqueteMantenimiento));
-        $paqueteMant->q_diasGarantia=$garantia;
-        $paqueteMant->q_descuento=$descuento;
+        $paqueteMant = Paquetematenimiento::model()->find("k_idPaquete=:paquete", array(":paquete" => $paqueteMantenimiento));
+        $paqueteMant->q_diasGarantia = $garantia;
+        $paqueteMant->q_descuento = $descuento;
         $paqueteMant->save();
         $respuesta = new stdClass();
         if ($proceso->save()) {
             foreach ($servicios as $val) {
                 $procesoServicio = new Procesoservicio;
-                $procesoServicio->k_idProceso=$proceso->k_idProceso;
-                $procesoServicio->k_idServicio=$val;
-                $procesoServicio->k_idUsuario=  Yii::app()->user->id;
-                $procesoServicio->q_estadoPago=0;
+                $procesoServicio->k_idProceso = $proceso->k_idProceso;
+                $procesoServicio->k_idServicio = $val;
+                $procesoServicio->k_idUsuario = Yii::app()->user->id;
+                $procesoServicio->q_estadoPago = 0;
                 $procesoServicio->save();
             }
             $respuesta->status = "OK";
@@ -341,9 +347,9 @@ class OrdenController extends Controller {
         echo json_encode($response);
     }
 
-    public function actionVerGarantia() {        
+    public function actionVerGarantia() {
 
-        $this->render('viewGarantia',array());    
+        $this->render('viewGarantia', array());
     }
 
     /**
