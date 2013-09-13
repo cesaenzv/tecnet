@@ -6808,3 +6808,126 @@ Stack trace:
 REQUEST_URI=/tecnet/orden/12
 in C:\xampp\htdocs\tecnet\protected\controllers\OrdenController.php (43)
 in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/12 15:20:31 [error] [php] Creating default object from empty value (C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php:58)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=2
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (58)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/09/12 15:22:11 [error] [php] Creating default object from empty value (C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php:58)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=2
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (58)
+in C:\xampp\htdocs\git\tecnet\index.php (13)
+2013/09/12 15:25:52 [error] [exception.CDbException] exception 'CDbException' with message 'Tabla "paquetematenimiento" no contiene la columna "select".' in C:\xampp\htdocs\git\tecnet\framework\db\schema\CDbCommandBuilder.php:591
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(1481): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Object(CDbCriteria), '', Array, '`t`.')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php(49): CActiveRecord->findAllByAttributes(Object(CDbCriteria))
+#2 [internal function]: EquipoController->actionGetOrdenesEquipo('3')
+#3 C:\xampp\htdocs\git\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EquipoController), Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EquipoController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('GetOrdenesEquip...')
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/GetOrden...')
+#15 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=3
+HTTP_REFERER=http://localhost/git/tecnet/Orden/VerGarantia
+---
+2013/09/12 15:27:00 [error] [exception.CDbException] exception 'CDbException' with message 'Tabla "paquetematenimiento" no contiene la columna "select".' in C:\xampp\htdocs\git\tecnet\framework\db\schema\CDbCommandBuilder.php:591
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(1481): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Object(CDbCriteria), '', Array, '`t`.')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php(49): CActiveRecord->findAllByAttributes(Object(CDbCriteria))
+#2 [internal function]: EquipoController->actionGetOrdenesEquipo('2')
+#3 C:\xampp\htdocs\git\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EquipoController), Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EquipoController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('GetOrdenesEquip...')
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/GetOrden...')
+#15 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=2
+HTTP_REFERER=http://localhost/git/tecnet/Orden/VerGarantia
+---
+2013/09/12 15:29:51 [error] [exception.CDbException] exception 'CDbException' with message 'Tabla "paquetematenimiento" no contiene la columna "select".' in C:\xampp\htdocs\git\tecnet\framework\db\schema\CDbCommandBuilder.php:591
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\db\ar\CActiveRecord.php(1481): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Object(CDbCriteria), '', Array, '`t`.')
+#1 C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php(49): CActiveRecord->findAllByAttributes(Object(CDbCriteria))
+#2 [internal function]: EquipoController->actionGetOrdenesEquipo('1')
+#3 C:\xampp\htdocs\git\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EquipoController), Array)
+#4 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EquipoController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): CController->run('GetOrdenesEquip...')
+#14 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/GetOrden...')
+#15 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\git\tecnet\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=1
+HTTP_REFERER=http://localhost/git/tecnet/Orden/VerGarantia
+---
+2013/09/12 15:30:17 [error] [php] Undefined variable: count (C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php:66)
+Stack trace:
+#0 C:\xampp\htdocs\git\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(133): EquipoController->runAction()
+#3 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\git\tecnet\framework\web\filters\CInlineFilter.php(58): EquipoController->filterAccessControl()
+#6 C:\xampp\htdocs\git\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\git\tecnet\framework\web\CController.php(265): EquipoController->runActionWithFilters()
+#9 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(282): EquipoController->run()
+#10 C:\xampp\htdocs\git\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\git\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\git\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/git/tecnet/equipo/GetOrdenesEquipo?id=1
+in C:\xampp\htdocs\git\tecnet\protected\controllers\EquipoController.php (66)
+in C:\xampp\htdocs\git\tecnet\index.php (13)

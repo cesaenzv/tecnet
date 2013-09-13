@@ -30,6 +30,7 @@ $(document).ready(function() {
                 resizable: false,  
                 autoOpen: false,            
                 modal: false,
+                width:900,
                 title:"Crear Garantia",                
             });
         },

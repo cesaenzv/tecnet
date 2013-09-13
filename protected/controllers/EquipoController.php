@@ -38,6 +38,42 @@ class EquipoController extends Controller {
         ));
     }
 
+    public function actionGetOrdenesEquipo($id){
+        $temp=array();
+        $criteria = new CDbCriteria;
+        if (isset($_POST['sidx']) && isset($_POST['sord'])) {
+            $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
+        }
+        $criteria->condition ='k_idEquipo ='.$id;
+        //$equipo = Equipo::model()->findByPk($id);
+        $paquetes = Paquetematenimiento::model()->findAll($criteria);
+        foreach ($paquetes as $j => $paquete) {
+            $temp2 = Orden::model()->findByPk($paquete->k_idOrden);            
+            $fF = strtotime($temp2->fchEntrega);
+            if($fF != strtotime('0000-00-00 00:00:00')){             
+                $orden = array("orden"=>$temp2->attributes, "paquete"=>$paquete->attributes);
+                $temp[] = $orden;
+            }
+        }       
+
+        $ro = isset($_POST['rows']) ? $_POST['rows'] : 1;
+
+        $response = new stdClass();
+        $response->records = count($temp);
+        $response->page = $_POST['page'];
+        $response->total = ceil($response->records / $ro);
+        foreach ($temp as $j => $p) {
+            $response->rows[$j]['id'] = $p['orden']['k_idOrden'];
+            $response->rows[$j]['cell'] = array(
+                $p['paquete']['k_idOrden'],
+                $p['paquete']['q_diasGarantia'],
+                date('Y-m-d',strtotime($p['orden']['fchEntrega']. " + ".$p['paquete']['q_diasGarantia']." day")) <= date('Y-m-d') ? "Si": "No",
+            );
+        }
+
+        echo json_encode($response);
+    }
+
     public function actionSaveGrid($id) {
         extract($_REQUEST);
 
