@@ -145,27 +145,46 @@ class PaqueteMantenimientoController extends Controller {
     }
 
     public function actionPlay($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 2;
+        $paqueteMantenimiento->save();
         $response = new stdClass();
         $response->status = "OK";
         $response->id = $id;
         $response->message = "Actividad iniciada correctamente";
         echo CJSON::encode($response);
     }
+
     public function actionPause($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 1;
+        $paqueteMantenimiento->save();
         $response = new stdClass();
         $response->status = "OK";
         $response->id = $id;
         $response->message = "Actividad iniciada correctamente";
         echo CJSON::encode($response);
     }
+
     public function actionBack($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 4;
+        $paqueteMantenimiento->save();
         $response = new stdClass();
         $response->status = "OK";
         $response->id = $id;
         $response->message = "Actividad iniciada correctamente";
         echo CJSON::encode($response);
     }
+
     public function actionStop($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 3;
+        $paqueteMantenimiento->save();
         $response = new stdClass();
         $response->status = "OK";
         $response->id = $id;

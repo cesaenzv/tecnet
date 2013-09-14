@@ -44,10 +44,10 @@
                 <span><label>DESCRIPCION: </label><?php echo $objetos->proceso["n_descripcion"]; ?></span>			
 
                 <div class="botones">
-                    <a class="play" <?php if($estado==2){ ?>style="display: none;"<?php } ?> id="play_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="play(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/playBtn.png" width="30" height="30"/></a>
-                    <a class="pause" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="pause_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="pause(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/pause.jpg" width="30" height="30"/></a>
-                    <a class="stop" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="stop_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="stop(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/stop.jpg" width="30" height="30"/></a>
-                    <a class="back" id="back_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="back(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/back.jpg" width="30" height="30"/></a>
+                    <a class="play" <?php if($estado==2){ ?>style="display: none;"<?php } ?> id="play_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="play(<?php echo $paquetesMnt["k_idPaquete"]; ?>,<?php echo $paquetesMnt["k_idOrden"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/playBtn.png" width="30" height="30"/></a>
+                    <a class="pause" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="pause_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="pause(<?php echo $paquetesMnt["k_idPaquete"]; ?>,<?php echo $paquetesMnt["k_idOrden"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/pause.jpg" width="30" height="30"/></a>
+                    <a class="stop" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="stop_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="stop(<?php echo $paquetesMnt["k_idPaquete"]; ?>,<?php echo $paquetesMnt["k_idOrden"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/stop.jpg" width="30" height="30"/></a>
+                    <a class="back" id="back_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="back(<?php echo $paquetesMnt["k_idPaquete"]; ?>,<?php echo $paquetesMnt["k_idOrden"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/back.jpg" width="30" height="30"/></a>
                 </div>			
             </div>
             <?php
@@ -56,13 +56,13 @@
     ?>
 </div>
 <script type="text/javascript">
-    play = function(id){
+    play = function(id, orden){
         var mensaje="¿Esta seguro que desea iniciar la actividad?";
         if(confirm(mensaje)){
             $.ajax({
                 type: "POST",
                 url: "../PaqueteMantenimiento/play/"+id,
-                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                data: "orden="+orden,
                 success: function(response){
                     if(response.status.toUpperCase()=="OK"){
                         $("#play_"+response.id).hide();
@@ -75,13 +75,13 @@
             });
         }
     }
-    pause = function(id){
+    pause = function(id, orden){
         var mensaje="¿Esta seguro que desea detener la actividad?";
         if(confirm(mensaje)){
             $.ajax({
                 type: "POST",
                 url: "../PaqueteMantenimiento/pause/"+id,
-                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                data: "orden="+orden,
                 success: function(response){
                     if(response.status.toUpperCase()=="OK"){
                         $("#play_"+response.id).show();
@@ -94,13 +94,13 @@
             });
         }
     }
-    stop = function(id){
+    stop = function(id, orden){
         var mensaje="¿Esta seguro que desea finalizar la actividad?";
         if(confirm(mensaje)){
             $.ajax({
                 type: "POST",
                 url: "../PaqueteMantenimiento/stop/"+id,
-                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                data: "orden="+orden,
                 success: function(response){
                     if(response.status.toUpperCase()=="OK"){
                         location.reload();
@@ -111,13 +111,13 @@
             });
         }
     }
-    back = function(id){
+    back = function(id, orden){
         var mensaje="¿Esta seguro que desea devolver la actividad?";
         if(confirm(mensaje)){
             $.ajax({
                 type: "POST",
                 url: "../PaqueteMantenimiento/back/"+id,
-                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                data: "orden="+orden,
                 success: function(response){
                     if(response.status.toUpperCase()=="OK"){
                         location.reload();
