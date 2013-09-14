@@ -45,7 +45,6 @@ class EquipoController extends Controller {
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
         }
         $criteria->condition ='k_idEquipo ='.$id;
-        //$equipo = Equipo::model()->findByPk($id);
         $paquetes = Paquetematenimiento::model()->findAll($criteria);
         foreach ($paquetes as $j => $paquete) {
             $temp2 = Orden::model()->findByPk($paquete->k_idOrden);            
@@ -116,11 +115,12 @@ class EquipoController extends Controller {
         ));
     }
 
-    public function actionCreateEMantenimiento() {
+    public function actionCreateEGarantia() {
+
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->id;
         $orden->fchIngreso = date('Y-m-d H:i:s');
-        $orden->n_Observaciones = $_POST['descripcion'];
+        $orden->n_Observaciones = $_POST['descripcion']. ". Asociado a la orden (".$_POST['idOrden'].")";
 
         if ($orden->save(false)) {
             $pM = new Paquetematenimiento;

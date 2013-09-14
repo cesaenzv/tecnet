@@ -1,7 +1,7 @@
 
 <script type="text/javascript"> 
 
-	var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEMantenimiento"); ?>';
+	var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEGarantia"); ?>';
     var ordenesEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/GetOrdenesEquipo"); ?>';
 
 
@@ -107,50 +107,53 @@
             autoencode: true,
             caption: "Ordenes equipo",
             multiselect: false,
-        }).navGrid(pagerGrid, {
-            edit : false,
-            add : false,
-            del : false,
-            search :false,
-            closeAfterEdit: true,
-            closeAfterAdd:true
-            }).navButtonAdd(pagerGrid, {
-            caption: "", 
-            buttonicon: "ui-icon-circle-plus",
-            onClickButton: function (data) { 
-                agregarMantenimiento();
-            },
-            position: "first", 
-            title: "Nuevo Mant.", 
-            cursor: "pointer"
         });
         
         $(garantiaGrid).jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
     },
     guardarNuevaGarantia = function(){
-        console.log("Guardar Garantia");
-         $.ajax({
-         	type:"POST",
-            url:guardarGarantia,
-            dataType: "json",
-            data: {
-                idCliente : $("#idClienteLbl").text(),
-                tecnicoId : $("#userTec").val(),
-                equipoId : $("#equipoId").val(),
-                descripcion : $("#txtDescripcion").val()
-            },
-            success:function(data){
-                if(data.msg == "OK"){
-                	$("#garantiaGrid").trigger("reloadGrid");                	
-                    alert("Por favor cierre la ventana el proceos fue exitoso");
-                }else{
-                    alert("Hubo un inconveniente");
+
+        var rowid = jQuery(garantiaGrid).jqGrid('getGridParam', 'selrow');
+        var ret = jQuery(garantiaGrid).getRowData(rowid);
+        console.log($.isEmptyObject(ret));
+        if($.isEmptyObject(ret)){
+            alert("Seleccione una orden a la cual se le asociara la garantia");
+        }else{            
+            if(ret.vigencia == 'Si'){
+                if($("#txtDescripcion").val() == ''){
+                    alert('Por favor ingrese la descripción del motivo de la solicitud de la garantia (250 caract.)');
+                    return false;
                 }
-            },
-            error:function(){
-                console.log("error");
+                $.ajax({
+                    type:"POST",
+                    url:guardarGarantia,
+                    dataType: "json",
+                    data: {
+                        idCliente : $("#idClienteLbl").text(),
+                        tecnicoId : $("#userTec").val(),
+                        equipoId : $("#equipoId").val(),
+                        descripcion : $("#txtDescripcion").val(),
+                        idOrden: ret.idOrden 
+                    },
+                    success:function(data){
+                        if(data.msg == "OK"){
+                            $("#garantiaGrid").trigger("reloadGrid");
+                            $("#txtDescripcion").val();
+                            alert("Por favor cierre la ventana el proceos fue exitoso");
+                        }else{
+                            alert("Hubo un inconveniente");
+                        }
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
+                });
+            }else{
+                alert("Esta orden ya perdio su garantia por favor hable con el gerente.");
+                return false;
             }
-        });
+        }
+        
     };	
     bindEventsFancy();
 </script>
