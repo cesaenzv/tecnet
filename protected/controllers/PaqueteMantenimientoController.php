@@ -144,6 +144,54 @@ class PaqueteMantenimientoController extends Controller {
         }
     }
 
+    public function actionPlay($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 2;
+        $paqueteMantenimiento->save();
+        $response = new stdClass();
+        $response->status = "OK";
+        $response->id = $id;
+        $response->message = "Actividad iniciada correctamente";
+        echo CJSON::encode($response);
+    }
+
+    public function actionPause($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 1;
+        $paqueteMantenimiento->save();
+        $response = new stdClass();
+        $response->status = "OK";
+        $response->id = $id;
+        $response->message = "Actividad iniciada correctamente";
+        echo CJSON::encode($response);
+    }
+
+    public function actionBack($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 4;
+        $paqueteMantenimiento->save();
+        $response = new stdClass();
+        $response->status = "OK";
+        $response->id = $id;
+        $response->message = "Actividad iniciada correctamente";
+        echo CJSON::encode($response);
+    }
+
+    public function actionStop($id) {
+        extract($_REQUEST);
+        $paqueteMantenimiento = Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden", array(":paquete" => $id, ":orden" => $orden));
+        $paqueteMantenimiento->fk_idEstado = 3;
+        $paqueteMantenimiento->save();
+        $response = new stdClass();
+        $response->status = "OK";
+        $response->id = $id;
+        $response->message = "Actividad iniciada correctamente";
+        echo CJSON::encode($response);
+    }
+
     public function actionTratar() {
         $userId = Yii::app()->user->Id;
         $roles = array_keys(Rights::getAssignedRoles($userId));
@@ -152,13 +200,12 @@ class PaqueteMantenimientoController extends Controller {
         foreach ($roles as $rol) {
             if ($rol == 'Tecnico Mantenimiento') {
                 $typeTec = "TM";
-                $Criteria->condition = "k_idTecnico = " . $userId;
+                $Criteria->condition = "k_idTecnico = " . $userId . " AND (fk_idEstado=1 OR fk_idEstado = 2)";
             } else if ($rol == 'Tecnico Recarga') {
                 $typeTec = "TR";
-                $Criteria->condition = "k_idTecnico = " . $userId;
-            } else if($rol == 'Caja' || $rol = 'Admin Tecnet'){
+                $Criteria->condition = "k_idTecnico = " . $userId . " AND (fk_idEstado=1 OR fk_idEstado = 2)";
+            } else if ($rol == 'Caja' || $rol = 'Admin Tecnet') {
                 $typeTec = "All";
-
             }
         }
 
