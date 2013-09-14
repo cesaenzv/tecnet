@@ -303,13 +303,14 @@ class OrdenController extends Controller {
         extract($_REQUEST);
         $proceso = new Proceso;
         $proceso->k_idTecnico = $tecnico;
-        $proceso->fk_idEstado = 2;
+        $proceso->fk_idEstado = 1;
         $proceso->n_descripcion = $observaciones;
         $proceso->o_flagLeido = 0;
         $proceso->fk_idPaqueteManenimiento = $paqueteMantenimiento;
         $paqueteMant = Paquetematenimiento::model()->find("k_idPaquete=:paquete", array(":paquete" => $paqueteMantenimiento));
         $paqueteMant->q_diasGarantia = $garantia;
         $paqueteMant->q_descuento = $descuento;
+        $paqueteMant->fk_idEstado = 1;
         $paqueteMant->save();
         $respuesta = new stdClass();
         if ($proceso->save()) {

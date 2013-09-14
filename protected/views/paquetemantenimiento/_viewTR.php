@@ -11,8 +11,8 @@
                 <input type=hidden name='idPaquete' value=<?php echo $paquetesMnt["k_idPaquete"]; ?> />
                 <input type=hidden name='idProceso' value=<?php echo $objetos->proceso["k_idProceso"]; ?> />
                 <input type=hidden name='idEquipo' 	value=<?php echo $objetos->equipo["k_idEquipo"]; ?> />
-                <?php $orden=Orden::model()->findByPk($paquetesMnt["k_idOrden"]) ?>
-                <span><label>NOMBRE EQUIPO: </label><?php echo $objetos->equipo["n_nombreEquipo"]; ?></span>
+                <?php $orden = Orden::model()->findByPk($paquetesMnt["k_idOrden"]) ?>
+                <span><label>SERIAL: </label><?php echo $objetos->equipo["n_nombreEquipo"]; ?></span>
                 <span><label>ESTADO: </label><?php echo $objetos->estado["n_nombreEstado"]; ?></span>
                 <span><label>FECHA INGRESO: </label><?php echo $orden["fchIngreso"]; ?></span>
                 <div class="especificaciones">
@@ -37,13 +37,17 @@
                         }
                         echo "<td>" . $items . "</td></tr>";
                     }
+                    $paqueteMantenModel=  Paquetematenimiento::model()->find("k_idPaquete=:paquete AND k_idOrden=:orden",array(":paquete"=>$paquetesMnt["k_idPaquete"],":orden"=>$paquetesMnt["k_idOrden"]));
+                    $estado=$paqueteMantenModel->fk_idEstado;
                     ?>
                 </table>
                 <span><label>DESCRIPCION: </label><?php echo $objetos->proceso["n_descripcion"]; ?></span>			
 
                 <div class="botones">
-                    <a href="" class="playTimer btn" id="btnPlay<?php echo $paquetesMnt["k_idPaquete"]; ?>">PLAY</a>
-                    <button class="btnRetornar">Retornar</button>
+                    <a class="play" <?php if($estado==2){ ?>style="display: none;"<?php } ?> id="play_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="play(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/playBtn.png" width="30" height="30"/></a>
+                    <a class="pause" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="pause_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="pause(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/pause.jpg" width="30" height="30"/></a>
+                    <a class="stop" <?php if($estado==1){ ?>style="display: none;"<?php } ?> id="stop_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="stop(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/stop.jpg" width="30" height="30"/></a>
+                    <a class="back" id="back_<?php echo $paquetesMnt["k_idPaquete"]; ?>" href="javascript:void(0);" onclick="back(<?php echo $paquetesMnt["k_idPaquete"]; ?>)"><image src="<?php echo Yii::app()->request->baseUrl; ?>/img/back.jpg" width="30" height="30"/></a>
                 </div>			
             </div>
             <?php
@@ -51,3 +55,77 @@
     }
     ?>
 </div>
+<script type="text/javascript">
+    play = function(id){
+        var mensaje="¿Esta seguro que desea iniciar la actividad?";
+        if(confirm(mensaje)){
+            $.ajax({
+                type: "POST",
+                url: "../PaqueteMantenimiento/play/"+id,
+                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                success: function(response){
+                    if(response.status.toUpperCase()=="OK"){
+                        $("#play_"+response.id).hide();
+                        $("#pause_"+response.id).show();
+                        $("#stop_"+response.id).show();
+                    }
+                    alert(response.message);
+                },
+                dataType: 'json'
+            });
+        }
+    }
+    pause = function(id){
+        var mensaje="¿Esta seguro que desea detener la actividad?";
+        if(confirm(mensaje)){
+            $.ajax({
+                type: "POST",
+                url: "../PaqueteMantenimiento/pause/"+id,
+                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                success: function(response){
+                    if(response.status.toUpperCase()=="OK"){
+                        $("#play_"+response.id).show();
+                        $("#pause_"+response.id).hide();
+                        $("#stop_"+response.id).hide();
+                    }
+                    alert(response.message);
+                },
+                dataType: 'json'
+            });
+        }
+    }
+    stop = function(id){
+        var mensaje="¿Esta seguro que desea finalizar la actividad?";
+        if(confirm(mensaje)){
+            $.ajax({
+                type: "POST",
+                url: "../PaqueteMantenimiento/stop/"+id,
+                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                success: function(response){
+                    if(response.status.toUpperCase()=="OK"){
+                        location.reload();
+                    }
+                    alert(response.message);
+                },
+                dataType: 'json'
+            });
+        }
+    }
+    back = function(id){
+        var mensaje="¿Esta seguro que desea devolver la actividad?";
+        if(confirm(mensaje)){
+            $.ajax({
+                type: "POST",
+                url: "../PaqueteMantenimiento/back/"+id,
+                data: "orden = <?php echo $paquetesMnt["k_idOrden"] ?>",
+                success: function(response){
+                    if(response.status.toUpperCase()=="OK"){
+                        location.reload();
+                    }
+                    alert(response.message);
+                },
+                dataType: 'json'
+            });
+        }
+    }
+</script>
