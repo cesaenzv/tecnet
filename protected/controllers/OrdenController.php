@@ -33,43 +33,32 @@ class OrdenController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $manageM = new ManageModel;
         $orden = $this->loadModel($id);
-        $paquetesA = $this->getPaquetesOrden($id);
+        $paquetesA = $manageM->getPaquetesOrden($id);
         $ingresado = 0;
         $laboratorio = 0;
         $finalizado = 0;
-        $count = 1;
         $paquetesMostrar = array();
-        foreach ($paquetesA as $i => $paquete) {
-            $ingresadoP = 0;
-            $laboratorioP = 0;
-            $finalizadoP = 0;
-            if (count($paquete['procesos']) > 0) {
-                foreach ($paquete['procesos'] as $j => $p) {
-                    switch ($p['proceso']['fk_idEstado']) {
-                        case 1:
-                            $ingresado += 1;
-                            $ingresadoP += 1;
-                            break;
-                        case 2:
-                        case 4:
-                        case 5:
-                            $laboratorio +=1;
-                            $laboratorioP +=1;
-                            break;
-                        case 3:
-                        case 6:
-                            $finalizado += 1;
-                            $finalizadoP += 1;
-                            break;
-                    }
-                    $count += 1;
-                }
-                $paquetesMostrar[] = array("equipo" => $paquete['equipo'],
-                    "garantia" => $paquete['paqueteEquipo']['q_diasGarantia'],
-                    "descuento" => $paquete['paqueteEquipo']['q_descuento'],
-                    "estado" => $finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado' : 'En laboratorio'));
+        foreach ($paquetesA as $i => $paquete) { 
+            switch ($paquete['paqueteEquipo']['fk_idEstado']) {
+                case 1:
+                    $ingresado += 1;
+                    break;
+                case 2:
+                case 4:
+                case 5:
+                    $laboratorio +=1;
+                    break;
+                case 3:
+                case 6:
+                    $finalizado += 1;
+                    break;
             }
+            $paquetesMostrar[] = array("equipo" => $paquete['equipo'],
+            "garantia" => $paquete['paqueteEquipo']['q_diasGarantia'],
+            "descuento" => $paquete['paqueteEquipo']['q_descuento'],
+            "estado" => $paquete['paqueteEquipo']['fk_idEstado'] == 3 ? 'Finalizado' : ($paquete['paqueteEquipo']['fk_idEstado'] == 1? 'No iniciado' : 'En laboratorio'));                    
         }
         $cliente = "";
         if (count($paquetesMostrar) > 0) {
@@ -77,20 +66,52 @@ class OrdenController extends Controller {
         }
         $this->render('view', array(
             'model' => $orden,
-            'estado' => $finalizado == $count ? 'Finalizado' : ($ingresado == $count ? 'No iniciado' : 'En laboratorio'),
+            'estado' => $finalizado == count($paquetesA) ? 'Finalizado' : ($ingresado == count($paquetesA) ? 'No iniciado' : 'En laboratorio'),
             'paquetes' => $paquetesMostrar,
             'datosCliente' => $cliente,
             'pdf' => 0,
         ));
     }
 
+    /******************************Acciones de direccionamiento del menu****************************/
+
+    public function actionOrdenMantenimiento(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values
+        $states = array('P','I');
+        $types =  array('M');        
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=> $manageM->getOrdenesByCriteria($types,$states,isset($_GET['Orden'])?$_GET['Orden']:null),
+            'method'=>'OrdenMantenimiento'
+        ));
+    }
+
+    public function actionOrdenRecarga(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values
+        $states = array('P','I');
+        $types =  array('R','T');
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,isset($_GET['Orden'])?$_GET['Orden']:null),
+            'method'=>'OrdenRecarga'
+        ));
+    }
+
+
+    /****************************** Fin Acciones de direccionamiento del menu****************************/
+    
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
     public function actionViewPDF($id) {
+        $manageM = new ManageModel;
         $orden = $this->loadModel($id);
-        $paquetesA = $this->getPaquetesOrden($id);
+        $paquetesA = $manageM->getPaquetesOrden($id);
         $ingresado = 0;
         $laboratorio = 0;
         $finalizado = 0;
