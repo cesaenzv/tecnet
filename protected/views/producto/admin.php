@@ -22,7 +22,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manejar Productos</h1>
+<h1>Manejar Productos<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("producto/Create");?>"></a></h1>
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

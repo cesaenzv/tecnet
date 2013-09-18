@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manejar Tipos de Equipos</h1>
+<h1>Manejar Tipos de Equipos<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("tipoequipo/Create");?>"></a></h1>
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

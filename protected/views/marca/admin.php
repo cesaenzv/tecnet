@@ -22,7 +22,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manejar Marcas</h1>
+<h1>Manejar Marcas<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("marca/Create");?>"></a></h1>
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(

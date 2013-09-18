@@ -5,6 +5,18 @@
 	vertical-align: middle;
 }
 
+.btn.crear{
+	display: inline-block;
+	background: url(../img/add.png) no-repeat center;
+	background-size: 100%;
+	height: 1.5em;
+	width: 1.5em;
+	vertical-align: middle;
+	float: right;
+	box-shadow: 2px 0px 5px rgba(0,0,0,0.8);
+	border-radius: 1em;
+}
+
 
 
 /*<___________________________________________ CLIENTES ________________________________________________>*/
@@ -214,6 +226,10 @@
 	width: 95%;
 	margin: 0 auto
 }
+.orden .serviciosOrden,.orden .serviciosOrden table{
+	width: 100%;	
+}
+
 
 .serviciosOrden table tbody td, .servicios table tbody td{
 	border: 1px solid rgba(10,90,70,0.2);

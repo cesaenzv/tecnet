@@ -20,7 +20,7 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-<h1>Manejar Equipos</h1>
+<h1>Manejar Equipos<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("equipo/Create");?>"></a></h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'equipo-grid',

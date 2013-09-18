@@ -27,7 +27,7 @@ class ManageModel {
 		$ordenCriteria->pone una condicion a la orden
 		$temp->array de ordenes previos a los q desea agregar otras
 	*/
-	public function getOrdenesByCriteria($ordenType, $ordenState, $ordenCriteria,$temp=array()){
+	public function getOrdenesByCriteria($ordenType, $ordenState, $ordenCriteria, $criteriaProcesos = '',$temp=array()){
 		$Criteria = new CDbCriteria;
 		$ordenes = Orden::model()->findAll();		
 		if($ordenCriteria != null){
@@ -35,82 +35,99 @@ class ManageModel {
 				if($ordenCriteria[$key] == "")
 					unset($ordenCriteria[$key]);
 			}
-			var_dump($ordenCriteria);
 			$ordenes = Orden::model()->findAllByAttributes($ordenCriteria);
 		}		
 		foreach ($ordenes as $i => $ord) {
 			$ordenTypeBool = false;	
 			$listTypeOrden = explode(',', $ord->n_Observaciones);
-			foreach ($ordenType as $i => $type) {
-				if(in_array($type, $listTypeOrden)){
-					$ordenTypeBool = true;	
-				}
+
+			if($ordenType == null){
+				$ordenTypeBool = true;	
+			}else{
+				foreach ($ordenType as $i => $type) {
+					if(in_array($type, $listTypeOrden)){
+						$ordenTypeBool = true;	
+					}
+				}	
 			}
+			
 			if ($ordenTypeBool){				 
-				if($ordenState == null){
+				if(count($ordenState) <= 0){
 					$temp[] = $ord;
 				}else {
-					$paquetes = $this->getPaquetesOrden($ord->k_idOrden);
-					$statusOrden = $this->getStatusOrden($paquetes);
-					foreach ($ordenState as $i => $state) {
-
-						switch ($state) {
-							case 'F'://Finalizadas
-								if($statusOrden['finalizado'] == count($paquetes)){
-									//$ord->estado = "Finalizado";
-									$temp[] = $ord;
-								}
-								break;
-							case 'P'://Proceso
-								if($statusOrden['finalizado'] != count($paquetes) && $statusOrden['ingresado'] != count($paquetes)){
-									//$ord->estado = "Procesando";
-									$temp[] = $ord;
-								}
-								break;
-							case 'I'://Solo Ingresadas
-								if($statusOrden['ingresado'] == count($paquetes)){
-									//$ord->estado = "Ingresado";
-									$temp[] = $ord;
-								}
-							case 'DP'://Devolucion Propiedad
-								if($statusOrden['devolucion'] == true){
-									//$ord->estado = "Devolucion Tecnica";
-									$temp[] = $ord;
-								}
-								break;					
-							case 'AC'://Aprobacion cliente
-								if($testatusOrdenmp['aprobacion'] == true){
-									//$temp[] = array("orden"=>$ord,"estado"=>($temp['aprobacionEstado'] == null ? "No evaluada" : ($temp['aprobacionEstado'] == false ?'No':'Si'))); 	
-									//$ord->estado = "Aprobada Solicitud";
-									$temp[] = $ord;
-								}
-								break;
-							case 'GF'://Garantia Finalizada
-								if($statusOrden['garantia'] == true && $statusOrden['finalizado'] == count($paquetes)){
-									//$ord->estado = "Garantia Ejecutada";
-									$temp[] = $ord;
-								}
-								break;
-							case 'GI'://Garantia Ingresada
-								if($statusOrden['garantia'] == true && $statusOrden['finalizado'] != count($paquetes)){
-									//$ord->estado = "Solicitud Garantia";
-									$temp[] =$ord;
-								}
-								break;
-							case 'GNR'://Garantia no realizada
-								if ($statusOrden['garantia'] == true  && $statusOrden['devolucionPropiedad'] == true){
-									//$ord->estado = "Garantia No Valida";
-									$temp[] = $ord;							
-								}
-								break;	
+					$paquetes = $this->getPaquetesOrden($ord->k_idOrden,$criteriaProcesos);
+					if(count($paquetes)>0){
+						$statusOrden = $this->getStatusOrden($paquetes);
+						foreach ($ordenState as $i => $state) {
+							switch ($state) {
+								case 'F'://Finalizadas
+									if($statusOrden['finalizado'] == count($paquetes)){
+										//$ord->estado = "Finalizado";
+										$temp[] = $ord;
+									}
+									break;
+								case 'P'://Proceso
+									if($statusOrden['finalizado'] != count($paquetes) && $statusOrden['ingresado'] != count($paquetes)){
+										//$ord->estado = "Procesando";
+										$temp[] = $ord;
+									}
+									break;
+								case 'I'://Solo Ingresadas
+									if($statusOrden['ingresado'] == count($paquetes)){
+										//$ord->estado = "Ingresado";
+										$temp[] = $ord;
+									}
+								case 'DP'://Devolucion Propiedad
+									if($statusOrden['devolucion'] == true){
+										//$ord->estado = "Devolucion Tecnica";
+										$temp[] = $ord;
+									}
+									break;					
+								case 'SAC'://Solicitud Aprobacion cliente
+									if($statusOrden['aprobacion'] == true && $statusOrden['aprobacionEstado'] == null){
+										//$temp[] = array("orden"=>$ord,"estado"=>($temp['aprobacionEstado'] == null ? "No evaluada" : ($temp['aprobacionEstado'] == false ?'No':'Si'))); 	
+										//$ord->estado = "Aprobada Solicitud";
+										$temp[] = $ord;
+									}
+									break;
+								case 'ACC'://Aprobacion Cliente Concedida
+									if($statusOrden['aprobacion'] == true && $statusOrden['aprobacionEstado'] == true){
+										//$temp[] = array("orden"=>$ord,"estado"=>($temp['aprobacionEstado'] == null ? "No evaluada" : ($temp['aprobacionEstado'] == false ?'No':'Si'))); 	
+										//$ord->estado = "Aprobada Solicitud";
+										$temp[] = $ord;
+									}
+									break;
+								case 'ACD'://Aprobacion Cliente Denegada
+									if($statusOrden['aprobacion'] == true && $statusOrden['aprobacionEstado'] == false){
+										//$temp[] = array("orden"=>$ord,"estado"=>($temp['aprobacionEstado'] == null ? "No evaluada" : ($temp['aprobacionEstado'] == false ?'No':'Si'))); 	
+										//$ord->estado = "Aprobada Solicitud";
+										$temp[] = $ord;
+									}
+									break;
+								case 'GF'://Garantia Finalizada
+									if($statusOrden['garantia'] == true && $statusOrden['finalizado'] == count($paquetes)){
+										//$ord->estado = "Garantia Ejecutada";
+										$temp[] = $ord;
+									}
+									break;
+								case 'GI'://Garantia Ingresada
+									if($statusOrden['garantia'] == true && $statusOrden['finalizado'] != count($paquetes)){
+										//$ord->estado = "Solicitud Garantia";
+										$temp[] =$ord;
+									}
+									break;
+								case 'GNR'://Garantia no realizada
+									if ($statusOrden['garantia'] == true  && $statusOrden['devolucionPropiedad'] == true){
+										//$ord->estado = "Garantia No Valida";
+										$temp[] = $ord;							
+									}
+									break;	
+							}
 						}
-					}
-					
-									
+					}									
 				}
 			}
-		}	
-
+		}
 		return $temp;
 	}
 
@@ -119,19 +136,23 @@ class ManageModel {
 		Metodo encargade de obtener los datos asociados a una orden, como sus paquetes, los procesos de cada paquete y el equipo del cual 
 		hace parte el paquete
 		$id -> Id de la orden
+		$criteriaProcesos ->
 	*/
 
-	public function getPaquetesOrden($id) {
+	public function getPaquetesOrden($id, $criteriaProcesos = '') {
         $pqtOrden = Paquetematenimiento::model()->findAllByAttributes(
                 array(), $condition = 'k_idOrden = :idO', $params = array(':idO' => $id));
         $paquetesA = array();
         foreach ($pqtOrden as $pqO) {
-            $procesos = $this->getProcesosByCriteria("fk_idPaqueteManenimiento = " . $pqO->k_idPaquete, null, array(), true);
-            $equipo = Equipo::model()->findByPk($pqO->k_idEquipo);
-            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
-            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
-            $equipo->k_idEspecificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
-            $paquetesA[] = array('paqueteEquipo' => $pqO->attributes, 'procesos' => $procesos, 'equipo' => $equipo->attributes);
+            $procesos = $this->getProcesosByCriteria("fk_idPaqueteManenimiento = " . $pqO->k_idPaquete." ".$criteriaProcesos, null, array(), true);
+            if(count($procesos)>0){
+            	$equipo = Equipo::model()->findByPk($pqO->k_idEquipo);
+	            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
+	            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
+	            $equipo->k_idEspecificacion = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
+	            $paquetesA[] = array('paqueteEquipo' => $pqO->attributes, 'procesos' => $procesos, 'equipo' => $equipo->attributes);	
+            }
+            
         }
         return $paquetesA;
     }
@@ -157,15 +178,15 @@ class ManageModel {
                 case 4://Devuelto no finalizado
                 	$temp['devolucion'] = true;
                 	break;
-                case 7://Solicitud Autorizacion Cliente                	
-                	$temp['aprobacion'] = true;
-                	$temp['aprobacionEstado'] = null;
+                case 7://Solicitud Aprobacion Cliente
+                	$temp['aprobacionEstado'] = null;                	
+                	$temp['aprobacion'] = true;                	
                 	break;
-                case 9://Autorización Cliente Consedida
+                case 9://Aprobacion Cliente Consedida
                 	$temp['aprobacionEstado'] = true;
                 	$temp['aprobacion'] = true;
                 	break;
-                case 10://Autorización Cliente Denegada
+                case 10://Aprobacion Cliente Denegada
                 	$temp['aprobacionEstado'] = false;                	
                 	$temp['aprobacion'] = true;
                 	break;
