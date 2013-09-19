@@ -58,22 +58,22 @@ class MarcaController extends Controller {
             'model' => $model,
         ));
     }
+
     public function actionCreateFancy() {
         $model = new Marca;
-
-        // Uncomment the following line if AJAX validation is needed
-         $this->performAjaxValidation($model);
-
+        $this->performAjaxValidation($model);
+        $this->layout = "mainFancy";
         if (isset($_POST['Marca'])) {
             $model->attributes = $_POST['Marca'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idMarca));
+                echo CJavaScript::jsonEncode(array("msg" => 'Marca creada satisfactoriamente',"status"=>1));
+        }else {
+            $this->render('createFancy', array(
+                'model' => $model,
+            ));
         }
-
-        $this->render('create', array(
-            'model' => $model,
-        ));
     }
+
 
     /**
      * Updates a particular model.
@@ -159,4 +159,6 @@ class MarcaController extends Controller {
         }
     }
 
+    
+    
 }

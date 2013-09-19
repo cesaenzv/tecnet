@@ -121,15 +121,14 @@ class EquipoController extends Controller {
         $orden->k_idUsuario = Yii::app()->user->id;
         $orden->fchIngreso = date('Y-m-d H:i:s');
         $orden->n_Observaciones = $_POST['descripcion']. ". Asociado a la orden (".$_POST['idOrden'].")";
-
         if ($orden->save(false)) {
             $pM = new Paquetematenimiento;
             $pM->k_idOrden = $orden->k_idOrden;
             $pM->k_idEquipo = $_POST['equipoId'];
+            $pM->fk_idEstado = 5;
             if ($pM->save(false)) {
                 $proceso = new Proceso;
-                $proceso->k_idTecnico = $_POST['tecnicoId'];
-                $proceso->fk_idEstado = 5;
+                $proceso->k_idTecnico = $_POST['tecnicoId'];                
                 $proceso->o_flagLeido = 0;
                 $proceso->fk_idPaqueteManenimiento = $pM->k_idPaquete;
                 $proceso->fchAsignacion = date('Y-m-d H:i:s');

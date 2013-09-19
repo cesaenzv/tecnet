@@ -6,32 +6,59 @@ $(document).ready(function() {
 			marca = config.marca;
 			tipoEquipo = config.tipoEquipo;
 			getEspecificacion();
-			bindEvents();
+			JQueryPlugin();
+			bindEvents();			
 		},
-		bindEvents = function(){			
+		bindEvents = function(){	
 			marca.change(getEspecificacion);
 			tipoEquipo.change(getEspecificacion);
+			$("#btnTipoEquipo").click(function(){
+				getViewDialog($("#addTipoEquipo"),"../tipoequipo/createFancy/");
+			});
+			$("#btnMarca").click(function(){
+				getViewDialog($("#addMarca"),"../marca/createFancy/");
+			});
+			$("#btnEspecificacion").click(function(){
+				getViewDialog($("#addEspecificacion"),"../especificacion/createFancy/");
+			});
+			getEspecificacion();
+		},
+		JQueryPlugin = function(){
+			$("#addTipoEquipo").dialog({autoOpen:false, close : function(){ window.location.reload()}});
+			$("#addMarca").dialog({autoOpen:false, close : function(){ window.location.reload()}});
+			$("#addEspecificacion").dialog({autoOpen:false, close : function(){ window.location.reload()}});
 		},
 		getEspecificacion = function(){
-			if ($("#especificacionInput").autocomplete()){
-				$("#especificacionInput").autocomplete('destroy');	
-			};
-
 			$.ajax({
 				type:"POST",
-				url:url,
+				url:urlGetModelList,
 				dataType:"json",
 				data: {marca:marca.val(), tipoEquipo:tipoEquipo.val()},
 				success:function(data){
-					$("#especificacionInput").autocomplete({
-					  source: data.list,
-					  minLength:2
+
+					var s = $('<select id=n_nombreEspecificacion name=n_nombreEspecificacion/>');
+					$.each(data.list, function(index,val){
+						$('<option />', {value: index, text: val}).appendTo(s);
 					});
+
+					$("#especificacionRow").html(s);
 				},
 				error:function(error){
 					console.log(error);
 				}
 			});
+		},
+		getViewDialog = function(obj, url){
+			obj.dialog( "option", "title", "Crear Cliente" );
+            obj.dialog( "option", "width", 450 );
+            obj.dialog( "option", "minHeight", 400 );            
+            obj.dialog( "option", "resizable", false );
+            obj.dialog("open");
+            obj.find("#iframe").attr('src',url);
+            obj.find("#iframe").attr('width',"410");
+            obj.find("#iframe").attr('min-height',"400");      
+            obj.dialog( "option", "position", "center");
+
 		};
 		return {
 			init: init

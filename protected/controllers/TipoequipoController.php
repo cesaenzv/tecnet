@@ -64,14 +64,13 @@ class TipoequipoController extends Controller {
 
         // Uncomment the following line if AJAX validation is needed
          $this->performAjaxValidation($model);
-
+         $this->layout = "mainFancy";
         if (isset($_POST['Tipoequipo'])) {
             $model->attributes = $_POST['Tipoequipo'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idTipo));
+                echo CJavaScript::jsonEncode(array("msg" => 'Tipo Equipo creado satisfactoriamente',"status"=>1));
         }
-
-        $this->render('create', array(
+        $this->render('createFancy', array(
             'model' => $model,
         ));
     }

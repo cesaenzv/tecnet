@@ -43,7 +43,8 @@ $(document).ready(function(){
 				type:'POST',
 				url:urlGetServicios,
 				dataType: "json",
-				success:function(data){					
+				success:function(data){
+					console.log(data);
 					showListServicios(data);
 				},
 				error:function(){

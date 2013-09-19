@@ -2,11 +2,13 @@
 /* @var $this EquipoController */
 /* @var $equipo Equipo */
 /* @var $form CActiveForm */
-Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/modules/equipoModule.js"); 
 ?>
 
 <script type="text/javascript">
-	var url = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
+	var urlGetModelList = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
+	var urlCrearMarca = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
+	var urlCrearTipoEquipo = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
+	var urlCrearEspecificacion = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
 </script>
 <div class="form">
 
@@ -30,21 +32,27 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 		<?php echo $form->textField($equipo,'n_nombreEquipo',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($equipo,'n_nombreEquipo'); ?>
 	</div>
-
-	<?php
-		echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
-		echo $form->dropDownList($tipoEquipo['model'], 'n_tipoEquipo', $tipoEquipo['list'],null);
-                
-		echo $form->labelEx($marca['model'],'n_nombreMarca');
-		echo $form->dropDownList($marca['model'], 'n_nombreMarca', $marca['list'],null);
-
-
-	?>	
-
 	<div class="row">
-		<?php echo $form->labelEx($especificacion,'Modelo'); ?>
-		<?php echo $form->textField($especificacion,'n_nombreEspecificacion',array('size'=>50,'maxlength'=>50, 'id'=>"especificacionInput")); ?>
+		<?php
+			echo $form->labelEx($tipoEquipo['model'],'n_tipoEquipo');
+			echo $form->dropDownList($tipoEquipo['model'], 'n_tipoEquipo', $tipoEquipo['list'],null);
+		?>
+		<a style ="width:1.3em; float:none;" id="btnTipoEquipo" class="crear btn"></a>				
+	</div>
+	<div class="row">	
+	    <?php            
+			echo $form->labelEx($marca['model'],'n_nombreMarca');
+			echo $form->dropDownList($marca['model'], 'n_nombreMarca', $marca['list'],null);
+		?>
+		<a style ="width:1.3em; float:none;" id="btnMarca" class="crear btn"></a>
+	</div>
+
+
+	<div class="row" >
+		<?php echo $form->labelEx($especificacion,'Modelo'); ?>		
 		<?php echo $form->error($especificacion,'n_nombreEspecificacion'); ?>
+		<div id="especificacionRow" style="display:inline-block;"></div>
+		<a style ="width:1.3em; float:none;" id="btnEspecificacion" class="crear btn"></a>				
 	</div>
 
 	<div class="row buttons">
@@ -54,3 +62,18 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/m
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<div id="addTipoEquipo">
+	<iframe id="iframe">
+    </iframe>
+</div>
+<div id="addMarca">
+	<iframe id="iframe">
+    </iframe>
+</div>
+<div id="addEspecificacion">
+	<iframe id="iframe">
+    </iframe>
+</div>		
+<?
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/modules/equipoModule.js"); 
+?>
