@@ -403,15 +403,22 @@ class OrdenController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
+        $criteria = new CDbCriteria;
         $model = new Orden;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
+        $criteria->condition = "itemname = 'TecnicoRecarga' OR itemname = 'TecnicoMantenimiento'";
+        $users = Authassignment::model()->findAll($Criteria);
+        foreach ($users as $i => $u) {
+            $users[$i] = Users::model()->findByPk($u->userid);
+        }
 
+        $usuarios = $listMarca = $manageM->getColumnList(Users::model()->findAll(), 'k_idMarca', 'n_nombreMarca');
         if (isset($_POST['Orden'])) {
             $model->attributes = $_POST['Orden'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idOrden));
+                $this->redirect(array('view', 'nombreUsuario'=>$users, 'id' => $model->k_idOrden));
         }
 
         $this->render('create', array(
@@ -467,7 +474,7 @@ class OrdenController extends Controller {
     public function actionCreateOrden() {
         $this->layout = "_blank";
         extract($_REQUEST);
-        $ids = split(',', $ids);
+        $ids = explode(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
         $respuesta = new stdClass();
