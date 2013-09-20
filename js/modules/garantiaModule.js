@@ -89,7 +89,7 @@ $(document).ready(function() {
                 datatype: "json",
                 mtype: "POST",
                 width:900,
-                colNames: ["ID", "Equipo", "Especificacion", "Tecnico", "Descripcion", "Leido", "Servicio","Fecha Asignacion","Fecha Entrega","Estado"],
+                colNames: ["ID", "Equipo", "Especificacion", "Tecnico", "Descripcion", "Estado Laboratorio","Fecha Asignacion","Fecha Entrega","Estado Garantia"],
                 colModel: [
                 {
                     name: "k_idProceso", 
@@ -150,16 +150,6 @@ $(document).ready(function() {
                     }
                 },
                 {
-                    name: "nombre_servicio", 
-                    width: 200,
-                    editable:true,
-                    hidden:false,                     
-                    editrules:{
-                        edithidden:true, 
-                        required:true
-                    }
-                },
-                {
                     name: "fch_Asignacion", 
                     width: 200,
                     editable:true,
@@ -193,7 +183,7 @@ $(document).ready(function() {
                 pager: "#pagerGarantiaGrid",
                 rowNum: 20,
                 rowList: [20, 40, 60],
-                sortname: "k_idProceso",
+                sortname: "k_idPaquete",
                 sortorder: "desc",               
                 viewrecords: true,
                 gridview: true,

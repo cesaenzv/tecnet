@@ -403,18 +403,17 @@ class OrdenController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $criteria = new CDbCriteria;
+        $criteria = new CDbCriteria; $manageM = new ManageModel;
         $model = new Orden;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
         $criteria->condition = "itemname = 'TecnicoRecarga' OR itemname = 'TecnicoMantenimiento'";
-        $users = Authassignment::model()->findAll($Criteria);
+        $users = Authassignment::model()->findAll($criteria);
         foreach ($users as $i => $u) {
             $users[$i] = Users::model()->findByPk($u->userid);
         }
-
-        $usuarios = $listMarca = $manageM->getColumnList(Users::model()->findAll(), 'k_idMarca', 'n_nombreMarca');
+               
         if (isset($_POST['Orden'])) {
             $model->attributes = $_POST['Orden'];
             if ($model->save())

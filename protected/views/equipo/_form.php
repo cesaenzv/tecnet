@@ -6,9 +6,6 @@
 
 <script type="text/javascript">
 	var urlGetModelList = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
-	var urlCrearMarca = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
-	var urlCrearTipoEquipo = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
-	var urlCrearEspecificacion = '<?php echo Yii::app()->createAbsoluteUrl("especificacion/getEspecificationList"); ?>';
 </script>
 <div class="form">
 

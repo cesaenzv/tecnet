@@ -119,7 +119,7 @@
         if($.isEmptyObject(ret)){
             alert("Seleccione una orden a la cual se le asociara la garantia");
         }else{            
-            if(ret.vigencia == 'Si'){
+            //if(ret.vigencia == 'Si'){
                 if($("#txtDescripcion").val() == ''){
                     alert('Por favor ingrese la descripción del motivo de la solicitud de la garantia (250 caract.)');
                     return false;
@@ -148,10 +148,10 @@
                         console.log("error");
                     }
                 });
-            }else{
+            /*}else{
                 alert("Esta orden ya perdio su garantia por favor hable con el gerente.");
                 return false;
-            }
+            }*/
         }
         
     };	
