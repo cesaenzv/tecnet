@@ -185,7 +185,7 @@ foreach ($usuarioRoles as $usuarios){
     }
     ordenMantenimiento=function(){
     $("#prevOrden").button().click(function(){
-        window.open('<?php echo Yii::app()->request->baseUrl . Yii::app()->createUrl("orden/viewPDF", array("id" => $model->k_idOrden)); ?>', '_blank', 'height=600,width=850,toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no');
+        window.open('<?php echo Yii::app()->request->baseUrl . Yii::app()->createUrl("orden/viewPDF", array("id" => $id)); ?>', '_blank', 'height=600,width=850,toolbar=no,menubar=no,status=no,scrollbars=no,resizable=no');
     });
     $("#crearAsignacion").button().click(function(){
         var equipoId = jQuery("#equiposMantenimientoGrid").jqGrid('getGridParam', 'selrow');

@@ -273,7 +273,6 @@ $(document).ready(function() {
             });
         }; 
         crearEquipoCliente = function(){
-            alert("asfa");
             $.ajax({
                 type:"POST",
                 url:urlCrearEquipo,
