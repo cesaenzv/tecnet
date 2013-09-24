@@ -23,24 +23,60 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php
-$this->widget('zii.widgets.grid.CGridView', array(
-    'id' => 'orden-grid',
-    'dataProvider' => $model->search(),
-    'filter' => $model,
-    'columns' => array(
-        'k_idOrden',
-        array(
-            'name' => 'k_idUsuario',
-            'filter' => CHtml::listData(Users::model()->findAll(), 'id', 'username'), // fields from country table
-            'value' => 'Users::Model()->FindByPk($data->k_idUsuario)->username',
+if(isset($ordenes)){
+    $dataProvider=new CArrayDataProvider($ordenes, array(
+        'id'=>'ordenes',
+        'sort'=>array(
+            'attributes'=>array(
+                 'k_idOrden', 'fchIngreso','k_idUsuario','fchEntrega','estado'
+            ),
         ),
-        'fchIngreso',
-        'fchEntrega',
-        'n_Observaciones',
-        array(
-            'class' => 'CButtonColumn',
-            'template' => '{view}',
+        'keys'=>array('k_idOrden','k_idUsuario', 'fchIngreso','fchEntrega','n_Observaciones','estado'),
+        'pagination'=>array(
+            'pageSize'=>15,
         ),
-    ),
-));
+    ));
+    $this->widget('zii.widgets.grid.CGridView', array(
+        'id' => 'orden-grid',
+        'dataProvider' => $dataProvider,
+        'filter' => $model,
+        'ajaxUrl'=>Yii::app()->createAbsoluteUrl("Orden/".$method),
+        'columns' => array(
+            'k_idOrden',
+            array(
+                'name' => 'k_idUsuario',
+                'filter' => CHtml::listData(Users::model()->findAll(), 'id', 'username'),
+                'value' => 'Users::Model()->FindByPk($data->k_idUsuario)->username',
+            ),
+            'fchIngreso',
+            'fchEntrega',
+            'n_Observaciones',
+            array(
+                'class' => 'CButtonColumn',
+                'template' => '{view}',
+            ),
+        ),
+    ));
+}else{
+    $this->widget('zii.widgets.grid.CGridView', array(
+        'id' => 'orden-grid',
+        'dataProvider' => $model->search(),
+        'filter' => $model,
+        'columns' => array(
+            'k_idOrden',
+            array(
+                'name' => 'k_idUsuario',
+                'filter' => CHtml::listData(Users::model()->findAll(), 'id', 'username'), // fields from country table
+                'value' => 'Users::Model()->FindByPk($data->k_idUsuario)->username',
+            ),
+            'fchIngreso',
+            'fchEntrega',
+            'n_Observaciones',
+            array(
+                'class' => 'CButtonColumn',
+                'template' => '{view}',
+            ),
+        ),
+    ));
+}
 ?>

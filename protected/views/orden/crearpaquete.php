@@ -16,41 +16,35 @@ foreach ($usuarioRoles as $usuarios){
 ?>
 <h2>Orden <?php echo $id ?></h2>
 <label id="mensaje"></label>
-<br/>
-<div id="equiposMantenimiento" >
+
+<div  id="equiposMantenimiento" style="margin-bottom:1em;">
     <table id="equiposMantenimientoGrid"></table>
     <div id="equiposMantenimientoGridPager"></div>
 </div>
-<br/>
-<div id="ordenMantenimiento">
+<div id="ordenMantenimiento" style="margin-bottom:1em;">
     <table id="ordenMantenimientoGrid"></table>
     <div id="ordenMantenimientoGridPager"></div>
 </div>
-<br/>
 <div>
     <span>Tecnico Asignado </span>
-    <?php 
-        echo CHtml::dropDownList('usuarios', "", 
-              $nombreUsuario);
+    <?php
+        var_dump($nombreUsuario);
+        echo CHtml::dropDownList('usuarios', "username", $nombreUsuario,null);
     ?>
 </div>
-<br/>
-<div>
-    <span>Días de garantia </span>
-    <input type="number" id="garantia" value="30" />
+<div class="oneFilerow">
+    <label>Días de garantia 
+    <input type="number" id="garantia" value="30" /> </label>
+    <label style="margin-left:4em">Descuento 
+    <input type="number" id="descuento" value="0" /> </label>
 </div>
-<div>
-    <span>Descuento </span>
-    <input type="number" id="descuento" value="0" />
+<div class="oneFilerow">
+    <label>Observaciones 
+    <textarea id="observaciones" cols="22" rows="5"></textarea></label>
+    <label style="margin-left:4em">Accesorios 
+    <textarea id="accesorios" cols="22" rows="5"></textarea></label>
 </div>
-<div>
-    <span>Observaciones </span>
-    <textarea id="observaciones" cols="20" rows="5"></textarea>
-</div>
-<div>
-    <span>Accesorios </span>
-    <textarea id="accesorios" cols="20" rows="5"></textarea>
-</div>
+
 <div id="crearAsignacion">Guardar</div>
 <div id="prevOrden">previsualizar orden</div>
 

@@ -68,6 +68,33 @@ class EspecificacionController extends Controller {
         ));
     }
 
+    public function actionCreateFancy(){
+        $model = new Especificacion;
+        $marca = array();
+        $marca['model'] = new Marca;
+        $marca['list'] = Marca::model()->findAll();
+        $tipoEquipo = array();
+        $tipoEquipo['model'] = new Tipoequipo;
+        $tipoEquipo['list'] = Tipoequipo::model()->findAll();
+        
+        $this->performAjaxValidation($model);
+        $this->layout = "mainFancy";
+
+        if (isset($_POST['Especificacion']) && isset($_POST['Tipoequipo']) && isset($_POST['Marca'])) {
+            $model->attributes = $_POST['Especificacion'];
+            $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
+            $model->k_idMarca = $_POST['Marca']["k_idMarca"];
+            if ($model->save())
+                echo CJavaScript::jsonEncode(array("msg" => 'Modelo creado satisfactoriamente',"status"=>1));
+        }
+
+        $this->render('createFancy', array(
+            'model' => $model,
+            'tipoEquipo' =>$tipoEquipo,
+            'marca' => $marca
+        ));   
+    }
+
     /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -154,12 +181,10 @@ class EspecificacionController extends Controller {
 
     public function actiongetEspecificationList(){
         $manageM = new ManageModel;
-        //$marca = Marca::model()->findByPk($_POST['marca']);
-        //$tipoEquipo = Tipoequipo::model()->findByPk($_POST['tipoEquipo']);
         $Criteria = new CDbCriteria(); 
         $Criteria->condition = "k_idMarca = ".$_POST['marca']." AND k_idTipoEquipo = ".$_POST['tipoEquipo'];
         $especificaciones = Especificacion::model()->findAll($Criteria);
-        $data = array('list' => $manageM->getColumnListName($especificaciones,'n_nombreEspecificacion'));      
+        $data = array('list' => $manageM->getColumnList($especificaciones,'k_especificacion','n_nombreEspecificacion'));      
         echo CJavaScript::jsonEncode($data);
     }
 

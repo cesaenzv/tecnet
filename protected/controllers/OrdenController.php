@@ -33,43 +33,32 @@ class OrdenController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $manageM = new ManageModel;
         $orden = $this->loadModel($id);
-        $paquetesA = $this->getPaquetesOrden($id);
+        $paquetesA = $manageM->getPaquetesOrden($id);
         $ingresado = 0;
         $laboratorio = 0;
         $finalizado = 0;
-        $count = 1;
         $paquetesMostrar = array();
-        foreach ($paquetesA as $i => $paquete) {
-            $ingresadoP = 0;
-            $laboratorioP = 0;
-            $finalizadoP = 0;
-            if (count($paquete['procesos']) > 0) {
-                foreach ($paquete['procesos'] as $j => $p) {
-                    switch ($p['proceso']['fk_idEstado']) {
-                        case 1:
-                            $ingresado += 1;
-                            $ingresadoP += 1;
-                            break;
-                        case 2:
-                        case 4:
-                        case 5:
-                            $laboratorio +=1;
-                            $laboratorioP +=1;
-                            break;
-                        case 3:
-                        case 6:
-                            $finalizado += 1;
-                            $finalizadoP += 1;
-                            break;
-                    }
-                    $count += 1;
-                }
-                $paquetesMostrar[] = array("equipo" => $paquete['equipo'],
-                    "garantia" => $paquete['paqueteEquipo']['q_diasGarantia'],
-                    "descuento" => $paquete['paqueteEquipo']['q_descuento'],
-                    "estado" => $finalizadoP == count($paquete['procesos']) ? 'Finalizado' : ($ingresadoP == count($paquete['procesos']) ? 'No iniciado' : 'En laboratorio'));
+        foreach ($paquetesA as $i => $paquete) { 
+            switch ($paquete['paqueteEquipo']['fk_idEstado']) {
+                case 1:
+                    $ingresado += 1;
+                    break;
+                case 2:
+                case 4:
+                case 5:
+                    $laboratorio +=1;
+                    break;
+                case 3:
+                case 6:
+                    $finalizado += 1;
+                    break;
             }
+            $paquetesMostrar[] = array("equipo" => $paquete['equipo'],
+            "garantia" => $paquete['paqueteEquipo']['q_diasGarantia'],
+            "descuento" => $paquete['paqueteEquipo']['q_descuento'],
+            "estado" => $paquete['paqueteEquipo']['fk_idEstado'] == 3 ? 'Finalizado' : ($paquete['paqueteEquipo']['fk_idEstado'] == 1? 'No iniciado' : 'En laboratorio'));                    
         }
         $cliente = "";
         if (count($paquetesMostrar) > 0) {
@@ -77,20 +66,227 @@ class OrdenController extends Controller {
         }
         $this->render('view', array(
             'model' => $orden,
-            'estado' => $finalizado == $count ? 'Finalizado' : ($ingresado == $count ? 'No iniciado' : 'En laboratorio'),
+            'estado' => $finalizado == count($paquetesA) ? 'Finalizado' : ($ingresado == count($paquetesA) ? 'No iniciado' : 'En laboratorio'),
             'paquetes' => $paquetesMostrar,
             'datosCliente' => $cliente,
             'pdf' => 0,
         ));
     }
 
+    /******************************Acciones de direccionamiento del menu****************************/
+    //Tecnico Mantenimiento
+    public function actionOrdenMantenimiento(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $states = array('P','I');
+        $types =  array('M');
+
+        //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('TecnicoMantenimiento', $roles)){
+            $conditionProceso = 'AND k_idTecnico = '.$user->id;    
+        }else if(in_array('Cajero', $roles)){            
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=> $manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'OrdenMantenimiento'
+        ));
+    }
+
+    //Tecnico Recargas
+    public function actionOrdenRecarga(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $states = array('P','I');
+        $types =  array('R','T');
+
+        //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('TecnicoRecargas', $roles)){
+            $conditionProceso = 'AND k_idTecnico = '.$user->id;    
+        }else if(in_array('Cajero', $roles)){            
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'OrdenRecarga'
+        ));
+    }
+
+    //Cajero
+    public function actionDevolucionAutorizacion(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $types =  null;
+        $states = array('SAC');
+
+        //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('Cajero', $roles)){
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }        
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'DevolucionAutorizacion'
+        ));   
+    }
+
+    //Cajero
+    public function actionDevolucionGarantia(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values        
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $types =  null;
+        $states = array('GNR','GF');
+
+        //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('Cajero', $roles)){
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }      
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'DevolucionGarantia'
+        ));    
+    }
+
+    //Cajero
+    public function actionDevolucionPropiedad(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values        
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $types =  null;
+        $states = array('DP');
+
+        //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('Cajero', $roles)){
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }       
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'DevolucionPropiedad'
+        ));    
+    }
+
+    //Tecnico Recargas
+    public function actionRecargasGarantia(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values        
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $states = array('GI');
+        $types =  array('R','T');
+
+         //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('TecnicoRecargas', $roles)){
+            $conditionProceso = 'AND k_idTecnico = '.$user->id;    
+        }else if(in_array('Cajero', $roles)){            
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'OrdenRecarga'
+        ));    
+    }
+
+    //Tecnico Mantenimiento
+    public function actionMantenimientoGarantia(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values        
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $states = array('GI');
+        $types =  array('M');
+
+         //Validando que no sea el Administrador
+        $accessRules = new AccessDataRol();
+        $roles = $accessRules->getRolesName();
+
+        $user = Users::model()->findByAttributes(array("username"=>Yii::app()->user->name));
+        if(in_array('TecnicoRecargas', $roles)){
+            $conditionProceso = 'AND k_idTecnico = '.$user->id;    
+        }else if(in_array('Cajero', $roles)){            
+            $conditionOrden['k_idUsuario'] = $user->id;
+        }
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'MantenimientoGarantia'
+        ));    
+    }
+
+    //Caja y Administrador
+    public function actionFacturar(){
+        $model = new Orden('search');$manageM = new ManageModel;
+        $model->unsetAttributes();  // clear any default values        
+        //Opciones definidas de la Caja
+        $conditionProceso = '';
+        $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
+        $states = array('F','GF');
+        $types =  null;
+
+        $this->render('admin', array(
+            'model' => $model,
+            'ordenes'=>$manageM->getOrdenesByCriteria($types,$states,$conditionOrden,$conditionProceso),
+            'method'=>'Facturar'
+        ));
+    }
+
+    /****************************** Fin Acciones de direccionamiento del menu****************************/
+    
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
     public function actionViewPDF($id) {
+        $manageM = new ManageModel;
         $orden = $this->loadModel($id);
-        $paquetesA = $this->getPaquetesOrden($id);
+        $paquetesA = $manageM->getPaquetesOrden($id);
         $ingresado = 0;
         $laboratorio = 0;
         $finalizado = 0;
@@ -207,15 +403,21 @@ class OrdenController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
+        $criteria = new CDbCriteria; $manageM = new ManageModel;
         $model = new Orden;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
+        $criteria->condition = "itemname = 'TecnicoRecarga' OR itemname = 'TecnicoMantenimiento'";
+        $users = Authassignment::model()->findAll($criteria);
+        foreach ($users as $i => $u) {
+            $users[$i] = Users::model()->findByPk($u->userid);
+        }
+               
         if (isset($_POST['Orden'])) {
             $model->attributes = $_POST['Orden'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idOrden));
+                $this->redirect(array('view', 'nombreUsuario'=>$users, 'id' => $model->k_idOrden));
         }
 
         $this->render('create', array(
@@ -271,7 +473,7 @@ class OrdenController extends Controller {
     public function actionCreateOrden() {
         $this->layout = "_blank";
         extract($_REQUEST);
-        $ids = split(',', $ids);
+        $ids = explode(',', $ids);
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->Id;
         $respuesta = new stdClass();

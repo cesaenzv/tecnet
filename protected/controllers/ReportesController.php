@@ -203,10 +203,10 @@ class ReportesController extends Controller
 	public function actionGetTecnicos(){
 		$typeTec =null;$Criteria = new CDbCriteria();
 		if($_POST['typeTec'] == 'mnt'){
-			$typeTec = "Tecnico Mantenimiento";
+			$typeTec = "TecnicoMantenimiento";
 		}
 		else if($_POST['typeTec'] == 'rcg'){
-			$typeTec = "Tecnico Recarga";
+			$typeTec = "TecnicoRecargas";
 		}
 		$Criteria->condition = "itemname = '".$typeTec."'";
 		$users = Authassignment::model()->findAll($Criteria);

@@ -91,11 +91,11 @@ class EquipoController extends Controller {
         }
     }
 
-    public function actionCreateEMantenimientoView() {
+    public function actionCreateEGarantiaView() {
         $manageM = new ManageModel;
 
         $Criteria = new CDbCriteria();
-        $Criteria->condition = "itemname = 'Tecnico Recarga' OR itemname = 'Tecnico Mantenimiento'";
+        $Criteria->condition = "itemname = 'TecnicoRecarga' OR itemname = 'TecnicoMantenimiento'";
         $users = Authassignment::model()->findAll($Criteria);
         $tempU = array();
         foreach ($users as $i => $u) {
@@ -116,23 +116,22 @@ class EquipoController extends Controller {
     }
 
     public function actionCreateEGarantia() {
-
         $orden = new Orden;
         $orden->k_idUsuario = Yii::app()->user->id;
         $orden->fchIngreso = date('Y-m-d H:i:s');
         $orden->n_Observaciones = $_POST['descripcion']. ". Asociado a la orden (".$_POST['idOrden'].")";
-
-        if ($orden->save(false)) {
+        if ($orden->save()) {
             $pM = new Paquetematenimiento;
             $pM->k_idOrden = $orden->k_idOrden;
             $pM->k_idEquipo = $_POST['equipoId'];
+            $pM->fk_idEstado = 5;
             if ($pM->save(false)) {
                 $proceso = new Proceso;
-                $proceso->k_idTecnico = $_POST['tecnicoId'];
-                $proceso->fk_idEstado = 5;
+                $proceso->k_idTecnico = $_POST['tecnicoId'];                
                 $proceso->o_flagLeido = 0;
                 $proceso->fk_idPaqueteManenimiento = $pM->k_idPaquete;
                 $proceso->fchAsignacion = date('Y-m-d H:i:s');
+                $proceso->fk_idEstado = 5;
                 if ($proceso->save(false)) {
                     echo CJavaScript::jsonEncode(array("msg" => "OK"));
                 } else {

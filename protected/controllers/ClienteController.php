@@ -221,21 +221,21 @@ class ClienteController extends Controller {
         $id = $_GET['idCliente'];
         $response = null;
         if (isset($_GET['garantia'])) {
-            $response = $this->getMantenimientoForGrid($id);
+            $response = $this->getGarantiasForGrid($id);
         } else {
             $response = $this->getEquipoForGrid($id);
         }
         echo json_encode($response);
     }
 
-    public function getMantenimientoForGrid($id) {
+    public function getGarantiasForGrid($id) {
         $criteria = new CDbCriteria;
         if (isset($_POST['sidx']) && isset($_POST['sord']))
             $criteria->order = $_POST['sidx'] . ' ' . $_POST['sord'];
 
-        $criteria->condition = "fk_idEstado = 5 OR fk_idEstado = 6";
+        $criteria->condition = "fk_idEstado = 5 OR fk_idEstado = 6 OR fk_idEstado = 8";
 
-        $dataProvider = new CActiveDataProvider('Proceso', array(
+        $dataProvider = new CActiveDataProvider('Paquetematenimiento', array(
                     'criteria' => $criteria,
                     'pagination' => array(
                         'pageSize' => $_POST['rows'],
@@ -250,7 +250,7 @@ class ClienteController extends Controller {
         $rows = $dataProvider->getData();
         $count = 0;
         foreach ($rows as $i => $row) {
-            $row = $this->tratarProceso($row, $id);
+            $row = $this->tratarPaquete($row, $id);
             if ($row != false) {
                 $response->rows[$count]['id'] = $row['k_idProceso'];
                 $response->rows[$count]['cell'] = array(
@@ -259,12 +259,11 @@ class ClienteController extends Controller {
                     $row['especificacion'], //Especificacion                                         
                     $row['k_idTecnico']['username'], //Tecnico
                     $row['n_descripcion'], //Descripcion
-                    $row['o_flagLeido'], //Estado leido
+                    $row['o_flagLeido'], //Estado leido                    
                     $row['fchAsignacion'], //
                     $row['fchFinalizacion'],
                     $row['fk_idEstado']//Estado Garantia    
                 );
-                $count += 1;
             }
         }
         $response->records = $count;
@@ -273,32 +272,25 @@ class ClienteController extends Controller {
         return $response;
     }
 
-    protected function tratarProceso($proceso, $idCliente) {
-        $Criteria = new CDbCriteria;
-        $Criteria->condition = "k_idPaquete = " + $proceso->fk_idPaqueteManenimiento;
-
-        $temp = Paquetematenimiento::model()->findAll($Criteria);
-        $pM = null;
-
-        foreach ($temp as $i => $p) {
-            if ($p->k_idPaquete == $proceso->fk_idPaqueteManenimiento) {
-                $pM = $p;
-            }
-        }
-
-        $equipo = Equipo::model()->findByPk($pM->k_idEquipo);
+    protected function tratarPaquete($pM, $idCliente) {
+        $Criteria = new CDbCriteria();        
+        $equipo = Equipo::model()->findByPk($pM->k_idEquipo);        
         $orden = Orden::model()->findByPk($pM->k_idOrden);
-        if ($equipo->k_idCliente == $idCliente) {
-            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);
-            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);
-            $tecnico = Users::model()->findByPk($proceso->k_idTecnico);
+        $Criteria->condition = "fk_idPaqueteManenimiento = ".$pM->k_idPaquete;
+        $Criteria->order = 'fchAsignacion DESC';
+        $proceso = Proceso::model()->find($Criteria);
+        $estado = Estados::model()->findByPk($pM->fk_idEstado);        
+        if ($equipo->k_idCliente == $idCliente && $proceso != null) {
+            $especificacion = Especificacion::model()->findByPk($equipo->k_idEspecificacion);            
+            $tipoEquipo = Tipoequipo::model()->findByPk($especificacion->k_idTipoEquipo);                       
+            $tecnico = Users::model()->findByPk($proceso->k_idTecnico);            
             $proceso = $proceso->attributes;
             $proceso["especificacion"] = $tipoEquipo->n_tipoEquipo . " " . $especificacion->n_nombreEspecificacion;
             $proceso['nombreE'] = $equipo->n_nombreEquipo;
             $proceso['k_idTecnico'] = $tecnico->attributes;
-            $proceso['o_flagLeido'] = $proceso['o_flagLeido'] == 0 ? "No Tratado" : "Revisado";
-            $proceso['n_descripcion'] = $proceso['fk_idEstado'] == 6 ? $proceso['n_descripcion'] : $orden->n_Observaciones;
-            $proceso['fk_idEstado'] = $proceso['fk_idEstado'] == 5 ? "En Garantia" : "Dev. Garantia";
+            $proceso['o_flagLeido'] = $pM->fk_idEstado == 6? "Finalizada" : ($proceso['o_flagLeido'] == 0 ? "No Iniciada" : "En tratamiento");
+            $proceso['n_descripcion'] = $proceso['n_descripcion'] ;
+            $proceso['fk_idEstado'] = $estado->n_descEstado; 
 
             return $proceso;
         }
