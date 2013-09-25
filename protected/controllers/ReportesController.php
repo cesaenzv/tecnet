@@ -523,7 +523,7 @@ class ReportesController extends Controller
 			}else{
 				$tecnicoA[$pro->k_idTecnico]["pago"] += $ser->v_costoServicioTecnico;
 			}
-			$tecnicoA[$pro->k_idTecnico]["pago"] = number_format($tecnicoA[$pro->k_idTecnico]["pago"], 3);						
+			$tecnicoA[$pro->k_idTecnico]["pago"] = number_format($tecnicoA[$pro->k_idTecnico]["pago"], 0);						
 		}
 		return $tecnicoA;
 	}
@@ -542,9 +542,10 @@ class ReportesController extends Controller
 				$valores['costoTecnico'] = $item['servicio']['v_costoServicioTecnico']*$item['cantidad'];
 				$valores['utilidad'] = $valores['valorOrden'] - $valores['costoTecnico'] - $valores['costoPartes'];
 			}
-			$valores['valorOrden'] = number_format($valores['valorOrden'],3)
-			$valores['costoTecnico']  = number_format($valores['costoTecnico'],3) 
-			$valores['utilidad']  = number_format($valores['utilidad'],3) 
+			$valores['costoPartes'] = number_format($valores['costoPartes'],0);
+			$valores['valorOrden'] = number_format($valores['valorOrden'],0);
+			$valores['costoTecnico']  = number_format($valores['costoTecnico'],0);
+			$valores['utilidad']  = number_format($valores['utilidad'],0);
 
 		}
 		return $valores;
@@ -563,7 +564,11 @@ class ReportesController extends Controller
 				$costoTTotal = $costoTTotal + $item['costoT'];
 				$items[$j] = $item;
 			}
-			return array("servicios"=>$items,"totales"=>array("ganTotal"=>$gananciaTotal,"serTotal"=>$costoSTotal,"tecTotal"=>$costoTTotal));
+			return array("servicios"=>$items,"totales"=>array("ganTotal"=>number_format($gananciaTotal,0),
+															  "serTotal"=>number_format($costoSTotal,0),
+															  "tecTotal"=>number_format($costoTTotal,0)
+															  )
+						);
 		}
 		return array("servicios"=>$items,"totales"=>array());
 	}
