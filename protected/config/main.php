@@ -68,10 +68,10 @@ return array(
             ),
         ),
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=tecnet',
+            'connectionString' => 'mysql:host=localhost;dbname=artifexs_tecnetpc',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
+            'username' => 'artifexs_tecnetp',
+            'password' => 'tecnet2013',
             'charset' => 'utf8',
             'tablePrefix' => '',
         ),
