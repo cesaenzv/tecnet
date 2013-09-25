@@ -349,7 +349,7 @@ class ReportesController extends Controller
 			$data["facturas"][] = $temp;
 		}		
 
-		$data["total"] = $total;
+		$data["total"] = number_format($total, 3);
 		return $data;
 	}
 
@@ -522,7 +522,8 @@ class ReportesController extends Controller
 				$tecnicoA[$pro->k_idTecnico] = array("nombre"=>$usuario->username,"pago" =>$ser->v_costoServicioTecnico,"fchPago"=>$proServ->fchPagoTecnico);
 			}else{
 				$tecnicoA[$pro->k_idTecnico]["pago"] += $ser->v_costoServicioTecnico;
-			}						
+			}
+			$tecnicoA[$pro->k_idTecnico]["pago"] = number_format($tecnicoA[$pro->k_idTecnico]["pago"], 3);						
 		}
 		return $tecnicoA;
 	}
@@ -541,6 +542,10 @@ class ReportesController extends Controller
 				$valores['costoTecnico'] = $item['servicio']['v_costoServicioTecnico']*$item['cantidad'];
 				$valores['utilidad'] = $valores['valorOrden'] - $valores['costoTecnico'] - $valores['costoPartes'];
 			}
+			$valores['valorOrden'] = number_format($valores['valorOrden'],3)
+			$valores['costoTecnico']  = number_format($valores['costoTecnico'],3) 
+			$valores['utilidad']  = number_format($valores['utilidad'],3) 
+
 		}
 		return $valores;
 	}
