@@ -3,9 +3,9 @@ $(document).ready(function() {
     var orderModule = (function(){
         var btnSearchClient, docClient, typeDocument, equiposGrid, plantillaClient,clientData,crearEquipo;
         var init = function(config){
-            $("#dialog-iframe").dialog({
+            /*$("#dialog-iframe").dialog({
                 autoOpen: false
-            });
+            });*/
             clientData = config.clientData;
             plantillaClient = $("#clientTemplate");
             btnSearchClient = config.btnSearchClient;
@@ -48,14 +48,16 @@ $(document).ready(function() {
                         showClienteData(data.cliente)
                         createEquipoGrid(docClient.val());
                     }else{
-                        $("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
+                        /*$("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
                         $("#dialog-iframe").dialog( "option", "width", 450 );
                         $("#dialog-iframe").dialog( "option", "resizable", false );
                         $("#dialog-iframe").dialog("open");
                         $("#iframe").attr('src',"../cliente/createFancy/"+docClient.val());
                         $("#iframe").attr('width',"400");
                         $("#iframe").attr('height',"525");
-                        $("#dialog-iframe").dialog( "option", "position", "center");
+                        $("#dialog-iframe").dialog( "option", "position", "center");*/
+                        var mywindow  = window.open("../cliente/createFancy/"+docClient.val(),'','width=450,height=400');
+                        
                     }
                 },
                 error:function(){
@@ -69,14 +71,18 @@ $(document).ready(function() {
             clientData.html(contenido);
         },
         agregarEquipo = function(){         
-            $("#dialog-iframe").dialog( "option", "title", "Crear Equipo" );
+            /*$("#dialog-iframe").dialog( "option", "title", "Crear Equipo" );
             $("#dialog-iframe").dialog( "option", "width", 600 );
             $("#dialog-iframe").dialog( "option", "resizable", false );
             $("#dialog-iframe").dialog("open");
             $("#iframe").attr('src',url+'/?idC='+docClient.val());
             $("#iframe").attr('width',"560");
             $("#iframe").attr('height',"600");
-            $("#dialog-iframe").dialog( "option", "position", "center");
+            $("#dialog-iframe").dialog( "option", "position", "center");*/
+            var mywindow  = window.open(url+'/?idC='+docClient.val(),'','width=450,height=400');
+            mywindow.onbeforeunload = function(){
+                createEquipoGrid(docClient.val());    
+            };            
         },
         createMantenimiento = function(){
             var rowid = $(equiposGrid).jqGrid('getGridParam', 'selarrrow');
@@ -100,14 +106,15 @@ $(document).ready(function() {
                             alert("No se ha podido crear la orden, porfavor intente nuevamente");
                             return false;
                         }else{
-                            $("#dialog-iframe").dialog( "option", "title", "Crear Mantenimiento" );
+                            /*$("#dialog-iframe").dialog( "option", "title", "Crear Mantenimiento" );
                             $("#dialog-iframe").dialog( "option", "width", 700 );
                             $("#dialog-iframe").dialog( "option", "resizable", false );
                             $("#dialog-iframe").dialog("open");
                             $("#iframe").attr('src',"../orden/createPaquete/"+response.idOrden);
                             $("#iframe").attr('width',"650");
                             $("#iframe").attr('height',"800");
-                            $("#dialog-iframe").dialog( "option", "position", "center");
+                            $("#dialog-iframe").dialog( "option", "position", "center");*/
+                            var mywindow  = window.open("../orden/createPaquete/"+response.idOrden,'','width=700,height=600');
                         }
                     },
                     dataType: 'json'
@@ -115,7 +122,7 @@ $(document).ready(function() {
             }
         },
         confirmaCliente= function(){
-            $("#dialog-iframe").dialog("close");
+            /*$("#dialog-iframe").dialog("close");*/
             findClient();
         },
         createEquipoGrid = function(idCliente){

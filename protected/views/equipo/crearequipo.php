@@ -80,6 +80,7 @@ Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", C
             success: function(response){
                 if(response.msg=="OK"){
                     alert("equipo creado satisfactoriamente.");
+                    window.close();
                 }else{
                     alert(response.msg);
                 }
@@ -128,7 +129,7 @@ Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", C
         });
     },
     getViewDialog = function(obj, url,titulo){
-        obj.dialog( "option", "title", titulo );
+        /*obj.dialog( "option", "title", titulo );
         obj.dialog( "option", "width", 450 );
         obj.dialog( "option", "height", 500 );            
         obj.dialog( "option", "resizable", false );
@@ -136,7 +137,11 @@ Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", C
         obj.find("#iframe").attr('src',url);
         obj.find("#iframe").attr('width',"440");
         obj.find("#iframe").attr('height',"500");      
-        obj.dialog( "option", "position", "center");
+        obj.dialog( "option", "position", "center");*/
+        var mywindow  = window.open(url,'','width=450,height=400');
+        mywindow.onbeforeunload = function(){
+            location.reload();
+        };
     };
 
 </script>
