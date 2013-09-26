@@ -103,7 +103,8 @@ class OrdenController extends Controller {
 
     //Tecnico Recargas
     public function actionOrdenRecarga(){
-        $model = new Orden('search');$manageM = new ManageModel;
+        $model = new Orden('search');
+        $manageM = new ManageModel;
         $model->unsetAttributes();  // clear any default values
         $conditionProceso = '';
         $conditionOrden = isset($_GET['Orden'])? $_GET['Orden']: array();
