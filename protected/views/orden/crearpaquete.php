@@ -28,7 +28,6 @@ foreach ($usuarioRoles as $usuarios){
 <div>
     <span>Tecnico Asignado </span>
     <?php
-        var_dump($nombreUsuario);
         echo CHtml::dropDownList('usuarios', "username", $nombreUsuario,null);
     ?>
 </div>

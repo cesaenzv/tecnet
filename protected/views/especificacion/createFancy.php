@@ -48,8 +48,10 @@ $this->breadcrumbs=array(
             'type' => 'post',
             'success' => 'function(data) {
                             if(data.status == 1){
-                                alert(data.msg);
-                                console.log($(window).close());
+                                if(data.status == 1){
+	                                alert(data.msg);
+	                                window.close();
+	                            }
                             }
 
                     }'
