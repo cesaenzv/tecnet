@@ -34,7 +34,7 @@ $this->breadcrumbs=array(
             'success' => 'function(data) {
                             if(data.status == 1){
                                 alert(data.msg);
-                                console.log($(window).close());
+                                window.close();
                             }
 
                     }'

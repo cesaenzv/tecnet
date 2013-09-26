@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var equipoModule = (function(){
 		var marca = null, tipoEquipo=null;
-		var init = function(config){
+		var init = function(config){			
 			console.log("init");
 			marca = config.marca;
 			tipoEquipo = config.tipoEquipo;
@@ -35,7 +35,7 @@ $(document).ready(function() {
 				dataType:"json",
 				data: {marca:marca.val(), tipoEquipo:tipoEquipo.val()},
 				success:function(data){
-
+					console.log(data);
 					var s = $('<select id=n_nombreEspecificacion name=n_nombreEspecificacion/>');
 					$.each(data.list, function(index,val){
 						$('<option />', {value: index, text: val}).appendTo(s);
@@ -49,7 +49,7 @@ $(document).ready(function() {
 			});
 		},
 		getViewDialog = function(obj, url){
-			obj.dialog( "option", "title", "Crear Cliente" );
+			/*obj.dialog( "option", "title", "Crear Cliente" );
             obj.dialog( "option", "width", 450 );
             obj.dialog( "option", "minHeight", 400 );            
             obj.dialog( "option", "resizable", false );
@@ -57,7 +57,12 @@ $(document).ready(function() {
             obj.find("#iframe").attr('src',url);
             obj.find("#iframe").attr('width',"410");
             obj.find("#iframe").attr('min-height',"400");      
-            obj.dialog( "option", "position", "center");
+            obj.dialog( "option", "position", "center");*/
+
+            var mywindow  = window.open(url,'','width=450,height=400');
+            mywindow.onbeforeunload = function(){
+            	location.reload();
+            };
 
 		};
 		return {

@@ -59,18 +59,7 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
-<div id="addTipoEquipo">
-	<iframe id="iframe">
-    </iframe>
-</div>
-<div id="addMarca">
-	<iframe id="iframe">
-    </iframe>
-</div>
-<div id="addEspecificacion">
-	<iframe id="iframe">
-    </iframe>
-</div>		
-<?
+		
+<?php
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl."/js/modules/equipoModule.js"); 
 ?>
