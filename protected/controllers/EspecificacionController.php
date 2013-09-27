@@ -43,6 +43,7 @@ class EspecificacionController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
+        $manageM = new MangeModel();
         $model = new Especificacion;
         $marca = array();
         $marca['model'] = new Marca;
@@ -54,7 +55,8 @@ class EspecificacionController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
         if (isset($_POST['Especificacion']) && isset($_POST['Tipoequipo']) && isset($_POST['Marca'])) {
-            $model->attributes = $_POST['Especificacion'];
+            
+            $model->attributes = $manageM->PassCaptionString($_POST['Especificacion']);
             $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
             $model->k_idMarca = $_POST['Marca']["k_idMarca"];
             if ($model->save())
@@ -69,7 +71,7 @@ class EspecificacionController extends Controller {
     }
 
     public function actionCreateFancy(){
-        $model = new Especificacion;
+        $model = new Especificacion;$manageM = new MangeModel();
         $marca = array();
         $marca['model'] = new Marca;
         $marca['list'] = Marca::model()->findAll();
@@ -81,7 +83,7 @@ class EspecificacionController extends Controller {
         $this->layout = "mainFancy";
 
         if (isset($_POST['Especificacion']) && isset($_POST['Tipoequipo']) && isset($_POST['Marca'])) {
-            $model->attributes = $_POST['Especificacion'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Especificacion']);
             $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
             $model->k_idMarca = $_POST['Marca']["k_idMarca"];
             if ($model->save())
@@ -101,13 +103,13 @@ class EspecificacionController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id);$manageM = new MangeModel();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Especificacion'])) {
-            $model->attributes = $_POST['Especificacion'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Especificacion']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_especificacion));
         }

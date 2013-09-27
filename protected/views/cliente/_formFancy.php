@@ -71,7 +71,10 @@
             'dataType' => 'json',
             'type' => 'post',
             'success' => 'function(data) {
-                         alert(data);
+                            if(data != null){
+                                alert(data.msg);
+                                window.close();
+                            }
                     }'
                 )
         );

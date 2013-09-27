@@ -3,8 +3,7 @@
 /* @var $model Cliente */
 
 $this->breadcrumbs=array(
-	'Clientes'=>array('index'),
-	'Create',
+
 );
 
 ?>

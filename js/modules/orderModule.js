@@ -57,7 +57,9 @@ $(document).ready(function() {
                         $("#iframe").attr('height',"525");
                         $("#dialog-iframe").dialog( "option", "position", "center");*/
                         var mywindow  = window.open("../cliente/createFancy/"+docClient.val(),'','width=450,height=400');
-                        
+                        mywindow.onbeforeunload = function(){
+                            findClient();  
+                        };                        
                     }
                 },
                 error:function(){
@@ -81,7 +83,7 @@ $(document).ready(function() {
             $("#dialog-iframe").dialog( "option", "position", "center");*/
             var mywindow  = window.open(url+'/?idC='+docClient.val(),'','width=450,height=400');
             mywindow.onbeforeunload = function(){
-                createEquipoGrid(docClient.val());    
+                $(equiposGrid).trigger("reloadGrid");   
             };            
         },
         createMantenimiento = function(){

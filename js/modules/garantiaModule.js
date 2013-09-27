@@ -59,14 +59,18 @@ $(document).ready(function() {
                         showClienteData(data.cliente);
                         createGarantiaGrid(docClient.val());
                     }else{
-                        $("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
+                        /*$("#dialog-iframe").dialog( "option", "title", "Crear Cliente" );
                         $("#dialog-iframe").dialog( "option", "width", 450 );
                         $("#dialog-iframe").dialog( "option", "resizable", false );
                         $("#dialog-iframe").dialog("open");
                         $("#iframe").attr('src',"../cliente/createFancy/"+docClient.val());
                         $("#iframe").attr('width',"400");
                         $("#iframe").attr('height',"525");
-                        $("#dialog-iframe").dialog( "option", "position", "center");
+                        $("#dialog-iframe").dialog( "option", "position", "center");*/
+                        var mywindow = window.open("../cliente/createFancy/",'','width=450,height=400');
+                        mywindow.onbeforeunload = function(){
+                            findClient();  
+                        };
                     }
                 },
                 error:function(){
@@ -211,7 +215,7 @@ $(document).ready(function() {
             $(garantiaGrid).jqGrid('filterToolbar',{stringResult: true, searchOnEnter : false});
         },
         agregarGarantia = function(){                
-            $.ajax({
+            /*$.ajax({
                 url:urlView+'/?idC='+docClient.val(),
                 dataType: "html",
                 data: {
@@ -225,7 +229,12 @@ $(document).ready(function() {
                 error:function(){
                     alert("error");
                 }
-            });
+            });*/
+
+            var mywindow = window.open(urlView+'/?idC='+docClient.val(),'','width=450,height=400');
+            mywindow.onbeforeunload = function(){
+                $(garantiaGrid).trigger('reloadGrid') 
+            };
         };
 
 

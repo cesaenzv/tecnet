@@ -43,13 +43,12 @@ class ProductoController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Producto;
+        $model = new Producto; $manageM = new ManageModel();
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Producto'])) {
-
-            $model->attributes = $_POST['Producto'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Producto']);
             if ($model->save()) {
                 $this->redirect(array('view', 'id' => $model->k_idProducto));
             }
@@ -132,13 +131,13 @@ class ProductoController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id); $manageM = new ManageModel;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Producto'])) {
-            $model->attributes = $_POST['Producto'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Producto']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_idProducto));
         }

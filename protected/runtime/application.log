@@ -10143,3 +10143,67 @@ Stack trace:
 REQUEST_URI=/git/tecnet/orden/CreateOrden/
 HTTP_REFERER=http://localhost/git/tecnet/Orden/Create
 ---
+2013/09/27 15:29:23 [error] [php] include(MangeModel.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\tecnet\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(65): spl_autoload_call()
+#1 unknown(0): ClienteController->actionCreateFancy()
+#2 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ClienteController->runAction()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ClienteController->filterAccessControl()
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ClienteController->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/cliente/createFancy/1077729279
+in C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php (65)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/27 15:29:55 [error] [php] include(MangeModel.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\tecnet\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php(65): spl_autoload_call()
+#1 unknown(0): ClienteController->actionCreateFancy()
+#2 C:\xampp\htdocs\tecnet\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): ClienteController->runAction()
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): ClienteController->filterAccessControl()
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): ClienteController->run()
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CWebApplication->run()
+REQUEST_URI=/tecnet/cliente/createFancy/1033
+in C:\xampp\htdocs\tecnet\protected\controllers\ClienteController.php (65)
+in C:\xampp\htdocs\tecnet\index.php (13)
+2013/09/27 15:53:18 [error] [exception.CException] exception 'CException' with message 'EquipoController contiene etiquetas de widget en la vista "C:\xampp\htdocs\tecnet\protected\views\equipo\creargarantia.php" anidados incorrectamente. CActiveForm widget no contiene la llamada a endWidget().' in C:\xampp\htdocs\tecnet\framework\web\CBaseController.php:101
+Stack trace:
+#0 C:\xampp\htdocs\tecnet\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#1 C:\xampp\htdocs\tecnet\framework\web\CController.php(782): CController->renderPartial('creargarantia', Array, true)
+#2 C:\xampp\htdocs\tecnet\protected\controllers\EquipoController.php(115): CController->render('creargarantia', Array)
+#3 C:\xampp\htdocs\tecnet\framework\web\actions\CInlineAction.php(49): EquipoController->actionCreateEGarantiaView()
+#4 C:\xampp\htdocs\tecnet\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\tecnet\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\tecnet\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\tecnet\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\tecnet\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\tecnet\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\tecnet\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(282): CController->run('CreateEGarantia...')
+#13 C:\xampp\htdocs\tecnet\framework\web\CWebApplication.php(141): CWebApplication->runController('equipo/CreateEG...')
+#14 C:\xampp\htdocs\tecnet\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\tecnet\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/tecnet/equipo/CreateEGarantiaView/?idC=1033729279
+HTTP_REFERER=http://localhost:1234/tecnet/Orden/VerGarantia
+---

@@ -43,13 +43,13 @@ class ClienteController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Cliente;
+        $model = new Cliente; $manageM = new MangeModel();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Cliente'])) {
-            $model->attributes = $_POST['Cliente'];
+            $model->attributes =$manageM->PassCaptionString($_POST['Cliente']);
             $model->k_usuarioCrea = Yii::app()->user->Id;
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_identificacion));
@@ -61,12 +61,12 @@ class ClienteController extends Controller {
     }
 
     public function actionCreateFancy($id = null) {
-        $model = new Cliente;
+        $model = new Cliente;$manageM = new ManageModel();
         $this->performAjaxValidation($model);
         $this->layout = "mainFancy";
         $model->k_identificacion = $id;
-        if (isset($_POST['Cliente'])) {
-            $model->attributes = $_POST['Cliente'];
+        if (isset($_POST['Cliente'])) {            
+            $model->attributes = $manageM->PassCaptionString($_POST['Cliente']);
             $model->k_usuarioCrea = Yii::app()->user->Id;
             if ($model->save())
                 echo CJavaScript::jsonEncode("Cliente creado correctamente");
@@ -83,13 +83,13 @@ class ClienteController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id);$manageM = new MangeModel();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Cliente'])) {
-            $model->attributes = $_POST['Cliente'];
+            $model->attributes =$manageM->PassCaptionString($_POST['Cliente']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_identificacion));
         }

@@ -2,10 +2,6 @@
 /* @var $this EquipoController */
 /* @var $model Equipo */
 
-$this->breadcrumbs=array(
-	'Equipos'=>array('index'),
-	'Manage',
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
