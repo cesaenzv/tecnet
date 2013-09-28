@@ -3,10 +3,6 @@
 	var admin = true;
 </script>
 
-<div id="contentBtnTec">
-	<a id="TMBtn" class="no-selected">MANTENIMIENTO</a>
-	<a id="TRBtn" class="no-selected">RECARGAS</a>
-</div>
 <div id="AllTecs">
 	<div id="divTM" style="display:none;">
 		<?php
