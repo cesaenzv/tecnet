@@ -2,6 +2,13 @@
 
 class ManageModel {
 
+	public function PassCaptionString($data){
+		foreach ($data as $key => $value) {
+			$data[$key] = strtoupper($value);
+		}
+		return $data;
+	}
+
 	public function getColumnList($modelList, $id, $column){
 		$list = array();
 		foreach ($modelList as $model) {

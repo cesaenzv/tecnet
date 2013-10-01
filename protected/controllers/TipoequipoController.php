@@ -44,12 +44,12 @@ class TipoequipoController extends Controller {
      */
     public function actionCreate() {
         $model = new Tipoequipo;
-
+        $manageM = new ManageModel;
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Tipoequipo'])) {
-            $model->attributes = $_POST['Tipoequipo'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Tipoequipo']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_idTipo));
         }
@@ -66,7 +66,7 @@ class TipoequipoController extends Controller {
          $this->performAjaxValidation($model);
          $this->layout = "mainFancy";
         if (isset($_POST['Tipoequipo'])) {
-            $model->attributes = $_POST['Tipoequipo'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Tipoequipo']);            
             if ($model->save())
                 echo CJavaScript::jsonEncode(array("msg" => 'Tipo Equipo creado satisfactoriamente',"status"=>1));
         }

@@ -1,10 +1,16 @@
+<?php
+/* @var $this EquipoController */
+$this->widget('application.extensions.fancybox.EFancyBox', array(
+    'target'=>'a.link-fancy',
+    'config'=>array(),
+    )
+    );
 
+        
+?>
 <script type="text/javascript"> 
-
 	var guardarGarantia = '<?php echo Yii::app()->createAbsoluteUrl("equipo/CreateEGarantia"); ?>';
     var ordenesEquipo = '<?php echo Yii::app()->createAbsoluteUrl("equipo/GetOrdenesEquipo"); ?>';
-
-
 </script>
 
 <div class="form">
@@ -42,7 +48,7 @@
 
 
 
-<script>
+<script type="text/javascript">
     var garantiaGrid = "#tableGridOrden";
     var pagerGrid = "#pagerGridOrden";
 	bindEventsFancy = function (){
@@ -137,9 +143,9 @@
                     },
                     success:function(data){
                         if(data.msg == "OK"){
-                            $("#garantiaGrid").trigger("reloadGrid");
+                            
                             $("#txtDescripcion").val();
-                            alert("Por favor cierre la ventana el proceos fue exitoso");
+                            window.close();
                         }else{
                             alert("Hubo un inconveniente");
                         }
@@ -154,6 +160,9 @@
             }
         }
         
-    };	
-    bindEventsFancy();
+    };
+    $(function(){
+        bindEventsFancy();
+    });
+    
 </script>

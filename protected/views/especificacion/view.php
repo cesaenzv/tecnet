@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 ?>
 
-<h1>View Especificacion #<?php echo $model->k_especificacion; ?></h1>
+<h1>Vista Modelo #<?php echo $model->k_especificacion; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

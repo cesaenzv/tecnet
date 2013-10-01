@@ -23,24 +23,24 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php
-if(isset($ordenes)){
-    $dataProvider=new CArrayDataProvider($ordenes, array(
-        'id'=>'ordenes',
-        'sort'=>array(
-            'attributes'=>array(
-                 'k_idOrden', 'fchIngreso','k_idUsuario','fchEntrega','estado'
-            ),
-        ),
-        'keys'=>array('k_idOrden','k_idUsuario', 'fchIngreso','fchEntrega','n_Observaciones','estado'),
-        'pagination'=>array(
-            'pageSize'=>15,
-        ),
-    ));
+if (isset($ordenes)) {
+    $dataProvider = new CArrayDataProvider($ordenes, array(
+                'id' => 'ordenes',
+                'sort' => array(
+                    'attributes' => array(
+                        'k_idOrden', 'fchIngreso', 'k_idUsuario', 'fchEntrega', 'estado'
+                    ),
+                ),
+                'keys' => array('k_idOrden', 'k_idUsuario', 'fchIngreso', 'fchEntrega', 'n_Observaciones', 'estado'),
+                'pagination' => array(
+                    'pageSize' => 15,
+                ),
+            ));
     $this->widget('zii.widgets.grid.CGridView', array(
         'id' => 'orden-grid',
         'dataProvider' => $dataProvider,
         'filter' => $model,
-        'ajaxUrl'=>Yii::app()->createAbsoluteUrl("Orden/".$method),
+        'ajaxUrl' => Yii::app()->createAbsoluteUrl("Orden/" . $method),
         'columns' => array(
             'k_idOrden',
             array(
@@ -53,11 +53,21 @@ if(isset($ordenes)){
             'n_Observaciones',
             array(
                 'class' => 'CButtonColumn',
-                'template' => '{view}',
+                'template' => '{view}{work}',
+                'buttons' => array
+                    (
+                    'work' => array
+                        (
+                        'label' => 'trabajar',
+                        'imageUrl' => Yii::app()->getBaseUrl(true) . "/images/icono-trabajo.jpg",
+                        'url' => 'Yii::app()->createAbsoluteUrl("PaqueteMantenimiento/Tratar",array("id"=>$data->k_idOrden))',
+                        'htmlOptions' => 'width:16px, heigth:16px',
+                    ),
+                ),
             ),
         ),
     ));
-}else{
+} else {
     $this->widget('zii.widgets.grid.CGridView', array(
         'id' => 'orden-grid',
         'dataProvider' => $model->search(),
@@ -71,10 +81,19 @@ if(isset($ordenes)){
             ),
             'fchIngreso',
             'fchEntrega',
-            'n_Observaciones',
             array(
                 'class' => 'CButtonColumn',
-                'template' => '{view}',
+                'template' => '{view} {work}',
+                'buttons' => array
+                    (
+                    'work' => array
+                        (
+                        'label' => 'trabajar',
+                        'imageUrl' => Yii::app()->getBaseUrl(true) . "/images/icono-trabajo.jpg",
+                        'url' => '',
+                        'htmlOptions' => 'width:16px, heigth:16px',
+                    ),
+                ),
             ),
         ),
     ));

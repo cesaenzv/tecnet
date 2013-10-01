@@ -21,7 +21,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+
+
+
 <h1>Manejar Modelos<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("especificacion/Create");?>"></a></h1>
+
+<?php if(isset($msg)):?>
+	<h4><?php echo $msg?></h4>
+<?php endif;?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'especificacion-grid',

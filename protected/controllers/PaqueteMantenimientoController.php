@@ -192,7 +192,7 @@ class PaqueteMantenimientoController extends Controller {
         echo CJSON::encode($response);
     }
 
-    public function actionTratar() {
+    public function actionTratar($id = null) {
         $userId = Yii::app()->user->Id;
         $roles = array_keys(Rights::getAssignedRoles($userId));
         $typeTec = null;
@@ -209,12 +209,25 @@ class PaqueteMantenimientoController extends Controller {
             }
         }
 
+        if ($id != null) {
+            $paqueteMantenimiento = Paquetematenimiento::model()->findAll("k_idOrden = :id", array(":id" => $id));
+            $condicionAdicional = "";
+            foreach ($paqueteMantenimiento as $paq) {
+                if ($condicionAdicional != "")
+                    $condicionAdicional = $condicionAdicional . " OR ";
+                $condicionAdicional = $condicionAdicional . " fk_idPaqueteManenimiento = " . $paq->k_idPaquete;
+            }
+            $Criteria->condition=$condicionAdicional;
+            $procesos = Proceso::model()->findAll($Criteria);
+            $ordenTemp= Orden::model()->findByPk($id);
+        }else {
+            $procesos = Proceso::model()->with(array('fkIdEstado' => array(
+                            'select' => false,
+                            'joinType' => 'INNER JOIN',
+                            'condition' => "fkIdEstado.n_nombreEstado like '%En Revision%'",
+                            )))->findAll($Criteria);
+        }
 
-        $procesos = Proceso::model()->with(array('fkIdEstado' => array(
-                        'select' => false,
-                        'joinType' => 'INNER JOIN',
-                        'condition' => "fkIdEstado.n_nombreEstado like '%En Revision%'",
-                        )))->findAll($Criteria);
         if (count($procesos) > 0) {
             foreach ($procesos as $i => $proceso) {
                 $Criteria->condition = "k_idProceso = " . $proceso->k_idProceso;

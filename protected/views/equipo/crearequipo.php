@@ -49,7 +49,7 @@ Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", C
     <button id="CrearEquipoBtn">Crear Equipo</button>     
 </div>
 
-<div id="addTipoEquipo">
+<!--<div id="addTipoEquipo">
     <iframe id="iframe">
     </iframe>
 </div>
@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScript('helloscriptEquipo', "initCreate();", C
 <div id="addEspecificacion">
     <iframe id="iframe">
     </iframe>
-</div>
+</div>-->
 
 <script type="text/javascript">
     $("#CrearEquipoBtn").click(function(){

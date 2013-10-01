@@ -43,13 +43,14 @@ class MarcaController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Marca;
+        $model = new Marca;$manageM = new ManageModel();
+
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Marca'])) {
-            $model->attributes = $_POST['Marca'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Marca']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_idMarca));
         }
@@ -60,11 +61,11 @@ class MarcaController extends Controller {
     }
 
     public function actionCreateFancy() {
-        $model = new Marca;
+        $model = new Marca;$manageM = new ManageModel();
         $this->performAjaxValidation($model);
         $this->layout = "mainFancy";
         if (isset($_POST['Marca'])) {
-            $model->attributes = $_POST['Marca'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Marca']);
             if ($model->save())
                 echo CJavaScript::jsonEncode(array("msg" => 'Marca creada satisfactoriamente',"status"=>1));
         }else {
@@ -81,13 +82,13 @@ class MarcaController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        $model = $this->loadModel($id);
+        $model = $this->loadModel($id);$manageM = new ManageModel();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Marca'])) {
-            $model->attributes = $_POST['Marca'];
+            $model->attributes = $manageM->PassCaptionString($_POST['Marca']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_idMarca));
         }

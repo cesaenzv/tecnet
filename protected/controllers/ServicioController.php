@@ -57,7 +57,7 @@ class ServicioController extends Controller
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Servicio'])) {
-            $model->attributes = $_POST['Servicio'];
+        	$model->attributes = $manageM->PassCaptionString($_POST['Servicio']);
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->k_idServicio));
         }
@@ -76,13 +76,13 @@ class ServicioController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$manageM = new ManageModel;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Servicio']))
-		{
-			$model->attributes=$_POST['Servicio'];
+		{	
+			$model->attributes = $manageM->PassCaptionString($_POST['Servicio']);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->k_idServicio));
 		}
