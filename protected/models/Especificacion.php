@@ -42,7 +42,7 @@ class Especificacion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('k_especificacion, k_idTipoEquipo, k_idMarca', 'required'),
+			//array('k_especificacion, k_idTipoEquipo, k_idMarca', 'required'),
 			array('k_idTipoEquipo, k_idMarca', 'numerical', 'integerOnly'=>true),
 			array('k_especificacion, n_nombreEspecificacion', 'length', 'max'=>50),
 			// The following rule is used by search().
@@ -72,7 +72,7 @@ class Especificacion extends CActiveRecord
 	{
 		return array(
 			'k_especificacion' => 'Especificacion',
-			'n_nombreEspecificacion' => 'Nombre Especificacion',
+			'n_nombreEspecificacion' => 'Nombre Modelo',
 			'k_idTipoEquipo' => 'Tipo Equipo',
 			'k_idMarca' => 'Marca',
 		);

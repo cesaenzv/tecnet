@@ -38,12 +38,20 @@ class EspecificacionController extends Controller {
         ));
     }
 
+    public function checkExsistence($attributes){
+        unset($attributes["k_especificacion"]);        
+        $model = Especificacion::model()->findByAttributes($attributes);
+        if($model == null)
+            return false;
+        return true;
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $manageM = new MangeModel();
+        $manageM = new ManageModel();
         $model = new Especificacion;
         $marca = array();
         $marca['model'] = new Marca;
@@ -51,16 +59,26 @@ class EspecificacionController extends Controller {
         $tipoEquipo = array();
         $tipoEquipo['model'] = new Tipoequipo;
         $tipoEquipo['list'] = Tipoequipo::model()->findAll();
-
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        // $this->performAjaxValidation($model);        
         if (isset($_POST['Especificacion']) && isset($_POST['Tipoequipo']) && isset($_POST['Marca'])) {
-            
+            $msg ="";
             $model->attributes = $manageM->PassCaptionString($_POST['Especificacion']);
             $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
             $model->k_idMarca = $_POST['Marca']["k_idMarca"];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_especificacion));
+            
+            if(!$this->checkExsistence($model->attributes)){
+                if ($model->save()){
+                    $msg = "Creado Satisfactoriamente";
+                }
+                else{
+                    $msg = "No se pudo crear";
+                }
+            }else{
+                $msg = "Este modelo ya existe";
+            }
+            Yii::app()->user->setState('msg', $msg);
+            $this->redirect(array('admin'));     
         }
 
         $this->render('create', array(
@@ -86,8 +104,17 @@ class EspecificacionController extends Controller {
             $model->attributes = $manageM->PassCaptionString($_POST['Especificacion']);
             $model->k_idTipoEquipo = $_POST['Tipoequipo']["k_idTipo"];
             $model->k_idMarca = $_POST['Marca']["k_idMarca"];
-            if ($model->save())
-                echo CJavaScript::jsonEncode(array("msg" => 'Modelo creado satisfactoriamente',"status"=>1));
+            
+            if(!$this->checkExsistence($model->attributes)){
+                if ($model->save()){
+                    echo CJavaScript::jsonEncode(array("msg" => 'Modelo creado satisfactoriamente',"status"=>1));
+                }else{
+                    echo CJavaScript::jsonEncode(array("msg" => 'Modelo no pudo ser creado',"status"=>1));
+                }
+            }
+            else{             
+                echo CJavaScript::jsonEncode(array("msg" => 'Este modelo ya exsiste',"status"=>1));
+            }
         }
 
         $this->render('createFancy', array(
@@ -146,14 +173,22 @@ class EspecificacionController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $msg = Yii::app()->user->getState('msg');
+        Yii::app()->user->setState('msg', null);
         $model = new Especificacion('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Especificacion']))
             $model->attributes = $_GET['Especificacion'];
-
-        $this->render('admin', array(
-            'model' => $model,
-        ));
+        if($msg != null){
+            $this->render('admin', array(
+                'model' => $model,
+                'msg'=>$msg
+            ));
+        }else{
+            $this->render('admin', array(
+                'model' => $model
+            ));
+        }
     }
 
     /**
