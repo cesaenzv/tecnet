@@ -2,13 +2,12 @@
 /* @var $this EquipoController */
 /* @var $model Equipo */
 
-<<<<<<< HEAD
+
 $this->breadcrumbs=array(
 	'Equipos'=>array('admin'),
 	'Manage',
 );
-=======
->>>>>>> origin/desarrollo
+
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
