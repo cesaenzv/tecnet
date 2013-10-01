@@ -33,11 +33,11 @@ $('.search-form form').submit(function(){
 		/*
 		'o_mail',
 		'k_usuarioCrea',
-		
+		*/
 		array(
             'class' => 'CButtonColumn',
             'template' => '{view}{update}',
-        ),*/	
+        ),	
         
 	),
 )); ?>
