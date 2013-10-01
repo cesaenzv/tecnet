@@ -51,7 +51,7 @@ class TipoequipoController extends Controller {
         if (isset($_POST['Tipoequipo'])) {
             $model->attributes = $manageM->PassCaptionString($_POST['Tipoequipo']);
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idTipo));
+                $this->redirect(array('admin'));
         }
 
         $this->render('create', array(

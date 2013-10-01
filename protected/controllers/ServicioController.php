@@ -59,7 +59,7 @@ class ServicioController extends Controller
         if (isset($_POST['Servicio'])) {
         	$model->attributes = $manageM->PassCaptionString($_POST['Servicio']);
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idServicio));
+                $this->redirect(array('admin'));
         }
 
         $this->render('create', array(

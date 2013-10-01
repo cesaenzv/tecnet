@@ -50,7 +50,7 @@ class ProductoController extends Controller {
         if (isset($_POST['Producto'])) {
             $model->attributes = $manageM->PassCaptionString($_POST['Producto']);
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->k_idProducto));
+                $this->redirect(array('admin'));
             }
         }
 

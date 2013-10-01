@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'n_tipoServicio'); ?>
-		<?php echo $form->dropDownList($model, 'n_tipoServicio', array('M'=>'Mantenimiento', 'R'=>'Recarga'));?>
+		<?php echo $form->dropDownList($model, 'n_tipoServicio', array('M'=>'Mantenimiento', 'R'=>'Recarga','T'=>'Toner'));?>
 		<?php echo $form->error($model,'n_tipoServicio'); ?>
 	</div>
 

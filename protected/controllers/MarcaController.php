@@ -52,7 +52,7 @@ class MarcaController extends Controller {
         if (isset($_POST['Marca'])) {
             $model->attributes = $manageM->PassCaptionString($_POST['Marca']);
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->k_idMarca));
+                $this->redirect(array('admin'));
         }
 
         $this->render('create', array(

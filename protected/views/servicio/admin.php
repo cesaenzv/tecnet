@@ -22,7 +22,8 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manejar Servicios</h1>
+<h1>Manejar Servicios<a  class="crear btn" href="<?php echo Yii::app()->createAbsoluteUrl("servicio/Create");?>"></a></h1>
+
 
 
 <?php
