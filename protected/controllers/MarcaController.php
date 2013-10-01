@@ -43,7 +43,7 @@ class MarcaController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Marca;$manageM = new MangeModel();
+        $model = new Marca;$manageM = new ManageModel();
 
 
         // Uncomment the following line if AJAX validation is needed
@@ -61,7 +61,7 @@ class MarcaController extends Controller {
     }
 
     public function actionCreateFancy() {
-        $model = new Marca;$manageM = new MangeModel();
+        $model = new Marca;$manageM = new ManageModel();
         $this->performAjaxValidation($model);
         $this->layout = "mainFancy";
         if (isset($_POST['Marca'])) {
@@ -82,7 +82,7 @@ class MarcaController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-        $model = $this->loadModel($id);$manageM = new MangeModel();
+        $model = $this->loadModel($id);$manageM = new ManageModel();
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
