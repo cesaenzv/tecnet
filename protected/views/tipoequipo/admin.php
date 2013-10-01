@@ -3,13 +3,8 @@
 /* @var $model Tipoequipo */
 
 $this->breadcrumbs=array(
-	'Tipoequipos'=>array('index'),
+	'Tipoequipos'=>array('admin'),
 	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List Tipoequipo', 'url'=>array('index')),
-	array('label'=>'Create Tipoequipo', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

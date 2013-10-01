@@ -3,13 +3,8 @@
 /* @var $model Proceso */
 
 $this->breadcrumbs=array(
-	'Procesos'=>array('index'),
+	'Procesos'=>array('admin'),
 	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List Proceso', 'url'=>array('index')),
-	array('label'=>'Create Proceso', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

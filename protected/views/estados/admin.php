@@ -3,7 +3,7 @@
 /* @var $model Estados */
 
 $this->breadcrumbs=array(
-	'Estadoses'=>array('index'),
+	'Estadoses'=>array('admin'),
 	'Manage',
 );
 

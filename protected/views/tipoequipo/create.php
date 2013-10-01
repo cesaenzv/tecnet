@@ -3,7 +3,7 @@
 /* @var $model Tipoequipo */
 
 $this->breadcrumbs=array(
-	'Tipoequipos'=>array('index'),
+	'Tipoequipos'=>array('admin'),
 	'Create',
 );
 ?>
