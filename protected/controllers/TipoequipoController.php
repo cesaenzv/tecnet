@@ -60,20 +60,20 @@ class TipoequipoController extends Controller {
     }
 
     public function actionCreateFancy() {
-        $model = new Tipoequipo;
-
-        // Uncomment the following line if AJAX validation is needed
-         $this->performAjaxValidation($model);
-         $this->layout = "mainFancy";
+        $model = new Tipoequipo; $manageM = new ManageModel();
+        $this->performAjaxValidation($model);
+        $this->layout = "mainFancy";
         if (isset($_POST['Tipoequipo'])) {
-            $model->attributes = $manageM->PassCaptionString($_POST['Tipoequipo']);            
+            $model->attributes = $manageM->PassCaptionString($_POST['Tipoequipo']);
             if ($model->save())
-                echo CJavaScript::jsonEncode(array("msg" => 'Tipo Equipo creado satisfactoriamente',"status"=>1));
+                echo CJavaScript::jsonEncode(array("msg" => 'Tipoequipo creado satisfactoriamente',"status"=>1));
+        }else {
+            $this->render('createFancy', array(
+                'model' => $model,
+            ));
         }
-        $this->render('createFancy', array(
-            'model' => $model,
-        ));
     }
+
     /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.

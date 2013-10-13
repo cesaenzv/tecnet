@@ -11,10 +11,12 @@ $this->breadcrumbs=array(
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'tipoequipo-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
+        'id' => 'tipoequipo-form',
+        'enableAjaxValidation' => false,
+            ));
+    ?>
 
 	<p class="note">Campos con <span class="required">*</span> son campos obligatorios.</p>
 
@@ -32,6 +34,7 @@ $this->breadcrumbs=array(
             'dataType' => 'json',
             'type' => 'post',
             'success' => 'function(data) {
+                            console.log(data);
                             if(data.status == 1){
                                 alert(data.msg);
                                 window.close();

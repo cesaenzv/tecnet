@@ -89,7 +89,7 @@ class EspecificacionController extends Controller {
     }
 
     public function actionCreateFancy(){
-        $model = new Especificacion;$manageM = new MangeModel();
+        $model = new Especificacion;$manageM = new ManageModel();
         $marca = array();
         $marca['model'] = new Marca;
         $marca['list'] = Marca::model()->findAll();
